@@ -12,13 +12,13 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero pt-20">
+    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden gradient-hero pt-24 pb-16">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ y: [0, -20, 0] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-10 w-32 h-32 bg-sage-100 rounded-full opacity-40 blur-2xl"
+          className="absolute top-1/4 left-10 w-32 h-32 bg-peach-100 rounded-full opacity-40 blur-2xl"
         />
         <motion.div
           animate={{ y: [0, 20, 0] }}
@@ -28,7 +28,7 @@ const Hero = () => {
         <motion.div
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-1/4 w-24 h-24 bg-sage-200 rounded-full opacity-30 blur-xl"
+          className="absolute top-1/3 right-1/4 w-24 h-24 bg-peach-200 rounded-full opacity-30 blur-xl"
         />
       </div>
 
@@ -39,7 +39,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-sage-100 text-primary px-4 py-2 rounded-full mb-8"
+            className="inline-flex items-center gap-2 bg-peach-100 text-primary px-4 py-2 rounded-full mb-8"
           >
             <Sparkles size={16} />
             <span className="text-sm font-medium">Faith-Centered Life Coaching</span>

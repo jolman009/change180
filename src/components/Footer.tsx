@@ -1,4 +1,5 @@
 import { Heart } from "lucide-react";
+import Logo from "./Logo";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,9 +10,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="font-serif text-2xl mb-4">Change 180</h3>
+            <Logo size="md" variant="light" className="mb-4" />
             <p className="text-background/70 text-sm leading-relaxed mb-6">
-              Guiding faith, family, and personal growth. 
+              Guiding faith, family, and personal growth.
               Transform your life with faith-centered coaching.
             </p>
             <p className="text-background/50 text-xs">

@@ -46,11 +46,11 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative bg-sage-100 p-8 md:p-10 rounded-3xl"
+              className="relative bg-peach-100 p-8 md:p-10 rounded-3xl"
             >
               <Quote 
                 size={48} 
-                className="text-sage-200 absolute top-6 left-6" 
+                className="text-peach-200 absolute top-6 left-6" 
                 strokeWidth={1}
               />
               
@@ -59,7 +59,7 @@ const Testimonials = () => {
                   "{testimonial.quote}"
                 </p>
                 <footer className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-sage-200 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-peach-200 rounded-full flex items-center justify-center">
                     <span className="font-serif text-lg text-primary">
                       {testimonial.author.charAt(0)}
                     </span>

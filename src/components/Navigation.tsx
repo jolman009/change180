@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "./Logo";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -27,15 +28,15 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a 
-            href="#" 
-            className="font-serif text-2xl font-semibold text-foreground hover:text-primary transition-colors"
+          <a
+            href="#"
+            className="hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            Change 180
+            <Logo size="md" />
           </a>
 
           {/* Desktop Navigation */}

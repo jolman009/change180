@@ -1,73 +1,84 @@
-# Welcome to your Lovable project
+# Change 180 - Life Coaching Website
 
-## Project info
+A modern, professional website for Change 180 Life Coaching, founded by Myra Z. Guzman, M.Ed. The site focuses on faith-centered life coaching for families, mental health, and overall wellness.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## About Change 180
 
-## How can I edit this code?
+Change 180 provides bilingual (English & Spanish) life coaching services including:
+- Individual Life Coaching
+- Parent & Family Coaching
+- Group Programs & Workshops
+- Digital Resources
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui (Radix UI primitives)
+- **Animations**: Framer Motion
+- **Fonts**: Cormorant Garamond (headings), Inter (body)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Color Palette
 
-Changes made via Lovable will be committed automatically to this repo.
+The site uses an approachable, professional color scheme:
+- **Primary**: Soft Peach (`hsl(20 38% 58%)`) - warm, nurturing, approachable
+- **Accent**: Soft Sage (`hsl(155 18% 88%)`) - calming complement
+- **Background**: Warm Stone (`hsl(35 18% 97%)`) - welcoming and clean
+- **Text**: Warm Charcoal (`hsl(215 15% 22%)`) - soft and readable
 
-**Use your preferred IDE**
+## Project Structure
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/
+│   ├── ui/          # shadcn/ui components
+│   ├── About.tsx    # About section with credentials
+│   ├── Contact.tsx  # Contact form and info
+│   ├── Footer.tsx   # Site footer
+│   ├── Hero.tsx     # Hero/intro section
+│   ├── Logo.tsx     # Brand logo component
+│   ├── Navigation.tsx
+│   ├── Packages.tsx # Pricing packages
+│   ├── Services.tsx # Services offered
+│   ├── Testimonials.tsx
+│   └── WhoWeHelp.tsx
+├── App.tsx
+├── index.css        # Global styles & CSS variables
+└── main.tsx
 ```
 
-**Edit a file directly in GitHub**
+## Getting Started
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Prerequisites
+- Node.js 18+
+- npm or yarn
 
-**Use GitHub Codespaces**
+### Installation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+# Install dependencies
+npm install
 
-## What technologies are used for this project?
+# Start development server
+npm run dev
 
-This project is built with:
+# Build for production
+npm run build
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Preview production build
+npm run preview
+```
 
-## How can I deploy this project?
+## Development
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+The site uses CSS custom properties for theming, defined in `src/index.css`. The Tailwind configuration extends these with custom color families (`peach`, `sage`, `cream`, `warm`).
 
-## Can I connect a custom domain to my Lovable project?
+### Key Files
+- `tailwind.config.ts` - Tailwind configuration with custom colors and animations
+- `src/index.css` - CSS variables, gradients, and shadows
+- `src/components/Logo.tsx` - Brand logo component
 
-Yes, you can!
+## License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Private - All rights reserved.

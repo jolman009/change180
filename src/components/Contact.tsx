@@ -25,7 +25,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-sage-100">
+    <section id="contact" className="py-24 bg-peach-100">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           {/* Left Column - Info */}
@@ -35,6 +35,15 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
+            {/* Coaching image */}
+            <div className="relative rounded-2xl overflow-hidden aspect-[3/2] mb-8">
+              <img
+                src="/images/coaching-session-3.png"
+                alt="Myra in a supportive coaching conversation"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
             <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
               Get In Touch
             </span>
@@ -90,7 +99,7 @@ const Contact = () => {
                 {["Churches", "Schools", "Nonprofits", "Community Orgs"].map((org) => (
                   <span 
                     key={org}
-                    className="bg-sage-100 text-foreground text-xs px-3 py-1.5 rounded-full"
+                    className="bg-peach-100 text-foreground text-xs px-3 py-1.5 rounded-full"
                   >
                     ✓ {org}
                   </span>

@@ -70,7 +70,7 @@ const About = () => {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border"
                 >
-                  <div className="w-10 h-10 bg-sage-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-peach-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <cred.icon size={20} className="text-primary" />
                   </div>
                   <div>
@@ -90,23 +90,17 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-sage-100">
-              {/* Placeholder for coach's photo */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 bg-sage-200 rounded-full mx-auto mb-6 flex items-center justify-center">
-                    <span className="font-serif text-4xl text-primary">MG</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm">
-                    Professional photo placeholder
-                  </p>
-                </div>
-              </div>
+            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-peach-100">
+              <img
+                src="/images/portrait-headshot.jpeg"
+                alt="Myra Z. Guzman, M.Ed. - Life Coach"
+                className="w-full h-full object-cover object-center"
+              />
             </div>
             
             {/* Decorative elements */}
             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gold-muted rounded-2xl -z-10" />
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-sage-100 rounded-full -z-10" />
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-peach-100 rounded-full -z-10" />
           </motion.div>
         </div>
 

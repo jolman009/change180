@@ -91,7 +91,7 @@ const Services = () => {
                 </span>
               )}
               
-              <div className="w-16 h-16 bg-sage-100 rounded-2xl flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-peach-100 rounded-2xl flex items-center justify-center mb-6">
                 <service.icon size={32} className="text-primary" />
               </div>
               
@@ -121,26 +121,40 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-20 text-center"
+          className="mt-20"
         >
-          <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
-            Why Work With Change 180?
-          </h3>
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            {[
-              "Faith-centered, not faith-pressured",
-              "Culturally responsive & bilingual",
-              "Education-based & trauma-informed",
-              "Practical tools you can use",
-              "Compassionate, non-judgmental",
-            ].map((reason, i) => (
-              <span
-                key={i}
-                className="bg-background px-5 py-3 rounded-full text-sm text-foreground border border-border shadow-soft"
-              >
-                {reason}
-              </span>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Image */}
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] order-2 lg:order-1">
+              <img
+                src="/images/coaching-session-2.png"
+                alt="Myra coaching a client in her office"
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="order-1 lg:order-2">
+              <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
+                Why Work With Change 180?
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  "Faith-centered, not faith-pressured",
+                  "Culturally responsive & bilingual",
+                  "Education-based & trauma-informed",
+                  "Practical tools you can use",
+                  "Compassionate, non-judgmental",
+                ].map((reason, i) => (
+                  <span
+                    key={i}
+                    className="bg-background px-5 py-3 rounded-full text-sm text-foreground border border-border shadow-soft"
+                  >
+                    {reason}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
