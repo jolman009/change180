@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden gradient-hero pt-24 pb-16">
+    <section className="relative min-h-[70vh] lg:min-h-0 flex items-center justify-center overflow-hidden gradient-hero pt-28 pb-12 lg:pt-32 lg:pb-16">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -63,7 +63,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed text-balance"
           >
-            At Change 180, we help individuals and families experience meaningful, 
+            At <span className="font-semibold">change<span className="text-primary">180</span></span>, we help individuals and families experience meaningful, 
             faith-rooted transformation by addressing emotional wellness, purpose, 
             and personal growth.
           </motion.p>

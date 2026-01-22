@@ -45,10 +45,10 @@ const WhoWeHelp = () => {
             Who We Help
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
-            Change 180 Is For You
+            <span className="font-semibold">change<span className="text-primary">180</span></span> Is For You
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            If you're ready to stop surviving and start moving forward — Change 180 was created for you.
+            If you're ready to stop surviving and start moving forward — <span className="font-semibold">change<span className="text-primary">180</span></span> was created for you.
           </p>
         </motion.div>
 
@@ -97,7 +97,7 @@ const WhoWeHelp = () => {
             {/* Content */}
             <div className="p-10 md:p-12 lg:p-16 flex flex-col justify-center">
               <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
-                Why "Change 180"?
+                Why "<span className="font-semibold">change<span className="text-primary">180</span></span>"?
               </h3>
               <p className="text-muted-foreground text-lg mb-8">
                 A 180-degree change means turning completely around — choosing a new direction.

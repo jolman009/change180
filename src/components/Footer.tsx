@@ -66,7 +66,7 @@ const Footer = () => {
         <div className="border-t border-background/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/50 text-sm">
-              © {currentYear} Change 180. All rights reserved.
+              © {currentYear} <span className="font-semibold">change<span className="text-primary">180</span></span>. All rights reserved.
             </p>
             
             <p className="text-background/50 text-xs flex items-center gap-1">
@@ -76,7 +76,7 @@ const Footer = () => {
 
           {/* Disclaimer */}
           <p className="text-background/40 text-xs mt-6 text-center max-w-2xl mx-auto">
-            Change 180 provides coaching, education, and consulting services. 
+            <span className="font-semibold">change<span className="text-primary">180</span></span> provides coaching, education, and consulting services. 
             Coaching is not therapy and does not replace mental health treatment. 
             No diagnosis or clinical services are provided through coaching.
           </p>

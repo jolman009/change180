@@ -136,7 +136,7 @@ const Services = () => {
             {/* Content */}
             <div className="order-1 lg:order-2">
               <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
-                Why Work With Change 180?
+                Why Work With <span className="font-semibold">change<span className="text-primary">180</span></span>?
               </h3>
               <div className="flex flex-wrap gap-3">
                 {[

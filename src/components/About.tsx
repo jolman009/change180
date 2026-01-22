@@ -54,7 +54,7 @@ const About = () => {
                 my coaching practice.
               </p>
               <p>
-                I created Change 180 to serve those who want real change without judgment, 
+                I created <span className="font-semibold">change<span className="text-primary">180</span></span> to serve those who want real change without judgment, 
                 faith without shame, and growth that feels both grounded and hopeful.
               </p>
             </div>
