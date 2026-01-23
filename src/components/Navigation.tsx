@@ -37,7 +37,7 @@ const Navigation = () => {
             }}
           >
             <Logo size="md" />
-            <span className="font-cursive text-foreground text-2xl">Myra Z. Guzman, M.D.</span>
+            <span className="font-sans text-foreground text-2xl">Myra Z. Guzman, M E.D.</span>
           </a>
 
           {/* Desktop Navigation */}
