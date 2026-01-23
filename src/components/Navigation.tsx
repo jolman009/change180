@@ -30,13 +30,14 @@ const Navigation = () => {
           {/* Logo */}
           <a
             href="#"
-            className="hover:opacity-80 transition-opacity"
+            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
             <Logo size="md" />
+            <span className="font-cursive text-foreground text-2xl">Myra Z. Guzman, M.D.</span>
           </a>
 
           {/* Desktop Navigation */}
