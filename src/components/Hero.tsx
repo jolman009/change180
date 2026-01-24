@@ -11,6 +11,10 @@ const Hero = () => {
     document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleBooking = () => {
+    window.open("https://calendly.com/change180lifecoach", "_blank");
+  };
+
   return (
     <section className="relative min-h-[70vh] lg:min-h-0 flex items-center justify-center overflow-hidden gradient-hero pt-28 pb-12 lg:pt-32 lg:pb-16">
       {/* Decorative elements */}
@@ -63,8 +67,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed text-balance"
           >
-            At <span className="font-semibold">change<span className="text-primary">180</span></span>, we help individuals and families experience meaningful, 
-            faith-rooted transformation by addressing emotional wellness, purpose, 
+            At <span className="font-semibold">change<span className="text-primary">180</span></span>, we help individuals and families experience meaningful,
+            faith-rooted transformation by addressing emotional wellness, purpose,
             and personal growth.
           </motion.p>
 
@@ -75,15 +79,15 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button 
-              onClick={scrollToContact}
+            <Button
+              onClick={handleBooking}
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg shadow-card hover:shadow-elevated transition-all"
             >
               Start Your Journey
               <ArrowRight className="ml-2" size={20} />
             </Button>
-            <Button 
+            <Button
               onClick={scrollToServices}
               variant="outline"
               size="lg"
@@ -108,8 +112,8 @@ const Hero = () => {
       {/* Bottom wave decoration */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path 
-            d="M0 50C240 100 480 0 720 50C960 100 1200 0 1440 50V100H0V50Z" 
+          <path
+            d="M0 50C240 100 480 0 720 50C960 100 1200 0 1440 50V100H0V50Z"
             className="fill-background"
           />
         </svg>

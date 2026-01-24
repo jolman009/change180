@@ -185,7 +185,7 @@ const Packages = () => {
               60-minute focused session for parents seeking guidance, tools, and support.
             </p>
             <p className="font-serif text-3xl text-foreground mb-4">$110/session</p>
-            <Button onClick={scrollToContact} variant="outline" className="rounded-full">
+            <Button onClick={handleBooking} variant="outline" className="rounded-full">
               Learn More
             </Button>
           </div>
