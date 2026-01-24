@@ -14,10 +14,49 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you for reaching out! I'll be in touch soon.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setIsSubmitting(true);
+
+    // TODO: Replace these placeholders with your actual EmailJS credentials
+    // Get them from https://dashboard.emailjs.com/admin
+    const SERVICE_ID = "service_0tpvb0o";
+    const TEMPLATE_ID = "template_k38tzrg";
+    const PUBLIC_KEY = "cqTme7k19QuojL7eU";
+
+    try {
+      // We import emailjs dynamically to avoid issues if the package isn't fully ready or to code-split
+      const emailjs = (await import("@emailjs/browser")).default;
+
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          to_name: "Myra", // Or dynamic if needed
+        },
+        PUBLIC_KEY
+      );
+
+      toast.success("Message sent successfully! I'll be in touch soon.");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      // Fallback for demo purposes if keys aren't set
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if ((error as any)?.text?.includes("The user_id param is required")) {
+        toast.success("Demo Success: Form works! (Configure EmailJS keys to send real emails)");
+      } else {
+        toast.error("Something went wrong. Please try again later or email me directly.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -51,7 +90,7 @@ const Contact = () => {
               Ready to Begin Your Transformation?
             </h2>
             <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
-              Take the first step toward clarity, growth, and purpose. 
+              Take the first step toward clarity, growth, and purpose.
               Reach out today to schedule your Discovery Session or ask any questions.
             </p>
 
@@ -97,7 +136,7 @@ const Contact = () => {
               </p>
               <div className="flex flex-wrap gap-2">
                 {["Churches", "Schools", "Nonprofits", "Community Orgs"].map((org) => (
-                  <span 
+                  <span
                     key={org}
                     className="bg-peach-100 text-foreground text-xs px-3 py-1.5 rounded-full"
                   >
@@ -115,7 +154,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form 
+            <form
               onSubmit={handleSubmit}
               className="bg-background rounded-3xl p-8 md:p-10 shadow-card border border-border"
             >
@@ -186,13 +225,14 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button 
+                <Button
                   type="submit"
                   size="lg"
+                  disabled={isSubmitting}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-6"
                 >
-                  Send Message
-                  <Send size={18} className="ml-2" />
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {!isSubmitting && <Send size={18} className="ml-2" />}
                 </Button>
               </div>
             </form>

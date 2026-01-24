@@ -71,6 +71,11 @@ const Packages = () => {
     document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleBooking = () => {
+    // Real Calendly URL provided by user
+    window.open("https://calendly.com/change180lifecoach", "_blank");
+  };
+
   return (
     <section id="packages" className="py-24 bg-cream-100">
       <div className="container mx-auto px-6">
@@ -102,11 +107,10 @@ const Packages = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative bg-background rounded-2xl p-6 border transition-all duration-300 hover:shadow-card ${
-                pkg.popular 
-                  ? "border-primary shadow-card" 
-                  : "border-border shadow-soft"
-              }`}
+              className={`relative bg-background rounded-2xl p-6 border transition-all duration-300 hover:shadow-card ${pkg.popular
+                ? "border-primary shadow-card"
+                : "border-border shadow-soft"
+                }`}
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -147,13 +151,12 @@ const Packages = () => {
                 ))}
               </ul>
 
-              <Button 
-                onClick={scrollToContact}
-                className={`w-full rounded-full ${
-                  pkg.popular 
-                    ? "bg-primary hover:bg-primary/90 text-primary-foreground" 
-                    : "bg-secondary hover:bg-secondary/80 text-secondary-foreground"
-                }`}
+              <Button
+                onClick={handleBooking}
+                className={`w-full rounded-full ${pkg.popular
+                  ? "bg-primary hover:bg-primary/90 text-primary-foreground"
+                  : "bg-secondary hover:bg-secondary/80 text-secondary-foreground"
+                  }`}
               >
                 Get Started
                 <ArrowRight size={16} className="ml-2" />
