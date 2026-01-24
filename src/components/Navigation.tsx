@@ -23,6 +23,11 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
+  const handleBooking = () => {
+    window.open("https://calendly.com/change180lifecoach", "_blank");
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6">
@@ -51,8 +56,8 @@ const Navigation = () => {
                 {link.label}
               </button>
             ))}
-            <Button 
-              onClick={() => scrollToSection("#contact")}
+            <Button
+              onClick={handleBooking}
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6"
             >
               Book a Session
@@ -89,8 +94,8 @@ const Navigation = () => {
                   {link.label}
                 </button>
               ))}
-              <Button 
-                onClick={() => scrollToSection("#contact")}
+              <Button
+                onClick={handleBooking}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full mt-2"
               >
                 Book a Session

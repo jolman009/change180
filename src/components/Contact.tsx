@@ -34,11 +34,11 @@ const Contact = () => {
         SERVICE_ID,
         TEMPLATE_ID,
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          title: formData.message, // Maps message to {{title}} in the template
+          email: formData.email,
           phone: formData.phone,
-          message: formData.message,
-          to_name: "Myra", // Or dynamic if needed
+          reply_to: formData.email, // Standard param for reply functionality
         },
         PUBLIC_KEY
       );
