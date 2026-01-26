@@ -31,13 +31,13 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-28">
-          {/* Logo */}
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-20 sm:h-24 md:h-28">
+          {/* Logo - always visible */}
           <a
             href="#"
-            className="flex items-center hover:opacity-80 transition-opacity"
+            className="flex-shrink-0 hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
