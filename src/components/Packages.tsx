@@ -10,7 +10,7 @@ const Packages = () => {
     {
       name: t("packages.discovery.name"),
       tagline: t("packages.discovery.tagline"),
-      price: "$55",
+      price: "$75",
       originalPrice: "$95",
       duration: t("packages.discovery.duration"),
       description: t("packages.discovery.description"),
@@ -20,8 +20,8 @@ const Packages = () => {
     {
       name: t("packages.clarity.name"),
       tagline: t("packages.clarity.tagline"),
-      price: "$360",
-      originalPrice: "$380",
+      price: "$300",
+      originalPrice: "$360",
       duration: t("packages.clarity.duration"),
       description: t("packages.clarity.description"),
       features: tArray("packages.clarity.features"),
@@ -30,7 +30,7 @@ const Packages = () => {
     {
       name: t("packages.rooted.name"),
       tagline: t("packages.rooted.tagline"),
-      price: "$720",
+      price: "$600",
       duration: t("packages.rooted.duration"),
       description: t("packages.rooted.description"),
       features: tArray("packages.rooted.features"),
@@ -40,7 +40,7 @@ const Packages = () => {
     {
       name: t("packages.flourish.name"),
       tagline: t("packages.flourish.tagline"),
-      price: "$1,080",
+      price: "$1,200",
       duration: t("packages.flourish.duration"),
       description: t("packages.flourish.description"),
       features: tArray("packages.flourish.features"),
