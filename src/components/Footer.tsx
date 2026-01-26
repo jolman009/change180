@@ -35,7 +35,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <Logo size="md" variant="light" className="mb-4" />
+            <Logo size="md" className="mb-4 brightness-0 invert" />
             <p className="text-background/70 text-sm leading-relaxed mb-6">
               {t("footer.tagline")}
             </p>

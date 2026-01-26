@@ -37,16 +37,13 @@ const Navigation = () => {
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity min-w-0"
+            className="flex items-center hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
             <Logo size="md" />
-            <span className="font-sans text-foreground text-base sm:text-lg md:text-2xl truncate hidden xs:inline">
-              Myra Z. Guzman, M.Ed.
-            </span>
           </a>
 
           {/* Mobile Language Toggle + Menu Button */}
