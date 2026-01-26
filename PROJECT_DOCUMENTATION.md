@@ -26,6 +26,8 @@ The brand name "Change 180" symbolizes a complete 180-degree turn—choosing a n
 | **Validation** | Zod | 3.25.76 |
 | **Notifications** | Sonner | 1.7.4 |
 | **Icons** | Lucide React | 0.462.0 |
+| **Booking Widget** | react-calendly | 4.3.1 |
+| **Markdown** | react-markdown + remark-gfm | 9.x |
 | **Testing** | Vitest + React Testing Library | 3.2.4 |
 | **Deployment** | Vercel | - |
 | **CI/CD** | GitHub Actions | - |
@@ -42,6 +44,11 @@ change180/
 │   └── workflows/
 │       └── ci.yml                  # CI/CD pipeline (lint + build)
 ├── src/
+│   ├── content/
+│   │   └── blog/                   # Markdown blog posts
+│   │       ├── embracing-new-beginnings.md
+│   │       ├── finding-peace-in-chaos.md
+│   │       └── supporting-your-childs-emotions.md
 │   ├── i18n/
 │   │   ├── en.json                 # English translations
 │   │   ├── es.json                 # Spanish translations
@@ -72,12 +79,15 @@ change180/
 │   │   └── NavLink.tsx             # Navigation link helper
 │   ├── pages/
 │   │   ├── Index.tsx               # Main landing page composition
+│   │   ├── Blog.tsx                # Blog listing page
+│   │   ├── BlogPost.tsx            # Individual blog post page
 │   │   └── NotFound.tsx            # 404 page
 │   ├── hooks/
 │   │   ├── use-mobile.tsx          # Mobile responsiveness hook
 │   │   └── use-toast.ts            # Toast notification hook
 │   ├── lib/
-│   │   └── utils.ts                # Utility functions (cn helper)
+│   │   ├── utils.ts                # Utility functions (cn helper)
+│   │   └── blog.ts                 # Blog utilities (markdown parsing, post loading)
 │   ├── test/
 │   │   ├── example.test.ts         # Test example
 │   │   └── setup.ts                # Vitest configuration
@@ -110,16 +120,18 @@ change180/
 
 ### 1. Navigation
 - Fixed header with semi-transparent backdrop blur
-- Custom logo component with gradient bridge icon
+- Custom logo component (Change180 branding with orange arc)
 - Responsive hamburger menu on mobile
 - Smooth scroll navigation to sections
 - **Language toggle (EN | ES)** for bilingual support
-- **"Book a Session" button** links directly to Calendly (`https://calendly.com/change180lifecoach`)
+- **Blog link** to /blog resources page
+- **"Book a Session" button** opens Calendly popup widget
 
 ### 2. Hero Section
 - Headline: "Change Your Direction. Transform Your Life."
 - Animated floating decorative elements
-- **"Start Your Journey" button** opens Calendly for booking
+- Author attribution: "— Myra Z. Guzman, M.Ed."
+- **"Start Your Journey" button** opens Calendly popup for booking
 - "Explore Services" button scrolls to services section
 
 ### 3. About Section
@@ -169,7 +181,17 @@ change180/
 - User-friendly error page with "Try Again" button
 - Development mode shows error details for debugging
 
-### 11. Bilingual Support (English/Spanish)
+### 11. Blog/Resources Section
+- Markdown-based blog with bilingual support
+- **Routes**: `/blog` (listing) and `/blog/:slug` (individual posts)
+- Frontmatter supports: title, titleEs, excerpt, excerptEs, category, categoryEs
+- ReactMarkdown rendering with styled components
+- Related posts section on individual post pages
+- Reading time display
+- Calendly CTA on each post
+- Posts sorted by date (newest first)
+
+### 12. Bilingual Support (English/Spanish)
 - Language toggle in navigation (desktop and mobile)
 - All UI text translated to Spanish
 - Language preference persisted in localStorage
@@ -191,10 +213,13 @@ change180/
 
 ### Calendly (Online Booking)
 - **URL**: `https://calendly.com/change180lifecoach`
+- **Integration**: react-calendly PopupButton component
 - **Integration Points**:
   - Navigation "Book a Session" button
   - Hero "Start Your Journey" button
-- Opens in new tab for seamless booking experience
+  - Packages page "Get Started" buttons
+  - Blog post CTAs
+- Opens as modal popup on-site (no new tab)
 
 ### EmailJS (Contact Form)
 - **Service**: Configured with EmailJS credentials
@@ -283,14 +308,16 @@ npm run test:watch # Run tests in watch mode
 
 **Technologies**: Stripe, PayPal, or Square integration
 
-#### 2. Blog/Resources Section
+#### 2. Blog/Resources Section - COMPLETED
 **Description**: Add a content section for articles, tips, and coaching resources.
-- Faith-centered life coaching articles
-- Parenting tips and family resources
-- Personal growth and transformation stories
-- SEO benefits for organic traffic
+- [x] Faith-centered life coaching articles
+- [x] Parenting tips and family resources
+- [x] Personal growth and transformation stories
+- [x] Bilingual support (English/Spanish frontmatter)
+- [x] ReactMarkdown rendering with styled components
+- [ ] SEO meta tags per post (future enhancement)
 
-**Technologies**: Markdown-based blog, headless CMS (Contentful, Sanity, Strapi)
+**Technologies**: Markdown files with frontmatter, react-markdown, remark-gfm
 
 #### 3. Email Newsletter Integration
 **Description**: Capture leads and nurture potential clients with email marketing.
@@ -301,13 +328,15 @@ npm run test:watch # Run tests in watch mode
 
 **Technologies**: Mailchimp, ConvertKit, or Resend
 
-#### 4. Embedded Calendly Widget
+#### 4. Embedded Calendly Widget - COMPLETED
 **Description**: Enhance the current Calendly integration with embedded scheduling.
-- Embed Calendly directly on the website instead of opening new tab
-- Show availability inline on the Packages page
-- Pre-fill client information from contact form
+- [x] Embed Calendly as popup modal instead of opening new tab
+- [x] Navigation, Hero, and Packages buttons use PopupButton
+- [x] Blog post CTAs use PopupButton
+- [ ] Show availability inline on page (future enhancement)
+- [ ] Pre-fill client information from contact form (future enhancement)
 
-**Technologies**: Calendly embed widget, react-calendly
+**Technologies**: react-calendly PopupButton component
 
 ### Medium Priority
 
@@ -430,13 +459,13 @@ npm run test:watch # Run tests in watch mode
 
 ### Phase 2 (Revenue) - IN PROGRESS
 - [x] Add basic analytics (GA4)
+- [x] Embed Calendly widget on-site (popup modal)
 - [ ] Integrate Stripe for payments
-- [ ] Embed Calendly widget on-site
 - [ ] Implement email capture with newsletter
 
-### Phase 3 (Growth)
+### Phase 3 (Growth) - IN PROGRESS
 - [x] Implement Spanish language support (completed in Phase 1)
-- [ ] Add blog/resources section
+- [x] Add blog/resources section (Markdown-based)
 - [ ] Create FAQ section
 - [ ] Add video testimonials
 
@@ -473,4 +502,4 @@ VITE_EMAILJS_PUBLIC_KEY=xxxxx
 
 ---
 
-*Last updated: January 25, 2025*
+*Last updated: January 26, 2025*
