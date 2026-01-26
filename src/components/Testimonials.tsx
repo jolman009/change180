@@ -1,20 +1,25 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    quote: "Working with Myra has been transformative. I've gained clarity, confidence, and a stronger connection to my faith.",
-    author: "Jane",
-    role: "Individual Coaching Client",
-  },
-  {
-    quote: "Myra's guidance has helped our family communicate better and overcome challenging situations with grace.",
-    author: "Maria",
-    role: "Family Coaching Client",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Testimonials = () => {
+  const { t, tArray } = useLanguage();
+
+  const testimonials = [
+    {
+      quote: t("testimonials.quotes.0.quote"),
+      author: t("testimonials.quotes.0.author"),
+      role: t("testimonials.quotes.0.role"),
+    },
+    {
+      quote: t("testimonials.quotes.1.quote"),
+      author: t("testimonials.quotes.1.author"),
+      role: t("testimonials.quotes.1.role"),
+    },
+  ];
+
+  const expectations = tArray("testimonials.whatToExpect.items");
+
   return (
     <section id="testimonials" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -27,13 +32,13 @@ const Testimonials = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
-            Testimonials
+            {t("testimonials.sectionLabel")}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
-            Stories of Transformation
+            {t("testimonials.headline")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Hear from those who have experienced the power of faith-centered coaching.
+            {t("testimonials.description")}
           </p>
         </motion.div>
 
@@ -48,12 +53,12 @@ const Testimonials = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative bg-peach-100 p-8 md:p-10 rounded-3xl"
             >
-              <Quote 
-                size={48} 
-                className="text-peach-200 absolute top-6 left-6" 
+              <Quote
+                size={48}
+                className="text-peach-200 absolute top-6 left-6"
                 strokeWidth={1}
               />
-              
+
               <blockquote className="relative z-10">
                 <p className="font-serif text-xl md:text-2xl text-foreground leading-relaxed mb-6 italic">
                   "{testimonial.quote}"
@@ -83,16 +88,10 @@ const Testimonials = () => {
           className="mt-20 text-center"
         >
           <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
-            What Clients Can Expect
+            {t("testimonials.whatToExpect.title")}
           </h3>
           <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
-            {[
-              "A safe, supportive environment",
-              "Clear goals and action steps",
-              "Faith-aligned guidance",
-              "Practical tools and reflection",
-              "Encouragement and growth",
-            ].map((expectation, i) => (
+            {expectations.map((expectation, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}

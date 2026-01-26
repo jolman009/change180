@@ -1,78 +1,54 @@
 import { motion } from "framer-motion";
 import { Check, Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const packages = [
-  {
-    name: "Discovery Session",
-    tagline: "Start with clarity",
-    price: "$55",
-    originalPrice: "$95",
-    duration: "60-minute session",
-    description: "Explore whether coaching is right for you. Identify challenges and create a faith-aligned plan.",
-    features: [
-      "Goal clarification",
-      "Next-step planning",
-      "Faith-centered reflection",
-      "Personalized recommendations",
-    ],
-    highlight: "Perfect for first-time clients",
-  },
-  {
-    name: "Clarity Package",
-    tagline: "Turn confusion into direction",
-    price: "$360",
-    originalPrice: "$380",
-    duration: "4-week program",
-    description: "Focused support for those feeling stuck, overwhelmed, or uncertain about their path.",
-    features: [
-      "Four 60-minute sessions",
-      "Personalized action plan",
-      "Faith-based reflection exercises",
-      "Email support between sessions",
-    ],
-    highlight: "Great for life transitions",
-  },
-  {
-    name: "Rooted & Renewed",
-    tagline: "Build strong foundations",
-    price: "$720",
-    duration: "8-week program",
-    description: "Deeper coaching addressing patterns, habits, and mindset through a faith-centered lens.",
-    features: [
-      "Eight 60-minute sessions",
-      "Customized growth plan",
-      "Faith-based daily practices",
-      "Accountability tracking",
-      "Email support between sessions",
-    ],
-    highlight: "Best for lasting change",
-    popular: true,
-  },
-  {
-    name: "Flourish Forward",
-    tagline: "Long-term transformation",
-    price: "$1,080",
-    duration: "12-week program",
-    description: "Premium program for individuals and families committed to purposeful, lasting change.",
-    features: [
-      "Twelve 60-minute sessions",
-      "Comprehensive growth plan",
-      "Personalized tools & worksheets",
-      "Priority scheduling",
-      "Unlimited email support",
-    ],
-    highlight: "Most Popular",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Packages = () => {
-  const scrollToContact = () => {
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const { t, tArray } = useLanguage();
+
+  const packages = [
+    {
+      name: t("packages.discovery.name"),
+      tagline: t("packages.discovery.tagline"),
+      price: "$55",
+      originalPrice: "$95",
+      duration: t("packages.discovery.duration"),
+      description: t("packages.discovery.description"),
+      features: tArray("packages.discovery.features"),
+      highlight: t("packages.discovery.highlight"),
+    },
+    {
+      name: t("packages.clarity.name"),
+      tagline: t("packages.clarity.tagline"),
+      price: "$360",
+      originalPrice: "$380",
+      duration: t("packages.clarity.duration"),
+      description: t("packages.clarity.description"),
+      features: tArray("packages.clarity.features"),
+      highlight: t("packages.clarity.highlight"),
+    },
+    {
+      name: t("packages.rooted.name"),
+      tagline: t("packages.rooted.tagline"),
+      price: "$720",
+      duration: t("packages.rooted.duration"),
+      description: t("packages.rooted.description"),
+      features: tArray("packages.rooted.features"),
+      highlight: t("packages.rooted.highlight"),
+      popular: true,
+    },
+    {
+      name: t("packages.flourish.name"),
+      tagline: t("packages.flourish.tagline"),
+      price: "$1,080",
+      duration: t("packages.flourish.duration"),
+      description: t("packages.flourish.description"),
+      features: tArray("packages.flourish.features"),
+      highlight: t("packages.flourish.highlight"),
+    },
+  ];
 
   const handleBooking = () => {
-    // Real Calendly URL provided by user
     window.open("https://calendly.com/change180lifecoach", "_blank");
   };
 
@@ -88,13 +64,13 @@ const Packages = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
-            Coaching Packages
+            {t("packages.sectionLabel")}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
-            Investment in Your Growth
+            {t("packages.headline")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Faith-centered guidance for real-life transformation. Choose the package that fits your journey.
+            {t("packages.description")}
           </p>
         </motion.div>
 
@@ -116,7 +92,7 @@ const Packages = () => {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full">
                     <Star size={12} fill="currentColor" />
-                    Most Popular
+                    {t("packages.mostPopular")}
                   </span>
                 </div>
               )}
@@ -158,7 +134,7 @@ const Packages = () => {
                   : "bg-secondary hover:bg-secondary/80 text-secondary-foreground"
                   }`}
               >
-                Get Started
+                {t("packages.getStarted")}
                 <ArrowRight size={16} className="ml-2" />
               </Button>
 
@@ -179,14 +155,14 @@ const Packages = () => {
         >
           <div className="inline-block bg-background rounded-2xl p-8 border border-border shadow-soft max-w-xl">
             <h3 className="font-serif text-2xl text-foreground mb-3">
-              Family & Parent Coaching
+              {t("packages.familyCoaching.title")}
             </h3>
             <p className="text-muted-foreground mb-4">
-              60-minute focused session for parents seeking guidance, tools, and support.
+              {t("packages.familyCoaching.description")}
             </p>
-            <p className="font-serif text-3xl text-foreground mb-4">$110/session</p>
+            <p className="font-serif text-3xl text-foreground mb-4">{t("packages.familyCoaching.price")}</p>
             <Button onClick={handleBooking} variant="outline" className="rounded-full">
-              Learn More
+              {t("packages.learnMore")}
             </Button>
           </div>
         </motion.div>

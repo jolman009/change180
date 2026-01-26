@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
-  const scrollToContact = () => {
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const { t } = useLanguage();
 
   const scrollToServices = () => {
     document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });
@@ -46,7 +45,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 bg-peach-100 text-primary px-4 py-2 rounded-full mb-8"
           >
             <Sparkles size={16} />
-            <span className="text-sm font-medium">Faith-Centered Life Coaching</span>
+            <span className="text-sm font-medium">{t("hero.badge")}</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -56,8 +55,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-serif text-5xl md:text-6xl lg:text-7xl text-foreground mb-6 leading-tight"
           >
-            Change Your Direction.
-            <span className="block text-primary">Transform Your Life.</span>
+            {t("hero.headline1")}
+            <span className="block text-primary">{t("hero.headline2")}</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -67,9 +66,18 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed text-balance"
           >
-            At <span className="font-semibold">change<span className="text-primary">180</span></span>, we help individuals and families experience meaningful,
-            faith-rooted transformation by addressing emotional wellness, purpose,
-            and personal growth.
+            {t("hero.description").split("<brand>").map((part, index) => {
+              if (part.includes("</brand>")) {
+                const [brand, rest] = part.split("</brand>");
+                return (
+                  <span key={index}>
+                    <span className="font-semibold">change<span className="text-primary">180</span></span>
+                    {rest}
+                  </span>
+                );
+              }
+              return part;
+            })}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -84,7 +92,7 @@ const Hero = () => {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg shadow-card hover:shadow-elevated transition-all"
             >
-              Start Your Journey
+              {t("hero.cta1")}
               <ArrowRight className="ml-2" size={20} />
             </Button>
             <Button
@@ -93,7 +101,7 @@ const Hero = () => {
               size="lg"
               className="border-2 border-foreground/20 hover:border-primary hover:text-primary rounded-full px-8 py-6 text-lg transition-all"
             >
-              Explore Services
+              {t("hero.cta2")}
             </Button>
           </motion.div>
 
@@ -104,7 +112,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-12 text-sm text-muted-foreground"
           >
-            You don't need to have it all figured out — you just need a willingness to take the next step.
+            {t("hero.trustIndicator")}
           </motion.p>
         </div>
       </div>

@@ -1,0 +1,291 @@
+{
+  "nav": {
+    "about": "Acerca de",
+    "services": "Servicios",
+    "packages": "Paquetes",
+    "testimonials": "Testimonios",
+    "contact": "Contacto",
+    "bookSession": "Reservar una Sesión"
+  },
+  "hero": {
+    "badge": "Coaching de Vida Centrado en la Fe",
+    "headline1": "Cambia Tu Dirección.",
+    "headline2": "Transforma Tu Vida.",
+    "description": "En <brand>change180</brand>, ayudamos a individuos y familias a experimentar una transformación significativa y arraigada en la fe, abordando el bienestar emocional, el propósito y el crecimiento personal.",
+    "cta1": "Comienza Tu Viaje",
+    "cta2": "Explorar Servicios",
+    "trustIndicator": "No necesitas tenerlo todo resuelto — solo necesitas la disposición de dar el siguiente paso."
+  },
+  "about": {
+    "sectionLabel": "Sobre Mí",
+    "headline": "Hola, soy Myra Z. Guzman, M.Ed.",
+    "paragraph1": "Soy una coach de vida certificada y educadora bilingüe con una profunda pasión por ayudar a otros a vivir vidas plenas y centradas en la fe.",
+    "paragraph2": "Con más de 17 años de experiencia apoyando a niños, familias y adultos a través de la educación, el desarrollo emocional y los servicios comunitarios, aporto una combinación única de conocimiento, empatía y guía espiritual a mi práctica de coaching.",
+    "paragraph3": "Creé <brand>change180</brand> para servir a aquellos que quieren un cambio real sin juicio, fe sin vergüenza, y crecimiento que se sienta arraigado y esperanzador.",
+    "disclaimer": "Los servicios de coaching son de naturaleza no clínica y educativa y no reemplazan la terapia.",
+    "credentials": {
+      "education": {
+        "title": "Maestría en Educación (M.Ed.)",
+        "subtitle": "Currículo e Instrucción"
+      },
+      "counseling": {
+        "title": "Maestría en Consejería",
+        "subtitle": "Consejera Profesional Licenciada – Interna"
+      },
+      "experience": {
+        "title": "17+ Años de Experiencia",
+        "subtitle": "Apoyando familias y comunidades"
+      },
+      "bilingual": {
+        "title": "Servicios Bilingües",
+        "subtitle": "Inglés y Español"
+      }
+    },
+    "imageAlt": "Myra Z. Guzman, M.Ed. - Coach de Vida"
+  },
+  "whoWeHelp": {
+    "sectionLabel": "A Quién Ayudamos",
+    "headline": "<brand>change180</brand> Es Para Ti",
+    "description": "Si estás listo para dejar de sobrevivir y empezar a avanzar — <brand>change180</brand> fue creado para ti.",
+    "audiences": {
+      "individuals": {
+        "title": "Individuos",
+        "description": "Buscando claridad, dirección y crecimiento personal en el viaje de la vida."
+      },
+      "parents": {
+        "title": "Padres",
+        "description": "Apoyando y entendiendo el bienestar emocional y mental de sus hijos."
+      },
+      "families": {
+        "title": "Familias",
+        "description": "Navegando el estrés, las transiciones o los conflictos con gracia y unidad."
+      },
+      "women": {
+        "title": "Mujeres",
+        "description": "Sintiéndose abrumadas, agotadas o desconectadas de su propósito."
+      },
+      "faithCentered": {
+        "title": "Clientes Centrados en la Fe",
+        "description": "Buscando crecimiento emocional alineado con sus valores y creencias."
+      }
+    },
+    "whyTitle": "¿Por Qué \"<brand>change180</brand>\"?",
+    "whyDescription": "Un cambio de 180 grados significa dar la vuelta completamente — elegir una nueva dirección. Te ayudamos a pausar, reflexionar e intencionalmente moverte hacia la vida que Dios te está llamando a vivir.",
+    "beliefs": [
+      "El crecimiento es posible en cualquier etapa de la vida",
+      "La sanación y la fe pueden caminar juntas",
+      "Los pequeños pasos llevan a una transformación duradera",
+      "No estás roto — te estás convirtiendo"
+    ],
+    "imageAlt": "Myra en una sesión de coaching"
+  },
+  "services": {
+    "sectionLabel": "Nuestros Servicios",
+    "headline": "Servicios de Coaching Ofrecidos",
+    "description": "Apoyo centrado en la fe, culturalmente sensible e informado sobre el trauma, diseñado para la vida real — no para la perfección.",
+    "comingSoon": "Próximamente",
+    "individual": {
+      "title": "Coaching de Vida Individual",
+      "description": "Sesiones personalizadas 1:1 enfocadas en transiciones de vida, propósito, bienestar emocional y toma de decisiones centrada en la fe.",
+      "features": [
+        "Manejo del estrés, depresión y ansiedad",
+        "Metas personales, crecimiento y responsabilidad",
+        "Construcción de autoconfianza y resiliencia",
+        "Descubriendo tus fortalezas y pasiones"
+      ]
+    },
+    "family": {
+      "title": "Coaching para Padres y Familias",
+      "description": "Apoyo para padres y familias que buscan herramientas, estrategias de comunicación y guía basada en la fe.",
+      "features": [
+        "Herramientas para apoyar la salud emocional de los niños",
+        "Mejor comunicación y límites",
+        "Entendiendo el comportamiento y el estrés",
+        "Navegando desafíos familiares con gracia"
+      ]
+    },
+    "group": {
+      "title": "Programas Grupales y Talleres",
+      "description": "Aprendizaje comunitario para iglesias, escuelas, organizaciones sin fines de lucro y organizaciones.",
+      "features": [
+        "Talleres para padres",
+        "Grupos de bienestar emocional basados en la fe",
+        "Grupos de apoyo para mujeres",
+        "Clases psicoeducativas"
+      ]
+    },
+    "digital": {
+      "title": "Recursos Digitales",
+      "description": "Próximamente — herramientas y recursos para apoyar tu viaje de crecimiento a tu propio ritmo.",
+      "features": [
+        "Libros de trabajo y guías",
+        "Herramientas para padres",
+        "Recursos de bienestar basados en la fe",
+        "Materiales bilingües"
+      ]
+    },
+    "whyWork": {
+      "title": "¿Por Qué Trabajar Con <brand>change180</brand>?",
+      "reasons": [
+        "Centrado en la fe, no presionado por la fe",
+        "Culturalmente sensible y bilingüe",
+        "Basado en educación e informado sobre trauma",
+        "Herramientas prácticas que puedes usar",
+        "Compasivo, sin juicios"
+      ]
+    },
+    "imageAlt": "Myra coaching a un cliente en su oficina"
+  },
+  "packages": {
+    "sectionLabel": "Paquetes de Coaching",
+    "headline": "Inversión en Tu Crecimiento",
+    "description": "Guía centrada en la fe para la transformación de la vida real. Elige el paquete que se ajuste a tu viaje.",
+    "mostPopular": "Más Popular",
+    "getStarted": "Comenzar",
+    "learnMore": "Más Información",
+    "discovery": {
+      "name": "Sesión de Descubrimiento",
+      "tagline": "Comienza con claridad",
+      "duration": "Sesión de 60 minutos",
+      "description": "Explora si el coaching es adecuado para ti. Identifica desafíos y crea un plan alineado con la fe.",
+      "features": [
+        "Clarificación de metas",
+        "Planificación del siguiente paso",
+        "Reflexión centrada en la fe",
+        "Recomendaciones personalizadas"
+      ],
+      "highlight": "Perfecto para clientes primerizos"
+    },
+    "clarity": {
+      "name": "Paquete Claridad",
+      "tagline": "Convierte la confusión en dirección",
+      "duration": "Programa de 4 semanas",
+      "description": "Apoyo enfocado para aquellos que se sienten estancados, abrumados o inciertos sobre su camino.",
+      "features": [
+        "Cuatro sesiones de 60 minutos",
+        "Plan de acción personalizado",
+        "Ejercicios de reflexión basados en la fe",
+        "Apoyo por correo entre sesiones"
+      ],
+      "highlight": "Ideal para transiciones de vida"
+    },
+    "rooted": {
+      "name": "Arraigado y Renovado",
+      "tagline": "Construye bases sólidas",
+      "duration": "Programa de 8 semanas",
+      "description": "Coaching más profundo que aborda patrones, hábitos y mentalidad a través de una perspectiva centrada en la fe.",
+      "features": [
+        "Ocho sesiones de 60 minutos",
+        "Plan de crecimiento personalizado",
+        "Prácticas diarias basadas en la fe",
+        "Seguimiento de responsabilidad",
+        "Apoyo por correo entre sesiones"
+      ],
+      "highlight": "Mejor para cambio duradero"
+    },
+    "flourish": {
+      "name": "Florecer Adelante",
+      "tagline": "Transformación a largo plazo",
+      "duration": "Programa de 12 semanas",
+      "description": "Programa premium para individuos y familias comprometidos con un cambio duradero y con propósito.",
+      "features": [
+        "Doce sesiones de 60 minutos",
+        "Plan de crecimiento integral",
+        "Herramientas y hojas de trabajo personalizadas",
+        "Programación prioritaria",
+        "Apoyo ilimitado por correo"
+      ],
+      "highlight": "Más Popular"
+    },
+    "familyCoaching": {
+      "title": "Coaching Familiar y para Padres",
+      "description": "Sesión enfocada de 60 minutos para padres que buscan orientación, herramientas y apoyo.",
+      "price": "$110/sesión"
+    }
+  },
+  "testimonials": {
+    "sectionLabel": "Testimonios",
+    "headline": "Historias de Transformación",
+    "description": "Escucha de aquellos que han experimentado el poder del coaching centrado en la fe.",
+    "quotes": [
+      {
+        "quote": "Trabajar con Myra ha sido transformador. He ganado claridad, confianza y una conexión más fuerte con mi fe.",
+        "author": "Jane",
+        "role": "Cliente de Coaching Individual"
+      },
+      {
+        "quote": "La guía de Myra ha ayudado a nuestra familia a comunicarse mejor y superar situaciones difíciles con gracia.",
+        "author": "Maria",
+        "role": "Cliente de Coaching Familiar"
+      }
+    ],
+    "whatToExpect": {
+      "title": "Qué Pueden Esperar los Clientes",
+      "items": [
+        "Un ambiente seguro y de apoyo",
+        "Metas claras y pasos de acción",
+        "Guía alineada con la fe",
+        "Herramientas prácticas y reflexión",
+        "Ánimo y crecimiento"
+      ]
+    }
+  },
+  "contact": {
+    "sectionLabel": "Ponte en Contacto",
+    "headline": "¿Listo para Comenzar Tu Transformación?",
+    "description": "Da el primer paso hacia la claridad, el crecimiento y el propósito. Comunícate hoy para programar tu Sesión de Descubrimiento o hacer cualquier pregunta.",
+    "email": "Correo",
+    "phone": "Teléfono",
+    "sessions": "Sesiones",
+    "sessionsValue": "Virtual y Presencial Disponibles",
+    "organizations": {
+      "title": "Disponible Para Organizaciones",
+      "description": "Tarifas grupales, asociaciones con iglesias y talleres personalizados disponibles.",
+      "types": ["Iglesias", "Escuelas", "Sin Fines de Lucro", "Orgs. Comunitarias"]
+    },
+    "form": {
+      "title": "Enviar un Mensaje",
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre completo",
+      "emailLabel": "Correo Electrónico",
+      "emailPlaceholder": "tu@correo.com",
+      "phoneLabel": "Teléfono (opcional)",
+      "phonePlaceholder": "(555) 123-4567",
+      "messageLabel": "¿Cómo puedo ayudarte?",
+      "messagePlaceholder": "Cuéntame un poco sobre lo que estás buscando...",
+      "submit": "Enviar Mensaje",
+      "sending": "Enviando..."
+    },
+    "toast": {
+      "success": "¡Mensaje enviado con éxito! Me pondré en contacto pronto.",
+      "demoSuccess": "Éxito de Demo: ¡El formulario funciona! (Configura las claves de EmailJS para enviar correos reales)",
+      "error": "Algo salió mal. Por favor intenta de nuevo más tarde o envíame un correo directamente."
+    },
+    "imageAlt": "Myra en una conversación de coaching de apoyo"
+  },
+  "footer": {
+    "tagline": "Guiando fe, familia y crecimiento personal. Transforma tu vida con coaching centrado en la fe.",
+    "quickLinks": "Enlaces Rápidos",
+    "servicesTitle": "Servicios",
+    "services": {
+      "individual": "Coaching de Vida Individual",
+      "family": "Coaching para Padres y Familias",
+      "group": "Programas Grupales",
+      "workshops": "Talleres"
+    },
+    "copyright": "Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "forTransformation": "para la transformación",
+    "disclaimer": "<brand>change180</brand> proporciona servicios de coaching, educación y consultoría. El coaching no es terapia y no reemplaza el tratamiento de salud mental. No se proporcionan diagnósticos ni servicios clínicos a través del coaching."
+  },
+  "error": {
+    "title": "Algo salió mal",
+    "description": "Pedimos disculpas por las molestias. Ha ocurrido un error inesperado.",
+    "tryAgain": "Intentar de Nuevo"
+  },
+  "notFound": {
+    "title": "404",
+    "description": "¡Ups! Página no encontrada",
+    "returnHome": "Volver al Inicio"
+  }
+}

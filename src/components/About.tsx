@@ -1,30 +1,48 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Award, Heart, Globe } from "lucide-react";
-
-const credentials = [
-  {
-    icon: GraduationCap,
-    title: "Master of Education (M.Ed.)",
-    subtitle: "Curriculum & Instruction",
-  },
-  {
-    icon: Award,
-    title: "Master's in Counseling",
-    subtitle: "Licensed Professional Counselor – Intern",
-  },
-  {
-    icon: Heart,
-    title: "17+ Years Experience",
-    subtitle: "Supporting families & communities",
-  },
-  {
-    icon: Globe,
-    title: "Bilingual Services",
-    subtitle: "English & Spanish",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
+
+  const credentials = [
+    {
+      icon: GraduationCap,
+      title: t("about.credentials.education.title"),
+      subtitle: t("about.credentials.education.subtitle"),
+    },
+    {
+      icon: Award,
+      title: t("about.credentials.counseling.title"),
+      subtitle: t("about.credentials.counseling.subtitle"),
+    },
+    {
+      icon: Heart,
+      title: t("about.credentials.experience.title"),
+      subtitle: t("about.credentials.experience.subtitle"),
+    },
+    {
+      icon: Globe,
+      title: t("about.credentials.bilingual.title"),
+      subtitle: t("about.credentials.bilingual.subtitle"),
+    },
+  ];
+
+  const renderTextWithBrand = (text: string) => {
+    return text.split("<brand>").map((part, index) => {
+      if (part.includes("</brand>")) {
+        const [, rest] = part.split("</brand>");
+        return (
+          <span key={index}>
+            <span className="font-semibold">change<span className="text-primary">180</span></span>
+            {rest}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <section id="about" className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -37,25 +55,20 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
-              About Me
+              {t("about.sectionLabel")}
             </span>
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
-              Hi, I'm Myra Z. Guzman, M.Ed.
+              {t("about.headline")}
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                I am a bilingual certified life coach and educator with a deep passion 
-                for helping others live fulfilling and faith-centered lives.
+                {t("about.paragraph1")}
               </p>
               <p>
-                With over 17 years of experience supporting children, families, and adults 
-                through education, emotional development, and community-based services, 
-                I bring a unique blend of knowledge, empathy, and spiritual guidance to 
-                my coaching practice.
+                {t("about.paragraph2")}
               </p>
               <p>
-                I created <span className="font-semibold">change<span className="text-primary">180</span></span> to serve those who want real change without judgment, 
-                faith without shame, and growth that feels both grounded and hopeful.
+                {renderTextWithBrand(t("about.paragraph3"))}
               </p>
             </div>
 
@@ -93,11 +106,11 @@ const About = () => {
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-peach-100">
               <img
                 src="/images/portrait-headshot.jpeg"
-                alt="Myra Z. Guzman, M.Ed. - Life Coach"
+                alt={t("about.imageAlt")}
                 className="w-full h-full object-cover object-center"
               />
             </div>
-            
+
             {/* Decorative elements */}
             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gold-muted rounded-2xl -z-10" />
             <div className="absolute -top-6 -right-6 w-32 h-32 bg-peach-100 rounded-full -z-10" />
@@ -112,7 +125,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center text-sm text-muted-foreground mt-16 max-w-2xl mx-auto"
         >
-          Coaching services are non-clinical and educational in nature and do not replace therapy.
+          {t("about.disclaimer")}
         </motion.p>
       </div>
     </section>

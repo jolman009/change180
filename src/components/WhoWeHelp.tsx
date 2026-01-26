@@ -1,35 +1,55 @@
 import { motion } from "framer-motion";
 import { Users, Heart, Home, Sparkles, BookOpen } from "lucide-react";
-
-const audiences = [
-  {
-    icon: Users,
-    title: "Individuals",
-    description: "Seeking clarity, direction, and personal growth in life's journey.",
-  },
-  {
-    icon: Heart,
-    title: "Parents",
-    description: "Supporting and understanding their children's emotional and mental wellness.",
-  },
-  {
-    icon: Home,
-    title: "Families",
-    description: "Navigating stress, transitions, or conflict with grace and unity.",
-  },
-  {
-    icon: Sparkles,
-    title: "Women",
-    description: "Feeling overwhelmed, burned out, or disconnected from purpose.",
-  },
-  {
-    icon: BookOpen,
-    title: "Faith-Centered Clients",
-    description: "Wanting emotional growth aligned with their values and beliefs.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhoWeHelp = () => {
+  const { t, tArray } = useLanguage();
+
+  const audiences = [
+    {
+      icon: Users,
+      title: t("whoWeHelp.audiences.individuals.title"),
+      description: t("whoWeHelp.audiences.individuals.description"),
+    },
+    {
+      icon: Heart,
+      title: t("whoWeHelp.audiences.parents.title"),
+      description: t("whoWeHelp.audiences.parents.description"),
+    },
+    {
+      icon: Home,
+      title: t("whoWeHelp.audiences.families.title"),
+      description: t("whoWeHelp.audiences.families.description"),
+    },
+    {
+      icon: Sparkles,
+      title: t("whoWeHelp.audiences.women.title"),
+      description: t("whoWeHelp.audiences.women.description"),
+    },
+    {
+      icon: BookOpen,
+      title: t("whoWeHelp.audiences.faithCentered.title"),
+      description: t("whoWeHelp.audiences.faithCentered.description"),
+    },
+  ];
+
+  const beliefs = tArray("whoWeHelp.beliefs");
+
+  const renderTextWithBrand = (text: string) => {
+    return text.split("<brand>").map((part, index) => {
+      if (part.includes("</brand>")) {
+        const [, rest] = part.split("</brand>");
+        return (
+          <span key={index}>
+            <span className="font-semibold">change<span className="text-primary">180</span></span>
+            {rest}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
@@ -42,13 +62,13 @@ const WhoWeHelp = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
-            Who We Help
+            {t("whoWeHelp.sectionLabel")}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
-            <span className="font-semibold">change<span className="text-primary">180</span></span> Is For You
+            {renderTextWithBrand(t("whoWeHelp.headline"))}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            If you're ready to stop surviving and start moving forward — <span className="font-semibold">change<span className="text-primary">180</span></span> was created for you.
+            {renderTextWithBrand(t("whoWeHelp.description"))}
           </p>
         </motion.div>
 
@@ -89,7 +109,7 @@ const WhoWeHelp = () => {
             <div className="aspect-square md:aspect-auto">
               <img
                 src="/images/coaching-session-1.jpeg"
-                alt="Myra in a coaching session"
+                alt={t("whoWeHelp.imageAlt")}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -97,19 +117,13 @@ const WhoWeHelp = () => {
             {/* Content */}
             <div className="p-10 md:p-12 lg:p-16 flex flex-col justify-center">
               <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
-                Why "<span className="font-semibold">change<span className="text-primary">180</span></span>"?
+                {renderTextWithBrand(t("whoWeHelp.whyTitle"))}
               </h3>
               <p className="text-muted-foreground text-lg mb-8">
-                A 180-degree change means turning completely around — choosing a new direction.
-                We help you pause, reflect, and intentionally move toward the life God is calling you to live.
+                {t("whoWeHelp.whyDescription")}
               </p>
               <div className="grid gap-4 text-left">
-                {[
-                  "Growth is possible at any stage of life",
-                  "Healing and faith can walk together",
-                  "Small steps lead to lasting transformation",
-                  "You are not broken — you are becoming",
-                ].map((belief, i) => (
+                {beliefs.map((belief, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
                     <span className="text-foreground">{belief}</span>

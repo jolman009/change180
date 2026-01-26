@@ -5,8 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t, tArray } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,18 +18,17 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const orgTypes = tArray("contact.organizations.types");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // TODO: Replace these placeholders with your actual EmailJS credentials
-    // Get them from https://dashboard.emailjs.com/admin
     const SERVICE_ID = "service_0tpvb0o";
     const TEMPLATE_ID = "template_k38tzrg";
     const PUBLIC_KEY = "cqTme7k19QuojL7eU";
 
     try {
-      // We import emailjs dynamically to avoid issues if the package isn't fully ready or to code-split
       const emailjs = (await import("@emailjs/browser")).default;
 
       await emailjs.send(
@@ -35,24 +36,23 @@ const Contact = () => {
         TEMPLATE_ID,
         {
           name: formData.name,
-          title: formData.message, // Maps message to {{title}} in the template
+          title: formData.message,
           email: formData.email,
           phone: formData.phone,
-          reply_to: formData.email, // Standard param for reply functionality
+          reply_to: formData.email,
         },
         PUBLIC_KEY
       );
 
-      toast.success("Message sent successfully! I'll be in touch soon.");
+      toast.success(t("contact.toast.success"));
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       console.error("EmailJS Error:", error);
-      // Fallback for demo purposes if keys aren't set
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if ((error as any)?.text?.includes("The user_id param is required")) {
-        toast.success("Demo Success: Form works! (Configure EmailJS keys to send real emails)");
+        toast.success(t("contact.toast.demoSuccess"));
       } else {
-        toast.error("Something went wrong. Please try again later or email me directly.");
+        toast.error(t("contact.toast.error"));
       }
     } finally {
       setIsSubmitting(false);
@@ -78,20 +78,19 @@ const Contact = () => {
             <div className="relative rounded-2xl overflow-hidden aspect-[3/2] mb-8">
               <img
                 src="/images/coaching-session-3.png"
-                alt="Myra in a supportive coaching conversation"
+                alt={t("contact.imageAlt")}
                 className="w-full h-full object-cover"
               />
             </div>
 
             <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
-              Get In Touch
+              {t("contact.sectionLabel")}
             </span>
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
-              Ready to Begin Your Transformation?
+              {t("contact.headline")}
             </h2>
             <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
-              Take the first step toward clarity, growth, and purpose.
-              Reach out today to schedule your Discovery Session or ask any questions.
+              {t("contact.description")}
             </p>
 
             <div className="space-y-6">
@@ -100,7 +99,7 @@ const Contact = () => {
                   <Mail size={20} className="text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
+                  <p className="text-sm text-muted-foreground">{t("contact.email")}</p>
                   <p className="text-foreground font-medium">contact@change180.com</p>
                 </div>
               </div>
@@ -110,7 +109,7 @@ const Contact = () => {
                   <Phone size={20} className="text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
+                  <p className="text-sm text-muted-foreground">{t("contact.phone")}</p>
                   <p className="text-foreground font-medium">(555) 123-4567</p>
                 </div>
               </div>
@@ -120,8 +119,8 @@ const Contact = () => {
                   <MapPin size={20} className="text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Sessions</p>
-                  <p className="text-foreground font-medium">Virtual & In-Person Available</p>
+                  <p className="text-sm text-muted-foreground">{t("contact.sessions")}</p>
+                  <p className="text-foreground font-medium">{t("contact.sessionsValue")}</p>
                 </div>
               </div>
             </div>
@@ -129,13 +128,13 @@ const Contact = () => {
             {/* Availability for organizations */}
             <div className="mt-10 p-6 bg-background rounded-2xl border border-border">
               <h4 className="font-serif text-xl text-foreground mb-3">
-                Available For Organizations
+                {t("contact.organizations.title")}
               </h4>
               <p className="text-muted-foreground text-sm mb-4">
-                Group rates, church partnerships, and custom workshops available.
+                {t("contact.organizations.description")}
               </p>
               <div className="flex flex-wrap gap-2">
-                {["Churches", "Schools", "Nonprofits", "Community Orgs"].map((org) => (
+                {orgTypes.map((org) => (
                   <span
                     key={org}
                     className="bg-peach-100 text-foreground text-xs px-3 py-1.5 rounded-full"
@@ -159,20 +158,20 @@ const Contact = () => {
               className="bg-background rounded-3xl p-8 md:p-10 shadow-card border border-border"
             >
               <h3 className="font-serif text-2xl text-foreground mb-6">
-                Send a Message
+                {t("contact.form.title")}
               </h3>
 
               <div className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Name
+                    {t("contact.form.name")}
                   </label>
                   <Input
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Your full name"
+                    placeholder={t("contact.form.namePlaceholder")}
                     required
                     className="rounded-xl border-border focus:border-primary"
                   />
@@ -180,7 +179,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email
+                    {t("contact.form.emailLabel")}
                   </label>
                   <Input
                     id="email"
@@ -188,7 +187,7 @@ const Contact = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="your@email.com"
+                    placeholder={t("contact.form.emailPlaceholder")}
                     required
                     className="rounded-xl border-border focus:border-primary"
                   />
@@ -196,7 +195,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Phone (optional)
+                    {t("contact.form.phoneLabel")}
                   </label>
                   <Input
                     id="phone"
@@ -204,21 +203,21 @@ const Contact = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="(555) 123-4567"
+                    placeholder={t("contact.form.phonePlaceholder")}
                     className="rounded-xl border-border focus:border-primary"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    How can I help you?
+                    {t("contact.form.messageLabel")}
                   </label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell me a bit about what you're looking for..."
+                    placeholder={t("contact.form.messagePlaceholder")}
                     rows={4}
                     required
                     className="rounded-xl border-border focus:border-primary resize-none"
@@ -231,7 +230,7 @@ const Contact = () => {
                   disabled={isSubmitting}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-6"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? t("contact.form.sending") : t("contact.form.submit")}
                   {!isSubmitting && <Send size={18} className="ml-2" />}
                 </Button>
               </div>

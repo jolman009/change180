@@ -1,0 +1,291 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "packages": "Packages",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "bookSession": "Book a Session"
+  },
+  "hero": {
+    "badge": "Faith-Centered Life Coaching",
+    "headline1": "Change Your Direction.",
+    "headline2": "Transform Your Life.",
+    "description": "At <brand>change180</brand>, we help individuals and families experience meaningful, faith-rooted transformation by addressing emotional wellness, purpose, and personal growth.",
+    "cta1": "Start Your Journey",
+    "cta2": "Explore Services",
+    "trustIndicator": "You don't need to have it all figured out — you just need a willingness to take the next step."
+  },
+  "about": {
+    "sectionLabel": "About Me",
+    "headline": "Hi, I'm Myra Z. Guzman, M.Ed.",
+    "paragraph1": "I am a bilingual certified life coach and educator with a deep passion for helping others live fulfilling and faith-centered lives.",
+    "paragraph2": "With over 17 years of experience supporting children, families, and adults through education, emotional development, and community-based services, I bring a unique blend of knowledge, empathy, and spiritual guidance to my coaching practice.",
+    "paragraph3": "I created <brand>change180</brand> to serve those who want real change without judgment, faith without shame, and growth that feels both grounded and hopeful.",
+    "disclaimer": "Coaching services are non-clinical and educational in nature and do not replace therapy.",
+    "credentials": {
+      "education": {
+        "title": "Master of Education (M.Ed.)",
+        "subtitle": "Curriculum & Instruction"
+      },
+      "counseling": {
+        "title": "Master's in Counseling",
+        "subtitle": "Licensed Professional Counselor – Intern"
+      },
+      "experience": {
+        "title": "17+ Years Experience",
+        "subtitle": "Supporting families & communities"
+      },
+      "bilingual": {
+        "title": "Bilingual Services",
+        "subtitle": "English & Spanish"
+      }
+    },
+    "imageAlt": "Myra Z. Guzman, M.Ed. - Life Coach"
+  },
+  "whoWeHelp": {
+    "sectionLabel": "Who We Help",
+    "headline": "<brand>change180</brand> Is For You",
+    "description": "If you're ready to stop surviving and start moving forward — <brand>change180</brand> was created for you.",
+    "audiences": {
+      "individuals": {
+        "title": "Individuals",
+        "description": "Seeking clarity, direction, and personal growth in life's journey."
+      },
+      "parents": {
+        "title": "Parents",
+        "description": "Supporting and understanding their children's emotional and mental wellness."
+      },
+      "families": {
+        "title": "Families",
+        "description": "Navigating stress, transitions, or conflict with grace and unity."
+      },
+      "women": {
+        "title": "Women",
+        "description": "Feeling overwhelmed, burned out, or disconnected from purpose."
+      },
+      "faithCentered": {
+        "title": "Faith-Centered Clients",
+        "description": "Wanting emotional growth aligned with their values and beliefs."
+      }
+    },
+    "whyTitle": "Why \"<brand>change180</brand>\"?",
+    "whyDescription": "A 180-degree change means turning completely around — choosing a new direction. We help you pause, reflect, and intentionally move toward the life God is calling you to live.",
+    "beliefs": [
+      "Growth is possible at any stage of life",
+      "Healing and faith can walk together",
+      "Small steps lead to lasting transformation",
+      "You are not broken — you are becoming"
+    ],
+    "imageAlt": "Myra in a coaching session"
+  },
+  "services": {
+    "sectionLabel": "Our Services",
+    "headline": "Coaching Services Offered",
+    "description": "Faith-centered, culturally responsive, and trauma-informed support designed for real life — not perfection.",
+    "comingSoon": "Coming Soon",
+    "individual": {
+      "title": "Individual Life Coaching",
+      "description": "Personalized 1:1 sessions focused on life transitions, purpose, emotional wellness, and faith-centered decision-making.",
+      "features": [
+        "Stress, depression, and anxiety management",
+        "Personal goals, growth and accountability",
+        "Building self-confidence and resilience",
+        "Discovering your strengths and passions"
+      ]
+    },
+    "family": {
+      "title": "Parent & Family Coaching",
+      "description": "Support for parents and families seeking tools, communication strategies, and faith-based guidance.",
+      "features": [
+        "Tools to support children's emotional health",
+        "Better communication and boundaries",
+        "Understanding behavior and stress",
+        "Navigating family challenges with grace"
+      ]
+    },
+    "group": {
+      "title": "Group Programs & Workshops",
+      "description": "Community-based learning for churches, schools, nonprofits, and organizations.",
+      "features": [
+        "Parenting workshops",
+        "Faith-based emotional wellness groups",
+        "Women's support groups",
+        "Psychoeducational classes"
+      ]
+    },
+    "digital": {
+      "title": "Digital Resources",
+      "description": "Coming soon — tools and resources to support your growth journey at your own pace.",
+      "features": [
+        "Workbooks and guides",
+        "Parenting tools",
+        "Faith-based wellness resources",
+        "Bilingual materials"
+      ]
+    },
+    "whyWork": {
+      "title": "Why Work With <brand>change180</brand>?",
+      "reasons": [
+        "Faith-centered, not faith-pressured",
+        "Culturally responsive & bilingual",
+        "Education-based & trauma-informed",
+        "Practical tools you can use",
+        "Compassionate, non-judgmental"
+      ]
+    },
+    "imageAlt": "Myra coaching a client in her office"
+  },
+  "packages": {
+    "sectionLabel": "Coaching Packages",
+    "headline": "Investment in Your Growth",
+    "description": "Faith-centered guidance for real-life transformation. Choose the package that fits your journey.",
+    "mostPopular": "Most Popular",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "discovery": {
+      "name": "Discovery Session",
+      "tagline": "Start with clarity",
+      "duration": "60-minute session",
+      "description": "Explore whether coaching is right for you. Identify challenges and create a faith-aligned plan.",
+      "features": [
+        "Goal clarification",
+        "Next-step planning",
+        "Faith-centered reflection",
+        "Personalized recommendations"
+      ],
+      "highlight": "Perfect for first-time clients"
+    },
+    "clarity": {
+      "name": "Clarity Package",
+      "tagline": "Turn confusion into direction",
+      "duration": "4-week program",
+      "description": "Focused support for those feeling stuck, overwhelmed, or uncertain about their path.",
+      "features": [
+        "Four 60-minute sessions",
+        "Personalized action plan",
+        "Faith-based reflection exercises",
+        "Email support between sessions"
+      ],
+      "highlight": "Great for life transitions"
+    },
+    "rooted": {
+      "name": "Rooted & Renewed",
+      "tagline": "Build strong foundations",
+      "duration": "8-week program",
+      "description": "Deeper coaching addressing patterns, habits, and mindset through a faith-centered lens.",
+      "features": [
+        "Eight 60-minute sessions",
+        "Customized growth plan",
+        "Faith-based daily practices",
+        "Accountability tracking",
+        "Email support between sessions"
+      ],
+      "highlight": "Best for lasting change"
+    },
+    "flourish": {
+      "name": "Flourish Forward",
+      "tagline": "Long-term transformation",
+      "duration": "12-week program",
+      "description": "Premium program for individuals and families committed to purposeful, lasting change.",
+      "features": [
+        "Twelve 60-minute sessions",
+        "Comprehensive growth plan",
+        "Personalized tools & worksheets",
+        "Priority scheduling",
+        "Unlimited email support"
+      ],
+      "highlight": "Most Popular"
+    },
+    "familyCoaching": {
+      "title": "Family & Parent Coaching",
+      "description": "60-minute focused session for parents seeking guidance, tools, and support.",
+      "price": "$110/session"
+    }
+  },
+  "testimonials": {
+    "sectionLabel": "Testimonials",
+    "headline": "Stories of Transformation",
+    "description": "Hear from those who have experienced the power of faith-centered coaching.",
+    "quotes": [
+      {
+        "quote": "Working with Myra has been transformative. I've gained clarity, confidence, and a stronger connection to my faith.",
+        "author": "Jane",
+        "role": "Individual Coaching Client"
+      },
+      {
+        "quote": "Myra's guidance has helped our family communicate better and overcome challenging situations with grace.",
+        "author": "Maria",
+        "role": "Family Coaching Client"
+      }
+    ],
+    "whatToExpect": {
+      "title": "What Clients Can Expect",
+      "items": [
+        "A safe, supportive environment",
+        "Clear goals and action steps",
+        "Faith-aligned guidance",
+        "Practical tools and reflection",
+        "Encouragement and growth"
+      ]
+    }
+  },
+  "contact": {
+    "sectionLabel": "Get In Touch",
+    "headline": "Ready to Begin Your Transformation?",
+    "description": "Take the first step toward clarity, growth, and purpose. Reach out today to schedule your Discovery Session or ask any questions.",
+    "email": "Email",
+    "phone": "Phone",
+    "sessions": "Sessions",
+    "sessionsValue": "Virtual & In-Person Available",
+    "organizations": {
+      "title": "Available For Organizations",
+      "description": "Group rates, church partnerships, and custom workshops available.",
+      "types": ["Churches", "Schools", "Nonprofits", "Community Orgs"]
+    },
+    "form": {
+      "title": "Send a Message",
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phoneLabel": "Phone (optional)",
+      "phonePlaceholder": "(555) 123-4567",
+      "messageLabel": "How can I help you?",
+      "messagePlaceholder": "Tell me a bit about what you're looking for...",
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "toast": {
+      "success": "Message sent successfully! I'll be in touch soon.",
+      "demoSuccess": "Demo Success: Form works! (Configure EmailJS keys to send real emails)",
+      "error": "Something went wrong. Please try again later or email me directly."
+    },
+    "imageAlt": "Myra in a supportive coaching conversation"
+  },
+  "footer": {
+    "tagline": "Guiding faith, family, and personal growth. Transform your life with faith-centered coaching.",
+    "quickLinks": "Quick Links",
+    "servicesTitle": "Services",
+    "services": {
+      "individual": "Individual Life Coaching",
+      "family": "Parent & Family Coaching",
+      "group": "Group Programs",
+      "workshops": "Workshops"
+    },
+    "copyright": "All rights reserved.",
+    "madeWith": "Made with",
+    "forTransformation": "for transformation",
+    "disclaimer": "<brand>change180</brand> provides coaching, education, and consulting services. Coaching is not therapy and does not replace mental health treatment. No diagnosis or clinical services are provided through coaching."
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "We apologize for the inconvenience. An unexpected error has occurred.",
+    "tryAgain": "Try Again"
+  },
+  "notFound": {
+    "title": "404",
+    "description": "Oops! Page not found",
+    "returnHome": "Return to Home"
+  }
+}

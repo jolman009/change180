@@ -3,17 +3,19 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "./Logo";
-
-const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#packages", label: "Packages" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#contact", label: "Contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { href: "#about", label: t("nav.about") },
+    { href: "#services", label: t("nav.services") },
+    { href: "#packages", label: t("nav.packages") },
+    { href: "#testimonials", label: t("nav.testimonials") },
+    { href: "#contact", label: t("nav.contact") },
+  ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -35,15 +37,51 @@ const Navigation = () => {
           {/* Logo */}
           <a
             href="#"
-            className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 md:gap-3 hover:opacity-80 transition-opacity min-w-0"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
             <Logo size="md" />
-            <span className="font-sans text-foreground text-2xl">Myra Z. Guzman, M E.D.</span>
+            <span className="font-sans text-foreground text-base sm:text-lg md:text-2xl truncate hidden xs:inline">
+              Myra Z. Guzman, M.Ed.
+            </span>
           </a>
+
+          {/* Mobile Language Toggle + Menu Button */}
+          <div className="flex md:hidden items-center gap-2">
+            <div className="flex items-center text-xs">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-1.5 py-1 rounded transition-colors ${
+                  language === "en"
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground"
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => setLanguage("es")}
+                className={`px-1.5 py-1 rounded transition-colors ${
+                  language === "es"
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground"
+                }`}
+              >
+                ES
+              </button>
+            </div>
+            <button
+              className="p-2 text-foreground"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -56,22 +94,39 @@ const Navigation = () => {
                 {link.label}
               </button>
             ))}
+
+            {/* Language Toggle */}
+            <div className="flex items-center gap-1 text-sm">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-2 py-1 rounded transition-colors ${
+                  language === "en"
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button
+                onClick={() => setLanguage("es")}
+                className={`px-2 py-1 rounded transition-colors ${
+                  language === "es"
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                ES
+              </button>
+            </div>
+
             <Button
               onClick={handleBooking}
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6"
             >
-              Book a Session
+              {t("nav.bookSession")}
             </Button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
       </div>
 
@@ -94,11 +149,36 @@ const Navigation = () => {
                   {link.label}
                 </button>
               ))}
+
+              {/* Mobile Language Toggle */}
+              <div className="flex items-center gap-2 py-2">
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
+                    language === "en"
+                      ? "bg-primary text-primary-foreground font-semibold"
+                      : "bg-muted text-muted-foreground"
+                  }`}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => setLanguage("es")}
+                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
+                    language === "es"
+                      ? "bg-primary text-primary-foreground font-semibold"
+                      : "bg-muted text-muted-foreground"
+                  }`}
+                >
+                  Español
+                </button>
+              </div>
+
               <Button
                 onClick={handleBooking}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full mt-2"
               >
-                Book a Session
+                {t("nav.bookSession")}
               </Button>
             </div>
           </motion.div>

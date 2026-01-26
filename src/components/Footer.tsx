@@ -1,8 +1,33 @@
 import { Heart } from "lucide-react";
 import Logo from "./Logo";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
+
+  const navLinks = [
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.services"), href: "#services" },
+    { label: t("nav.packages"), href: "#packages" },
+    { label: t("nav.testimonials"), href: "#testimonials" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
+
+  const renderTextWithBrand = (text: string) => {
+    return text.split("<brand>").map((part, index) => {
+      if (part.includes("</brand>")) {
+        const [, rest] = part.split("</brand>");
+        return (
+          <span key={index}>
+            <span className="font-semibold">change<span className="text-primary">180</span></span>
+            {rest}
+          </span>
+        );
+      }
+      return part;
+    });
+  };
 
   return (
     <footer className="bg-foreground text-background py-16">
@@ -12,8 +37,7 @@ const Footer = () => {
           <div>
             <Logo size="md" variant="light" className="mb-4" />
             <p className="text-background/70 text-sm leading-relaxed mb-6">
-              Guiding faith, family, and personal growth.
-              Transform your life with faith-centered coaching.
+              {t("footer.tagline")}
             </p>
             <p className="text-background/50 text-xs">
               Myra Z. Guzman, M.Ed.
@@ -23,16 +47,10 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-background/80">
-              Quick Links
+              {t("footer.quickLinks")}
             </h4>
             <nav className="space-y-3">
-              {[
-                { label: "About", href: "#about" },
-                { label: "Services", href: "#services" },
-                { label: "Packages", href: "#packages" },
-                { label: "Testimonials", href: "#testimonials" },
-                { label: "Contact", href: "#contact" },
-              ].map((link) => (
+              {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -51,13 +69,13 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h4 className="font-semibold text-sm uppercase tracking-wider mb-4 text-background/80">
-              Services
+              {t("footer.servicesTitle")}
             </h4>
             <nav className="space-y-3">
-              <span className="block text-background/70 text-sm">Individual Life Coaching</span>
-              <span className="block text-background/70 text-sm">Parent & Family Coaching</span>
-              <span className="block text-background/70 text-sm">Group Programs</span>
-              <span className="block text-background/70 text-sm">Workshops</span>
+              <span className="block text-background/70 text-sm">{t("footer.services.individual")}</span>
+              <span className="block text-background/70 text-sm">{t("footer.services.family")}</span>
+              <span className="block text-background/70 text-sm">{t("footer.services.group")}</span>
+              <span className="block text-background/70 text-sm">{t("footer.services.workshops")}</span>
             </nav>
           </div>
         </div>
@@ -66,19 +84,17 @@ const Footer = () => {
         <div className="border-t border-background/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/50 text-sm">
-              © {currentYear} <span className="font-semibold">change<span className="text-primary">180</span></span>. All rights reserved.
+              © {currentYear} <span className="font-semibold">change<span className="text-primary">180</span></span>. {t("footer.copyright")}
             </p>
-            
+
             <p className="text-background/50 text-xs flex items-center gap-1">
-              Made with <Heart size={12} className="text-primary" fill="currentColor" /> for transformation
+              {t("footer.madeWith")} <Heart size={12} className="text-primary" fill="currentColor" /> {t("footer.forTransformation")}
             </p>
           </div>
 
           {/* Disclaimer */}
           <p className="text-background/40 text-xs mt-6 text-center max-w-2xl mx-auto">
-            <span className="font-semibold">change<span className="text-primary">180</span></span> provides coaching, education, and consulting services. 
-            Coaching is not therapy and does not replace mental health treatment. 
-            No diagnosis or clinical services are provided through coaching.
+            {renderTextWithBrand(t("footer.disclaimer"))}
           </p>
         </div>
       </div>
