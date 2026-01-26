@@ -37,6 +37,7 @@ const Navigation = () => {
           {/* Logo - always visible */}
           <a
             href="#"
+            title="Go to home"
             className="flex-shrink-0 hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();

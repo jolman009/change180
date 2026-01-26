@@ -106,14 +106,19 @@ const Hero = () => {
           </motion.div>
 
           {/* Trust indicator */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-12 text-sm text-muted-foreground"
+            className="mt-12"
           >
-            {t("hero.trustIndicator")}
-          </motion.p>
+            <p className="text-sm text-muted-foreground italic">
+              "{t("hero.trustIndicator")}"
+            </p>
+            <p className="text-xs text-muted-foreground/70 mt-2">
+              — Myra Z. Guzman, M.Ed.
+            </p>
+          </motion.div>
         </div>
       </div>
 
