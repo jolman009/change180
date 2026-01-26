@@ -10,10 +10,10 @@ const Logo = ({
   showTagline = false,
 }: LogoProps) => {
   const sizes = {
-    sm: { height: 40 },
-    md: { height: 56 },
-    lg: { height: 72 },
-    xl: { height: 100 },
+    sm: { height: 48 },
+    md: { height: 64 },
+    lg: { height: 80 },
+    xl: { height: 120 },
   };
 
   const { height } = sizes[size];
