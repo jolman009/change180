@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PopupButton } from "react-calendly";
@@ -89,6 +90,12 @@ const Navigation = () => {
                 {link.label}
               </button>
             ))}
+            <Link
+              to="/blog"
+              className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm tracking-wide"
+            >
+              {t("nav.blog")}
+            </Link>
 
             {/* Language Toggle */}
             <div className="flex items-center gap-1 text-sm">
@@ -144,10 +151,18 @@ const Navigation = () => {
                   {link.label}
                 </button>
               ))}
+              <Link
+                to="/blog"
+                onClick={() => setIsOpen(false)}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+              >
+                {t("nav.blog")}
+              </Link>
 
               {/* Mobile Language Toggle */}
               <div className="flex items-center gap-2 py-2">
                 <button
+                  type="button"
                   onClick={() => setLanguage("en")}
                   className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
                     language === "en"
@@ -158,6 +173,7 @@ const Navigation = () => {
                   English
                 </button>
                 <button
+                  type="button"
                   onClick={() => setLanguage("es")}
                   className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
                     language === "es"
