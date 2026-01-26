@@ -29,6 +29,8 @@ The brand name "Change 180" symbolizes a complete 180-degree turn—choosing a n
 | **Testing** | Vitest + React Testing Library | 3.2.4 |
 | **Deployment** | Vercel | - |
 | **CI/CD** | GitHub Actions | - |
+| **Analytics** | Google Analytics 4 | G-7FZ4YD0V4Q |
+| **Domain** | IONOS | change180.org |
 
 ---
 
@@ -40,6 +42,12 @@ change180/
 │   └── workflows/
 │       └── ci.yml                  # CI/CD pipeline (lint + build)
 ├── src/
+│   ├── i18n/
+│   │   ├── en.json                 # English translations
+│   │   ├── es.json                 # Spanish translations
+│   │   └── index.ts                # Translation helper functions
+│   ├── contexts/
+│   │   └── LanguageContext.tsx     # Language provider & useLanguage hook
 │   ├── components/
 │   │   ├── ui/                     # shadcn/ui reusable components (45+ files)
 │   │   │   ├── button.tsx
@@ -51,7 +59,7 @@ change180/
 │   │   │   ├── accordion.tsx
 │   │   │   └── ... (40+ more)
 │   │   ├── Logo.tsx                # Custom bridge icon + branding
-│   │   ├── Navigation.tsx          # Fixed header with Calendly booking
+│   │   ├── Navigation.tsx          # Fixed header with Calendly booking & language toggle
 │   │   ├── Hero.tsx                # Hero section with Calendly CTA
 │   │   ├── About.tsx               # Founder bio with credentials
 │   │   ├── WhoWeHelp.tsx           # Target audience sections
@@ -105,6 +113,7 @@ change180/
 - Custom logo component with gradient bridge icon
 - Responsive hamburger menu on mobile
 - Smooth scroll navigation to sections
+- **Language toggle (EN | ES)** for bilingual support
 - **"Book a Session" button** links directly to Calendly (`https://calendly.com/change180lifecoach`)
 
 ### 2. Hero Section
@@ -160,9 +169,25 @@ change180/
 - User-friendly error page with "Try Again" button
 - Development mode shows error details for debugging
 
+### 11. Bilingual Support (English/Spanish)
+- Language toggle in navigation (desktop and mobile)
+- All UI text translated to Spanish
+- Language preference persisted in localStorage
+- Auto-detects browser language on first visit
+- Brand name "change180" remains consistent across languages
+
 ---
 
 ## Integrations
+
+### Google Analytics 4
+- **Measurement ID**: `G-7FZ4YD0V4Q`
+- **Tracking**:
+  - Page views and navigation
+  - Scroll depth
+  - Outbound link clicks
+  - Session duration and engagement
+  - User demographics and devices
 
 ### Calendly (Online Booking)
 - **URL**: `https://calendly.com/change180lifecoach`
@@ -296,14 +321,16 @@ npm run test:watch # Run tests in watch mode
 
 **Technologies**: Custom React dashboard with authentication (Auth0, Clerk, Supabase Auth)
 
-#### 6. Spanish Language Toggle
+#### 6. Spanish Language Toggle - COMPLETED
 **Description**: Full bilingual support with language switching.
-- Complete site translation to Spanish
-- Language toggle in navigation
-- URL-based routing (/es, /en)
-- SEO for Spanish-speaking audience
+- [x] Complete site translation to Spanish
+- [x] Language toggle in navigation
+- [x] Persistent language preference (localStorage)
+- [x] Browser language auto-detection
+- [ ] URL-based routing (/es, /en) - future enhancement
+- [ ] SEO hreflang tags - future enhancement
 
-**Technologies**: react-i18next, next-intl (if migrating to Next.js)
+**Technologies**: Custom React Context + JSON translations
 
 #### 7. Testimonial Video Integration
 **Description**: Add video testimonials for more impactful social proof.
@@ -350,14 +377,15 @@ npm run test:watch # Run tests in watch mode
 
 **Technologies**: Instagram Basic Display API, embedded widgets
 
-#### 12. Analytics Dashboard
+#### 12. Analytics Dashboard - PARTIALLY COMPLETED
 **Description**: Track website performance and user behavior.
-- Page views and session tracking
-- Conversion tracking (form submissions, bookings)
-- User journey analysis
-- A/B testing capability
+- [x] Page views and session tracking (GA4)
+- [x] User demographics and devices (GA4)
+- [ ] Conversion tracking (form submissions, bookings)
+- [ ] User journey analysis
+- [ ] A/B testing capability
 
-**Technologies**: Google Analytics 4, Plausible, Mixpanel, or PostHog
+**Technologies**: Google Analytics 4 (implemented)
 
 #### 13. Accessibility Enhancements
 **Description**: Improve accessibility beyond current Radix UI implementation.
@@ -397,16 +425,18 @@ npm run test:watch # Run tests in watch mode
 - [x] Vercel deployment configuration
 - [x] Global error handling
 - [x] SEO sitemap
+- [x] Custom domain setup (change180.org via IONOS)
+- [x] Bilingual support (English/Spanish) - moved up from Phase 3
 
-### Phase 2 (Revenue)
+### Phase 2 (Revenue) - IN PROGRESS
+- [x] Add basic analytics (GA4)
 - [ ] Integrate Stripe for payments
 - [ ] Embed Calendly widget on-site
 - [ ] Implement email capture with newsletter
-- [ ] Add basic analytics (GA4 or Plausible)
 
 ### Phase 3 (Growth)
+- [x] Implement Spanish language support (completed in Phase 1)
 - [ ] Add blog/resources section
-- [ ] Implement Spanish language support
 - [ ] Create FAQ section
 - [ ] Add video testimonials
 
@@ -443,4 +473,4 @@ VITE_EMAILJS_PUBLIC_KEY=xxxxx
 
 ---
 
-*Last updated: January 2025*
+*Last updated: January 25, 2025*
