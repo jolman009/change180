@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { Check, Star, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Check, Star } from "lucide-react";
+import { PopupButton } from "react-calendly";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Packages = () => {
   const { t, tArray } = useLanguage();
+  const calendlyUrl = "https://calendly.com/change180lifecoach";
 
   const packages = [
     {
@@ -47,10 +48,6 @@ const Packages = () => {
       highlight: t("packages.flourish.highlight"),
     },
   ];
-
-  const handleBooking = () => {
-    window.open("https://calendly.com/change180lifecoach", "_blank");
-  };
 
   return (
     <section id="packages" className="py-24 bg-cream-100">
@@ -127,16 +124,15 @@ const Packages = () => {
                 ))}
               </ul>
 
-              <Button
-                onClick={handleBooking}
-                className={`w-full rounded-full ${pkg.popular
+              <PopupButton
+                url={calendlyUrl}
+                rootElement={document.getElementById("root")!}
+                text={t("packages.getStarted")}
+                className={`w-full rounded-full py-2 font-medium text-sm ${pkg.popular
                   ? "bg-primary hover:bg-primary/90 text-primary-foreground"
                   : "bg-secondary hover:bg-secondary/80 text-secondary-foreground"
                   }`}
-              >
-                {t("packages.getStarted")}
-                <ArrowRight size={16} className="ml-2" />
-              </Button>
+              />
 
               <p className="text-xs text-center text-muted-foreground mt-4">
                 {pkg.highlight}
@@ -161,9 +157,12 @@ const Packages = () => {
               {t("packages.familyCoaching.description")}
             </p>
             <p className="font-serif text-3xl text-foreground mb-4">{t("packages.familyCoaching.price")}</p>
-            <Button onClick={handleBooking} variant="outline" className="rounded-full">
-              {t("packages.learnMore")}
-            </Button>
+            <PopupButton
+              url={calendlyUrl}
+              rootElement={document.getElementById("root")!}
+              text={t("packages.learnMore")}
+              className="rounded-full border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2 text-sm font-medium"
+            />
           </div>
         </motion.div>
       </div>

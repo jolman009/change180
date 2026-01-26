@@ -1,17 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PopupButton } from "react-calendly";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
   const { t } = useLanguage();
+  const calendlyUrl = "https://calendly.com/change180lifecoach";
 
   const scrollToServices = () => {
     document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const handleBooking = () => {
-    window.open("https://calendly.com/change180lifecoach", "_blank");
   };
 
   return (
@@ -85,16 +83,14 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Button
-              onClick={handleBooking}
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg shadow-card hover:shadow-elevated transition-all"
-            >
-              {t("hero.cta1")}
-              <ArrowRight className="ml-2" size={20} />
-            </Button>
+            <PopupButton
+              url={calendlyUrl}
+              rootElement={document.getElementById("root")!}
+              text={t("hero.cta1")}
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-4 text-lg font-medium shadow-card hover:shadow-elevated transition-all"
+            />
             <Button
               onClick={scrollToServices}
               variant="outline"

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { PopupButton } from "react-calendly";
 import Logo from "./Logo";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -25,10 +25,7 @@ const Navigation = () => {
     setIsOpen(false);
   };
 
-  const handleBooking = () => {
-    window.open("https://calendly.com/change180lifecoach", "_blank");
-    setIsOpen(false);
-  };
+  const calendlyUrl = "https://calendly.com/change180lifecoach";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -118,12 +115,12 @@ const Navigation = () => {
               </button>
             </div>
 
-            <Button
-              onClick={handleBooking}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6"
-            >
-              {t("nav.bookSession")}
-            </Button>
+            <PopupButton
+              url={calendlyUrl}
+              rootElement={document.getElementById("root")!}
+              text={t("nav.bookSession")}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2 font-medium text-sm"
+            />
           </div>
         </div>
       </div>
@@ -172,12 +169,12 @@ const Navigation = () => {
                 </button>
               </div>
 
-              <Button
-                onClick={handleBooking}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full mt-2"
-              >
-                {t("nav.bookSession")}
-              </Button>
+              <PopupButton
+                url={calendlyUrl}
+                rootElement={document.getElementById("root")!}
+                text={t("nav.bookSession")}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full mt-2 py-2 font-medium text-sm text-center"
+              />
             </div>
           </motion.div>
         )}
