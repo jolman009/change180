@@ -27,6 +27,17 @@ const resources: Resource[] = [
     type: "worksheet",
     downloadUrl: "/downloads/5-day-faith-reflection-journal.html",
   },
+  {
+    id: "life-balance-assessment",
+    title: "Life Balance & Wellness Assessment",
+    titleEs: "Evaluación de Equilibrio de Vida y Bienestar",
+    description:
+      "A 5-7 minute self-assessment to discover which areas of your life are thriving and which need attention. Covers emotional wellness, faith, relationships, purpose, self-care, and confidence.",
+    descriptionEs:
+      "Una autoevaluación de 5-7 minutos para descubrir qué áreas de tu vida están prosperando y cuáles necesitan atención. Cubre bienestar emocional, fe, relaciones, propósito, autocuidado y confianza.",
+    type: "worksheet",
+    downloadUrl: "/downloads/life-balance-wellness-assessment.html",
+  },
 ];
 
 const typeIcons = {

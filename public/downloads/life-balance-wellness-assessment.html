@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Balance & Wellness Assessment | Change180</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #e8a87c;
+      --primary-dark: #d4956a;
+      --text: #4a4a4a;
+      --text-light: #6b6b6b;
+      --bg: #faf8f5;
+      --border: #e5e0d8;
+      --success: #7cb87c;
+      --warning: #e8c87c;
+      --alert: #e88a7c;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.6in;
+      page-break-after: always;
+      min-height: 11in;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text);
+    }
+
+    /* Cover Page */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg) 0%, #fff 100%);
+    }
+
+    .cover-logo {
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1em;
+    }
+
+    .cover h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .cover .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .cover .time-badge {
+      background: var(--primary);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+
+    .cover .description {
+      max-width: 450px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .cover .tagline {
+      font-style: italic;
+      color: var(--primary-dark);
+      font-size: 1.1rem;
+      margin-top: 2.5rem;
+      max-width: 400px;
+    }
+
+    .cover .author {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Instructions Page */
+    .instructions {
+      padding-top: 0.5in;
+    }
+
+    .instructions h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+      color: var(--primary-dark);
+    }
+
+    .instructions p {
+      margin-bottom: 1rem;
+    }
+
+    .how-it-works {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .how-it-works h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .how-it-works ol {
+      padding-left: 1.25rem;
+    }
+
+    .how-it-works li {
+      margin-bottom: 0.75rem;
+    }
+
+    .scale-legend {
+      display: flex;
+      justify-content: space-between;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .scale-item {
+      text-align: center;
+      flex: 1;
+    }
+
+    .scale-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .scale-label {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+    }
+
+    /* Assessment Sections */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .section-title h2 {
+      font-size: 1.35rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .section-title .description {
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    .question {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .question:last-child {
+      border-bottom: none;
+    }
+
+    .question-text {
+      flex: 1;
+      font-size: 0.9rem;
+    }
+
+    .rating-circles {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .rating-circle {
+      width: 28px;
+      height: 28px;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+
+    .section-total {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 2px solid var(--primary);
+    }
+
+    .section-total-label {
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .section-total-box {
+      width: 60px;
+      height: 36px;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .section-total-max {
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    /* Results Page */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .result-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .result-box h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .result-score {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.25rem;
+    }
+
+    .result-score .score {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .result-score .max {
+      font-size: 1rem;
+      color: var(--text-light);
+    }
+
+    .total-score-box {
+      background: var(--primary);
+      color: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .total-score-box h3 {
+      color: white;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .total-score-box .score {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .total-score-box .max {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+
+    .score-ranges {
+      margin: 1.5rem 0;
+    }
+
+    .score-range {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .score-range.high {
+      background: rgba(124, 184, 124, 0.15);
+      border-left: 4px solid var(--success);
+    }
+
+    .score-range.medium {
+      background: rgba(232, 200, 124, 0.15);
+      border-left: 4px solid var(--warning);
+    }
+
+    .score-range.low {
+      background: rgba(232, 138, 124, 0.15);
+      border-left: 4px solid var(--alert);
+    }
+
+    .range-numbers {
+      font-weight: 700;
+      min-width: 70px;
+    }
+
+    .range-description {
+      font-size: 0.9rem;
+    }
+
+    /* Reflection Section */
+    .reflection-box {
+      background: var(--bg);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin: 1rem 0;
+    }
+
+    .reflection-box h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary-dark);
+    }
+
+    .writing-lines {
+      border-bottom: 1px solid var(--border);
+      min-height: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .writing-area {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-height: 80px;
+      background: white;
+    }
+
+    /* Next Steps */
+    .next-steps {
+      margin-top: 1.5rem;
+    }
+
+    .next-steps h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .step-card {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--bg);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-content p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* CTA Box */
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .cta-box h3 {
+      color: white;
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-box p {
+      opacity: 0.95;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .cta-box .url {
+      background: white;
+      color: var(--primary-dark);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        padding: 0.5in;
+        margin: 0;
+      }
+
+      .no-print {
+        display: none;
+      }
+    }
+
+    /* Screen-only download button */
+    .download-banner {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .download-banner button {
+      background: white;
+      color: var(--primary-dark);
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    @media print {
+      .download-banner {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Download Banner (screen only) -->
+  <div class="download-banner no-print">
+    To save as PDF: Press <strong>Ctrl+P</strong> (or Cmd+P on Mac) and select "Save as PDF"
+    <button onclick="window.print()">Print / Save PDF</button>
+  </div>
+
+  <!-- Cover Page -->
+  <div class="page cover">
+    <div class="cover-logo">CHANGE180</div>
+    <h1>Life Balance &<br>Wellness Assessment</h1>
+    <p class="subtitle">Discover Where You Are & Where You Want to Be</p>
+
+    <div class="time-badge">5-7 Minutes</div>
+
+    <p class="description">
+      This self-assessment helps you identify which areas of your life are thriving and which may need more attention. There are no right or wrong answers — just honest reflection to guide your next steps.
+    </p>
+
+    <p class="tagline">"You can't change what you don't acknowledge."</p>
+
+    <p class="author">Created by Myra Z. Guzman, M.Ed.<br>change180.org</p>
+  </div>
+
+  <!-- Instructions Page -->
+  <div class="page instructions">
+    <h2>How to Take This Assessment</h2>
+
+    <p>This assessment covers six key areas of life. For each statement, rate how true it feels for you <strong>right now</strong> — not where you want to be, but where you honestly are today.</p>
+
+    <div class="how-it-works">
+      <h3>Instructions:</h3>
+      <ol>
+        <li>Read each statement carefully</li>
+        <li>Circle the number (1-5) that best represents your current reality</li>
+        <li>Be honest — this is for your eyes only</li>
+        <li>Add up your score for each section</li>
+        <li>Transfer your section totals to the results page</li>
+        <li>Reflect on what your scores reveal about your life right now</li>
+      </ol>
+    </div>
+
+    <h3 style="margin-top: 1.5rem; margin-bottom: 1rem;">Rating Scale</h3>
+    <div class="scale-legend">
+      <div class="scale-item">
+        <div class="scale-number">1</div>
+        <div class="scale-label">Not at all<br>true</div>
+      </div>
+      <div class="scale-item">
+        <div class="scale-number">2</div>
+        <div class="scale-label">Rarely<br>true</div>
+      </div>
+      <div class="scale-item">
+        <div class="scale-number">3</div>
+        <div class="scale-label">Sometimes<br>true</div>
+      </div>
+      <div class="scale-item">
+        <div class="scale-number">4</div>
+        <div class="scale-label">Often<br>true</div>
+      </div>
+      <div class="scale-item">
+        <div class="scale-number">5</div>
+        <div class="scale-label">Very<br>true</div>
+      </div>
+    </div>
+
+    <div style="background: var(--bg); border-left: 4px solid var(--primary); padding: 1rem; margin-top: 1.5rem; border-radius: 0 8px 8px 0;">
+      <p style="margin: 0; font-style: italic; color: var(--text-light);">
+        <strong>Remember:</strong> This assessment is a starting point, not a diagnosis. It's designed to help you see patterns and identify areas where coaching support might be most beneficial.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 1: Emotional Wellness -->
+  <div class="page">
+    <div class="section-header">
+      <div class="section-icon">1</div>
+      <div class="section-title">
+        <h2>Emotional Wellness</h2>
+        <span class="description">How you're managing stress, emotions, and mental health</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I feel in control of my emotions most days.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I have healthy ways to cope when I feel stressed or overwhelmed.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I can identify and name what I'm feeling when emotions arise.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I don't feel constantly anxious, worried, or on edge.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I feel hopeful about my future.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span class="section-total-label">Section 1 Total:</span>
+      <div class="section-total-box"></div>
+      <span class="section-total-max">/ 25</span>
+    </div>
+
+    <!-- Section 2: Faith & Spirituality -->
+    <div class="section-header" style="margin-top: 2rem;">
+      <div class="section-icon">2</div>
+      <div class="section-title">
+        <h2>Faith & Spirituality</h2>
+        <span class="description">Your connection to God and spiritual practices</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I feel connected to God in my daily life.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I have regular spiritual practices (prayer, reading, meditation, etc.).</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I trust that God has a plan for my life, even when things are hard.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">My faith gives me strength and comfort during difficult times.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I feel part of a faith community that supports me.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span class="section-total-label">Section 2 Total:</span>
+      <div class="section-total-box"></div>
+      <span class="section-total-max">/ 25</span>
+    </div>
+  </div>
+
+  <!-- Section 3 & 4 -->
+  <div class="page">
+    <div class="section-header">
+      <div class="section-icon">3</div>
+      <div class="section-title">
+        <h2>Relationships & Family</h2>
+        <span class="description">Connection with loved ones and support systems</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I have at least one person I can talk to openly and honestly.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I communicate effectively with my family/loved ones.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I feel supported and understood by the people closest to me.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I can set healthy boundaries without feeling guilty.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">Conflict in my relationships gets resolved in healthy ways.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span class="section-total-label">Section 3 Total:</span>
+      <div class="section-total-box"></div>
+      <span class="section-total-max">/ 25</span>
+    </div>
+
+    <!-- Section 4: Purpose & Direction -->
+    <div class="section-header" style="margin-top: 2rem;">
+      <div class="section-icon">4</div>
+      <div class="section-title">
+        <h2>Purpose & Direction</h2>
+        <span class="description">Clarity about your goals and life's meaning</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I have a clear sense of what I want in life.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I feel like my daily activities align with my values and beliefs.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I am making progress toward goals that matter to me.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I feel a sense of meaning and purpose in my life.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I feel confident about the direction my life is heading.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span class="section-total-label">Section 4 Total:</span>
+      <div class="section-total-box"></div>
+      <span class="section-total-max">/ 25</span>
+    </div>
+  </div>
+
+  <!-- Section 5 & 6 -->
+  <div class="page">
+    <div class="section-header">
+      <div class="section-icon">5</div>
+      <div class="section-title">
+        <h2>Self-Care & Energy</h2>
+        <span class="description">How you're caring for yourself physically and mentally</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I get enough sleep and rest most nights.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I make time for activities that bring me joy and relaxation.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I have enough energy to do the things that matter to me.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I don't feel constantly exhausted or burned out.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I prioritize taking care of myself without feeling guilty.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span class="section-total-label">Section 5 Total:</span>
+      <div class="section-total-box"></div>
+      <span class="section-total-max">/ 25</span>
+    </div>
+
+    <!-- Section 6: Confidence & Self-Worth -->
+    <div class="section-header" style="margin-top: 2rem;">
+      <div class="section-icon">6</div>
+      <div class="section-title">
+        <h2>Confidence & Self-Worth</h2>
+        <span class="description">How you see and value yourself</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I believe I am worthy of love, success, and happiness.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I speak kindly to myself, even when I make mistakes.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I feel confident in my ability to handle life's challenges.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I don't constantly compare myself to others.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="question">
+      <span class="question-text">I recognize my strengths and feel good about who I am.</span>
+      <div class="rating-circles">
+        <div class="rating-circle">1</div>
+        <div class="rating-circle">2</div>
+        <div class="rating-circle">3</div>
+        <div class="rating-circle">4</div>
+        <div class="rating-circle">5</div>
+      </div>
+    </div>
+
+    <div class="section-total">
+      <span class="section-total-label">Section 6 Total:</span>
+      <div class="section-total-box"></div>
+      <span class="section-total-max">/ 25</span>
+    </div>
+  </div>
+
+  <!-- Results Page -->
+  <div class="page">
+    <h2 style="text-align: center; font-size: 1.75rem; margin-bottom: 1.5rem;">Your Results</h2>
+
+    <p style="text-align: center; color: var(--text-light); margin-bottom: 1.5rem;">Transfer your section totals below to see your overall life balance picture.</p>
+
+    <div class="results-grid">
+      <div class="result-box">
+        <h4>1. Emotional Wellness</h4>
+        <div class="result-score">
+          <span class="score">__</span>
+          <span class="max">/ 25</span>
+        </div>
+      </div>
+      <div class="result-box">
+        <h4>2. Faith & Spirituality</h4>
+        <div class="result-score">
+          <span class="score">__</span>
+          <span class="max">/ 25</span>
+        </div>
+      </div>
+      <div class="result-box">
+        <h4>3. Relationships & Family</h4>
+        <div class="result-score">
+          <span class="score">__</span>
+          <span class="max">/ 25</span>
+        </div>
+      </div>
+      <div class="result-box">
+        <h4>4. Purpose & Direction</h4>
+        <div class="result-score">
+          <span class="score">__</span>
+          <span class="max">/ 25</span>
+        </div>
+      </div>
+      <div class="result-box">
+        <h4>5. Self-Care & Energy</h4>
+        <div class="result-score">
+          <span class="score">__</span>
+          <span class="max">/ 25</span>
+        </div>
+      </div>
+      <div class="result-box">
+        <h4>6. Confidence & Self-Worth</h4>
+        <div class="result-score">
+          <span class="score">__</span>
+          <span class="max">/ 25</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="total-score-box">
+      <h3>Total Score</h3>
+      <div>
+        <span class="score">____</span>
+        <span class="max">/ 150</span>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 1.5rem; margin-bottom: 1rem;">Understanding Your Score</h3>
+
+    <div class="score-ranges">
+      <div class="score-range high">
+        <span class="range-numbers">120-150</span>
+        <span class="range-description"><strong>Thriving</strong> — You're doing well! Coaching can help you reach even higher and maintain your growth.</span>
+      </div>
+      <div class="score-range medium">
+        <span class="range-numbers">80-119</span>
+        <span class="range-description"><strong>Growing</strong> — Some areas are solid, others need attention. Coaching can provide targeted support.</span>
+      </div>
+      <div class="score-range low">
+        <span class="range-numbers">30-79</span>
+        <span class="range-description"><strong>Struggling</strong> — You're facing real challenges. Coaching can help you build a foundation for change.</span>
+      </div>
+    </div>
+
+    <div class="reflection-box">
+      <h4>Which area scored the lowest?</h4>
+      <div class="writing-lines"></div>
+      <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem;">This may be where you'd benefit most from focused support.</p>
+    </div>
+  </div>
+
+  <!-- Reflection & Next Steps Page -->
+  <div class="page">
+    <h2 style="font-size: 1.5rem; margin-bottom: 1.25rem;">Reflection Questions</h2>
+
+    <div class="reflection-box">
+      <h4>What surprised you about your results?</h4>
+      <div class="writing-area"></div>
+    </div>
+
+    <div class="reflection-box">
+      <h4>If one area could improve, which would make the biggest difference in your life right now?</h4>
+      <div class="writing-area"></div>
+    </div>
+
+    <div class="reflection-box">
+      <h4>What's one small step you could take this week toward improvement in that area?</h4>
+      <div class="writing-area"></div>
+    </div>
+
+    <div class="next-steps">
+      <h3>Recommended Next Steps</h3>
+
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h4>Identify Your Focus Area</h4>
+          <p>Look at your lowest scoring section. This is likely where coaching support would have the greatest impact.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h4>Book a Discovery Session</h4>
+          <p>A free discovery call helps us explore your unique situation and determine if coaching is right for you.</p>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h4>Start with One Change</h4>
+          <p>Transformation happens one step at a time. Pick one small action you can take this week.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Ready to Take the Next Step?</h3>
+      <p>Book a free discovery call to discuss your results and explore how faith-centered coaching can support your journey.</p>
+      <div class="url">change180.org</div>
+    </div>
+
+    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.85rem; color: var(--text-light);">
+      <p><strong>Change180 Life Coaching</strong><br>
+      Myra Z. Guzman, M.Ed.<br>
+      change180lifecoach@gmail.com</p>
+    </div>
+  </div>
+
+</body>
+</html>
