@@ -96,6 +96,12 @@ const Navigation = () => {
             >
               {t("nav.blog")}
             </Link>
+            <Link
+              to="/resources"
+              className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm tracking-wide"
+            >
+              {t("nav.resources")}
+            </Link>
 
             {/* Language Toggle */}
             <div className="flex items-center gap-1 text-sm">
@@ -157,6 +163,13 @@ const Navigation = () => {
                 className="text-left text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
               >
                 {t("nav.blog")}
+              </Link>
+              <Link
+                to="/resources"
+                onClick={() => setIsOpen(false)}
+                className="text-left text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+              >
+                {t("nav.resources")}
               </Link>
 
               {/* Mobile Language Toggle */}

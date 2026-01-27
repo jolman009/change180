@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5-Day Faith & Reflection Journal | Change180</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #e8a87c;
+      --primary-dark: #d4956a;
+      --text: #4a4a4a;
+      --text-light: #6b6b6b;
+      --bg: #faf8f5;
+      --border: #e5e0d8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 0.75in;
+      page-break-after: always;
+      min-height: 11in;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text);
+    }
+
+    /* Cover Page */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg) 0%, #fff 100%);
+    }
+
+    .cover-logo {
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: 0.1em;
+    }
+
+    .cover h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .cover .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .cover .tagline {
+      font-style: italic;
+      color: var(--primary-dark);
+      font-size: 1.1rem;
+      margin-top: 3rem;
+      max-width: 400px;
+    }
+
+    .cover .author {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    /* Intro Page */
+    .intro h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-dark);
+    }
+
+    .intro p {
+      margin-bottom: 1rem;
+    }
+
+    .intro ul {
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .intro li {
+      margin-bottom: 0.75rem;
+    }
+
+    .scripture-box {
+      background: var(--bg);
+      border-left: 4px solid var(--primary);
+      padding: 1.25rem;
+      margin: 2rem 0;
+      font-style: italic;
+    }
+
+    .scripture-box cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    /* Day Pages */
+    .day-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .day-number {
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .day-title h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .day-title .theme {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .section {
+      margin-bottom: 1.5rem;
+    }
+
+    .section h3 {
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .writing-lines {
+      border-bottom: 1px solid var(--border);
+      min-height: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .writing-area {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      min-height: 100px;
+      background: #fafafa;
+    }
+
+    .gratitude-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .gratitude-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gratitude-list li::before {
+      content: "♥";
+      color: var(--primary);
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .daily-verse {
+      background: var(--bg);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .daily-verse p {
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .daily-verse cite {
+      font-size: 0.85rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .page-footer {
+      position: absolute;
+      bottom: 0.5in;
+      left: 0.75in;
+      right: 0.75in;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+      padding-top: 0.5rem;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        padding: 0.5in;
+        margin: 0;
+      }
+
+      .no-print {
+        display: none;
+      }
+    }
+
+    /* Screen-only download button */
+    .download-banner {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .download-banner button {
+      background: white;
+      color: var(--primary-dark);
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    @media print {
+      .download-banner {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Download Banner (screen only) -->
+  <div class="download-banner no-print">
+    To save as PDF: Press <strong>Ctrl+P</strong> (or Cmd+P on Mac) and select "Save as PDF"
+    <button onclick="window.print()">Print / Save PDF</button>
+  </div>
+
+  <!-- Cover Page -->
+  <div class="page cover">
+    <div class="cover-logo">CHANGE180</div>
+    <h1>5-Day Faith &<br>Reflection Journal</h1>
+    <p class="subtitle">A Guided Journey to Pause, Reflect & Grow</p>
+
+    <p class="tagline">"You don't need to have it all figured out — you just need a willingness to take the next step."</p>
+
+    <p class="author">Created by Myra Z. Guzman, M.Ed.<br>change180.org</p>
+  </div>
+
+  <!-- Introduction Page -->
+  <div class="page intro">
+    <h2>Welcome to Your Reflection Journey</h2>
+
+    <p>This 5-day guided journal is designed to help you slow down, reconnect with your faith, and take intentional steps toward the life you're called to live.</p>
+
+    <p>Each day includes:</p>
+    <ul>
+      <li><strong>A Scripture Focus</strong> — A verse to meditate on throughout the day</li>
+      <li><strong>Morning Reflection</strong> — Start your day with intention and gratitude</li>
+      <li><strong>Journaling Prompts</strong> — Guided questions to explore your thoughts and feelings</li>
+      <li><strong>Evening Review</strong> — End your day with reflection and rest</li>
+    </ul>
+
+    <div class="scripture-box">
+      <p>"For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future."</p>
+      <cite>— Jeremiah 29:11 (NIV)</cite>
+    </div>
+
+    <h3>How to Use This Journal</h3>
+    <p>Find a quiet space each morning and evening. There are no right or wrong answers — this is your personal space to be honest, vulnerable, and open to growth. Trust the process and trust that God is working in your heart.</p>
+
+    <p style="margin-top: 2rem; font-style: italic; color: var(--primary-dark);">You are not broken — you are becoming.</p>
+  </div>
+
+  <!-- Day 1 -->
+  <div class="page">
+    <div class="day-header">
+      <div class="day-number">1</div>
+      <div class="day-title">
+        <h2>Gratitude & Presence</h2>
+        <span class="theme">Theme: Being Present in God's Goodness</span>
+      </div>
+    </div>
+
+    <div class="daily-verse">
+      <p>"This is the day the Lord has made; let us rejoice and be glad in it."</p>
+      <cite>— Psalm 118:24</cite>
+    </div>
+
+    <div class="section">
+      <h3>Morning Gratitude</h3>
+      <p>List 3 things you're grateful for today:</p>
+      <ul class="gratitude-list">
+        <li><div class="writing-lines" style="flex: 1;"></div></li>
+        <li><div class="writing-lines" style="flex: 1;"></div></li>
+        <li><div class="writing-lines" style="flex: 1;"></div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Reflection Prompt</h3>
+      <p>What does being "present" look like in your life right now? Where do you struggle to stay present?</p>
+      <div class="writing-area"></div>
+    </div>
+
+    <div class="section">
+      <h3>Today's Intention</h3>
+      <p>One thing I will do today to be more present:</p>
+      <div class="writing-lines"></div>
+      <div class="writing-lines"></div>
+    </div>
+
+    <div class="section">
+      <h3>Evening Reflection</h3>
+      <p>How did God show up for you today?</p>
+      <div class="writing-area" style="min-height: 80px;"></div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="page">
+    <div class="day-header">
+      <div class="day-number">2</div>
+      <div class="day-title">
+        <h2>Letting Go of Worry</h2>
+        <span class="theme">Theme: Trusting God with Your Concerns</span>
+      </div>
+    </div>
+
+    <div class="daily-verse">
+      <p>"Cast all your anxiety on him because he cares for you."</p>
+      <cite>— 1 Peter 5:7</cite>
+    </div>
+
+    <div class="section">
+      <h3>Morning Check-In</h3>
+      <p>What's weighing on your heart this morning?</p>
+      <div class="writing-area" style="min-height: 70px;"></div>
+    </div>
+
+    <div class="section">
+      <h3>Reflection Prompt</h3>
+      <p>What would it look like to truly "cast" this worry onto God? What's holding you back from letting go?</p>
+      <div class="writing-area"></div>
+    </div>
+
+    <div class="section">
+      <h3>Release & Receive</h3>
+      <p>I release to God:</p>
+      <div class="writing-lines"></div>
+      <div class="writing-lines"></div>
+      <p style="margin-top: 1rem;">I receive from God:</p>
+      <div class="writing-lines"></div>
+      <div class="writing-lines"></div>
+    </div>
+
+    <div class="section">
+      <h3>Evening Reflection</h3>
+      <p>Where did you experience peace today?</p>
+      <div class="writing-area" style="min-height: 70px;"></div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="page">
+    <div class="day-header">
+      <div class="day-number">3</div>
+      <div class="day-title">
+        <h2>Strength in Weakness</h2>
+        <span class="theme">Theme: Finding Power Through Surrender</span>
+      </div>
+    </div>
+
+    <div class="daily-verse">
+      <p>"My grace is sufficient for you, for my power is made perfect in weakness."</p>
+      <cite>— 2 Corinthians 12:9</cite>
+    </div>
+
+    <div class="section">
+      <h3>Morning Gratitude</h3>
+      <p>List 3 things you're grateful for today:</p>
+      <ul class="gratitude-list">
+        <li><div class="writing-lines" style="flex: 1;"></div></li>
+        <li><div class="writing-lines" style="flex: 1;"></div></li>
+        <li><div class="writing-lines" style="flex: 1;"></div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Reflection Prompt</h3>
+      <p>Where in your life do you feel weak or inadequate? How might God be inviting you to lean on His strength instead of your own?</p>
+      <div class="writing-area"></div>
+    </div>
+
+    <div class="section">
+      <h3>Affirmation</h3>
+      <p>Complete this sentence: "Even though I struggle with _____________, I am still worthy of _____________ because _____________."</p>
+      <div class="writing-area" style="min-height: 70px;"></div>
+    </div>
+
+    <div class="section">
+      <h3>Evening Reflection</h3>
+      <p>What's one way you showed yourself grace today?</p>
+      <div class="writing-lines"></div>
+      <div class="writing-lines"></div>
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="page">
+    <div class="day-header">
+      <div class="day-number">4</div>
+      <div class="day-title">
+        <h2>Purpose & Direction</h2>
+        <span class="theme">Theme: Discovering God's Plan for You</span>
+      </div>
+    </div>
+
+    <div class="daily-verse">
+      <p>"Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight."</p>
+      <cite>— Proverbs 3:5-6</cite>
+    </div>
+
+    <div class="section">
+      <h3>Morning Intention</h3>
+      <p>What's one area of your life where you're seeking clarity or direction?</p>
+      <div class="writing-area" style="min-height: 70px;"></div>
+    </div>
+
+    <div class="section">
+      <h3>Reflection Prompt</h3>
+      <p>If you knew you couldn't fail, what would you pursue? What's one small step you could take toward that dream?</p>
+      <div class="writing-area"></div>
+    </div>
+
+    <div class="section">
+      <h3>My God-Given Strengths</h3>
+      <p>List 3 gifts, talents, or qualities God has given you:</p>
+      <div class="checkbox-item"><div class="checkbox"></div><div class="writing-lines" style="flex: 1;"></div></div>
+      <div class="checkbox-item"><div class="checkbox"></div><div class="writing-lines" style="flex: 1;"></div></div>
+      <div class="checkbox-item"><div class="checkbox"></div><div class="writing-lines" style="flex: 1;"></div></div>
+    </div>
+
+    <div class="section">
+      <h3>Evening Reflection</h3>
+      <p>What "next step" is God inviting you to take?</p>
+      <div class="writing-area" style="min-height: 70px;"></div>
+    </div>
+  </div>
+
+  <!-- Day 5 -->
+  <div class="page">
+    <div class="day-header">
+      <div class="day-number">5</div>
+      <div class="day-title">
+        <h2>New Beginnings</h2>
+        <span class="theme">Theme: Embracing Your 180-Degree Turn</span>
+      </div>
+    </div>
+
+    <div class="daily-verse">
+      <p>"Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"</p>
+      <cite>— 2 Corinthians 5:17</cite>
+    </div>
+
+    <div class="section">
+      <h3>Morning Gratitude</h3>
+      <p>List 3 things you're grateful for from this week:</p>
+      <ul class="gratitude-list">
+        <li><div class="writing-lines" style="flex: 1;"></div></li>
+        <li><div class="writing-lines" style="flex: 1;"></div></li>
+        <li><div class="writing-lines" style="flex: 1;"></div></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Week in Review</h3>
+      <p>Looking back at this week, what's one insight or truth that stood out to you?</p>
+      <div class="writing-area"></div>
+    </div>
+
+    <div class="section">
+      <h3>Moving Forward</h3>
+      <p>What's one thing you want to leave behind? What's one thing you want to carry forward?</p>
+      <p><strong>I'm leaving behind:</strong></p>
+      <div class="writing-lines"></div>
+      <p style="margin-top: 0.75rem;"><strong>I'm carrying forward:</strong></p>
+      <div class="writing-lines"></div>
+    </div>
+
+    <div class="section">
+      <h3>My Commitment</h3>
+      <p>One change I commit to making as I move forward:</p>
+      <div class="writing-area" style="min-height: 70px;"></div>
+    </div>
+  </div>
+
+  <!-- Closing Page -->
+  <div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+    <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">You Did It!</h2>
+
+    <p style="max-width: 500px; margin-bottom: 2rem;">Congratulations on completing your 5-day reflection journey. Remember, transformation is a process — not a destination. Keep seeking, keep growing, and keep trusting that God is working in your life.</p>
+
+    <div class="scripture-box" style="max-width: 450px;">
+      <p>"Being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus."</p>
+      <cite>— Philippians 1:6</cite>
+    </div>
+
+    <div style="margin-top: 3rem;">
+      <p style="font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem;">Ready for Deeper Transformation?</p>
+      <p style="font-size: 0.9rem; color: var(--text-light);">Book a free discovery call at <strong>change180.org</strong></p>
+    </div>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); width: 100%; max-width: 400px;">
+      <p style="font-size: 0.85rem; color: var(--text-light);">
+        <strong>Change180 Life Coaching</strong><br>
+        Myra Z. Guzman, M.Ed.<br>
+        change180.org | change180lifecoach@gmail.com
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
