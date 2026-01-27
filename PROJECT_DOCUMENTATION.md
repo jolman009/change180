@@ -443,6 +443,31 @@ npm run test:watch # Run tests in watch mode
 
 **Technologies**: Custom event system or Eventbrite integration
 
+#### 16. Free "Taster" Resources (Lead Magnets)
+**Description**: Offer free, high-value downloadable content in exchange for newsletter subscriptions.
+- Guided journal worksheets (PDF downloads)
+- Mini-eBook on topics like "Finding Peace in Chaos"
+- 5-day email course on faith-centered growth
+- Printable reflection guides and workbooks
+- Free resources library for subscribers
+
+**Benefit**: Rapidly grow an email list with qualified leads genuinely interested in coaching topics. Provides a sample of Myra's value, nurturing potential clients until they're ready to purchase. Directly supports the planned Email Newsletter Integration.
+
+**Technologies**: Resend/ConvertKit for email delivery, PDF hosting, gated content with email capture forms
+
+#### 17. Workshops & Webinars Hub
+**Description**: Dedicated section for upcoming live events, group workshops, and introductory webinars.
+- Event listing page with dates, descriptions, and pricing
+- Free introductory webinars (lead generation)
+- Paid group workshops (lower-commitment entry point)
+- Registration/payment flow integration
+- Replay access for registered attendees
+- Calendar integration (.ics downloads)
+
+**Benefit**: Opens a new revenue stream and "top-of-funnel" offering. Free webinars attract a wider audience, while paid workshops offer a lower-commitment alternative to full coaching packages—often converting attendees into one-on-one clients later.
+
+**Technologies**: Zoom/Google Meet for live sessions, Eventbrite or custom registration, Stripe for payments
+
 ---
 
 ## Implementation Recommendations
@@ -468,10 +493,12 @@ npm run test:watch # Run tests in watch mode
 - [x] Add blog/resources section (Markdown-based)
 - [ ] Create FAQ section
 - [ ] Add video testimonials
+- [ ] Free "Taster" Resources / Lead Magnets (worksheets, mini-eBook, email course)
 
 ### Phase 4 (Scale)
 - [ ] Client portal with authentication
 - [ ] Digital products store
+- [ ] Workshops & Webinars Hub (live events, registration, replays)
 - [ ] Advanced analytics and A/B testing
 
 ---
@@ -502,4 +529,4 @@ VITE_EMAILJS_PUBLIC_KEY=xxxxx
 
 ---
 
-*Last updated: January 26, 2025*
+*Last updated: January 27, 2025*
