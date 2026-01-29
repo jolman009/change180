@@ -97,6 +97,12 @@ const Navigation = () => {
               {t("nav.blog")}
             </Link>
             <Link
+  to="/quiz"
+  className="text-primary hover:text-primary/80 transition-colors font-medium text-sm tracking-wide"
+>
+  {t("nav.quiz")}
+</Link>
+            <Link
               to="/resources"
               className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm tracking-wide"
             >
@@ -164,6 +170,13 @@ const Navigation = () => {
               >
                 {t("nav.blog")}
               </Link>
+              <Link
+  to="/quiz"
+  className="block py-3 text-primary font-medium"
+  onClick={() => setIsOpen(false)}
+>
+  {t("nav.quiz")}
+</Link>
               <Link
                 to="/resources"
                 onClick={() => setIsOpen(false)}

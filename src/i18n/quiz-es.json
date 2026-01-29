@@ -1,0 +1,211 @@
+{
+  "quiz": {
+    "meta": {
+      "title": "Encuentra Tu Paquete de Coaching Ideal",
+      "description": "Responde nuestro cuestionario de 2 minutos para descubrir qué programa de coaching se alinea con tu camino."
+    },
+    "intro": {
+      "badge": "Evaluación Gratuita",
+      "headline": "Descubre Tu Camino",
+      "subheadline": "Responde 6 preguntas rápidas para encontrar el paquete de coaching ideal para ti.",
+      "benefits": [
+        "Recomendación personalizada",
+        "Solo toma 2 minutos",
+        "Sin compromiso"
+      ],
+      "startButton": "Comenzar el Cuestionario",
+      "privacy": "Tus respuestas son confidenciales y nos ayudan a servirte mejor."
+    },
+    "progress": {
+      "question": "Pregunta",
+      "of": "de"
+    },
+    "questions": {
+      "lifeStage": "¿Cuál describe mejor tu etapa de vida actual?",
+      "challenge": "¿Cuál es tu mayor desafío en este momento?",
+      "goals": "¿Qué esperas lograr con el coaching?",
+      "commitment": "¿Qué tan listo/a estás para invertir en tu crecimiento?",
+      "faithImportance": "¿Qué tan importante es la fe en tu camino de crecimiento?",
+      "urgency": "¿Qué te impulsa a buscar coaching ahora?"
+    },
+    "options": {
+      "lifeStage": {
+        "single": "Soltero/a / Independiente",
+        "marriedNoKids": "Casado/a / En pareja (sin hijos)",
+        "parentYoung": "Padre/Madre de niños pequeños (0-12)",
+        "parentTeens": "Padre/Madre de adolescentes (13-18)",
+        "emptyNester": "Nido vacío / Hijos adultos",
+        "caregiver": "Cuidador de padres mayores"
+      },
+      "challenge": {
+        "stressOverwhelm": "Estrés y agotamiento",
+        "relationships": "Dificultades en relaciones",
+        "careerPurpose": "Confusión sobre carrera o propósito",
+        "parenting": "Desafíos de crianza",
+        "faithSpiritual": "Preguntas de fe o espirituales",
+        "lifeTransition": "Transición importante de vida"
+      },
+      "goals": {
+        "clarityDirection": "Obtener claridad y dirección",
+        "healingPeace": "Encontrar sanación y paz interior",
+        "personalGrowth": "Experimentar crecimiento personal",
+        "familyHarmony": "Crear armonía familiar",
+        "confidence": "Construir confianza y autoestima",
+        "faithAlignment": "Profundizar la alineación con la fe"
+      },
+      "commitment": {
+        "exploring": "Solo explorando — no estoy seguro/a aún",
+        "readyShort": "Listo/a para trabajo enfocado a corto plazo",
+        "readyInvest": "Listo/a para invertir en un cambio significativo",
+        "fullyCommitted": "Totalmente comprometido/a con la transformación"
+      },
+      "faithImportance": {
+        "central": "Central — la fe guía todo",
+        "important": "Importante — quiero que se incorpore",
+        "open": "Abierto/a — curioso/a por explorar",
+        "preferSecular": "Prefiero un enfoque secular"
+      },
+      "urgency": {
+        "crisis": "Estoy en crisis y necesito apoyo ahora",
+        "turningPoint": "He llegado a un punto de inflexión",
+        "gradualDesire": "Un deseo gradual de crecer",
+        "curious": "Solo tengo curiosidad sobre el coaching"
+      }
+    },
+    "navigation": {
+      "back": "Atrás",
+      "next": "Siguiente",
+      "seeResults": "Ver Mis Resultados"
+    },
+    "email": {
+      "headline": "¡Casi Listo!",
+      "subheadline": "Ingresa tus datos para recibir tus resultados personalizados y una hoja de ruta de crecimiento descargable.",
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "Tu nombre",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "tu@email.com",
+      "submitButton": "Obtener Mis Resultados",
+      "submitting": "Preparando tus resultados...",
+      "privacy": "Respetamos tu privacidad. Puedes cancelar en cualquier momento.",
+      "validation": {
+        "firstNameRequired": "Por favor ingresa tu nombre",
+        "emailRequired": "Por favor ingresa tu correo electrónico",
+        "emailInvalid": "Por favor ingresa un correo electrónico válido"
+      }
+    },
+    "results": {
+      "headline": "Tu Recomendación Personalizada",
+      "greeting": "Hola",
+      "basedOnAnswers": "Basado en tus respuestas, te recomendamos:",
+      "yourMatch": "Tu Coincidencia",
+      "matchScore": "coincidencia",
+      "whyThisPackage": "¿Por Qué Este Paquete?",
+      "alsoConsider": "También Podrías Considerar",
+      "whatYouGet": "Lo Que Obtendrás",
+      "price": "Inversión",
+      "duration": "Duración",
+      "bookNow": "Reserva Tu Sesión",
+      "downloadPdf": "Descarga Tu Hoja de Ruta (PDF)",
+      "downloadingPdf": "Generando PDF...",
+      "relatedResources": "Lectura Recomendada",
+      "readArticle": "Leer Artículo",
+      "retakeQuiz": "Repetir Cuestionario",
+      "questions": "¿Tienes preguntas? Hablemos.",
+      "contactUs": "Contáctanos",
+      "packageFeatures": {
+        "discovery": [
+          "Sesión profunda de 60 minutos",
+          "Clarifica tus metas y desafíos",
+          "Recibe próximos pasos personalizados",
+          "Explora si el coaching es para ti"
+        ],
+        "clarity": [
+          "Cuatro sesiones de coaching de 60 minutos",
+          "Plan de acción personalizado",
+          "Ejercicios de reflexión basados en la fe",
+          "Apoyo por email entre sesiones"
+        ],
+        "rooted": [
+          "Ocho sesiones de coaching de 60 minutos",
+          "Plan de crecimiento integral",
+          "Prácticas diarias basadas en la fe",
+          "Seguimiento de responsabilidad",
+          "Apoyo prioritario por email"
+        ],
+        "flourish": [
+          "Doce sesiones de coaching de 60 minutos",
+          "Hoja de ruta de transformación completa",
+          "Sesiones de coaching familiar incluidas",
+          "Recursos de integración de fe",
+          "Apoyo ilimitado por email",
+          "Disponibilidad de sesiones de emergencia"
+        ],
+        "family": [
+          "Programación flexible de sesiones",
+          "Sesiones para padres y/o hijos",
+          "Herramientas de comunicación familiar",
+          "Estrategias apropiadas para la edad",
+          "Seguimiento de progreso"
+        ]
+      },
+      "messages": {
+        "discovery": {
+          "stressOverwhelm": "Parece que estás cargando un peso muy grande ahora mismo. Una Sesión de Descubrimiento te ayudará a identificar qué está causando tu estrés y crear un plan centrado en la fe para encontrar paz.",
+          "relationships": "Los desafíos en las relaciones pueden hacerte sentir aislado/a. Exploremos lo que está sucediendo y descubramos pasos prácticos hacia conexiones más saludables.",
+          "careerPurpose": "Sentirse inseguro/a sobre tu dirección es más común de lo que piensas. Una Sesión de Descubrimiento te ayudará a clarificar tu llamado y explorar tus opciones.",
+          "parenting": "La crianza es uno de los mayores desafíos de la vida. Hablemos sobre lo que estás experimentando y encontremos herramientas que se alineen con tus valores.",
+          "faithSpiritual": "Las preguntas sobre la fe a menudo surgen durante las transiciones de la vida. Una Sesión de Descubrimiento proporciona espacio para explorar estas preguntas con guía y compasión.",
+          "lifeTransition": "Las transiciones pueden ser desorientadoras, pero también son oportunidades de crecimiento. Descubramos lo que este nuevo capítulo puede tener para ti.",
+          "general": "Una Sesión de Descubrimiento es el punto de partida perfecto para explorar tus metas y ver si el coaching es adecuado para ti."
+        },
+        "clarity": {
+          "stressOverwhelm": "Cuatro semanas de apoyo enfocado pueden ayudarte a construir prácticas sostenibles de manejo del estrés enraizadas en la fe y la acción práctica.",
+          "relationships": "El Paquete Claridad te ayudará a identificar patrones de relación y desarrollar estrategias de comunicación más saludables en 4 semanas enfocadas.",
+          "careerPurpose": "Este paquete está diseñado para ayudarte a ganar claridad sobre tu camino profesional y propósito a través de reflexión guiada y planificación de acción.",
+          "parenting": "Cuatro semanas de apoyo dedicado a la crianza te equiparán con herramientas prácticas y confianza renovada.",
+          "faithSpiritual": "El Paquete Claridad te ayudará a reconectarte con tu fe y encontrar dirección en solo 4 semanas.",
+          "lifeTransition": "Navegar una transición requiere apoyo enfocado. Este programa de 4 semanas te ayudará a avanzar con claridad y confianza.",
+          "general": "El Paquete Claridad proporciona apoyo enfocado para ayudarte a ganar dirección e impulso en tu vida."
+        },
+        "rooted": {
+          "stressOverwhelm": "Tus respuestas muestran que estás listo/a para un cambio más profundo. El programa Arraigado y Renovado te ayudará a transformar tu relación con el estrés y construir paz duradera.",
+          "relationships": "Ocho semanas de trabajo profundo te ayudarán a entender los patrones de relación en su raíz y crear un cambio duradero en cómo te conectas con otros.",
+          "careerPurpose": "Este programa te ayudará no solo a encontrar dirección, sino a verdaderamente alinear tu vida con tu propósito y valores.",
+          "parenting": "El programa Arraigado y Renovado proporciona la profundidad necesaria para transformar tu enfoque de crianza y la dinámica familiar.",
+          "faithSpiritual": "Ocho semanas juntos te ayudarán a construir una base sólida de prácticas de fe que te sostendrán por años.",
+          "lifeTransition": "Este programa proporciona la profundidad de apoyo necesaria no solo para navegar tu transición, sino para emerger transformado/a.",
+          "general": "El programa Arraigado y Renovado ofrece la profundidad y el tiempo necesarios para una transformación significativa y duradera."
+        },
+        "flourish": {
+          "stressOverwhelm": "Tu compromiso con el cambio es claro. El programa Florecer proporciona apoyo integral para una transformación de vida completa.",
+          "relationships": "Doce semanas de coaching integral transformarán no solo relaciones individuales, sino cómo te presentas en todas tus conexiones.",
+          "careerPurpose": "El programa Florecer ofrece el tiempo y la profundidad para un verdadero discernimiento vocacional y alineación de vida.",
+          "parenting": "Este programa integral transformará todo tu sistema familiar, creando armonía que perdura.",
+          "faithSpiritual": "Doce semanas de coaching espiritual profundo te ayudarán a florecer en la fe y en cada área de tu vida.",
+          "lifeTransition": "El programa Florecer proporciona apoyo completo para una transformación total de vida durante este momento crucial.",
+          "general": "El programa Florecer es nuestra oferta más completa, diseñada para aquellos listos para una transformación total."
+        },
+        "family": {
+          "stressOverwhelm": "El estrés familiar afecta a todos en el hogar. El coaching familiar ayudará a toda tu familia a desarrollar patrones más saludables juntos.",
+          "relationships": "Las dinámicas familiares son complejas. Nuestro enfoque de coaching familiar aborda los desafíos de relación en su origen — dentro del sistema familiar.",
+          "careerPurpose": "Incluso las preguntas de carrera afectan la vida familiar. El coaching familiar puede ayudar a alinear a todos mientras navegas esta transición.",
+          "parenting": "Nuestro Coaching Familiar y de Padres está diseñado específicamente para los desafíos que enfrentas. Trabajaremos juntos para crear armonía en tu hogar.",
+          "faithSpiritual": "Construir una familia centrada en la fe requiere trabajo intencional. El coaching familiar te ayudará a nutrir el crecimiento espiritual de tu familia juntos.",
+          "lifeTransition": "Las transiciones afectan a toda la familia. El coaching familiar asegura que todos naveguen el cambio juntos con apoyo.",
+          "general": "El Coaching Familiar y de Padres proporciona apoyo flexible y dirigido para las necesidades únicas de tu familia."
+        }
+      }
+    },
+    "cta": {
+      "badge": "Cuestionario de 2 Minutos",
+      "headline": "¿No Sabes Por Dónde Empezar?",
+      "description": "Responde nuestra evaluación rápida para descubrir qué paquete de coaching se alinea con tu camino y metas.",
+      "button": "Encontrar Mi Camino",
+      "features": [
+        "Recomendación personalizada",
+        "Hoja de ruta PDF gratuita",
+        "Sin compromiso"
+      ]
+    }
+  }
+}

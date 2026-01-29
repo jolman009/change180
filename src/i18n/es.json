@@ -6,6 +6,7 @@
     "testimonials": "Testimonios",
     "contact": "Contacto",
     "blog": "Blog",
+    "quiz": "Tomar el Quiz",
     "resources": "Recursos",
     "bookSession": "Reservar una Sesión"
   },
@@ -203,6 +204,11 @@
       "title": "Coaching Familiar y para Padres",
       "description": "Sesión enfocada de 60 minutos para padres que buscan orientación, herramientas y apoyo.",
       "price": "$110/sesión"
+    },
+    "family": {
+      "name": "Coaching Familiar y para Padres",
+      "tagline": "Fortalece los lazos familiares",
+      "duration": "Sesión de 60 minutos"
     }
   },
   "testimonials": {
@@ -279,6 +285,167 @@
     "madeWith": "Hecho con",
     "forTransformation": "para la transformación",
     "disclaimer": "<brand>change180</brand> proporciona servicios de coaching, educación y consultoría. El coaching no es terapia y no reemplaza el tratamiento de salud mental. No se proporcionan diagnósticos ni servicios clínicos a través del coaching."
+  },
+  "quiz": {
+    "intro": {
+      "badge": "Evaluación Gratuita",
+      "headline": "Encuentra Tu Camino al Crecimiento",
+      "subheadline": "Responde algunas preguntas para descubrir qué paquete de coaching es el mejor para tu viaje.",
+      "benefits": ["Quiz de 2 minutos", "Resultados personalizados", "Sin compromiso"],
+      "startButton": "Comenzar el Quiz",
+      "privacy": "Tus respuestas son privadas y solo se usarán para personalizar tus resultados."
+    },
+    "navigation": {
+      "back": "Atrás",
+      "next": "Siguiente",
+      "seeResults": "Ver Mis Resultados"
+    },
+    "questions": {
+      "lifeStage": "¿Qué describe mejor tu etapa de vida actual?",
+      "challenge": "¿Cuál es tu mayor desafío en este momento?",
+      "goals": "¿Qué esperas lograr a través del coaching?",
+      "commitment": "¿Qué tan listo estás para invertir en tu crecimiento?",
+      "faithImportance": "¿Qué tan importante es la fe en tu viaje de crecimiento?",
+      "urgency": "¿Qué te impulsa a buscar coaching ahora?"
+    },
+    "options": {
+      "lifeStage": {
+        "single": "Soltero/a / Aún no casado/a",
+        "marriedNoKids": "Casado/a sin hijos",
+        "parentYoung": "Padre/madre de niños pequeños (0-12)",
+        "parentTeens": "Padre/madre de adolescentes o adultos jóvenes",
+        "emptyNester": "Nido vacío o jubilado/a",
+        "caregiver": "Cuidador/a de padres mayores o familia"
+      },
+      "challenge": {
+        "stressOverwhelm": "Estrés, ansiedad o sentirme abrumado/a",
+        "relationships": "Luchas en relaciones o problemas de comunicación",
+        "careerPurpose": "Confusión laboral o falta de propósito",
+        "parenting": "Desafíos de crianza o conflictos familiares",
+        "faithSpiritual": "Sequedad espiritual o sentirme desconectado/a de Dios",
+        "lifeTransition": "Transición importante (divorcio, pérdida, mudanza, etc.)"
+      },
+      "goals": {
+        "clarityDirection": "Claridad y dirección para mis próximos pasos",
+        "healingPeace": "Sanación, paz y bienestar emocional",
+        "personalGrowth": "Crecimiento personal y convertirme en mi mejor versión",
+        "familyHarmony": "Relaciones familiares más fuertes y armonía",
+        "confidence": "Más confianza y autoestima",
+        "faithAlignment": "Fe más profunda y alineación con el propósito de Dios"
+      },
+      "commitment": {
+        "exploring": "Solo explorando — tengo curiosidad sobre el coaching",
+        "readyShort": "Listo/a para apoyo enfocado a corto plazo",
+        "readyInvest": "Listo/a para invertir en un cambio significativo",
+        "fullyCommitted": "Totalmente comprometido/a con una transformación a largo plazo"
+      },
+      "faithImportance": {
+        "central": "Central — quiero que la fe esté en todo",
+        "important": "Importante — me gustaría guía basada en la fe",
+        "open": "Abierto/a a ello, pero no es esencial",
+        "preferSecular": "Prefiero un enfoque más secular"
+      },
+      "urgency": {
+        "crisis": "Estoy en crisis y necesito ayuda ahora",
+        "turningPoint": "Estoy en un punto de inflexión y listo/a para el cambio",
+        "gradualDesire": "He querido esto por un tiempo",
+        "curious": "Solo tengo curiosidad — sin prisa"
+      }
+    },
+    "email": {
+      "headline": "¡Casi Listo!",
+      "subheadline": "Ingresa tus datos para ver tus resultados personalizados y el camino de coaching recomendado.",
+      "firstName": "Nombre",
+      "firstNamePlaceholder": "Tu nombre",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "tu@correo.com",
+      "submitButton": "Ver Mis Resultados",
+      "submitting": "Procesando...",
+      "privacy": "Respetamos tu privacidad y nunca te enviaremos spam.",
+      "validation": {
+        "firstNameRequired": "Por favor ingresa tu nombre",
+        "emailRequired": "Por favor ingresa tu correo electrónico",
+        "emailInvalid": "Por favor ingresa un correo electrónico válido"
+      }
+    },
+    "results": {
+      "yourMatch": "Tu Combinación Perfecta",
+      "greeting": "Grandes noticias",
+      "basedOnAnswers": "Basado en tus respuestas, esto es lo que te recomendamos:",
+      "matchScore": "compatibilidad",
+      "whyThisPackage": "Por qué este paquete es ideal para ti:",
+      "whatYouGet": "Lo que obtendrás:",
+      "price": "Inversión",
+      "duration": "Duración",
+      "bookNow": "Reserva Tu Sesión Ahora",
+      "alsoConsider": "También vale la pena considerar:",
+      "downloadPdf": "Descarga Tu Hoja de Ruta",
+      "downloadingPdf": "Generando tu hoja de ruta...",
+      "relatedResources": "Lectura Recomendada",
+      "retakeQuiz": "Repetir Quiz",
+      "contactUs": "¿Tienes Preguntas?",
+      "questions": "¿Preguntas? Escríbenos a change180lifecoach@gmail.com",
+      "messages": {
+        "discovery": {
+          "general": "Estás al comienzo de un viaje emocionante. Una Sesión de Descubrimiento es la manera perfecta de explorar tus metas y ver si el coaching es para ti — sin presión.",
+          "stress-overwhelm": "Estás lidiando con mucho en este momento. Una Sesión de Descubrimiento te ayudará a identificar qué te está pesando y crear un primer paso claro.",
+          "career-purpose": "Sentirse inseguro sobre tu dirección es normal. Usemos esta sesión para ganar claridad sobre lo que más te importa.",
+          "curious": "¡La curiosidad es un gran punto de partida! Esta sesión te ayudará a explorar lo que el coaching puede ofrecerte sin ningún compromiso."
+        },
+        "clarity": {
+          "general": "Estás listo/a para un cambio enfocado. El Paquete Claridad te dará la estructura y el apoyo que necesitas para pasar de la confusión a la confianza.",
+          "life-transition": "Las transiciones de vida pueden sentirse abrumadoras, pero también son oportunidades de crecimiento. Este paquete te ayudará a navegar esta temporada con intención.",
+          "stress-overwhelm": "Cuatro semanas de apoyo enfocado pueden hacer una diferencia real cuando te sientes abrumado/a. Trabajemos juntos para encontrar tu paz."
+        },
+        "rooted": {
+          "general": "Estás listo/a para un cambio profundo y duradero. El programa Arraigado y Renovado te ayudará a abordar patrones y construir una base sólida para el crecimiento.",
+          "faith-spiritual": "Tu deseo de profundidad espiritual es hermoso. Este programa integra la fe en cada aspecto de tu viaje de transformación.",
+          "healing-peace": "La sanación toma tiempo y trabajo intencional. Ocho semanas nos dan el espacio para abordar problemas de raíz y construir paz duradera."
+        },
+        "flourish": {
+          "general": "Estás comprometido/a con una transformación integral. Florecer Adelante es nuestro programa más completo para aquellos listos para abrazar un cambio duradero.",
+          "fully-committed": "¡Tu nivel de compromiso es inspirador! Este viaje de 12 semanas te equipará con todo lo que necesitas para florecer en cada área de tu vida."
+        },
+        "family": {
+          "general": "La familia está en el corazón de lo que te importa. Nuestro coaching familiar te dará herramientas prácticas y guía basada en la fe para relaciones más fuertes.",
+          "parenting": "La crianza es gratificante y desafiante. Juntos, desarrollaremos estrategias que honren tus valores y apoyen el crecimiento de tus hijos."
+        }
+      },
+      "packageFeatures": {
+        "discovery": [
+          "Sesión profunda de 60 minutos",
+          "Evaluación personalizada",
+          "Recomendaciones claras para el siguiente paso",
+          "Guía centrada en la fe"
+        ],
+        "clarity": [
+          "Cuatro sesiones de 60 minutos",
+          "Plan de acción personalizado",
+          "Apoyo por correo entre sesiones",
+          "Ejercicios de reflexión basados en la fe"
+        ],
+        "rooted": [
+          "Ocho sesiones de 60 minutos",
+          "Plan de crecimiento personalizado",
+          "Prácticas diarias de fe",
+          "Seguimiento de responsabilidad",
+          "Apoyo prioritario por correo"
+        ],
+        "flourish": [
+          "Doce sesiones de 60 minutos",
+          "Plan de crecimiento integral",
+          "Herramientas y hojas de trabajo personalizadas",
+          "Programación prioritaria",
+          "Apoyo ilimitado por correo"
+        ],
+        "family": [
+          "Sesión familiar enfocada",
+          "Estrategias de crianza",
+          "Herramientas de comunicación",
+          "Guía familiar basada en la fe"
+        ]
+      }
+    }
   },
   "error": {
     "title": "Algo salió mal",

@@ -6,6 +6,7 @@
     "testimonials": "Testimonials",
     "contact": "Contact",
     "blog": "Blog",
+    "quiz": "Take the Quiz",
     "resources": "Resources",
     "bookSession": "Book a Session"
   },
@@ -203,6 +204,11 @@
       "title": "Family & Parent Coaching",
       "description": "60-minute focused session for parents seeking guidance, tools, and support.",
       "price": "$110/session"
+    },
+    "family": {
+      "name": "Family & Parent Coaching",
+      "tagline": "Strengthen your family bonds",
+      "duration": "60-minute session"
     }
   },
   "testimonials": {
@@ -279,6 +285,167 @@
     "madeWith": "Made with",
     "forTransformation": "for transformation",
     "disclaimer": "<brand>change180</brand> provides coaching, education, and consulting services. Coaching is not therapy and does not replace mental health treatment. No diagnosis or clinical services are provided through coaching."
+  },
+  "quiz": {
+    "intro": {
+      "badge": "Free Assessment",
+      "headline": "Find Your Path to Growth",
+      "subheadline": "Answer a few questions to discover which coaching package is the best fit for your journey.",
+      "benefits": ["2-minute quiz", "Personalized results", "No commitment"],
+      "startButton": "Start the Quiz",
+      "privacy": "Your answers are private and will only be used to personalize your results."
+    },
+    "navigation": {
+      "back": "Back",
+      "next": "Next",
+      "seeResults": "See My Results"
+    },
+    "questions": {
+      "lifeStage": "What best describes your current life stage?",
+      "challenge": "What's your biggest challenge right now?",
+      "goals": "What do you hope to achieve through coaching?",
+      "commitment": "How ready are you to invest in your growth?",
+      "faithImportance": "How important is faith in your growth journey?",
+      "urgency": "What's driving your decision to seek coaching now?"
+    },
+    "options": {
+      "lifeStage": {
+        "single": "Single / Not yet married",
+        "marriedNoKids": "Married without children",
+        "parentYoung": "Parent of young children (0-12)",
+        "parentTeens": "Parent of teenagers or young adults",
+        "emptyNester": "Empty nester or retired",
+        "caregiver": "Caregiver for aging parents or family"
+      },
+      "challenge": {
+        "stressOverwhelm": "Stress, anxiety, or feeling overwhelmed",
+        "relationships": "Relationship struggles or communication issues",
+        "careerPurpose": "Career confusion or lack of purpose",
+        "parenting": "Parenting challenges or family conflict",
+        "faithSpiritual": "Spiritual dryness or feeling disconnected from God",
+        "lifeTransition": "Major life transition (divorce, loss, move, etc.)"
+      },
+      "goals": {
+        "clarityDirection": "Clarity and direction for my next steps",
+        "healingPeace": "Healing, peace, and emotional wellness",
+        "personalGrowth": "Personal growth and becoming my best self",
+        "familyHarmony": "Stronger family relationships and harmony",
+        "confidence": "More confidence and self-worth",
+        "faithAlignment": "Deeper faith and alignment with God's purpose"
+      },
+      "commitment": {
+        "exploring": "Just exploring — I'm curious about coaching",
+        "readyShort": "Ready for focused, short-term support",
+        "readyInvest": "Ready to invest in meaningful change",
+        "fullyCommitted": "Fully committed to long-term transformation"
+      },
+      "faithImportance": {
+        "central": "Central — I want faith woven into everything",
+        "important": "Important — I'd like faith-based guidance",
+        "open": "Open to it, but not essential",
+        "preferSecular": "Prefer a more secular approach"
+      },
+      "urgency": {
+        "crisis": "I'm in crisis and need help now",
+        "turningPoint": "I'm at a turning point and ready for change",
+        "gradualDesire": "I've been wanting this for a while",
+        "curious": "Just curious — no rush"
+      }
+    },
+    "email": {
+      "headline": "Almost There!",
+      "subheadline": "Enter your details to see your personalized results and recommended coaching path.",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "email": "Email Address",
+      "emailPlaceholder": "your@email.com",
+      "submitButton": "See My Results",
+      "submitting": "Processing...",
+      "privacy": "We respect your privacy and will never spam you.",
+      "validation": {
+        "firstNameRequired": "Please enter your first name",
+        "emailRequired": "Please enter your email",
+        "emailInvalid": "Please enter a valid email address"
+      }
+    },
+    "results": {
+      "yourMatch": "Your Perfect Match",
+      "greeting": "Great news",
+      "basedOnAnswers": "Based on your answers, here's what we recommend for you:",
+      "matchScore": "match",
+      "whyThisPackage": "Why this package is right for you:",
+      "whatYouGet": "What you'll get:",
+      "price": "Investment",
+      "duration": "Duration",
+      "bookNow": "Book Your Session Now",
+      "alsoConsider": "Also worth considering:",
+      "downloadPdf": "Download Your Growth Roadmap",
+      "downloadingPdf": "Generating your roadmap...",
+      "relatedResources": "Recommended Reading",
+      "retakeQuiz": "Retake Quiz",
+      "contactUs": "Have Questions?",
+      "questions": "Questions? Email us at change180lifecoach@gmail.com",
+      "messages": {
+        "discovery": {
+          "general": "You're at the beginning of an exciting journey. A Discovery Session is the perfect way to explore your goals and see if coaching is right for you — with no pressure.",
+          "stress-overwhelm": "You're dealing with a lot right now. A Discovery Session will help you identify what's weighing you down and create a clear first step forward.",
+          "career-purpose": "Feeling uncertain about your direction is normal. Let's use this session to gain clarity on what matters most to you.",
+          "curious": "Curiosity is a great starting point! This session will help you explore what coaching can offer without any commitment."
+        },
+        "clarity": {
+          "general": "You're ready for focused change. The Clarity Package will give you the structure and support you need to move from confusion to confidence.",
+          "life-transition": "Life transitions can feel overwhelming, but they're also opportunities for growth. This package will help you navigate this season with intention.",
+          "stress-overwhelm": "Four weeks of focused support can make a real difference when you're feeling overwhelmed. Let's work together to find your peace."
+        },
+        "rooted": {
+          "general": "You're ready for deep, lasting change. The Rooted & Renewed program will help you address patterns and build a strong foundation for growth.",
+          "faith-spiritual": "Your desire for spiritual depth is beautiful. This program integrates faith into every aspect of your transformation journey.",
+          "healing-peace": "Healing takes time and intentional work. Eight weeks gives us the space to address root issues and build lasting peace."
+        },
+        "flourish": {
+          "general": "You're committed to comprehensive transformation. Flourish Forward is our most complete program for those ready to embrace lasting change.",
+          "fully-committed": "Your level of commitment is inspiring! This 12-week journey will equip you with everything you need to flourish in every area of life."
+        },
+        "family": {
+          "general": "Family is at the heart of what matters to you. Our family coaching will give you practical tools and faith-based guidance for stronger relationships.",
+          "parenting": "Parenting is both rewarding and challenging. Together, we'll develop strategies that honor your values and support your children's growth."
+        }
+      },
+      "packageFeatures": {
+        "discovery": [
+          "60-minute deep-dive session",
+          "Personalized assessment",
+          "Clear next-step recommendations",
+          "Faith-centered guidance"
+        ],
+        "clarity": [
+          "Four 60-minute sessions",
+          "Personalized action plan",
+          "Email support between sessions",
+          "Faith-based reflection exercises"
+        ],
+        "rooted": [
+          "Eight 60-minute sessions",
+          "Customized growth plan",
+          "Daily faith practices",
+          "Accountability tracking",
+          "Priority email support"
+        ],
+        "flourish": [
+          "Twelve 60-minute sessions",
+          "Comprehensive growth plan",
+          "Custom tools & worksheets",
+          "Priority scheduling",
+          "Unlimited email support"
+        ],
+        "family": [
+          "Focused family session",
+          "Parenting strategies",
+          "Communication tools",
+          "Faith-based family guidance"
+        ]
+      }
+    }
   },
   "error": {
     "title": "Something went wrong",

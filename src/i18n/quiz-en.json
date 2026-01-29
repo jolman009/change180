@@ -1,0 +1,211 @@
+{
+  "quiz": {
+    "meta": {
+      "title": "Find Your Perfect Coaching Package",
+      "description": "Take our 2-minute quiz to discover which coaching program aligns with your journey."
+    },
+    "intro": {
+      "badge": "Free Assessment",
+      "headline": "Discover Your Path Forward",
+      "subheadline": "Answer 6 quick questions to find the coaching package that's right for you.",
+      "benefits": [
+        "Personalized recommendation",
+        "Takes only 2 minutes",
+        "No commitment required"
+      ],
+      "startButton": "Start the Quiz",
+      "privacy": "Your answers are confidential and help us serve you better."
+    },
+    "progress": {
+      "question": "Question",
+      "of": "of"
+    },
+    "questions": {
+      "lifeStage": "What best describes your current life stage?",
+      "challenge": "What's your biggest challenge right now?",
+      "goals": "What do you most hope to achieve through coaching?",
+      "commitment": "How ready are you to invest in your growth?",
+      "faithImportance": "How important is faith in your growth journey?",
+      "urgency": "What's driving your decision to seek coaching now?"
+    },
+    "options": {
+      "lifeStage": {
+        "single": "Single / Independent",
+        "marriedNoKids": "Married / Partnered (no children)",
+        "parentYoung": "Parent of young children (0-12)",
+        "parentTeens": "Parent of teenagers (13-18)",
+        "emptyNester": "Empty nester / Adult children",
+        "caregiver": "Caregiver for aging parents"
+      },
+      "challenge": {
+        "stressOverwhelm": "Stress & overwhelm",
+        "relationships": "Relationship struggles",
+        "careerPurpose": "Career or purpose confusion",
+        "parenting": "Parenting challenges",
+        "faithSpiritual": "Faith or spiritual questions",
+        "lifeTransition": "Major life transition"
+      },
+      "goals": {
+        "clarityDirection": "Gain clarity and direction",
+        "healingPeace": "Find healing and inner peace",
+        "personalGrowth": "Experience personal growth",
+        "familyHarmony": "Create family harmony",
+        "confidence": "Build confidence and self-worth",
+        "faithAlignment": "Deepen faith alignment"
+      },
+      "commitment": {
+        "exploring": "Just exploring — not sure yet",
+        "readyShort": "Ready for short-term focused work",
+        "readyInvest": "Ready to invest in meaningful change",
+        "fullyCommitted": "Fully committed to transformation"
+      },
+      "faithImportance": {
+        "central": "Central — faith guides everything",
+        "important": "Important — I want it incorporated",
+        "open": "Open to it — curious to explore",
+        "preferSecular": "Prefer a secular approach"
+      },
+      "urgency": {
+        "crisis": "I'm in crisis and need support now",
+        "turningPoint": "I've reached a turning point",
+        "gradualDesire": "A gradual desire to grow",
+        "curious": "Just curious about coaching"
+      }
+    },
+    "navigation": {
+      "back": "Back",
+      "next": "Next",
+      "seeResults": "See My Results"
+    },
+    "email": {
+      "headline": "Almost There!",
+      "subheadline": "Enter your details to receive your personalized results and a downloadable growth roadmap.",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your first name",
+      "email": "Email Address",
+      "emailPlaceholder": "your@email.com",
+      "submitButton": "Get My Results",
+      "submitting": "Preparing your results...",
+      "privacy": "We respect your privacy. Unsubscribe anytime.",
+      "validation": {
+        "firstNameRequired": "Please enter your first name",
+        "emailRequired": "Please enter your email address",
+        "emailInvalid": "Please enter a valid email address"
+      }
+    },
+    "results": {
+      "headline": "Your Personalized Recommendation",
+      "greeting": "Hi",
+      "basedOnAnswers": "Based on your answers, we recommend:",
+      "yourMatch": "Your Match",
+      "matchScore": "match",
+      "whyThisPackage": "Why This Package?",
+      "alsoConsider": "You Might Also Consider",
+      "whatYouGet": "What You'll Get",
+      "price": "Investment",
+      "duration": "Duration",
+      "bookNow": "Book Your Session",
+      "downloadPdf": "Download Your Growth Roadmap (PDF)",
+      "downloadingPdf": "Generating PDF...",
+      "relatedResources": "Recommended Reading",
+      "readArticle": "Read Article",
+      "retakeQuiz": "Retake Quiz",
+      "questions": "Have questions? Let's talk.",
+      "contactUs": "Contact Us",
+      "packageFeatures": {
+        "discovery": [
+          "60-minute deep-dive session",
+          "Clarify your goals and challenges",
+          "Receive personalized next steps",
+          "Explore if coaching is right for you"
+        ],
+        "clarity": [
+          "Four 60-minute coaching sessions",
+          "Personalized action plan",
+          "Faith-based reflection exercises",
+          "Email support between sessions"
+        ],
+        "rooted": [
+          "Eight 60-minute coaching sessions",
+          "Comprehensive growth plan",
+          "Faith-based daily practices",
+          "Accountability tracking",
+          "Priority email support"
+        ],
+        "flourish": [
+          "Twelve 60-minute coaching sessions",
+          "Complete transformation roadmap",
+          "Family coaching sessions included",
+          "Faith integration resources",
+          "Unlimited email support",
+          "Emergency session availability"
+        ],
+        "family": [
+          "Flexible session scheduling",
+          "Parent and/or child sessions",
+          "Family communication tools",
+          "Age-appropriate strategies",
+          "Progress tracking"
+        ]
+      },
+      "messages": {
+        "discovery": {
+          "stressOverwhelm": "It sounds like you're carrying a heavy load right now. A Discovery Session will help you identify what's truly driving your stress and create a faith-centered plan to find peace.",
+          "relationships": "Relationship challenges can feel isolating. Let's explore what's happening and discover practical, faith-aligned steps toward healthier connections.",
+          "careerPurpose": "Feeling uncertain about your direction is more common than you think. A Discovery Session will help you clarify your calling and explore your options.",
+          "parenting": "Parenting is one of life's greatest challenges. Let's talk about what you're experiencing and find tools that align with your values.",
+          "faithSpiritual": "Questions about faith often arise during life's transitions. A Discovery Session provides space to explore these questions with guidance and compassion.",
+          "lifeTransition": "Transitions can be disorienting, but they're also opportunities for growth. Let's discover what this new chapter might hold for you.",
+          "general": "A Discovery Session is the perfect starting point to explore your goals and see if coaching is right for you."
+        },
+        "clarity": {
+          "stressOverwhelm": "Four weeks of focused support can help you build sustainable stress management practices rooted in faith and practical action.",
+          "relationships": "The Clarity Package will help you identify relationship patterns and develop healthier communication strategies over 4 focused weeks.",
+          "careerPurpose": "This package is designed to help you gain clarity on your career path and purpose through guided reflection and action planning.",
+          "parenting": "Four weeks of dedicated parenting support will equip you with practical tools and renewed confidence.",
+          "faithSpiritual": "The Clarity Package will help you reconnect with your faith and find direction in just 4 weeks.",
+          "lifeTransition": "Navigating a transition requires focused support. This 4-week program will help you move forward with clarity and confidence.",
+          "general": "The Clarity Package provides focused support to help you gain direction and momentum in your life."
+        },
+        "rooted": {
+          "stressOverwhelm": "Your answers show you're ready for deeper change. The Rooted & Renewed program will help you transform your relationship with stress and build lasting peace.",
+          "relationships": "Eight weeks of deep work will help you understand relationship patterns at their root and create lasting change in how you connect with others.",
+          "careerPurpose": "This program will help you not just find direction, but truly align your life with your purpose and values.",
+          "parenting": "The Rooted & Renewed program provides the depth needed to transform your parenting approach and family dynamics.",
+          "faithSpiritual": "Eight weeks together will help you build a strong foundation of faith practices that will sustain you for years to come.",
+          "lifeTransition": "This program provides the depth of support needed to not just navigate your transition, but to emerge transformed.",
+          "general": "The Rooted & Renewed program offers the depth and time needed for meaningful, lasting transformation."
+        },
+        "flourish": {
+          "stressOverwhelm": "Your commitment to change is clear. The Flourish Forward program will provide comprehensive support for complete life transformation.",
+          "relationships": "Twelve weeks of comprehensive coaching will transform not just individual relationships, but how you show up in all your connections.",
+          "careerPurpose": "The Flourish Forward program offers the time and depth for true vocational discernment and life alignment.",
+          "parenting": "This comprehensive program will transform your entire family system, creating harmony that lasts.",
+          "faithSpiritual": "Twelve weeks of deep spiritual coaching will help you flourish in faith and every area of your life.",
+          "lifeTransition": "The Flourish Forward program provides complete support for total life transformation during this pivotal time.",
+          "general": "The Flourish Forward program is our most comprehensive offering, designed for those ready for complete transformation."
+        },
+        "family": {
+          "stressOverwhelm": "Family stress affects everyone in the household. Family coaching will help your whole family develop healthier patterns together.",
+          "relationships": "Family dynamics are complex. Our family coaching approach addresses relationship challenges at their source — within the family system.",
+          "careerPurpose": "Even career questions affect family life. Family coaching can help align everyone as you navigate this transition.",
+          "parenting": "Our Family & Parent Coaching is specifically designed for the challenges you're facing. We'll work together to create harmony in your home.",
+          "faithSpiritual": "Building a faith-centered family takes intentional work. Family coaching will help you nurture your family's spiritual growth together.",
+          "lifeTransition": "Transitions affect the whole family. Family coaching ensures everyone navigates the change together with support.",
+          "general": "Family & Parent Coaching provides flexible, targeted support for your family's unique needs."
+        }
+      }
+    },
+    "cta": {
+      "badge": "2-Minute Quiz",
+      "headline": "Not Sure Where to Start?",
+      "description": "Take our quick assessment to discover which coaching package aligns with your journey and goals.",
+      "button": "Find My Path",
+      "features": [
+        "Personalized recommendation",
+        "Free growth roadmap PDF",
+        "No obligation"
+      ]
+    }
+  }
+}
