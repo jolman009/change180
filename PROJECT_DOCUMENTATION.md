@@ -319,14 +319,17 @@ npm run test:watch # Run tests in watch mode
 
 **Technologies**: Markdown files with frontmatter, react-markdown, remark-gfm
 
-#### 3. Email Newsletter Integration
+#### 3. Email Newsletter Integration - PARTIALLY COMPLETED
 **Description**: Capture leads and nurture potential clients with email marketing.
-- Newsletter signup form
-- Lead magnets (free guides, worksheets)
-- Automated welcome sequences
-- Updates about new programs and workshops
+- [x] Newsletter signup form component
+- [x] Bilingual support (English/Spanish)
+- [x] Success/error handling with toast notifications
+- [ ] Connect to email service (Mailchimp, ConvertKit, or Resend)
+- [ ] Lead magnets (free guides, worksheets)
+- [ ] Automated welcome sequences
+- [ ] Updates about new programs and workshops
 
-**Technologies**: Mailchimp, ConvertKit, or Resend
+**Technologies**: React component ready, needs email service integration (Mailchimp, ConvertKit, or Resend)
 
 #### 4. Embedded Calendly Widget - COMPLETED
 **Description**: Enhance the current Calendly integration with embedded scheduling.
@@ -370,14 +373,15 @@ npm run test:watch # Run tests in watch mode
 
 **Technologies**: react-player, embedded YouTube/Vimeo
 
-#### 8. FAQ Section
+#### 8. FAQ Section - COMPLETED
 **Description**: Address common questions to reduce friction and support requests.
-- Accordion-style FAQ component
-- Categories (Pricing, Sessions, What to Expect)
-- Search functionality
-- Schema markup for SEO
+- [x] Accordion-style FAQ component
+- [x] Categories (About Coaching, Sessions & Format, Pricing & Payment, Getting Started)
+- [x] Bilingual support (English/Spanish)
+- [ ] Search functionality (future enhancement)
+- [ ] Schema markup for SEO (future enhancement)
 
-**Technologies**: Already have accordion components available
+**Technologies**: Radix UI Accordion, React, Framer Motion
 
 #### 9. Digital Products Store
 **Description**: Expand the "Digital Resources (coming soon)" section.
@@ -485,13 +489,14 @@ npm run test:watch # Run tests in watch mode
 ### Phase 2 (Revenue) - IN PROGRESS
 - [x] Add basic analytics (GA4)
 - [x] Embed Calendly widget on-site (popup modal)
+- [x] Implement email capture with newsletter (UI ready, needs service integration)
 - [ ] Integrate Stripe for payments
-- [ ] Implement email capture with newsletter
+- [ ] Connect newsletter to email service (Mailchimp/ConvertKit/Resend)
 
 ### Phase 3 (Growth) - IN PROGRESS
 - [x] Implement Spanish language support (completed in Phase 1)
 - [x] Add blog/resources section (Markdown-based)
-- [ ] Create FAQ section
+- [x] Create FAQ section (bilingual, accordion-style)
 - [ ] Add video testimonials
 - [ ] Free "Taster" Resources / Lead Magnets (worksheets, mini-eBook, email course)
 
@@ -529,4 +534,4 @@ VITE_EMAILJS_PUBLIC_KEY=xxxxx
 
 ---
 
-*Last updated: January 27, 2025*
+*Last updated: January 29, 2025*

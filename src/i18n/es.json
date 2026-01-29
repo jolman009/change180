@@ -4,6 +4,7 @@
     "services": "Servicios",
     "packages": "Paquetes",
     "testimonials": "Testimonios",
+    "faq": "Preguntas",
     "contact": "Contacto",
     "blog": "Blog",
     "quiz": "Tomar el Quiz",
@@ -444,6 +445,86 @@
           "Herramientas de comunicación",
           "Guía familiar basada en la fe"
         ]
+      }
+    }
+  },
+  "newsletter": {
+    "headline": "Mantente Conectado e Inspirado",
+    "description": "Únete a la comunidad de <brand>change180</brand>. Recibe ánimo centrado en la fe, consejos prácticos y recursos exclusivos en tu bandeja de entrada.",
+    "placeholder": "Ingresa tu correo",
+    "subscribe": "Suscribirse",
+    "subscribing": "Suscribiendo...",
+    "success": "¡Bienvenido/a a la comunidad! Revisa tu bandeja de entrada para confirmar.",
+    "error": "Algo salió mal. Por favor intenta de nuevo.",
+    "invalidEmail": "Por favor ingresa un correo electrónico válido.",
+    "privacy": "Respetamos tu privacidad. Cancela tu suscripción en cualquier momento.",
+    "thankYou": "¡Estás Dentro!",
+    "confirmationMessage": "Gracias por suscribirte. Revisa tu bandeja de entrada para recibir ánimo, recursos y actualizaciones de change180."
+  },
+  "faq": {
+    "sectionLabel": "Preguntas Frecuentes",
+    "headline": "Preguntas Frecuentes",
+    "description": "Encuentra respuestas a las preguntas más comunes sobre el coaching de vida y cómo podemos apoyar tu camino.",
+    "stillHaveQuestions": "¿Aún tienes preguntas?",
+    "contactUs": "Contáctanos directamente",
+    "categories": {
+      "general": "Sobre el Coaching",
+      "sessions": "Sesiones y Formato",
+      "pricing": "Precios y Pago",
+      "gettingStarted": "Cómo Empezar"
+    },
+    "questions": {
+      "whatIsCoaching": {
+        "question": "¿Qué es el coaching de vida?",
+        "answer": "El coaching de vida es una asociación colaborativa que te ayuda a identificar y alcanzar tus metas personales y profesionales. A diferencia de la terapia, que a menudo se enfoca en sanar traumas del pasado, el coaching está orientado al futuro y a la acción. Te ayudo a ganar claridad, desarrollar estrategias y tomar pasos significativos hacia la vida que deseas vivir."
+      },
+      "coachingVsTherapy": {
+        "question": "¿Cómo es diferente el coaching de la terapia?",
+        "answer": "La terapia típicamente aborda diagnósticos de salud mental, traumas pasados y sanación emocional. El coaching se enfoca en el crecimiento personal, el logro de metas y avanzar. Mientras la terapia pregunta '¿por qué pasó esto?', el coaching pregunta '¿a dónde quieres ir?' El coaching es educativo y de apoyo, no clínico. Si necesitas tratamiento de salud mental, puedo ayudarte a conectar con recursos apropiados."
+      },
+      "faithBased": {
+        "question": "¿Necesito ser religioso/a para trabajar contigo?",
+        "answer": "Para nada. Aunque mi coaching está centrado en la fe y me baso en principios cristianos, doy la bienvenida a clientes de todos los orígenes. Respeto tus creencias y adaptaré nuestras sesiones para honrar tus valores. Mi enfoque está centrado en la fe, no presionado por la fe — nunca te sentirás juzgado/a o incómodo/a."
+      },
+      "sessionLength": {
+        "question": "¿Cuánto duran las sesiones de coaching?",
+        "answer": "Las sesiones individuales son de 60 minutos. Esto nos da suficiente tiempo para profundizar en tus metas, reflexionar sobre el progreso y crear pasos de acción concretos. Las sesiones familiares y grupales pueden variar en duración según las necesidades de los participantes."
+      },
+      "virtualOrInPerson": {
+        "question": "¿Las sesiones son virtuales o presenciales?",
+        "answer": "¡Ambas! Ofrezco sesiones virtuales a través de videoconferencia segura, lo cual funciona muy bien para horarios ocupados y clientes fuera de mi área local. Las sesiones presenciales también están disponibles para quienes prefieren la conexión cara a cara. Encontraremos lo que funcione mejor para ti."
+      },
+      "howOften": {
+        "question": "¿Con qué frecuencia nos reunimos?",
+        "answer": "La mayoría de los paquetes incluyen sesiones semanales, lo que proporciona consistencia e impulso. Sin embargo, podemos ajustar la frecuencia según tus necesidades y horario. Algunos clientes prefieren sesiones quincenales una vez que han construido una base sólida."
+      },
+      "whatToExpect": {
+        "question": "¿Qué puedo esperar en una sesión típica?",
+        "answer": "Cada sesión comienza revisando tu progreso y logros desde nuestra última reunión. Luego nos enfocamos en las metas que has establecido, trabajamos cualquier desafío y creamos pasos de acción claros para la próxima semana. Las sesiones son de apoyo, alentadoras y siempre adaptadas a donde estás en tu camino."
+      },
+      "pricing": {
+        "question": "¿Cuánto cuesta el coaching?",
+        "answer": "La inversión varía según el paquete. Las Sesiones de Descubrimiento comienzan en $55 por una sola sesión de 60 minutos. Los paquetes de varias semanas van desde $360 (4 semanas) hasta $1,080 (12 semanas), ofreciendo mejor valor para una transformación comprometida. Las sesiones de coaching familiar son $110 cada una. Ve nuestra sección de Paquetes para más detalles."
+      },
+      "insurance": {
+        "question": "¿Aceptas seguro médico?",
+        "answer": "El coaching de vida no está cubierto por el seguro de salud ya que es de naturaleza educativa y de desarrollo, no un servicio clínico de salud mental. Sin embargo, el coaching es a menudo más accesible que la terapia y muchos clientes lo consideran una inversión valiosa en su crecimiento personal."
+      },
+      "refunds": {
+        "question": "¿Cuál es tu política de cancelación?",
+        "answer": "Entiendo que la vida pasa. Por favor proporciona al menos 24 horas de aviso si necesitas reprogramar. Las sesiones canceladas con menos de 24 horas de aviso pueden perderse. Los reembolsos de paquetes se manejan caso por caso."
+      },
+      "howToStart": {
+        "question": "¿Cómo empiezo?",
+        "answer": "La mejor manera de empezar es con una Sesión de Descubrimiento. Esta sesión de 60 minutos nos permite conocernos, discutir tus metas y determinar si el coaching es adecuado para ti. Haz clic en 'Reservar una Sesión' para programar, o comunícate a través del formulario de contacto con cualquier pregunta."
+      },
+      "rightForMe": {
+        "question": "¿Cómo sé si el coaching es adecuado para mí?",
+        "answer": "El coaching es ideal si te sientes estancado/a, buscas claridad, navegas una transición de vida o quieres crecer en áreas específicas de tu vida. Si estás listo/a para tomar acción y estás abierto/a al apoyo y la responsabilidad, el coaching puede ayudarte a lograr un progreso significativo. ¡Toma nuestro quiz gratuito para encontrar tu mejor paquete!"
+      },
+      "bilingual": {
+        "question": "¿Ofreces servicios en español?",
+        "answer": "¡Sí! Soy completamente bilingüe y ofrezco todos los servicios de coaching en inglés y español. Muchos de mis clientes aprecian poder expresarse en su idioma nativo. Puedes cambiar de idioma en cualquier momento durante nuestro trabajo juntos."
       }
     }
   },

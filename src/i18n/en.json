@@ -4,6 +4,7 @@
     "services": "Services",
     "packages": "Packages",
     "testimonials": "Testimonials",
+    "faq": "FAQ",
     "contact": "Contact",
     "blog": "Blog",
     "quiz": "Take the Quiz",
@@ -444,6 +445,86 @@
           "Communication tools",
           "Faith-based family guidance"
         ]
+      }
+    }
+  },
+  "newsletter": {
+    "headline": "Stay Connected & Inspired",
+    "description": "Join the <brand>change180</brand> community. Get faith-centered encouragement, practical tips, and exclusive resources delivered to your inbox.",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing...",
+    "success": "Welcome to the community! Check your inbox for a confirmation.",
+    "error": "Something went wrong. Please try again.",
+    "invalidEmail": "Please enter a valid email address.",
+    "privacy": "We respect your privacy. Unsubscribe at any time.",
+    "thankYou": "You're In!",
+    "confirmationMessage": "Thank you for subscribing. Watch your inbox for encouragement, resources, and updates from change180."
+  },
+  "faq": {
+    "sectionLabel": "FAQ",
+    "headline": "Frequently Asked Questions",
+    "description": "Find answers to common questions about life coaching and how we can support your journey.",
+    "stillHaveQuestions": "Still have questions?",
+    "contactUs": "Contact us directly",
+    "categories": {
+      "general": "About Coaching",
+      "sessions": "Sessions & Format",
+      "pricing": "Pricing & Payment",
+      "gettingStarted": "Getting Started"
+    },
+    "questions": {
+      "whatIsCoaching": {
+        "question": "What is life coaching?",
+        "answer": "Life coaching is a collaborative partnership that helps you identify and achieve your personal and professional goals. Unlike therapy, which often focuses on healing past trauma, coaching is future-focused and action-oriented. I help you gain clarity, develop strategies, and take meaningful steps toward the life you want to live."
+      },
+      "coachingVsTherapy": {
+        "question": "How is coaching different from therapy?",
+        "answer": "Therapy typically addresses mental health diagnoses, past trauma, and emotional healing. Coaching focuses on personal growth, goal achievement, and moving forward. While therapy asks 'why did this happen?', coaching asks 'where do you want to go?' Coaching is educational and supportive, not clinical. If you need mental health treatment, I can help connect you with appropriate resources."
+      },
+      "faithBased": {
+        "question": "Do I need to be religious to work with you?",
+        "answer": "Not at all. While my coaching is faith-centered and I draw from Christian principles, I welcome clients of all backgrounds. I respect your beliefs and will tailor our sessions to honor your values. My approach is faith-centered, not faith-pressured — you'll never feel judged or uncomfortable."
+      },
+      "sessionLength": {
+        "question": "How long are coaching sessions?",
+        "answer": "Individual sessions are 60 minutes. This gives us enough time to dive deep into your goals, reflect on progress, and create actionable next steps. Family and group sessions may vary in length depending on the needs of the participants."
+      },
+      "virtualOrInPerson": {
+        "question": "Are sessions virtual or in-person?",
+        "answer": "Both! I offer virtual sessions via secure video conferencing, which works great for busy schedules and clients outside my local area. In-person sessions are also available for those who prefer face-to-face connection. We'll find what works best for you."
+      },
+      "howOften": {
+        "question": "How often do we meet?",
+        "answer": "Most packages include weekly sessions, which provides consistency and momentum. However, we can adjust the frequency based on your needs and schedule. Some clients prefer bi-weekly sessions once they've built a strong foundation."
+      },
+      "whatToExpect": {
+        "question": "What can I expect in a typical session?",
+        "answer": "Each session begins with checking in on your progress and wins since our last meeting. We'll then focus on the goals you've set, work through any challenges, and create clear action steps for the coming week. Sessions are supportive, encouraging, and always tailored to where you are in your journey."
+      },
+      "pricing": {
+        "question": "How much does coaching cost?",
+        "answer": "Investment varies by package. Discovery Sessions start at $55 for a single 60-minute session. Multi-week packages range from $360 (4 weeks) to $1,080 (12 weeks), offering better value for committed transformation. Family coaching sessions are $110 each. View our Packages section for full details."
+      },
+      "insurance": {
+        "question": "Do you accept insurance?",
+        "answer": "Life coaching is not covered by health insurance as it is educational and developmental in nature, not a clinical mental health service. However, coaching is often more affordable than therapy and many clients find it to be a worthwhile investment in their personal growth."
+      },
+      "refunds": {
+        "question": "What is your cancellation policy?",
+        "answer": "I understand life happens. Please provide at least 24 hours notice if you need to reschedule. Sessions cancelled with less than 24 hours notice may be forfeited. Package refunds are handled on a case-by-case basis."
+      },
+      "howToStart": {
+        "question": "How do I get started?",
+        "answer": "The best way to start is with a Discovery Session. This 60-minute session allows us to get to know each other, discuss your goals, and determine if coaching is right for you. Click 'Book a Session' to schedule, or reach out through the contact form with any questions."
+      },
+      "rightForMe": {
+        "question": "How do I know if coaching is right for me?",
+        "answer": "Coaching is ideal if you're feeling stuck, seeking clarity, navigating a life transition, or wanting to grow in specific areas of your life. If you're ready to take action and are open to support and accountability, coaching can help you make meaningful progress. Take our free quiz to find your best-fit package!"
+      },
+      "bilingual": {
+        "question": "Do you offer services in Spanish?",
+        "answer": "Yes! I am fully bilingual and offer all coaching services in both English and Spanish. Many of my clients appreciate being able to express themselves in their native language. You can switch languages at any time during our work together."
       }
     }
   },

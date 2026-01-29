@@ -14,7 +14,7 @@ const Logo = ({ className = "", size = "md" }: LogoProps) => {
 
   return (
     <img
-      src="/images/change180_logo_v7.png"
+      src="/images/Change180_logo_transparent.png"
       alt="Change180 - Inspiring growth, resilience, and purpose renewed"
       className={`w-auto object-contain ${sizeClasses[size]} ${className}`}
     />

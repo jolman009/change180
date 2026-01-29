@@ -15,6 +15,7 @@ const Navigation = () => {
     { href: "#services", label: t("nav.services") },
     { href: "#packages", label: t("nav.packages") },
     { href: "#testimonials", label: t("nav.testimonials") },
+    { href: "#faq", label: t("nav.faq") },
     { href: "#contact", label: t("nav.contact") },
   ];
 
