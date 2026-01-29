@@ -1,4 +1,8 @@
 {
+  "intro": {
+    "loading": "Loading",
+    "skip": "Click anywhere to skip"
+  },
   "nav": {
     "about": "About",
     "services": "Services",

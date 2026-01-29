@@ -1,4 +1,8 @@
 {
+  "intro": {
+    "loading": "Cargando",
+    "skip": "Haz clic en cualquier lugar para omitir"
+  },
   "nav": {
     "about": "Acerca de",
     "services": "Servicios",
