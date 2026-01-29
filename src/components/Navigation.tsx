@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PopupButton } from "react-calendly";
@@ -19,12 +19,27 @@ const Navigation = () => {
     { href: "#contact", label: t("nav.contact") },
   ];
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
     setIsOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      // Store the target section in session storage or just rely on a timeout hack
+      // For simplicity in this SPA, a small timeout allows the home page to mount
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   };
 
   const calendlyUrl = "https://calendly.com/change180lifecoach";
@@ -35,12 +50,16 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20 sm:h-24 md:h-28">
           {/* Logo - always visible */}
           <a
-            href="#"
+            href="/"
             title="Go to home"
             className="flex-shrink-0 hover:opacity-80 transition-opacity"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              if (location.pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              } else {
+                navigate("/");
+              }
             }}
           >
             <Logo size="lg" />
@@ -51,22 +70,20 @@ const Navigation = () => {
             <div className="flex items-center text-xs">
               <button
                 onClick={() => setLanguage("en")}
-                className={`px-1.5 py-1 rounded transition-colors ${
-                  language === "en"
-                    ? "text-primary font-semibold"
-                    : "text-muted-foreground"
-                }`}
+                className={`px-1.5 py-1 rounded transition-colors ${language === "en"
+                  ? "text-primary font-semibold"
+                  : "text-muted-foreground"
+                  }`}
               >
                 EN
               </button>
               <span className="text-muted-foreground">|</span>
               <button
                 onClick={() => setLanguage("es")}
-                className={`px-1.5 py-1 rounded transition-colors ${
-                  language === "es"
-                    ? "text-primary font-semibold"
-                    : "text-muted-foreground"
-                }`}
+                className={`px-1.5 py-1 rounded transition-colors ${language === "es"
+                  ? "text-primary font-semibold"
+                  : "text-muted-foreground"
+                  }`}
               >
                 ES
               </button>
@@ -98,11 +115,11 @@ const Navigation = () => {
               {t("nav.blog")}
             </Link>
             <Link
-  to="/quiz"
-  className="text-primary hover:text-primary/80 transition-colors font-medium text-sm tracking-wide"
->
-  {t("nav.quiz")}
-</Link>
+              to="/quiz"
+              className="text-primary hover:text-primary/80 transition-colors font-medium text-sm tracking-wide"
+            >
+              {t("nav.quiz")}
+            </Link>
             <Link
               to="/resources"
               className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm tracking-wide"
@@ -114,22 +131,20 @@ const Navigation = () => {
             <div className="flex items-center gap-1 text-sm">
               <button
                 onClick={() => setLanguage("en")}
-                className={`px-2 py-1 rounded transition-colors ${
-                  language === "en"
-                    ? "text-primary font-semibold"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`px-2 py-1 rounded transition-colors ${language === "en"
+                  ? "text-primary font-semibold"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 EN
               </button>
               <span className="text-muted-foreground">|</span>
               <button
                 onClick={() => setLanguage("es")}
-                className={`px-2 py-1 rounded transition-colors ${
-                  language === "es"
-                    ? "text-primary font-semibold"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`px-2 py-1 rounded transition-colors ${language === "es"
+                  ? "text-primary font-semibold"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 ES
               </button>
@@ -172,12 +187,12 @@ const Navigation = () => {
                 {t("nav.blog")}
               </Link>
               <Link
-  to="/quiz"
-  className="block py-3 text-primary font-medium"
-  onClick={() => setIsOpen(false)}
->
-  {t("nav.quiz")}
-</Link>
+                to="/quiz"
+                className="block py-3 text-primary font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                {t("nav.quiz")}
+              </Link>
               <Link
                 to="/resources"
                 onClick={() => setIsOpen(false)}
@@ -191,22 +206,20 @@ const Navigation = () => {
                 <button
                   type="button"
                   onClick={() => setLanguage("en")}
-                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
-                    language === "en"
-                      ? "bg-primary text-primary-foreground font-semibold"
-                      : "bg-muted text-muted-foreground"
-                  }`}
+                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${language === "en"
+                    ? "bg-primary text-primary-foreground font-semibold"
+                    : "bg-muted text-muted-foreground"
+                    }`}
                 >
                   English
                 </button>
                 <button
                   type="button"
                   onClick={() => setLanguage("es")}
-                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
-                    language === "es"
-                      ? "bg-primary text-primary-foreground font-semibold"
-                      : "bg-muted text-muted-foreground"
-                  }`}
+                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${language === "es"
+                    ? "bg-primary text-primary-foreground font-semibold"
+                    : "bg-muted text-muted-foreground"
+                    }`}
                 >
                   Español
                 </button>
