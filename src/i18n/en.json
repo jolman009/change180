@@ -37,8 +37,8 @@
         "subtitle": "Curriculum & Instruction"
       },
       "counseling": {
-        "title": "Master's in Counseling",
-        "subtitle": "Licensed Professional Counselor – Intern"
+        "title": "Masters in Clinical Mental Health Counseling",
+        "subtitle": ""
       },
       "experience": {
         "title": "17+ Years Experience",
@@ -159,8 +159,8 @@
       "features": [
         "Goal clarification",
         "Next-step planning",
-        "Faith-centered reflection",
-        "Personalized recommendations"
+        "Personalized recommendations",
+        "Optional Faith-centered reflection"
       ],
       "highlight": "Perfect for first-time clients"
     },
@@ -172,8 +172,9 @@
       "features": [
         "Four 60-minute sessions",
         "Personalized action plan",
-        "Faith-based reflection exercises",
-        "Email support between sessions"
+        "Email support between sessions",
+        "Optional Faith-based reflection exercises"
+        
       ],
       "highlight": "Great for life transitions"
     },
@@ -185,9 +186,9 @@
       "features": [
         "Eight 60-minute sessions",
         "Customized growth plan",
-        "Faith-based daily practices",
         "Accountability tracking",
-        "Email support between sessions"
+        "Email support between sessions",
+        "Optional Faith-based daily practices"
       ],
       "highlight": "Best for lasting change"
     },
@@ -201,7 +202,8 @@
         "Comprehensive growth plan",
         "Personalized tools & worksheets",
         "Priority scheduling",
-        "Unlimited email support"
+        "Unlimited email support",
+        "Optional Faith-based daily practices"
       ],
       "highlight": "Most Popular"
     },

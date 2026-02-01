@@ -37,8 +37,8 @@
         "subtitle": "Currículo e Instrucción"
       },
       "counseling": {
-        "title": "Maestría en Consejería",
-        "subtitle": "Consejera Profesional Licenciada – Interna"
+        "title": "Maestría en Consejería Clínica de Salud Mental",
+        "subtitle": ""
       },
       "experience": {
         "title": "17+ Años de Experiencia",
@@ -159,8 +159,8 @@
       "features": [
         "Clarificación de metas",
         "Planificación del siguiente paso",
-        "Reflexión centrada en la fe",
-        "Recomendaciones personalizadas"
+        "Recomendaciones personalizadas",
+        "Opcional Reflexiones centrada en la fe"
       ],
       "highlight": "Perfecto para clientes primerizos"
     },
@@ -172,8 +172,8 @@
       "features": [
         "Cuatro sesiones de 60 minutos",
         "Plan de acción personalizado",
-        "Ejercicios de reflexión basados en la fe",
-        "Apoyo por correo entre sesiones"
+        "Apoyo por correo entre sesiones",
+        "Opcional ejercicios de reflexión basados en la fe"
       ],
       "highlight": "Ideal para transiciones de vida"
     },
@@ -185,9 +185,9 @@
       "features": [
         "Ocho sesiones de 60 minutos",
         "Plan de crecimiento personalizado",
-        "Prácticas diarias basadas en la fe",
         "Seguimiento de responsabilidad",
-        "Apoyo por correo entre sesiones"
+        "Apoyo por correo entre sesiones",
+        "Opcional prácticas diarias basadas en la fe"
       ],
       "highlight": "Mejor para cambio duradero"
     },
@@ -201,7 +201,8 @@
         "Plan de crecimiento integral",
         "Herramientas y hojas de trabajo personalizadas",
         "Programación prioritaria",
-        "Apoyo ilimitado por correo"
+        "Apoyo ilimitado por correo",
+        "Opcional prácticas diarias basadas en la fe"
       ],
       "highlight": "Más Popular"
     },
