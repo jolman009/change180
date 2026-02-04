@@ -14,7 +14,7 @@ const Logo = ({ className = "", size = "md" }: LogoProps) => {
 
   return (
     <img
-      src="/images/myraguzman-logo.png"
+      src="/images/myraguzman-logo.svg"
       alt="Myra Z. Guzman - Life Coaching"
       className={`w-auto object-contain ${sizeClasses[size]} ${className}`}
     />
