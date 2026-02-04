@@ -1,10 +1,10 @@
-# Change 180 Life Coaching - Project Documentation
+# Myra Z. Guzman Life Coaching - Project Documentation
 
 ## Overview
 
-**Change 180** is a professional single-page application (SPA) website for Change 180 Life Coaching, founded by Myra Z. Guzman, M.Ed. The platform offers faith-centered life coaching services for individuals, families, and organizations, with bilingual support (English & Spanish).
+**Myra Z. Guzman Life Coaching** (formerly Change 180) is a professional website for faith-centered life coaching by Myra Z. Guzman, M.Ed. The platform offers coaching services for individuals, families, and organizations, with bilingual support (English & Spanish).
 
-The brand name "Change 180" symbolizes a complete 180-degree turn—choosing a new direction with intentional growth aligned with faith and personal values.
+The site features a personalized brand identity with the "Myra Z. Guzman" floral logo, animated intro video, interactive coaching quiz, blog, downloadable resources, and integrated booking via Calendly.
 
 ---
 
@@ -32,7 +32,7 @@ The brand name "Change 180" symbolizes a complete 180-degree turn—choosing a n
 | **Deployment** | Vercel | - |
 | **CI/CD** | GitHub Actions | - |
 | **Analytics** | Google Analytics 4 | G-7FZ4YD0V4Q |
-| **Domain** | IONOS | change180.org |
+| **Domain** | IONOS | myraguzman.com |
 
 ---
 
@@ -65,8 +65,16 @@ change180/
 │   │   │   ├── tabs.tsx
 │   │   │   ├── accordion.tsx
 │   │   │   └── ... (40+ more)
-│   │   ├── Logo.tsx                # Custom bridge icon + branding
+│   │   ├── Logo.tsx                # Myra Z. Guzman floral SVG logo
+│   │   ├── IntroVideo.tsx          # Animated intro video on site load
 │   │   ├── Navigation.tsx          # Fixed header with Calendly booking & language toggle
+│   │   ├── Quiz/                   # Interactive coaching quiz components
+│   │   │   ├── QuizContainer.tsx
+│   │   │   ├── QuizIntro.tsx
+│   │   │   ├── QuizProgress.tsx
+│   │   │   ├── QuizQuestion.tsx
+│   │   │   ├── QuizEmailCapture.tsx
+│   │   │   └── QuizResults.tsx
 │   │   ├── Hero.tsx                # Hero section with Calendly CTA
 │   │   ├── About.tsx               # Founder bio with credentials
 │   │   ├── WhoWeHelp.tsx           # Target audience sections
@@ -77,10 +85,16 @@ change180/
 │   │   ├── ErrorPage.tsx           # Global error boundary UI
 │   │   ├── Footer.tsx              # Footer with legal disclaimer
 │   │   └── NavLink.tsx             # Navigation link helper
+│   ├── data/
+│   │   └── quizQuestions.ts        # Quiz questions, scoring logic, recommendations
+│   ├── types/
+│   │   └── quiz.ts                 # Quiz TypeScript interfaces
 │   ├── pages/
 │   │   ├── Index.tsx               # Main landing page composition
 │   │   ├── Blog.tsx                # Blog listing page
 │   │   ├── BlogPost.tsx            # Individual blog post page
+│   │   ├── Quiz.tsx                # Interactive coaching quiz page
+│   │   ├── Resources.tsx           # Free downloadable resources page
 │   │   └── NotFound.tsx            # 404 page
 │   ├── hooks/
 │   │   ├── use-mobile.tsx          # Mobile responsiveness hook
@@ -97,9 +111,13 @@ change180/
 │   └── main.tsx                    # React entry point with ErrorBoundary
 ├── public/
 │   ├── images/
+│   │   ├── myraguzman-logo.svg     # Myra Z. Guzman floral logo (SVG, transparent)
+│   │   ├── intro-video.mp4        # Animated intro video
 │   │   ├── portrait-headshot.jpeg  # Founder photo
-│   │   ├── coaching-session-*.jpeg # Coaching scene photos
-│   │   └── logo.png                # Logo asset
+│   │   └── coaching-session-*.jpeg # Coaching scene photos
+│   ├── downloads/
+│   │   ├── 5-day-faith-reflection-journal.html  # Printable guided journal
+│   │   └── life-balance-wellness-assessment.html # Self-assessment worksheet
 │   ├── sitemap.xml                 # SEO sitemap
 │   ├── favicon.ico
 │   └── robots.txt
@@ -118,51 +136,57 @@ change180/
 
 ## Main Features
 
-### 1. Navigation
+### 1. Animated Intro Video
+- Full-screen video plays on first visit (per session)
+- Auto-fades out when video completes
+- Click anywhere to skip
+- Session-based: only plays once per browser session
+
+### 2. Navigation
 - Fixed header with semi-transparent backdrop blur
-- Custom logo component (Change180 branding with orange arc)
+- Myra Z. Guzman floral SVG logo (transparent background)
 - Responsive hamburger menu on mobile
-- Smooth scroll navigation to sections
+- Smooth scroll navigation to sections (works from any page)
 - **Language toggle (EN | ES)** for bilingual support
-- **Blog link** to /blog resources page
+- **Links**: Blog, Quiz, Resources pages
 - **"Book a Session" button** opens Calendly popup widget
 
-### 2. Hero Section
+### 3. Hero Section
 - Headline: "Change Your Direction. Transform Your Life."
 - Animated floating decorative elements
 - Author attribution: "— Myra Z. Guzman, M.Ed."
 - **"Start Your Journey" button** opens Calendly popup for booking
 - "Explore Services" button scrolls to services section
 
-### 3. About Section
+### 4. About Section
 - Founder biography (Myra Z. Guzman, M.Ed.)
 - Credentials grid: M.Ed., LPC-Intern, 17+ Years Experience, Bilingual
 - Professional photo with decorative background
 
-### 4. Who We Help
+### 5. Who We Help
 - Target audience cards
 - Coaching philosophy and core beliefs
 
-### 5. Services
+### 6. Services
 - Individual Life Coaching
 - Parent & Family Coaching
 - Group Programs & Workshops
 - Digital Resources (coming soon)
 
-### 6. Packages
+### 7. Packages
 | Package | Price | Duration |
 |---------|-------|----------|
-| Discovery Session | $55 | 60 minutes |
-| Clarity Package | $360 | 4 weeks |
-| Rooted & Renewed | $720 | 8 weeks (Popular) |
-| Flourish Forward | $1,080 | 12 weeks |
+| Discovery Session | $75 | 60 minutes |
+| Clarity Package | $300 | 4 weeks |
+| Rooted & Renewed | $600 | 8 weeks |
+| Flourish Forward | $1,200 | 12 weeks (Most Popular) |
 | Family & Parent Coaching | $110/session | Add-on |
 
-### 7. Testimonials
+### 8. Testimonials
 - Client testimonials with quotes
 - "What Clients Can Expect" badges
 
-### 8. Contact
+### 9. Contact
 - **Functional contact form** powered by EmailJS
 - Form fields: Name, Email, Phone (optional), Message
 - Sends emails directly to the business
@@ -171,17 +195,17 @@ change180/
 - Virtual & In-Person availability
 - Organization services (Churches, Schools, Nonprofits)
 
-### 9. Footer
+### 10. Footer
 - Brand information
 - Quick links and services navigation
 - Legal disclaimer about coaching (non-clinical)
 
-### 10. Global Error Handling
+### 11. Global Error Handling
 - React Error Boundary wraps the entire application
 - User-friendly error page with "Try Again" button
 - Development mode shows error details for debugging
 
-### 11. Blog/Resources Section
+### 12. Blog Section
 - Markdown-based blog with bilingual support
 - **Routes**: `/blog` (listing) and `/blog/:slug` (individual posts)
 - Frontmatter supports: title, titleEs, excerpt, excerptEs, category, categoryEs
@@ -191,12 +215,47 @@ change180/
 - Calendly CTA on each post
 - Posts sorted by date (newest first)
 
-### 12. Bilingual Support (English/Spanish)
+### 13. Interactive Coaching Quiz
+- **Route**: `/quiz`
+- 6-question assessment to match visitors with the right coaching package
+- Weighted scoring system maps answers to 5 packages (Discovery, Clarity, Rooted, Flourish, Family)
+- Email capture step before showing results
+- Personalized results page with match percentage, package features, and pricing
+- Secondary recommendation for alternative package
+- Download results as text file
+- Related blog post suggestions based on quiz answers
+- Calendly CTA to book recommended package
+- Full bilingual support (English/Spanish)
+
+### 14. Resources & Downloads
+- **Route**: `/resources`
+- Free downloadable worksheets and guides (lead magnets)
+- Printable HTML format (save as PDF via browser print)
+- Current resources:
+  - **5-Day Faith & Reflection Journal** — Daily guided prompts for scripture, gratitude, and reflection
+  - **Life Balance & Wellness Assessment** — 30-question self-assessment across 6 areas (Emotional Wellness, Faith & Spirituality, Relationships, Purpose & Career, Self-Care, Confidence & Identity)
+- Bilingual resource descriptions
+- Calendly CTA on resources page
+
+### 15. FAQ Section
+- Accordion-style FAQ with expandable answers
+- Categories: About Coaching, Sessions & Format, Pricing & Payment, Getting Started
+- Full bilingual support (English/Spanish)
+- Smooth animations with Framer Motion
+
+### 16. Newsletter Signup
+- Email capture form component
+- Bilingual support (English/Spanish)
+- Success/error handling with toast notifications
+- Awaiting email service integration (Mailchimp, ConvertKit, or Resend)
+
+### 17. Bilingual Support (English/Spanish)
 - Language toggle in navigation (desktop and mobile)
-- All UI text translated to Spanish
+- All UI text translated to Spanish (170+ translation keys)
 - Language preference persisted in localStorage
 - Auto-detects browser language on first visit
-- Brand name "change180" remains consistent across languages
+- Brand name "Myra Z. Guzman" remains consistent across languages
+- Quiz, blog, resources, FAQ, and newsletter all fully translated
 
 ---
 
@@ -219,6 +278,8 @@ change180/
   - Hero "Start Your Journey" button
   - Packages page "Get Started" buttons
   - Blog post CTAs
+  - Quiz results "Book Now" button
+  - Resources page CTA
 - Opens as modal popup on-site (no new tab)
 
 ### EmailJS (Contact Form)
@@ -483,7 +544,7 @@ npm run test:watch # Run tests in watch mode
 - [x] Vercel deployment configuration
 - [x] Global error handling
 - [x] SEO sitemap
-- [x] Custom domain setup (change180.org via IONOS)
+- [x] Custom domain setup (myraguzman.com via IONOS)
 - [x] Bilingual support (English/Spanish) - moved up from Phase 3
 
 ### Phase 2 (Revenue) - IN PROGRESS
@@ -497,8 +558,10 @@ npm run test:watch # Run tests in watch mode
 - [x] Implement Spanish language support (completed in Phase 1)
 - [x] Add blog/resources section (Markdown-based)
 - [x] Create FAQ section (bilingual, accordion-style)
+- [x] Interactive coaching quiz with personalized package recommendations
+- [x] Free downloadable resources (guided journal, wellness assessment)
 - [ ] Add video testimonials
-- [ ] Free "Taster" Resources / Lead Magnets (worksheets, mini-eBook, email course)
+- [ ] Additional lead magnets (mini-eBook, email course)
 
 ### Phase 4 (Scale)
 - [ ] Client portal with authentication
@@ -534,4 +597,4 @@ VITE_EMAILJS_PUBLIC_KEY=xxxxx
 
 ---
 
-*Last updated: January 29, 2025*
+*Last updated: February 4, 2026*
