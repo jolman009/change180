@@ -1,4 +1,4 @@
-import { Download, FileText, BookOpen, Heart } from "lucide-react";
+import { Download, FileText, BookOpen, Heart, FileSpreadsheet } from "lucide-react";
 import { PopupButton } from "react-calendly";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navigation from "@/components/Navigation";
@@ -10,7 +10,7 @@ interface Resource {
   titleEs: string;
   description: string;
   descriptionEs: string;
-  type: "worksheet" | "guide" | "ebook";
+  type: "worksheet" | "guide" | "ebook" | "flyer";
   downloadUrl: string;
   previewImage?: string;
 }
@@ -38,18 +38,31 @@ const resources: Resource[] = [
     type: "worksheet",
     downloadUrl: "/downloads/life-balance-wellness-assessment.html",
   },
+  {
+    id: "coaching-packages-flyer",
+    title: "Coaching Packages Flyer",
+    titleEs: "Folleto de Paquetes de Coaching",
+    description:
+      "A printable one-page flyer with all coaching packages, pricing, and contact information. Perfect for sharing with friends, family, or posting at community boards.",
+    descriptionEs:
+      "Un folleto imprimible de una página con todos los paquetes de coaching, precios e información de contacto. Perfecto para compartir con amigos, familia o publicar en tableros comunitarios.",
+    type: "flyer",
+    downloadUrl: "/downloads/coaching-packages-flyer.html",
+  },
 ];
 
 const typeIcons = {
   worksheet: FileText,
   guide: BookOpen,
   ebook: BookOpen,
+  flyer: FileSpreadsheet,
 };
 
 const typeLabels = {
   worksheet: { en: "Worksheet", es: "Hoja de Trabajo" },
   guide: { en: "Guide", es: "Guía" },
   ebook: { en: "E-Book", es: "Libro Digital" },
+  flyer: { en: "Flyer", es: "Folleto" },
 };
 
 const Resources = () => {
