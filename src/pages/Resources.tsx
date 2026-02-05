@@ -12,6 +12,7 @@ interface Resource {
   descriptionEs: string;
   type: "worksheet" | "guide" | "ebook" | "flyer";
   downloadUrl: string;
+  downloadUrlEs?: string;
   previewImage?: string;
 }
 
@@ -48,6 +49,7 @@ const resources: Resource[] = [
       "Un folleto imprimible de una página con todos los paquetes de coaching, precios e información de contacto. Perfecto para compartir con amigos, familia o publicar en tableros comunitarios.",
     type: "flyer",
     downloadUrl: "/downloads/coaching-packages-flyer.html",
+    downloadUrlEs: "/downloads/coaching-packages-flyer-es.html",
   },
 ];
 
@@ -149,7 +151,7 @@ const Resources = () => {
 
                   {/* Download Button */}
                   <a
-                    href={resource.downloadUrl}
+                    href={language === "es" && resource.downloadUrlEs ? resource.downloadUrlEs : resource.downloadUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-3 font-medium text-sm transition-colors"
