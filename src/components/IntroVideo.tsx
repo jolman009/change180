@@ -22,6 +22,9 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
 
     video.addEventListener("ended", handleEnded);
 
+    // Slow down playback for a longer, smoother intro
+    video.playbackRate = 0.6;
+
     // Start playing
     video.play().catch(() => {
       // If autoplay fails (browser restrictions), skip intro
@@ -38,7 +41,7 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
       // Wait for fade out animation to complete
       const timer = setTimeout(() => {
         onComplete();
-      }, 500);
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, [isPlaying, onComplete]);
@@ -54,7 +57,7 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
           className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center cursor-pointer"
           onClick={handleSkip}
         >
