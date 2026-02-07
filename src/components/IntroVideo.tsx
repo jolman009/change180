@@ -22,8 +22,8 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
 
     video.addEventListener("ended", handleEnded);
 
-    // Slow down playback for a longer, smoother intro
-    video.playbackRate = 0.6;
+    // Speed up playback for a snappier intro
+    video.playbackRate = 1.5;
 
     // Start playing
     video.play().catch(() => {
@@ -41,7 +41,7 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
       // Wait for fade out animation to complete
       const timer = setTimeout(() => {
         onComplete();
-      }, 1500);
+      }, 800);
       return () => clearTimeout(timer);
     }
   }, [isPlaying, onComplete]);
@@ -57,7 +57,7 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
           className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-center cursor-pointer"
           onClick={handleSkip}
         >
@@ -68,7 +68,7 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
             playsInline
             preload="auto"
           >
-            <source src="/images/change180_logo_Pvid.mp4" type="video/mp4" />
+            <source src="/images/change180.mp4" type="video/mp4" />
           </video>
 
           {/* Loading caption */}
