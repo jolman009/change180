@@ -100,7 +100,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{t("contact.email")}</p>
-                  <p className="text-foreground font-medium">contact@change180.com</p>
+                  <p className="text-foreground font-medium">change180life@gmail.com</p>
                 </div>
               </div>
 
@@ -110,7 +110,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{t("contact.phone")}</p>
-                  <p className="text-foreground font-medium">(555) 123-4567</p>
+                  <p className="text-foreground font-medium">(956) 572-6616</p>
                 </div>
               </div>
 
