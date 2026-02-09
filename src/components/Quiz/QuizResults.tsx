@@ -79,7 +79,7 @@ Ready to start? Book your session at:
 https://calendly.com/change180life
 
 Questions? Contact us at:
-change180lifecoach@gmail.com
+change180life@gmail.com
 
 ---
 Change 180 Life Coaching
