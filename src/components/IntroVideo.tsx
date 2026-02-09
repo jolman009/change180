@@ -68,7 +68,7 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
             playsInline
             preload="auto"
           >
-            <source src="/images/change180.mp4" type="video/mp4" />
+            <source src="/images/change180_soft_intro.mp4" type="video/mp4" />
           </video>
 
           {/* Loading caption */}

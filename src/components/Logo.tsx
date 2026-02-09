@@ -14,8 +14,8 @@ const Logo = ({ className = "", size = "md" }: LogoProps) => {
 
   return (
     <img
-      src="/images/change180_gold_logo01.svg"
-      alt="Myra Z. Guzman - Life Coaching"
+      src="/images/change180_soft_logo.png"
+      alt="Change180 Life Coaching"
       className={`w-auto object-contain ${sizeClasses[size]} ${className}`}
     />
   );
