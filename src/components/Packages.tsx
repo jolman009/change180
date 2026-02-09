@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const Packages = () => {
   const { t, tArray } = useLanguage();
-  const calendlyUrl = "https://calendly.com/change180lifecoach";
+  const calendlyUrl = "https://calendly.com/change180life";
 
   const packages = [
     {

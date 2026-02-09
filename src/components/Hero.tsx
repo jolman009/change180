@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
   const { t } = useLanguage();
-  const calendlyUrl = "https://calendly.com/change180lifecoach";
+  const calendlyUrl = "https://calendly.com/change180life";
 
   const scrollToServices = () => {
     document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });

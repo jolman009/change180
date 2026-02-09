@@ -16,7 +16,7 @@ const BlogPost = () => {
   const allPosts = getAllPosts();
 
   const isSpanish = language === "es";
-  const calendlyUrl = "https://calendly.com/change180lifecoach";
+  const calendlyUrl = "https://calendly.com/change180life";
 
   if (!post) {
     return <Navigate to="/blog" replace />;

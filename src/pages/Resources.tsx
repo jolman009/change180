@@ -69,7 +69,7 @@ const typeLabels = {
 
 const Resources = () => {
   const { language } = useLanguage();
-  const calendlyUrl = "https://calendly.com/change180lifecoach";
+  const calendlyUrl = "https://calendly.com/change180life";
 
   const content = {
     en: {

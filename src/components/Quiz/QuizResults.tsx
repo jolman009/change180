@@ -27,7 +27,7 @@ const QuizResults = ({ result, firstName, email, onRetake }: QuizResultsProps) =
   const { t, tArray, language } = useLanguage();
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
 
-  const calendlyUrl = 'https://calendly.com/change180lifecoach';
+  const calendlyUrl = 'https://calendly.com/change180life';
   
   const primaryPackage = packageDetails[result.primaryRecommendation.packageId];
   const secondaryPackage = result.secondaryRecommendation
@@ -76,7 +76,7 @@ Investment: ${primaryPackage.price}
 Duration: ${t(primaryPackage.durationKey)}
 
 Ready to start? Book your session at:
-https://calendly.com/change180lifecoach
+https://calendly.com/change180life
 
 Questions? Contact us at:
 change180lifecoach@gmail.com
