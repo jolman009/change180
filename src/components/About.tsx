@@ -105,7 +105,7 @@ const About = () => {
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-peach-100">
               <img
-                src="/images/portrait-headshot.jpeg"
+                src="/images/client_profile.png"
                 alt={t("about.imageAlt")}
                 className="w-full h-full object-cover object-center"
               />
