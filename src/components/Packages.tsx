@@ -11,8 +11,6 @@ const Packages = () => {
     {
       name: t("packages.discovery.name"),
       tagline: t("packages.discovery.tagline"),
-      price: "$75",
-      originalPrice: "$95",
       duration: t("packages.discovery.duration"),
       description: t("packages.discovery.description"),
       features: tArray("packages.discovery.features"),
@@ -21,8 +19,6 @@ const Packages = () => {
     {
       name: t("packages.clarity.name"),
       tagline: t("packages.clarity.tagline"),
-      price: "$300",
-      originalPrice: "$360",
       duration: t("packages.clarity.duration"),
       description: t("packages.clarity.description"),
       features: tArray("packages.clarity.features"),
@@ -31,7 +27,6 @@ const Packages = () => {
     {
       name: t("packages.rooted.name"),
       tagline: t("packages.rooted.tagline"),
-      price: "$600",
       duration: t("packages.rooted.duration"),
       description: t("packages.rooted.description"),
       features: tArray("packages.rooted.features"),
@@ -41,7 +36,6 @@ const Packages = () => {
     {
       name: t("packages.flourish.name"),
       tagline: t("packages.flourish.tagline"),
-      price: "$1,200",
       duration: t("packages.flourish.duration"),
       description: t("packages.flourish.description"),
       features: tArray("packages.flourish.features"),
@@ -100,17 +94,6 @@ const Packages = () => {
                 <p className="text-xs text-muted-foreground">{pkg.duration}</p>
               </div>
 
-              <div className="mb-6">
-                <div className="flex items-baseline gap-2">
-                  <span className="font-serif text-4xl text-foreground">{pkg.price}</span>
-                  {pkg.originalPrice && (
-                    <span className="text-sm text-muted-foreground line-through">
-                      {pkg.originalPrice}
-                    </span>
-                  )}
-                </div>
-              </div>
-
               <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                 {pkg.description}
               </p>
@@ -156,7 +139,6 @@ const Packages = () => {
             <p className="text-muted-foreground mb-4">
               {t("packages.familyCoaching.description")}
             </p>
-            <p className="font-serif text-3xl text-foreground mb-4">{t("packages.familyCoaching.price")}</p>
             <PopupButton
               url={calendlyUrl}
               rootElement={document.getElementById("root")!}

@@ -146,7 +146,7 @@
   },
   "packages": {
     "sectionLabel": "Paquetes de Coaching",
-    "headline": "Inversión en Tu Crecimiento",
+    "headline": "Tu Camino de Crecimiento",
     "description": "Guía centrada en la fe para la transformación de la vida real. Elige el paquete que se ajuste a tu viaje.",
     "mostPopular": "Más Popular",
     "getStarted": "Comenzar",
@@ -208,8 +208,7 @@
     },
     "familyCoaching": {
       "title": "Coaching Familiar y para Padres",
-      "description": "Sesión enfocada de 60 minutos para padres que buscan orientación, herramientas y apoyo.",
-      "price": "$110/sesión"
+      "description": "Sesión enfocada de 60 minutos para padres que buscan orientación, herramientas y apoyo."
     },
     "family": {
       "name": "Coaching Familiar y para Padres",
@@ -381,7 +380,6 @@
       "matchScore": "compatibilidad",
       "whyThisPackage": "Por qué este paquete es ideal para ti:",
       "whatYouGet": "Lo que obtendrás:",
-      "price": "Inversión",
       "duration": "Duración",
       "bookNow": "Reserva Tu Sesión Ahora",
       "alsoConsider": "También vale la pena considerar:",
@@ -509,7 +507,7 @@
       },
       "pricing": {
         "question": "¿Cuánto cuesta el coaching?",
-        "answer": "La inversión varía según el paquete. Las Sesiones de Descubrimiento comienzan en $75 por una sola sesión de 60 minutos. Los paquetes de varias semanas van desde $360 (4 semanas) hasta $1,20  0 (12 semanas), ofreciendo mejor valor para una transformación comprometida. Las sesiones de coaching familiar son $110 cada una. Ve nuestra sección de Paquetes para más detalles."
+        "answer": "Ofrecemos una variedad de paquetes de coaching para adaptarse a diferentes necesidades y niveles de compromiso, desde una sola Sesión de Descubrimiento hasta nuestro programa integral de 12 semanas Florecer Adelante. Para conocer los precios actuales, reserva una consulta gratuita o comunícate a través de nuestro formulario de contacto — con gusto te guiaremos en tus opciones."
       },
       "insurance": {
         "question": "¿Aceptas seguro médico?",

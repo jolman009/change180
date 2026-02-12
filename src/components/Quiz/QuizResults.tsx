@@ -72,7 +72,6 @@ ${getPersonalizedMessage()}
 What You'll Get:
 ${primaryFeatures.map((f) => `• ${f}`).join('\n')}
 
-Investment: ${primaryPackage.price}
 Duration: ${t(primaryPackage.durationKey)}
 
 Ready to start? Book your session at:
@@ -182,14 +181,8 @@ myraguzman.com
             </ul>
           </div>
 
-          {/* Price & Duration */}
+          {/* Duration */}
           <div className="flex flex-wrap gap-6 mb-6 text-sm">
-            <div>
-              <span className="text-muted-foreground">{t('quiz.results.price')}:</span>
-              <span className="ml-2 font-semibold text-foreground text-lg">
-                {primaryPackage.price}
-              </span>
-            </div>
             <div>
               <span className="text-muted-foreground">{t('quiz.results.duration')}:</span>
               <span className="ml-2 font-medium text-foreground">
@@ -223,7 +216,7 @@ myraguzman.com
                   {t(secondaryPackage.nameKey)}
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  {t(secondaryPackage.taglineKey)} • {secondaryPackage.price}
+                  {t(secondaryPackage.taglineKey)}
                 </p>
               </div>
               <span className="text-sm text-muted-foreground bg-white px-3 py-1 rounded-full">

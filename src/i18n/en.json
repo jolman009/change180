@@ -146,7 +146,7 @@
   },
   "packages": {
     "sectionLabel": "Coaching Packages",
-    "headline": "Investment in Your Growth",
+    "headline": "Your Growth Journey",
     "description": "Faith-centered guidance for real-life transformation. Choose the package that fits your journey.",
     "mostPopular": "Most Popular",
     "getStarted": "Get Started",
@@ -209,8 +209,7 @@
     },
     "familyCoaching": {
       "title": "Family & Parent Coaching",
-      "description": "60-minute focused session for parents seeking guidance, tools, and support.",
-      "price": "$110/session"
+      "description": "60-minute focused session for parents seeking guidance, tools, and support."
     },
     "family": {
       "name": "Family & Parent Coaching",
@@ -382,7 +381,6 @@
       "matchScore": "match",
       "whyThisPackage": "Why this package is right for you:",
       "whatYouGet": "What you'll get:",
-      "price": "Investment",
       "duration": "Duration",
       "bookNow": "Book Your Session Now",
       "alsoConsider": "Also worth considering:",
@@ -510,7 +508,7 @@
       },
       "pricing": {
         "question": "How much does coaching cost?",
-        "answer": "Investment varies by package. Discovery Sessions start at $75 for a single 60-minute session. Multi-week packages range from $360 (4 weeks) to $1,200 (12 weeks), offering better value for committed transformation. Family coaching sessions are $110 each. View our Packages section for full details."
+        "answer": "We offer a range of coaching packages to fit different needs and levels of commitment, from a single Discovery Session to our comprehensive 12-week Flourish Forward program. To learn about current pricing, book a free consultation or reach out through our contact form — we're happy to walk you through your options."
       },
       "insurance": {
         "question": "Do you accept insurance?",

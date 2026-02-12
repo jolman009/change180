@@ -349,7 +349,6 @@ export const packageDetails = {
   discovery: {
     nameKey: 'packages.discovery.name',
     taglineKey: 'packages.discovery.tagline',
-    price: '$75',
     duration: '60 minutes',
     durationKey: 'packages.discovery.duration',
     color: 'bg-blue-50 border-blue-200',
@@ -358,7 +357,6 @@ export const packageDetails = {
   clarity: {
     nameKey: 'packages.clarity.name',
     taglineKey: 'packages.clarity.tagline',
-    price: '$300',
     duration: '4 weeks',
     durationKey: 'packages.clarity.duration',
     color: 'bg-amber-50 border-amber-200',
@@ -367,7 +365,6 @@ export const packageDetails = {
   rooted: {
     nameKey: 'packages.rooted.name',
     taglineKey: 'packages.rooted.tagline',
-    price: '$600',
     duration: '8 weeks',
     durationKey: 'packages.rooted.duration',
     color: 'bg-green-50 border-green-200',
@@ -376,7 +373,6 @@ export const packageDetails = {
   flourish: {
     nameKey: 'packages.flourish.name',
     taglineKey: 'packages.flourish.tagline',
-    price: '$1,200',
     duration: '12 weeks',
     durationKey: 'packages.flourish.duration',
     color: 'bg-purple-50 border-purple-200',
@@ -385,7 +381,6 @@ export const packageDetails = {
   family: {
     nameKey: 'packages.family.name',
     taglineKey: 'packages.family.tagline',
-    price: '$110',
     duration: 'per session',
     durationKey: 'packages.family.duration',
     color: 'bg-rose-50 border-rose-200',
