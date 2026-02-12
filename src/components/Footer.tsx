@@ -20,7 +20,7 @@ const Footer = () => {
         const [, rest] = part.split("</brand>");
         return (
           <span key={index}>
-            <span className="font-semibold">change<span className="text-primary">180</span></span>
+            <span className="font-semibold">Change<span className="text-primary">180</span></span>
             {rest}
           </span>
         );
@@ -35,8 +35,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <Logo size="md" className="mb-4 invert mix-blend-screen" />
-            <p className="text-background/70 text-sm leading-relaxed mb-6">
+            <Logo size="xl" className="mb-4 invert mix-blend-screen" />
+            <p className="text-background/70 text-sm leading-relaxed mb-4">
               {t("footer.tagline")}
             </p>
             <p className="text-background/50 text-xs">
@@ -84,7 +84,7 @@ const Footer = () => {
         <div className="border-t border-background/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/50 text-sm">
-              © {currentYear} <span className="font-semibold">change<span className="text-primary">180</span></span>. {t("footer.copyright")}
+              © {currentYear} <span className="font-semibold">Change<span className="text-primary">180</span></span>. {t("footer.copyright")}
             </p>
 
             <p className="text-background/50 text-xs flex items-center gap-1">
