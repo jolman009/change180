@@ -7,7 +7,7 @@ excerptEs: "El cambio puede ser aterrador, pero también puede ser la puerta a l
 category: "Personal Growth"
 categoryEs: "Crecimiento Personal"
 author: "Myra Z. Guzman, M.Ed."
-image: "/images/coaching-session-3.jpg"
+image: "/images/coaching-session-3.webp"
 readingTime: 4
 ---
 

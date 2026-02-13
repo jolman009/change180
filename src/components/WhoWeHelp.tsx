@@ -107,14 +107,11 @@ const WhoWeHelp = () => {
           <div className="grid md:grid-cols-2">
             {/* Image */}
             <div className="aspect-square md:aspect-auto">
-              <picture>
-                <source srcSet="/images/coaching-session-1.webp" type="image/webp" />
-                <img
-                  src="/images/coaching-session-1.jpeg"
-                  alt={t("whoWeHelp.imageAlt")}
-                  className="w-full h-full object-cover"
-                />
-              </picture>
+              <img
+                src="/images/coaching-session-1.webp"
+                alt={t("whoWeHelp.imageAlt")}
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Content */}

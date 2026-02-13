@@ -7,7 +7,7 @@ excerptEs: "La vida puede sentirse abrumadora, pero la paz es posible. Descubre 
 category: "Faith & Wellness"
 categoryEs: "Fe y Bienestar"
 author: "Myra Z. Guzman, M.Ed."
-image: "/images/coaching-session-1.jpeg"
+image: "/images/coaching-session-1.webp"
 readingTime: 5
 ---
 

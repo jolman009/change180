@@ -13,14 +13,11 @@ const Logo = ({ className = "", size = "md" }: LogoProps) => {
   };
 
   return (
-    <picture>
-      <source srcSet="/images/change180_soft_logo.webp" type="image/webp" />
-      <img
-        src="/images/change180_soft_logo.png"
-        alt="Change180 Life Coaching"
-        className={`w-auto object-contain ${sizeClasses[size]} ${className}`}
-      />
-    </picture>
+    <img
+      src="/images/change180_soft_logo.webp"
+      alt="Change180 Life Coaching"
+      className={`w-auto object-contain ${sizeClasses[size]} ${className}`}
+    />
   );
 };
 

@@ -126,14 +126,11 @@ const Services = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             {/* Image */}
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] order-2 lg:order-1">
-              <picture>
-                <source srcSet="/images/coaching-session-2.webp" type="image/webp" />
-                <img
-                  src="/images/coaching-session-2.jpg"
-                  alt={t("services.imageAlt")}
-                  className="w-full h-full object-cover"
-                />
-              </picture>
+              <img
+                src="/images/coaching-session-2.webp"
+                alt={t("services.imageAlt")}
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Content */}

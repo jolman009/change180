@@ -7,7 +7,7 @@ excerptEs: "Como padres, queremos que nuestros hijos prosperen emocionalmente. A
 category: "Parenting"
 categoryEs: "Crianza"
 author: "Myra Z. Guzman, M.Ed."
-image: "/images/coaching-session-2.jpg"
+image: "/images/coaching-session-2.webp"
 readingTime: 6
 ---
 
