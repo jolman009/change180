@@ -8,6 +8,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { PopupButton } from "react-calendly";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { CALENDLY_URL } from "@/lib/constants";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -16,7 +17,7 @@ const BlogPost = () => {
   const allPosts = getAllPosts();
 
   const isSpanish = language === "es";
-  const calendlyUrl = "https://calendly.com/change180life";
+  const calendlyUrl = CALENDLY_URL;
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -39,6 +40,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <main>
 
       {/* Hero Section */}
       <section className="pt-32 pb-8 bg-cream-100">
@@ -56,6 +58,7 @@ const BlogPost = () => {
               >
                 <ArrowLeft size={16} />
                 {isSpanish ? "Volver al Blog" : "Back to Blog"}
+
               </Link>
             </motion.div>
 
@@ -239,6 +242,7 @@ const BlogPost = () => {
           </div>
         </section>
       )}
+      </main>
 
       <Footer />
     </div>

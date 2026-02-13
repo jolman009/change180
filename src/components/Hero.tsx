@@ -3,10 +3,11 @@ import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PopupButton } from "react-calendly";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { CALENDLY_URL } from "@/lib/constants";
 
 const Hero = () => {
   const { t } = useLanguage();
-  const calendlyUrl = "https://calendly.com/change180life";
+  const calendlyUrl = CALENDLY_URL;
 
   const scrollToServices = () => {
     document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });

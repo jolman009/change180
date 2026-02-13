@@ -39,16 +39,18 @@ const Index = () => {
       {contentVisible && (
         <>
           <Navigation />
-          <Hero />
-          <About />
-          <WhoWeHelp />
-          <QuizCTA />
-          <Services />
-          <Packages />
-          <Testimonials />
-          <FAQ />
-          <Newsletter />
-          <Contact />
+          <main>
+            <Hero />
+            <About />
+            <WhoWeHelp />
+            <QuizCTA />
+            <Services />
+            <Packages />
+            <Testimonials />
+            <FAQ />
+            <Newsletter />
+            <Contact />
+          </main>
           <Footer />
         </>
       )}

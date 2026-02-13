@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { QuizResult } from '@/types/quiz';
 import { packageDetails } from '@/data/quizQuestions';
+import { CALENDLY_URL } from '@/lib/constants';
 
 interface QuizResultsProps {
   result: QuizResult;
@@ -27,7 +28,7 @@ const QuizResults = ({ result, firstName, email, onRetake }: QuizResultsProps) =
   const { t, tArray, language } = useLanguage();
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
 
-  const calendlyUrl = 'https://calendly.com/change180life';
+  const calendlyUrl = CALENDLY_URL;
   
   const primaryPackage = packageDetails[result.primaryRecommendation.packageId];
   const secondaryPackage = result.secondaryRecommendation

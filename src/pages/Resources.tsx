@@ -3,6 +3,7 @@ import { PopupButton } from "react-calendly";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { CALENDLY_URL } from "@/lib/constants";
 
 interface Resource {
   id: string;
@@ -69,7 +70,7 @@ const typeLabels = {
 
 const Resources = () => {
   const { language } = useLanguage();
-  const calendlyUrl = "https://calendly.com/change180life";
+  const calendlyUrl = CALENDLY_URL;
 
   const content = {
     en: {
@@ -103,6 +104,7 @@ const Resources = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <main>
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6">
@@ -195,6 +197,7 @@ const Resources = () => {
           &larr; {t.backToHome}
         </a>
       </section>
+      </main>
 
       <Footer />
     </div>

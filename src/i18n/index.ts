@@ -49,7 +49,7 @@ export function getTranslation(language: Language, key: string): string {
   }
 
   // Return the key if translation not found
-  console.warn(`Translation not found for key: ${key}`);
+  if (import.meta.env.DEV) console.warn(`Translation not found for key: ${key}`);
   return key;
 }
 
@@ -71,7 +71,7 @@ export function getTranslationArray(language: Language, key: string): string[] {
     }
   }
 
-  console.warn(`Translation array not found for key: ${key}`);
+  if (import.meta.env.DEV) console.warn(`Translation array not found for key: ${key}`);
   return [];
 }
 

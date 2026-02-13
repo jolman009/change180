@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { PopupButton } from "react-calendly";
 import Logo from "./Logo";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { CALENDLY_URL } from "@/lib/constants";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,7 @@ const Navigation = () => {
     }
   };
 
-  const calendlyUrl = "https://calendly.com/change180life";
+  const calendlyUrl = CALENDLY_URL;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">

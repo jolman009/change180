@@ -2,10 +2,11 @@ import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
 import { PopupButton } from "react-calendly";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { CALENDLY_URL } from "@/lib/constants";
 
 const Packages = () => {
   const { t, tArray } = useLanguage();
-  const calendlyUrl = "https://calendly.com/change180life";
+  const calendlyUrl = CALENDLY_URL;
 
   const packages = [
     {

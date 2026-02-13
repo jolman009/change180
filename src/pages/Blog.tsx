@@ -15,6 +15,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <main>
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-cream-100">
@@ -108,6 +109,7 @@ const Blog = () => {
           )}
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

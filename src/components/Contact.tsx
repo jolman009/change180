@@ -24,9 +24,9 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const SERVICE_ID = "service_0tpvb0o";
-    const TEMPLATE_ID = "template_k38tzrg";
-    const PUBLIC_KEY = "cqTme7k19QuojL7eU";
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     try {
       const emailjs = (await import("@emailjs/browser")).default;
@@ -47,7 +47,7 @@ const Contact = () => {
       toast.success(t("contact.toast.success"));
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      if (import.meta.env.DEV) console.error("EmailJS Error:", error);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if ((error as any)?.text?.includes("The user_id param is required")) {
         toast.success(t("contact.toast.demoSuccess"));
