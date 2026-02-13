@@ -10,6 +10,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { CALENDLY_URL } from "@/lib/constants";
 
+const toWebP = (src: string) => src.replace(/\.(jpe?g|png)$/i, ".webp");
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const { language } = useLanguage();
@@ -116,11 +118,14 @@ const BlogPost = () => {
             className="max-w-4xl mx-auto"
           >
             <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-card">
-              <img
-                src={post.image}
-                alt={isSpanish ? post.titleEs : post.title}
-                className="w-full h-full object-cover"
-              />
+              <picture>
+                <source srcSet={toWebP(post.image)} type="image/webp" />
+                <img
+                  src={post.image}
+                  alt={isSpanish ? post.titleEs : post.title}
+                  className="w-full h-full object-cover"
+                />
+              </picture>
             </div>
           </motion.div>
         </div>
@@ -223,11 +228,14 @@ const BlogPost = () => {
                   >
                     <div className="bg-background rounded-xl overflow-hidden shadow-soft border border-border hover:shadow-card transition-all">
                       <div className="aspect-[16/10] overflow-hidden">
-                        <img
-                          src={relatedPost.image}
-                          alt={isSpanish ? relatedPost.titleEs : relatedPost.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+                        <picture>
+                          <source srcSet={toWebP(relatedPost.image)} type="image/webp" />
+                          <img
+                            src={relatedPost.image}
+                            alt={isSpanish ? relatedPost.titleEs : relatedPost.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        </picture>
                       </div>
                       <div className="p-5">
                         <h3 className="font-serif text-lg text-foreground group-hover:text-primary transition-colors">

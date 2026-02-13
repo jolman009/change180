@@ -104,11 +104,14 @@ const About = () => {
             className="relative"
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-peach-100">
-              <img
-                src="/images/client_profile.jpg"
-                alt={t("about.imageAlt")}
-                className="w-full h-full object-cover object-top"
-              />
+              <picture>
+                <source srcSet="/images/client_profile.webp" type="image/webp" />
+                <img
+                  src="/images/client_profile.jpg"
+                  alt={t("about.imageAlt")}
+                  className="w-full h-full object-cover object-top"
+                />
+              </picture>
             </div>
 
             {/* Decorative elements */}

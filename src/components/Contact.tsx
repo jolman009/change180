@@ -75,11 +75,14 @@ const Contact = () => {
           >
             {/* Coaching image */}
             <div className="relative rounded-2xl overflow-hidden aspect-[3/2] mb-8">
-              <img
-                src="/images/coaching-session-3.jpg"
-                alt={t("contact.imageAlt")}
-                className="w-full h-full object-cover"
-              />
+              <picture>
+                <source srcSet="/images/coaching-session-3.webp" type="image/webp" />
+                <img
+                  src="/images/coaching-session-3.jpg"
+                  alt={t("contact.imageAlt")}
+                  className="w-full h-full object-cover"
+                />
+              </picture>
             </div>
 
             <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
