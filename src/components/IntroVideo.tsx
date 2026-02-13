@@ -67,6 +67,7 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
             muted
             playsInline
             preload="auto"
+            aria-label="Change180 intro animation"
           >
             <source src="/images/change180_soft_intro.mp4" type="video/mp4" />
           </video>

@@ -48,8 +48,7 @@ const Contact = () => {
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       if (import.meta.env.DEV) console.error("EmailJS Error:", error);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      if ((error as any)?.text?.includes("The user_id param is required")) {
+      if (error instanceof Error && error.message?.includes("The user_id param is required")) {
         toast.success(t("contact.toast.demoSuccess"));
       } else {
         toast.error(t("contact.toast.error"));
@@ -77,7 +76,7 @@ const Contact = () => {
             {/* Coaching image */}
             <div className="relative rounded-2xl overflow-hidden aspect-[3/2] mb-8">
               <img
-                src="/images/coaching-session-3.png"
+                src="/images/coaching-session-3.jpg"
                 alt={t("contact.imageAlt")}
                 className="w-full h-full object-cover"
               />

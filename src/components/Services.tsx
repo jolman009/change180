@@ -127,7 +127,7 @@ const Services = () => {
             {/* Image */}
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] order-2 lg:order-1">
               <img
-                src="/images/coaching-session-2.png"
+                src="/images/coaching-session-2.jpg"
                 alt={t("services.imageAlt")}
                 className="w-full h-full object-cover"
               />
