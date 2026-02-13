@@ -78,9 +78,9 @@ const Blog = () => {
                       </div>
 
                       {/* Title */}
-                      <h2 className="font-serif text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                      <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
                         {isSpanish ? post.titleEs : post.title}
-                      </h2>
+                      </h3>
 
                       {/* Excerpt */}
                       <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">

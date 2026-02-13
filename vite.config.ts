@@ -14,6 +14,16 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     sourcemap: "hidden",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react-vendor": ["react", "react-dom", "react-router-dom"],
+          "framer-motion": ["framer-motion"],
+          "markdown": ["react-markdown", "remark-gfm"],
+          "calendly": ["react-calendly"],
+        },
+      },
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {

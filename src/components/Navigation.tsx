@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,6 +10,7 @@ import { CALENDLY_URL } from "@/lib/constants";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const scrollTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const navLinks = [
     { href: "#about", label: t("nav.about") },
@@ -23,13 +24,16 @@ const Navigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    return () => clearTimeout(scrollTimerRef.current);
+  }, []);
+
   const scrollToSection = (href: string) => {
     setIsOpen(false);
     if (location.pathname !== "/") {
       navigate("/");
-      // Store the target section in session storage or just rely on a timeout hack
-      // For simplicity in this SPA, a small timeout allows the home page to mount
-      setTimeout(() => {
+      clearTimeout(scrollTimerRef.current);
+      scrollTimerRef.current = setTimeout(() => {
         const element = document.querySelector(href);
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });

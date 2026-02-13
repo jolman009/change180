@@ -13,7 +13,8 @@
     "blog": "Blog",
     "quiz": "Take the Quiz",
     "resources": "Resources",
-    "bookSession": "Book a Session"
+    "bookSession": "Book a Session",
+    "backToBlog": "Back to Blog"
   },
   "hero": {
     "badge": "Inspiring growth, resilience, and renewed purpose.",

@@ -13,7 +13,8 @@
     "blog": "Blog",
     "quiz": "Tomar el Quiz",
     "resources": "Recursos",
-    "bookSession": "Reservar una Sesión"
+    "bookSession": "Reservar una Sesión",
+    "backToBlog": "Volver al Blog"
   },
   "hero": {
     "badge": "Coaching de Vida Centrado en la Fe",

@@ -142,9 +142,9 @@ const Resources = () => {
                   </span>
 
                   {/* Title & Description */}
-                  <h3 className="font-display text-xl sm:text-2xl text-foreground mb-3">
+                  <h2 className="font-display text-xl sm:text-2xl text-foreground mb-3">
                     {language === "es" ? resource.titleEs : resource.title}
-                  </h3>
+                  </h2>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     {language === "es"
                       ? resource.descriptionEs
@@ -172,9 +172,9 @@ const Resources = () => {
       <section className="py-16 px-4 sm:px-6">
         <div className="container mx-auto max-w-3xl">
           <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 sm:p-12 text-center">
-            <h2 className="font-display text-2xl sm:text-3xl text-foreground mb-4">
+            <h3 className="font-display text-2xl sm:text-3xl text-foreground mb-4">
               {t.ctaTitle}
-            </h2>
+            </h3>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               {t.ctaDescription}
             </p>

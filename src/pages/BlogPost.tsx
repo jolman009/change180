@@ -12,7 +12,7 @@ import { CALENDLY_URL } from "@/lib/constants";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const post = slug ? getPostBySlug(slug) : undefined;
   const allPosts = getAllPosts();
 
@@ -57,7 +57,7 @@ const BlogPost = () => {
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
               >
                 <ArrowLeft size={16} />
-                {isSpanish ? "Volver al Blog" : "Back to Blog"}
+                {t("nav.backToBlog")}
 
               </Link>
             </motion.div>
@@ -186,9 +186,9 @@ const BlogPost = () => {
 
             {/* CTA Section */}
             <div className="mt-12 p-8 bg-peach-100 rounded-2xl text-center">
-              <h3 className="font-serif text-2xl text-foreground mb-3">
+              <h2 className="font-serif text-2xl text-foreground mb-3">
                 {isSpanish ? "¿Listo para dar el siguiente paso?" : "Ready to Take the Next Step?"}
-              </h3>
+              </h2>
               <p className="text-muted-foreground mb-6">
                 {isSpanish
                   ? "Agenda una sesión de descubrimiento gratuita y comencemos tu camino hacia la transformación."
