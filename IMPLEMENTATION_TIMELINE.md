@@ -72,6 +72,7 @@ Long-term engagement, analytics, and multimedia.
 | 4.4 | Set up GA4 custom events and conversion tracking (quiz completions, bookings, downloads) | TODO | 3 hrs | HIGH - Data-driven decisions |
 | 4.5 | Implement A/B testing on CTAs and hero section | TODO | 4 hrs | MEDIUM - Conversion optimization |
 | 4.6 | Consider separate Services and Testimonials pages for deeper SEO | TODO | 4 hrs | LOW - Current structure works |
+| 4.7 | Redesign logo image to use "Change180" (uppercase) and match peach/sage color palette | TODO | Variable | MEDIUM - Brand consistency (current logo uses lowercase "change180" with teal/purple colors) |
 
 **Estimated effort: ~17 hours + ongoing content**
 
