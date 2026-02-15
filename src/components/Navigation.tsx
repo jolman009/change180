@@ -71,7 +71,7 @@ const Navigation = () => {
           </a>
 
           {/* Mobile Language Toggle + Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex xl:hidden items-center gap-2">
             <button
               onClick={() => setLanguage(language === "en" ? "es" : "en")}
               className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-primary/30 bg-card text-sm font-medium text-foreground hover:bg-muted transition-colors animate-glow-pulse"
@@ -90,7 +90,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden xl:flex items-center gap-8">
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -146,7 +146,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border"
+            className="xl:hidden bg-background border-b border-border"
           >
             <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
