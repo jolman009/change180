@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Testimonials = () => {
@@ -60,6 +60,11 @@ const Testimonials = () => {
               />
 
               <blockquote className="relative z-10">
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={18} className="fill-primary text-primary" />
+                  ))}
+                </div>
                 <p className="font-serif text-xl md:text-2xl text-foreground leading-relaxed mb-6 italic">
                   "{testimonial.quote}"
                 </p>

@@ -18,8 +18,8 @@
     --popover: 35 15% 95%;
     --popover-foreground: 215 15% 22%;
 
-    /* Primary - Soft peach (warm, nurturing, approachable) */
-    --primary: 20 42% 48%;
+    /* Primary - Soft peach (warm, nurturing, approachable) — darkened for WCAG AA contrast */
+    --primary: 20 42% 43%;
     --primary-foreground: 35 20% 98%;
 
     /* Secondary - Warm taupe (approachable, grounded) */
@@ -39,7 +39,7 @@
 
     --border: 28 14% 88%;
     --input: 28 14% 88%;
-    --ring: 20 42% 48%;
+    --ring: 20 42% 43%;
 
     --radius: 0.75rem;
 
@@ -52,7 +52,7 @@
     /* Gradients - subtle and professional */
     --gradient-hero: linear-gradient(135deg, hsl(35 18% 97%) 0%, hsl(20 25% 95%) 50%, hsl(30 18% 96%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(35 15% 97%) 0%, hsl(35 12% 95%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(20 42% 48%) 0%, hsl(20 45% 42%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(20 42% 43%) 0%, hsl(20 45% 38%) 100%);
 
     /* Shadows - softer and more subtle */
     --shadow-soft: 0 4px 20px -4px hsl(215 15% 22% / 0.06);
@@ -61,12 +61,12 @@
 
     --sidebar-background: 35 15% 95%;
     --sidebar-foreground: 215 12% 28%;
-    --sidebar-primary: 20 42% 48%;
+    --sidebar-primary: 20 42% 43%;
     --sidebar-primary-foreground: 35 20% 98%;
     --sidebar-accent: 155 18% 88%;
     --sidebar-accent-foreground: 215 15% 22%;
     --sidebar-border: 28 14% 88%;
-    --sidebar-ring: 20 42% 48%;
+    --sidebar-ring: 20 42% 43%;
   }
 
   .dark {

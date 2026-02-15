@@ -294,6 +294,21 @@
     "disclaimer": "<brand>change180</brand> provides coaching, education, and consulting services. Coaching is not therapy and does not replace mental health treatment. No diagnosis or clinical services are provided through coaching."
   },
   "quiz": {
+    "cta": {
+      "badge": "Free Assessment",
+      "headline": "Not Sure Where to Start?",
+      "description": "Take our quick coaching quiz to discover which package is the best fit for your journey.",
+      "features": [
+        "Personalized recommendations",
+        "Only takes 2 minutes",
+        "Find your ideal coaching path"
+      ],
+      "button": "Take the Quiz"
+    },
+    "progress": {
+      "question": "Question",
+      "of": "of"
+    },
     "intro": {
       "badge": "Free Assessment",
       "headline": "Find Your Path to Growth",
