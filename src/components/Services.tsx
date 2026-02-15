@@ -41,7 +41,7 @@ const Services = () => {
         const [, rest] = part.split("</brand>");
         return (
           <span key={index}>
-            <span className="font-semibold">change<span className="text-primary">180</span></span>
+            <span className="font-semibold">Change<span className="text-primary">180</span></span>
             {rest}
           </span>
         );
