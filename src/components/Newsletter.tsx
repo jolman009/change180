@@ -6,8 +6,6 @@ import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
 
-const MAILCHIMP_URL = import.meta.env.VITE_MAILCHIMP_URL || "";
-
 const Newsletter = () => {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
@@ -24,8 +22,12 @@ const Newsletter = () => {
 
     setIsLoading(true);
 
-    if (!MAILCHIMP_URL) {
-      // Fallback: simulate success when Mailchimp is not configured
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      // Fallback: simulate success when EmailJS is not configured
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setIsSubscribed(true);
       toast.success(t("newsletter.success"));
@@ -35,50 +37,21 @@ const Newsletter = () => {
     }
 
     try {
-      // Mailchimp embedded form submission via JSONP
-      // Convert the regular Mailchimp URL to the JSONP endpoint
-      const url = MAILCHIMP_URL.replace("/post?", "/post-json?") + `&EMAIL=${encodeURIComponent(email)}`;
+      const emailjs = (await import("@emailjs/browser")).default;
 
-      // Use JSONP approach since Mailchimp doesn't support CORS
-      const callbackName = `mc_callback_${Date.now()}`;
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          subscriber_email: email,
+          reply_to: email,
+        },
+        PUBLIC_KEY
+      );
 
-      const result = await new Promise<{ result: string; msg: string }>((resolve, reject) => {
-        const timeout = setTimeout(() => {
-          cleanup();
-          reject(new Error("Request timed out"));
-        }, 10000);
-
-        function cleanup() {
-          clearTimeout(timeout);
-          delete (window as Record<string, unknown>)[callbackName];
-          script.remove();
-        }
-
-        (window as Record<string, unknown>)[callbackName] = (data: { result: string; msg: string }) => {
-          cleanup();
-          resolve(data);
-        };
-
-        const script = document.createElement("script");
-        script.src = `${url}&c=${callbackName}`;
-        script.onerror = () => {
-          cleanup();
-          reject(new Error("Network error"));
-        };
-        document.body.appendChild(script);
-      });
-
-      if (result.result === "success") {
-        setIsSubscribed(true);
-        toast.success(t("newsletter.success"));
-        setEmail("");
-      } else if (result.msg?.includes("already subscribed")) {
-        setIsSubscribed(true);
-        toast.success(t("newsletter.success"));
-        setEmail("");
-      } else {
-        toast.error(t("newsletter.error"));
-      }
+      setIsSubscribed(true);
+      toast.success(t("newsletter.success"));
+      setEmail("");
     } catch {
       toast.error(t("newsletter.error"));
     } finally {
