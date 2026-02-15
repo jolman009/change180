@@ -74,7 +74,7 @@ const Navigation = () => {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setLanguage(language === "en" ? "es" : "en")}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-border bg-card text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-primary/30 bg-card text-sm font-medium text-foreground hover:bg-muted transition-colors animate-glow-pulse"
               aria-label={language === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
             >
               <Globe size={14} className="text-primary" />
@@ -122,7 +122,7 @@ const Navigation = () => {
             {/* Language Toggle */}
             <button
               onClick={() => setLanguage(language === "en" ? "es" : "en")}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-card text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-card text-sm font-medium text-foreground hover:bg-muted transition-colors animate-glow-pulse"
               aria-label={language === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
             >
               <Globe size={16} className="text-primary" />
