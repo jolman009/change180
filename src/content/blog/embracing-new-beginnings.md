@@ -11,7 +11,7 @@ image: "/images/coaching-session-3.webp"
 readingTime: 4
 ---
 
-There's a reason I named my coaching practice "change180." A 180-degree turn means facing a completely new direction—leaving behind what was and stepping into what could be.
+There's a reason I named my coaching practice "Change180." A 180-degree turn means facing a completely new direction—leaving behind what was and stepping into what could be.
 
 ## Why Change Feels So Hard
 

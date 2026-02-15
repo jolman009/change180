@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PopupButton } from "react-calendly";
 import Logo from "./Logo";
@@ -72,27 +72,14 @@ const Navigation = () => {
 
           {/* Mobile Language Toggle + Menu Button */}
           <div className="flex md:hidden items-center gap-2">
-            <div className="flex items-center text-xs">
-              <button
-                onClick={() => setLanguage("en")}
-                className={`px-1.5 py-1 rounded transition-colors ${language === "en"
-                  ? "text-primary font-semibold"
-                  : "text-muted-foreground"
-                  }`}
-              >
-                EN
-              </button>
-              <span className="text-muted-foreground">|</span>
-              <button
-                onClick={() => setLanguage("es")}
-                className={`px-1.5 py-1 rounded transition-colors ${language === "es"
-                  ? "text-primary font-semibold"
-                  : "text-muted-foreground"
-                  }`}
-              >
-                ES
-              </button>
-            </div>
+            <button
+              onClick={() => setLanguage(language === "en" ? "es" : "en")}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-border bg-card text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              aria-label={language === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
+            >
+              <Globe size={14} className="text-primary" />
+              <span>{language === "en" ? "ES" : "EN"}</span>
+            </button>
             <button
               className="p-2 text-foreground"
               onClick={() => setIsOpen(!isOpen)}
@@ -133,27 +120,14 @@ const Navigation = () => {
             </Link>
 
             {/* Language Toggle */}
-            <div className="flex items-center gap-1 text-sm">
-              <button
-                onClick={() => setLanguage("en")}
-                className={`px-2 py-1 rounded transition-colors ${language === "en"
-                  ? "text-primary font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
-              >
-                EN
-              </button>
-              <span className="text-muted-foreground">|</span>
-              <button
-                onClick={() => setLanguage("es")}
-                className={`px-2 py-1 rounded transition-colors ${language === "es"
-                  ? "text-primary font-semibold"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
-              >
-                ES
-              </button>
-            </div>
+            <button
+              onClick={() => setLanguage(language === "en" ? "es" : "en")}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border bg-card text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              aria-label={language === "en" ? "Switch to Spanish" : "Cambiar a inglés"}
+            >
+              <Globe size={16} className="text-primary" />
+              <span>{language === "en" ? "ES" : "EN"}</span>
+            </button>
 
             <PopupButton
               url={calendlyUrl}
@@ -208,10 +182,11 @@ const Navigation = () => {
 
               {/* Mobile Language Toggle */}
               <div className="flex items-center gap-2 py-2">
+                <Globe size={18} className="text-primary" />
                 <button
                   type="button"
                   onClick={() => setLanguage("en")}
-                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${language === "en"
+                  className={`px-4 py-2 rounded-full text-sm transition-colors ${language === "en"
                     ? "bg-primary text-primary-foreground font-semibold"
                     : "bg-muted text-muted-foreground"
                     }`}
@@ -221,7 +196,7 @@ const Navigation = () => {
                 <button
                   type="button"
                   onClick={() => setLanguage("es")}
-                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${language === "es"
+                  className={`px-4 py-2 rounded-full text-sm transition-colors ${language === "es"
                     ? "bg-primary text-primary-foreground font-semibold"
                     : "bg-muted text-muted-foreground"
                     }`}
