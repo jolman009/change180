@@ -27,6 +27,18 @@ const FAQ = () => {
           question: t("faq.questions.faithBased.question"),
           answer: t("faq.questions.faithBased.answer"),
         },
+        {
+          question: t("faq.questions.accountabilityCoaching.question"),
+          answer: t("faq.questions.accountabilityCoaching.answer"),
+        },
+        {
+          question: t("faq.questions.habitCoaching.question"),
+          answer: t("faq.questions.habitCoaching.answer"),
+        },
+        {
+          question: t("faq.questions.personalDevelopment.question"),
+          answer: t("faq.questions.personalDevelopment.answer"),
+        },
       ],
     },
     {
@@ -48,6 +60,10 @@ const FAQ = () => {
         {
           question: t("faq.questions.whatToExpect.question"),
           answer: t("faq.questions.whatToExpect.answer"),
+        },
+        {
+          question: t("faq.questions.goalSettingCoaching.question"),
+          answer: t("faq.questions.goalSettingCoaching.answer"),
         },
       ],
     },

@@ -91,16 +91,16 @@
   "services": {
     "sectionLabel": "Our Services",
     "headline": "Coaching Services Offered",
-    "description": "Faith-centered, culturally responsive, and trauma-informed support designed for real life — not perfection.",
+    "description": "Structured life coaching with practical accountability, goal setting, and habit building support — designed for real life, not perfection.",
     "comingSoon": "Coming Soon",
     "individual": {
       "title": "Individual Life Coaching",
-      "description": "Personalized 1:1 sessions focused on life transitions, purpose, emotional wellness, and faith-centered decision-making.",
+      "description": "Personalized 1:1 sessions focused on goal execution, behavior change, and personal development through structured, results-focused coaching.",
       "features": [
-        "Stress, depression, and anxiety management",
-        "Personal goals, growth and accountability",
+        "Goal setting and accountability coaching",
+        "Habit building and behavior change support",
         "Building self-confidence and resilience",
-        "Discovering your strengths and passions"
+        "Performance coaching for work and life"
       ]
     },
     "family": {
@@ -136,11 +136,11 @@
     "whyWork": {
       "title": "Why Work With <brand>Change180</brand>?",
       "reasons": [
-        "Faith-centered, not faith-pressured",
+        "Structured, results-focused coaching",
+        "Practical accountability & habit building",
+        "Values-centered personal development",
         "Culturally responsive & bilingual",
-        "Education-based & trauma-informed",
-        "Practical tools you can use",
-        "Compassionate, non-judgmental"
+        "Compassionate, non-judgmental support"
       ]
     },
     "imageAlt": "Myra coaching a client in her office"
@@ -546,6 +546,22 @@
       "bilingual": {
         "question": "Do you offer services in Spanish?",
         "answer": "Yes! I am fully bilingual and offer all coaching services in both English and Spanish. Many of my clients appreciate being able to express themselves in their native language. You can switch languages at any time during our work together."
+      },
+      "accountabilityCoaching": {
+        "question": "What is accountability coaching?",
+        "answer": "Accountability coaching is a structured approach where I help you set clear goals, track your progress, and stay committed to your action plan. Through regular check-ins and practical strategies, we ensure you follow through on the changes you want to make. It's about building discipline and momentum so that your goals become results."
+      },
+      "habitCoaching": {
+        "question": "Can coaching help me build better habits?",
+        "answer": "Absolutely! Habit coaching is a core part of what we do at Change180. We use proven behavior change strategies to help you identify unproductive patterns, replace them with positive routines, and build lasting habits. Whether it's daily disciplines, health routines, or productivity systems, we provide the structure and support you need."
+      },
+      "goalSettingCoaching": {
+        "question": "How does goal setting coaching work?",
+        "answer": "Goal setting coaching starts with clarifying your vision and values, then breaking big goals into actionable steps. I help you create a realistic timeline, identify potential obstacles, and develop strategies to overcome them. Through ongoing accountability and progress tracking, we turn your goals into a clear execution plan you can follow with confidence."
+      },
+      "personalDevelopment": {
+        "question": "What areas of personal development can coaching address?",
+        "answer": "Personal development coaching covers a wide range of growth areas including building self-confidence, improving decision-making, strengthening resilience, enhancing performance at work and in relationships, and aligning your daily life with your core values. Every coaching plan is tailored to your unique needs and where you want to grow."
       }
     }
   },

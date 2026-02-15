@@ -91,16 +91,16 @@
   "services": {
     "sectionLabel": "Nuestros Servicios",
     "headline": "Servicios de Coaching Ofrecidos",
-    "description": "Apoyo centrado en la fe, culturalmente sensible e informado sobre el trauma, diseñado para la vida real — no para la perfección.",
+    "description": "Coaching de vida estructurado con rendición de cuentas práctica, establecimiento de metas y apoyo en la formación de hábitos — diseñado para la vida real, no para la perfección.",
     "comingSoon": "Próximamente",
     "individual": {
       "title": "Coaching de Vida Individual",
-      "description": "Sesiones personalizadas 1:1 enfocadas en transiciones de vida, propósito, bienestar emocional y toma de decisiones centrada en la fe.",
+      "description": "Sesiones personalizadas 1:1 enfocadas en la ejecución de metas, cambio de comportamiento y desarrollo personal a través de coaching estructurado y enfocado en resultados.",
       "features": [
-        "Manejo del estrés, depresión y ansiedad",
-        "Metas personales, crecimiento y responsabilidad",
+        "Establecimiento de metas y coaching de rendición de cuentas",
+        "Formación de hábitos y apoyo en cambio de comportamiento",
         "Construcción de autoconfianza y resiliencia",
-        "Descubriendo tus fortalezas y pasiones"
+        "Coaching de rendimiento para el trabajo y la vida"
       ]
     },
     "family": {
@@ -136,11 +136,11 @@
     "whyWork": {
       "title": "¿Por Qué Trabajar Con <brand>Change180</brand>?",
       "reasons": [
-        "Centrado en la fe, no presionado por la fe",
+        "Coaching estructurado y enfocado en resultados",
+        "Rendición de cuentas práctica y formación de hábitos",
+        "Desarrollo personal centrado en valores",
         "Culturalmente sensible y bilingüe",
-        "Basado en educación e informado sobre trauma",
-        "Herramientas prácticas que puedes usar",
-        "Compasivo, sin juicios"
+        "Apoyo compasivo y sin juicios"
       ]
     },
     "imageAlt": "Myra coaching a un cliente en su oficina"
@@ -545,6 +545,22 @@
       "bilingual": {
         "question": "¿Ofreces servicios en español?",
         "answer": "¡Sí! Soy completamente bilingüe y ofrezco todos los servicios de coaching en inglés y español. Muchos de mis clientes aprecian poder expresarse en su idioma nativo. Puedes cambiar de idioma en cualquier momento durante nuestro trabajo juntos."
+      },
+      "accountabilityCoaching": {
+        "question": "¿Qué es el coaching de rendición de cuentas?",
+        "answer": "El coaching de rendición de cuentas es un enfoque estructurado donde te ayudo a establecer metas claras, rastrear tu progreso y mantenerte comprometido/a con tu plan de acción. A través de revisiones regulares y estrategias prácticas, nos aseguramos de que sigas adelante con los cambios que deseas hacer. Se trata de construir disciplina e impulso para que tus metas se conviertan en resultados."
+      },
+      "habitCoaching": {
+        "question": "¿Puede el coaching ayudarme a construir mejores hábitos?",
+        "answer": "¡Absolutamente! El coaching de hábitos es una parte fundamental de lo que hacemos en Change180. Usamos estrategias probadas de cambio de comportamiento para ayudarte a identificar patrones improductivos, reemplazarlos con rutinas positivas y construir hábitos duraderos. Ya sean disciplinas diarias, rutinas de salud o sistemas de productividad, proporcionamos la estructura y el apoyo que necesitas."
+      },
+      "goalSettingCoaching": {
+        "question": "¿Cómo funciona el coaching de establecimiento de metas?",
+        "answer": "El coaching de establecimiento de metas comienza con clarificar tu visión y valores, luego desglosar grandes metas en pasos accionables. Te ayudo a crear un cronograma realista, identificar obstáculos potenciales y desarrollar estrategias para superarlos. A través de la rendición de cuentas continua y el seguimiento del progreso, convertimos tus metas en un plan de ejecución claro que puedes seguir con confianza."
+      },
+      "personalDevelopment": {
+        "question": "¿Qué áreas del desarrollo personal puede abordar el coaching?",
+        "answer": "El coaching de desarrollo personal cubre una amplia gama de áreas de crecimiento incluyendo construcción de autoconfianza, mejora de la toma de decisiones, fortalecimiento de la resiliencia, mejora del rendimiento en el trabajo y en las relaciones, y alineación de tu vida diaria con tus valores fundamentales. Cada plan de coaching está diseñado a tu medida según tus necesidades únicas y donde deseas crecer."
       }
     }
   },
