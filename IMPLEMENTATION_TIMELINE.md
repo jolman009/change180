@@ -12,7 +12,7 @@ Quick wins that fix broken functionality and core SEO issues.
 | # | Task | Status | Notes |
 |---|------|--------|-------|
 | 1.1 | Add missing `quiz.cta.*` and `quiz.progress.*` translation keys | ✅ DONE | EN & ES |
-| 1.2 | Add `<link rel="canonical">` tag to index.html | ✅ DONE | Points to myraguzman.com |
+| 1.2 | Add `<link rel="canonical">` tag to index.html | ✅ DONE | Points to change180.org |
 | 1.3 | Delete leftover PNG source files (4 files, ~5.3 MB) | ✅ DONE | Repo cleaned |
 | 1.4 | Verify all headings render correctly (no raw i18n keys) | ✅ DONE | All keys present |
 | 1.5 | Compress images to WebP | ✅ DONE | Already using WebP |

@@ -32,7 +32,7 @@ The site features a personalized brand identity with the "Myra Z. Guzman" floral
 | **Deployment** | Vercel | - |
 | **CI/CD** | GitHub Actions | - |
 | **Analytics** | Google Analytics 4 | G-7FZ4YD0V4Q |
-| **Domain** | IONOS | myraguzman.com |
+| **Domain** | IONOS | change180.org |
 
 ---
 
@@ -544,7 +544,7 @@ npm run test:watch # Run tests in watch mode
 - [x] Vercel deployment configuration
 - [x] Global error handling
 - [x] SEO sitemap
-- [x] Custom domain setup (myraguzman.com via IONOS)
+- [x] Custom domain setup (change180.org via IONOS)
 - [x] Bilingual support (English/Spanish) - moved up from Phase 3
 
 ### Phase 2 (Revenue) - IN PROGRESS

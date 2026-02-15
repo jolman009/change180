@@ -84,7 +84,7 @@ change180life@gmail.com
 ---
 Change 180 Life Coaching
 Faith-centered guidance for real-life transformation
-myraguzman.com
+change180.org
     `.trim();
 
     const blob = new Blob([pdfContent], { type: 'text/plain' });
