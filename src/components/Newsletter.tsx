@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { toast } from "sonner";
 
+const MAILCHIMP_URL = import.meta.env.VITE_MAILCHIMP_URL || "";
+
 const Newsletter = () => {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
@@ -22,16 +24,62 @@ const Newsletter = () => {
 
     setIsLoading(true);
 
-    // Simulate API call - replace with actual newsletter service integration
-    // (Mailchimp, ConvertKit, Resend, etc.)
-    try {
+    if (!MAILCHIMP_URL) {
+      // Fallback: simulate success when Mailchimp is not configured
       await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // For now, just show success - integrate with actual service later
       setIsSubscribed(true);
       toast.success(t("newsletter.success"));
       setEmail("");
-    } catch (error) {
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      // Mailchimp embedded form submission via JSONP
+      // Convert the regular Mailchimp URL to the JSONP endpoint
+      const url = MAILCHIMP_URL.replace("/post?", "/post-json?") + `&EMAIL=${encodeURIComponent(email)}`;
+
+      // Use JSONP approach since Mailchimp doesn't support CORS
+      const callbackName = `mc_callback_${Date.now()}`;
+
+      const result = await new Promise<{ result: string; msg: string }>((resolve, reject) => {
+        const timeout = setTimeout(() => {
+          cleanup();
+          reject(new Error("Request timed out"));
+        }, 10000);
+
+        function cleanup() {
+          clearTimeout(timeout);
+          delete (window as Record<string, unknown>)[callbackName];
+          script.remove();
+        }
+
+        (window as Record<string, unknown>)[callbackName] = (data: { result: string; msg: string }) => {
+          cleanup();
+          resolve(data);
+        };
+
+        const script = document.createElement("script");
+        script.src = `${url}&c=${callbackName}`;
+        script.onerror = () => {
+          cleanup();
+          reject(new Error("Network error"));
+        };
+        document.body.appendChild(script);
+      });
+
+      if (result.result === "success") {
+        setIsSubscribed(true);
+        toast.success(t("newsletter.success"));
+        setEmail("");
+      } else if (result.msg?.includes("already subscribed")) {
+        setIsSubscribed(true);
+        toast.success(t("newsletter.success"));
+        setEmail("");
+      } else {
+        toast.error(t("newsletter.error"));
+      }
+    } catch {
       toast.error(t("newsletter.error"));
     } finally {
       setIsLoading(false);

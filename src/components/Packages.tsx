@@ -92,7 +92,8 @@ const Packages = () => {
               <div className="mb-6">
                 <p className="text-sm text-primary font-medium mb-1">{pkg.tagline}</p>
                 <h3 className="font-serif text-2xl text-foreground mb-2">{pkg.name}</h3>
-                <p className="text-xs text-muted-foreground">{pkg.duration}</p>
+                <p className="text-xs text-muted-foreground mb-2">{pkg.duration}</p>
+                <p className="text-sm font-medium text-foreground/70 italic">{t("packages.contactForPricing")}</p>
               </div>
 
               <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
@@ -137,9 +138,10 @@ const Packages = () => {
             <h3 className="font-serif text-2xl text-foreground mb-3">
               {t("packages.familyCoaching.title")}
             </h3>
-            <p className="text-muted-foreground mb-4">
+            <p className="text-muted-foreground mb-2">
               {t("packages.familyCoaching.description")}
             </p>
+            <p className="text-sm font-medium text-foreground/70 italic mb-4">{t("packages.contactForPricing")}</p>
             <PopupButton
               url={calendlyUrl}
               rootElement={document.getElementById("root")!}
