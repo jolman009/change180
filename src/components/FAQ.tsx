@@ -101,6 +101,10 @@ const FAQ = () => {
           question: t("faq.questions.bilingual.question"),
           answer: t("faq.questions.bilingual.answer"),
         },
+        {
+          question: t("faq.questions.location.question"),
+          answer: t("faq.questions.location.answer"),
+        },
       ],
     },
   ];

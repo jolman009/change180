@@ -118,8 +118,9 @@ const Contact = () => {
                   <MapPin size={20} className="text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">{t("contact.sessions")}</p>
-                  <p className="text-foreground font-medium">{t("contact.sessionsValue")}</p>
+                  <p className="text-sm text-muted-foreground">{t("contact.location")}</p>
+                  <p className="text-foreground font-medium">{t("contact.locationValue")}</p>
+                  <p className="text-sm text-muted-foreground">{t("contact.sessionsValue")}</p>
                 </div>
               </div>
             </div>

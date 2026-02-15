@@ -28,7 +28,7 @@
   "about": {
     "sectionLabel": "About Me",
     "headline": "Hi, I'm Myra Z. Guzman, M.Ed.",
-    "paragraph1": "I am a bilingual certified life coach and educator with a deep passion for helping others live fulfilling and faith-centered lives.",
+    "paragraph1": "I am a bilingual certified life coach and educator based in Brownsville, Texas with a deep passion for helping others live fulfilling and faith-centered lives.",
     "paragraph2": "With over 17 years of experience supporting children, families, and adults through education, emotional development, and community-based services, I bring a unique blend of knowledge, empathy, and spiritual guidance to my coaching practice.",
     "paragraph3": "I created <brand>Change180</brand> to serve those who want real change without judgment, faith without shame, and growth that feels both grounded and hopeful.",
     "disclaimer": "Coaching services are non-clinical and educational in nature and do not replace therapy.",
@@ -252,6 +252,8 @@
     "description": "Take the first step toward clarity, growth, and purpose. Reach out today to schedule your Discovery Session or ask any questions.",
     "email": "Email",
     "phone": "Phone",
+    "location": "Location",
+    "locationValue": "Brownsville, Texas",
     "sessions": "Sessions",
     "sessionsValue": "Virtual & In-Person Available",
     "organizations": {
@@ -280,7 +282,7 @@
     "imageAlt": "Myra in a supportive coaching conversation"
   },
   "footer": {
-    "tagline": "Guiding faith, family, and personal growth. Transform your life with faith-centered coaching.",
+    "tagline": "Life coaching in Brownsville, Texas. Guiding faith, family, and personal growth. Virtual sessions available nationwide.",
     "quickLinks": "Quick Links",
     "servicesTitle": "Services",
     "services": {
@@ -513,7 +515,7 @@
       },
       "virtualOrInPerson": {
         "question": "Are sessions virtual or in-person?",
-        "answer": "Both! I offer virtual sessions via secure video conferencing, which works great for busy schedules and clients outside my local area. In-person sessions are also available for those who prefer face-to-face connection. We'll find what works best for you."
+        "answer": "Both! I'm based in Brownsville, Texas and offer in-person sessions for clients in the Rio Grande Valley. I also offer virtual sessions via secure video conferencing, which works great for busy schedules and clients anywhere in the country. We'll find what works best for you."
       },
       "howOften": {
         "question": "How often do we meet?",
@@ -562,6 +564,10 @@
       "personalDevelopment": {
         "question": "What areas of personal development can coaching address?",
         "answer": "Personal development coaching covers a wide range of growth areas including building self-confidence, improving decision-making, strengthening resilience, enhancing performance at work and in relationships, and aligning your daily life with your core values. Every coaching plan is tailored to your unique needs and where you want to grow."
+      },
+      "location": {
+        "question": "Where is Change180 located?",
+        "answer": "Change180 is based in Brownsville, Texas, serving clients throughout the Rio Grande Valley and beyond. In-person coaching sessions are available locally, and virtual sessions via secure video conferencing are available for clients anywhere in the United States. Whether you're in Brownsville, the RGV, or across the country, we can work together."
       }
     }
   },

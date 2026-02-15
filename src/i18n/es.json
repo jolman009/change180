@@ -28,7 +28,7 @@
   "about": {
     "sectionLabel": "Sobre Mí",
     "headline": "Hola, soy Myra Z. Guzman, M.Ed.",
-    "paragraph1": "Soy una coach de vida certificada y educadora bilingüe con una profunda pasión por ayudar a otros a vivir vidas plenas y centradas en la fe.",
+    "paragraph1": "Soy una coach de vida certificada y educadora bilingüe con sede en Brownsville, Texas con una profunda pasión por ayudar a otros a vivir vidas plenas y centradas en la fe.",
     "paragraph2": "Con más de 17 años de experiencia apoyando a niños, familias y adultos a través de la educación, el desarrollo emocional y los servicios comunitarios, aporto una combinación única de conocimiento, empatía y guía espiritual a mi práctica de coaching.",
     "paragraph3": "Creé <brand>Change180</brand> para servir a aquellos que quieren un cambio real sin juicio, fe sin vergüenza, y crecimiento que se sienta arraigado y esperanzador.",
     "disclaimer": "Los servicios de coaching son de naturaleza no clínica y educativa y no reemplazan la terapia.",
@@ -251,6 +251,8 @@
     "description": "Da el primer paso hacia la claridad, el crecimiento y el propósito. Comunícate hoy para programar tu Sesión de Descubrimiento o hacer cualquier pregunta.",
     "email": "Correo",
     "phone": "Teléfono",
+    "location": "Ubicación",
+    "locationValue": "Brownsville, Texas",
     "sessions": "Sesiones",
     "sessionsValue": "Virtual y Presencial Disponibles",
     "organizations": {
@@ -279,7 +281,7 @@
     "imageAlt": "Myra en una conversación de coaching de apoyo"
   },
   "footer": {
-    "tagline": "Guiando fe, familia y crecimiento personal. Transforma tu vida con coaching centrado en la fe.",
+    "tagline": "Coaching de vida en Brownsville, Texas. Guiando fe, familia y crecimiento personal. Sesiones virtuales disponibles a nivel nacional.",
     "quickLinks": "Enlaces Rápidos",
     "servicesTitle": "Servicios",
     "services": {
@@ -512,7 +514,7 @@
       },
       "virtualOrInPerson": {
         "question": "¿Las sesiones son virtuales o presenciales?",
-        "answer": "¡Ambas! Ofrezco sesiones virtuales a través de videoconferencia segura, lo cual funciona muy bien para horarios ocupados y clientes fuera de mi área local. Las sesiones presenciales también están disponibles para quienes prefieren la conexión cara a cara. Encontraremos lo que funcione mejor para ti."
+        "answer": "¡Ambas! Estoy ubicada en Brownsville, Texas y ofrezco sesiones presenciales para clientes en el Valle del Río Grande. También ofrezco sesiones virtuales a través de videoconferencia segura, lo cual funciona muy bien para horarios ocupados y clientes en cualquier parte del país. Encontraremos lo que funcione mejor para ti."
       },
       "howOften": {
         "question": "¿Con qué frecuencia nos reunimos?",
@@ -561,6 +563,10 @@
       "personalDevelopment": {
         "question": "¿Qué áreas del desarrollo personal puede abordar el coaching?",
         "answer": "El coaching de desarrollo personal cubre una amplia gama de áreas de crecimiento incluyendo construcción de autoconfianza, mejora de la toma de decisiones, fortalecimiento de la resiliencia, mejora del rendimiento en el trabajo y en las relaciones, y alineación de tu vida diaria con tus valores fundamentales. Cada plan de coaching está diseñado a tu medida según tus necesidades únicas y donde deseas crecer."
+      },
+      "location": {
+        "question": "¿Dónde está ubicado Change180?",
+        "answer": "Change180 tiene su sede en Brownsville, Texas, sirviendo a clientes en todo el Valle del Río Grande y más allá. Las sesiones de coaching presenciales están disponibles localmente, y las sesiones virtuales a través de videoconferencia segura están disponibles para clientes en cualquier parte de los Estados Unidos. Ya sea que estés en Brownsville, el RGV o en cualquier parte del país, podemos trabajar juntos."
       }
     }
   },
