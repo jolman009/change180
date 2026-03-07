@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
-import type { BillingPackageId } from "../_lib/types";
+import type { BillingPackageId } from "../_lib/types.js";
 import {
   ensureSchema,
   findBookingIdByCheckoutSession,
@@ -13,11 +13,11 @@ import {
   updateBillingIntentBySubscriptionId,
   updateBookingStatus,
   upsertSubscription,
-} from "../_lib/db";
-import { sendBillingUpdateEmail } from "../_lib/email";
-import { ENV } from "../_lib/env";
-import { isPost, readRawBody, sendJson } from "../_lib/http";
-import { createBillingPortalSession, getStripeClient } from "../_lib/stripe";
+} from "../_lib/db.js";
+import { sendBillingUpdateEmail } from "../_lib/email.js";
+import { ENV } from "../_lib/env.js";
+import { isPost, readRawBody, sendJson } from "../_lib/http.js";
+import { createBillingPortalSession, getStripeClient } from "../_lib/stripe.js";
 
 function getMetadataValue(
   metadata: Stripe.Metadata | null | undefined,
@@ -161,7 +161,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
 
       case "invoice.payment_succeeded": {
         const invoice = event.data.object as Stripe.Invoice;
-        const subscriptionId = typeof invoice.subscription === "string" ? invoice.subscription : null;
+        const rawSubRef = invoice.parent?.subscription_details?.subscription;
+        const subscriptionId = typeof rawSubRef === "string" ? rawSubRef : typeof rawSubRef === "object" && rawSubRef ? rawSubRef.id : null;
         const customerId = typeof invoice.customer === "string" ? invoice.customer : null;
 
         if (invoice.id) {
@@ -208,7 +209,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
 
       case "invoice.payment_failed": {
         const invoice = event.data.object as Stripe.Invoice;
-        const subscriptionId = typeof invoice.subscription === "string" ? invoice.subscription : null;
+        const rawSubRef2 = invoice.parent?.subscription_details?.subscription;
+        const subscriptionId = typeof rawSubRef2 === "string" ? rawSubRef2 : typeof rawSubRef2 === "object" && rawSubRef2 ? rawSubRef2.id : null;
         const customerId = typeof invoice.customer === "string" ? invoice.customer : null;
 
         if (invoice.id) {
@@ -259,7 +261,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
           totalIterations: totalIterations || existing.total_iterations || 0,
           paidIterations: existing.paid_iterations || 0,
           cancelAtPeriodEnd: subscription.cancel_at_period_end,
-          currentPeriodEnd: toDate(subscription.current_period_end),
+          currentPeriodEnd: toDate(subscription.items?.data?.[0]?.current_period_end),
         });
 
         await updateBillingIntentBySubscriptionId({

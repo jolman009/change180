@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { getPackageFromEventType, getPackageConfig } from "../_lib/billing-config";
-import { parseCalendlyBookingPayload, verifyCalendlySignature } from "../_lib/calendly";
+import { getPackageFromEventType, getPackageConfig } from "../_lib/billing-config.js";
+import { parseCalendlyBookingPayload, verifyCalendlySignature } from "../_lib/calendly.js";
 import {
   ensureSchema,
   insertOrGetBooking,
@@ -9,11 +9,11 @@ import {
   updateBookingStatus,
   upsertBillingIntent,
   upsertCustomer,
-} from "../_lib/db";
-import { sendPaymentRequestEmail } from "../_lib/email";
-import { ENV } from "../_lib/env";
-import { isPost, readRawBody, sendJson } from "../_lib/http";
-import { createCheckoutSession, findOrCreateStripeCustomer } from "../_lib/stripe";
+} from "../_lib/db.js";
+import { sendPaymentRequestEmail } from "../_lib/email.js";
+import { ENV } from "../_lib/env.js";
+import { isPost, readRawBody, sendJson } from "../_lib/http.js";
+import { createCheckoutSession, findOrCreateStripeCustomer } from "../_lib/stripe.js";
 
 function deriveCalendlyEventId(payload: unknown): string {
   const source = (payload as Record<string, unknown>) || {};

@@ -1,5 +1,5 @@
 import { sql } from "@vercel/postgres";
-import type { BillingMode, BillingPackageId, BillingStatus } from "./types";
+import type { BillingMode, BillingPackageId, BillingStatus } from "./types.js";
 
 let schemaPromise: Promise<void> | null = null;
 
@@ -403,7 +403,7 @@ export async function upsertSubscription(input: {
       ${input.totalIterations},
       ${input.paidIterations},
       ${input.cancelAtPeriodEnd ?? false},
-      ${input.currentPeriodEnd ?? null}
+      ${input.currentPeriodEnd?.toISOString() ?? null}
     )
     ON CONFLICT (stripe_subscription_id)
     DO UPDATE SET

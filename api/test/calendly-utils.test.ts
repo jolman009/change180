@@ -1,7 +1,7 @@
 // @vitest-environment node
 import crypto from "node:crypto";
 import { describe, expect, it } from "vitest";
-import { parseCalendlyBookingPayload, verifyCalendlySignature } from "../_lib/calendly";
+import { parseCalendlyBookingPayload, verifyCalendlySignature } from "../_lib/calendly.js";
 
 describe("calendly utils", () => {
   it("verifies calendly signature", () => {

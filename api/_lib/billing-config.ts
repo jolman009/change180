@@ -1,4 +1,4 @@
-import type { BillingPackageId, PackageCatalogEntry } from "./types";
+import type { BillingPackageId, PackageCatalogEntry } from "./types.js";
 
 export const PACKAGE_CATALOG: Record<BillingPackageId, PackageCatalogEntry> = {
   discovery: {

@@ -1,14 +1,14 @@
 import Stripe from "stripe";
-import { ENV } from "./env";
-import { getPackageConfig } from "./billing-config";
-import type { BillingPackageId } from "./types";
+import { ENV } from "./env.js";
+import { getPackageConfig } from "./billing-config.js";
+import type { BillingPackageId } from "./types.js";
 
 let stripeClient: Stripe | null = null;
 
 export function getStripeClient(): Stripe {
   if (!stripeClient) {
     stripeClient = new Stripe(ENV.STRIPE_SECRET_KEY(), {
-      apiVersion: "2025-02-24.acacia",
+      apiVersion: "2026-02-25.clover",
     });
   }
   return stripeClient;

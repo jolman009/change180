@@ -1,7 +1,7 @@
 import { Resend } from "resend";
-import { ENV } from "./env";
-import { amountToDollars, getPackageConfig } from "./billing-config";
-import type { BillingPackageId } from "./types";
+import { ENV } from "./env.js";
+import { amountToDollars, getPackageConfig } from "./billing-config.js";
+import type { BillingPackageId } from "./types.js";
 
 let resendClient: Resend | null = null;
 

@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import handler from "../webhooks/calendly";
+import handler from "../webhooks/calendly.js";
 
 const mocks = vi.hoisted(() => ({
   mockEnsureSchema: vi.fn(),
@@ -16,7 +16,7 @@ const mocks = vi.hoisted(() => ({
   mockFindOrCreateStripeCustomer: vi.fn(),
 }));
 
-vi.mock("../_lib/db", () => ({
+vi.mock("../_lib/db.js", () => ({
   ensureSchema: mocks.mockEnsureSchema,
   insertOrGetBooking: mocks.mockInsertOrGetBooking,
   markEventProcessed: mocks.mockMarkEventProcessed,
@@ -26,16 +26,16 @@ vi.mock("../_lib/db", () => ({
   upsertCustomer: mocks.mockUpsertCustomer,
 }));
 
-vi.mock("../_lib/email", () => ({
+vi.mock("../_lib/email.js", () => ({
   sendPaymentRequestEmail: mocks.mockSendPaymentRequestEmail,
 }));
 
-vi.mock("../_lib/stripe", () => ({
+vi.mock("../_lib/stripe.js", () => ({
   createCheckoutSession: mocks.mockCreateCheckoutSession,
   findOrCreateStripeCustomer: mocks.mockFindOrCreateStripeCustomer,
 }));
 
-vi.mock("../_lib/calendly", () => ({
+vi.mock("../_lib/calendly.js", () => ({
   verifyCalendlySignature: () => true,
   parseCalendlyBookingPayload: () => ({
     eventTypeUri: "https://api.calendly.com/event_types/discovery",
@@ -148,6 +148,6 @@ describe("calendly webhook handler", () => {
     expect(res.statusCode).toBe(200);
     expect(mocks.mockCreateCheckoutSession).not.toHaveBeenCalled();
     expect(mocks.mockSendPaymentRequestEmail).not.toHaveBeenCalled();
-    expect(res.payload).toEqual(expect.objectContaining({ duplicate: true }));
+    expect((res as unknown as { payload: unknown }).payload).toEqual(expect.objectContaining({ duplicate: true }));
   });
 });

@@ -1,9 +1,9 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { z } from "zod";
-import { ensureSchema, findCustomerByEmail, upsertCustomer } from "../_lib/db";
-import { sendPortalLinkEmail } from "../_lib/email";
-import { isPost, sendJson } from "../_lib/http";
-import { createBillingPortalSession, findOrCreateStripeCustomer } from "../_lib/stripe";
+import { ensureSchema, findCustomerByEmail, upsertCustomer } from "../_lib/db.js";
+import { sendPortalLinkEmail } from "../_lib/email.js";
+import { isPost, sendJson } from "../_lib/http.js";
+import { createBillingPortalSession, findOrCreateStripeCustomer } from "../_lib/stripe.js";
 
 const requestSchema = z.object({
   email: z.string().email(),

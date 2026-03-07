@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it } from "vitest";
-import { getPackageConfig, getPackageFromEventType } from "../_lib/billing-config";
+import { getPackageConfig, getPackageFromEventType } from "../_lib/billing-config.js";
 
 describe("billing config", () => {
   it("returns weekly installment settings for program packages", () => {

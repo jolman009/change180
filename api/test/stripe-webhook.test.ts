@@ -1,7 +1,7 @@
 // @vitest-environment node
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import handler from "../webhooks/stripe";
+import handler from "../webhooks/stripe.js";
 
 const mocks = vi.hoisted(() => ({
   mockEnsureSchema: vi.fn(),
@@ -21,7 +21,7 @@ const mocks = vi.hoisted(() => ({
   mockSubscriptionUpdate: vi.fn(),
 }));
 
-vi.mock("../_lib/db", () => ({
+vi.mock("../_lib/db.js", () => ({
   ensureSchema: mocks.mockEnsureSchema,
   findBookingIdByCheckoutSession: mocks.mockFindBookingIdByCheckoutSession,
   findCustomerByStripeCustomerId: mocks.mockFindCustomerByStripeCustomerId,
@@ -35,11 +35,11 @@ vi.mock("../_lib/db", () => ({
   upsertSubscription: mocks.mockUpsertSubscription,
 }));
 
-vi.mock("../_lib/email", () => ({
+vi.mock("../_lib/email.js", () => ({
   sendBillingUpdateEmail: mocks.mockSendBillingUpdateEmail,
 }));
 
-vi.mock("../_lib/stripe", () => ({
+vi.mock("../_lib/stripe.js", () => ({
   createBillingPortalSession: mocks.mockCreateBillingPortalSession,
   getStripeClient: () => ({
     webhooks: { constructEvent: mocks.mockConstructEvent },
@@ -161,7 +161,7 @@ describe("stripe webhook handler", () => {
     await handler(req, res);
 
     expect(res.statusCode).toBe(200);
-    expect(res.payload).toEqual(expect.objectContaining({ duplicate: true }));
+    expect((res as unknown as { payload: unknown }).payload).toEqual(expect.objectContaining({ duplicate: true }));
     expect(mocks.mockUpdateBillingIntentByCheckoutSession).not.toHaveBeenCalled();
   });
 });

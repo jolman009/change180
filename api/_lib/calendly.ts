@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import type { CalendlyBookingPayload } from "./types";
+import type { CalendlyBookingPayload } from "./types.js";
 
 interface CalendlyWebhookSignature {
   timestamp: string;
