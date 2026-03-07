@@ -258,7 +258,12 @@
     "organizations": {
       "title": "Disponible Para Organizaciones",
       "description": "Tarifas grupales, asociaciones con iglesias y talleres personalizados disponibles.",
-      "types": ["Iglesias", "Escuelas", "Sin Fines de Lucro", "Orgs. Comunitarias"]
+      "types": [
+        "Iglesias",
+        "Escuelas",
+        "Sin Fines de Lucro",
+        "Orgs. Comunitarias"
+      ]
     },
     "form": {
       "title": "Enviar un Mensaje",
@@ -315,7 +320,11 @@
       "badge": "Evaluación Gratuita",
       "headline": "Encuentra Tu Camino al Crecimiento",
       "subheadline": "Responde algunas preguntas para descubrir qué paquete de coaching es el mejor para tu viaje.",
-      "benefits": ["Quiz de 2 minutos", "Resultados personalizados", "Sin compromiso"],
+      "benefits": [
+        "Quiz de 2 minutos",
+        "Resultados personalizados",
+        "Sin compromiso"
+      ],
       "startButton": "Comenzar el Quiz",
       "privacy": "Tus respuestas son privadas y solo se usarán para personalizar tus resultados."
     },
@@ -526,7 +535,7 @@
       },
       "pricing": {
         "question": "¿Cuánto cuesta el coaching?",
-        "answer": "Ofrecemos una variedad de paquetes de coaching para adaptarse a diferentes necesidades y niveles de compromiso, desde una sola Sesión de Descubrimiento hasta nuestro programa integral de 12 semanas Florecer Adelante. Para conocer los precios actuales, reserva una consulta gratuita o comunícate a través de nuestro formulario de contacto — con gusto te guiaremos en tus opciones."
+        "answer": "Ofrecemos opciones de coaching desde sesiones individuales hasta programas estructurados de varias semanas. Despu?s de reservar, recibir?s un enlace de pago seguro de Stripe. Los programas pueden cobrarse en pagos semanales y los recibos se env?an autom?ticamente tras cada pago exitoso."
       },
       "insurance": {
         "question": "¿Aceptas seguro médico?",
@@ -534,7 +543,7 @@
       },
       "refunds": {
         "question": "¿Cuál es tu política de cancelación?",
-        "answer": "Entiendo que la vida pasa. Por favor proporciona al menos 24 horas de aviso si necesitas reprogramar. Las sesiones canceladas con menos de 24 horas de aviso pueden perderse. Los reembolsos de paquetes se manejan caso por caso."
+        "answer": "Por favor avisa con al menos 24 horas para reprogramar. Las sesiones canceladas con menos de 24 horas pueden perderse. Los cambios y cancelaciones de pago se gestionan en tu portal seguro de Stripe o contact?ndonos directamente. Las solicitudes de reembolso se revisan caso por caso."
       },
       "howToStart": {
         "question": "¿Cómo empiezo?",
@@ -579,5 +588,16 @@
     "title": "404",
     "description": "¡Ups! Página no encontrada",
     "returnHome": "Volver al Inicio"
+  },
+  "billingPortal": {
+    "title": "Administrar Pagos",
+    "description": "?Necesitas una factura, recibo o actualizar tu m?todo de pago? Solicita tu enlace seguro de pagos.",
+    "emailPlaceholder": "Ingresa el correo usado al reservar",
+    "cta": "Enviar Enlace de Pago",
+    "sending": "Enviando...",
+    "success": "Te enviamos por correo tu enlace para administrar pagos.",
+    "error": "No pudimos enviar tu enlace de pagos. Int?ntalo de nuevo.",
+    "invalidEmail": "Por favor ingresa un correo electr?nico v?lido.",
+    "helpText": "Este enlace seguro te permite ver facturas, actualizar tu tarjeta y administrar planes activos."
   }
 }

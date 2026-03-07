@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
+import BillingPortalAccess from "./BillingPortalAccess";
 
 const Contact = () => {
   const { t, tArray } = useLanguage();
@@ -144,6 +145,8 @@ const Contact = () => {
                 ))}
               </div>
             </div>
+
+            <BillingPortalAccess />
           </motion.div>
 
           {/* Right Column - Form */}

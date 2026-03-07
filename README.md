@@ -79,6 +79,18 @@ The site uses CSS custom properties for theming, defined in `src/index.css`. The
 - `src/index.css` - CSS variables, gradients, and shadows
 - `src/components/Logo.tsx` - Brand logo component
 
+## Billing Integration
+
+Stripe receivables integration is implemented with Vercel serverless routes:
+- `POST /api/webhooks/calendly`
+- `POST /api/webhooks/stripe`
+- `POST /api/billing/portal-link`
+
+Operational procedures are documented in:
+- `docs/STRIPE_RECEIVABLES_RUNBOOK.md`
+
+Copy `.env.example` values into `.env` or Vercel project environment variables before enabling webhook traffic.
+
 ## License
 
 Private - All rights reserved.

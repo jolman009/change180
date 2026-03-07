@@ -5,10 +5,9 @@ import remarkGfm from "remark-gfm";
 import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
 import { getPostBySlug, getAllPosts } from "@/lib/blog";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { PopupButton } from "react-calendly";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { CALENDLY_URL } from "@/lib/constants";
+import BookingCTA from "@/components/BookingCTA";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -17,8 +16,6 @@ const BlogPost = () => {
   const allPosts = getAllPosts();
 
   const isSpanish = language === "es";
-  const calendlyUrl = CALENDLY_URL;
-
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
@@ -194,9 +191,8 @@ const BlogPost = () => {
                   ? "Agenda una sesión de descubrimiento gratuita y comencemos tu camino hacia la transformación."
                   : "Schedule a discovery session and let's begin your journey toward transformation."}
               </p>
-              <PopupButton
-                url={calendlyUrl}
-                rootElement={document.getElementById("root")!}
+              <BookingCTA
+                packageId="discovery"
                 text={isSpanish ? "Reservar una Sesión" : "Book a Session"}
                 className="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-3 font-medium transition-all"
               />

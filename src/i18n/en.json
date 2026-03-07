@@ -176,7 +176,6 @@
         "Personalized action plan",
         "Email support between sessions",
         "Optional Faith-based reflection exercises"
-        
       ],
       "highlight": "Great for life transitions"
     },
@@ -259,7 +258,12 @@
     "organizations": {
       "title": "Available For Organizations",
       "description": "Group rates, church partnerships, and custom workshops available.",
-      "types": ["Churches", "Schools", "Nonprofits", "Community Orgs"]
+      "types": [
+        "Churches",
+        "Schools",
+        "Nonprofits",
+        "Community Orgs"
+      ]
     },
     "form": {
       "title": "Send a Message",
@@ -316,7 +320,11 @@
       "badge": "Free Assessment",
       "headline": "Find Your Path to Growth",
       "subheadline": "Answer a few questions to discover which coaching package is the best fit for your journey.",
-      "benefits": ["2-minute quiz", "Personalized results", "No commitment"],
+      "benefits": [
+        "2-minute quiz",
+        "Personalized results",
+        "No commitment"
+      ],
       "startButton": "Start the Quiz",
       "privacy": "Your answers are private and will only be used to personalize your results."
     },
@@ -527,7 +535,7 @@
       },
       "pricing": {
         "question": "How much does coaching cost?",
-        "answer": "We offer a range of coaching packages to fit different needs and levels of commitment, from a single Discovery Session to our comprehensive 12-week Flourish Forward program. To learn about current pricing, book a free consultation or reach out through our contact form — we're happy to walk you through your options."
+        "answer": "We offer coaching options from one-time sessions to structured multi-week programs. After you schedule, you'll receive a secure Stripe payment link. Program plans can be billed in weekly installments, and receipts are sent automatically after each successful payment."
       },
       "insurance": {
         "question": "Do you accept insurance?",
@@ -535,7 +543,7 @@
       },
       "refunds": {
         "question": "What is your cancellation policy?",
-        "answer": "I understand life happens. Please provide at least 24 hours notice if you need to reschedule. Sessions cancelled with less than 24 hours notice may be forfeited. Package refunds are handled on a case-by-case basis."
+        "answer": "Please provide at least 24 hours notice to reschedule. Sessions cancelled with less than 24 hours notice may be forfeited. Billing changes and cancellations can be handled through your secure Stripe billing portal or by contacting us directly. Refund requests are reviewed case by case."
       },
       "howToStart": {
         "question": "How do I get started?",
@@ -580,5 +588,16 @@
     "title": "404",
     "description": "Oops! Page not found",
     "returnHome": "Return to Home"
+  },
+  "billingPortal": {
+    "title": "Manage Billing",
+    "description": "Need an invoice, receipt, or payment method update? Request your secure billing portal link.",
+    "emailPlaceholder": "Enter the email used at booking",
+    "cta": "Send Billing Link",
+    "sending": "Sending...",
+    "success": "We sent your billing portal link to your email.",
+    "error": "We couldn't send your billing link. Please try again.",
+    "invalidEmail": "Please enter a valid email address.",
+    "helpText": "This secure link lets you view invoices, update your card, and manage active plans."
   }
 }

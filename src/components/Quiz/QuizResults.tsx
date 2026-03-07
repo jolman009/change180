@@ -10,12 +10,11 @@ import {
   MessageCircle,
   Star,
 } from 'lucide-react';
-import { PopupButton } from 'react-calendly';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { QuizResult } from '@/types/quiz';
 import { packageDetails } from '@/data/quizQuestions';
-import { CALENDLY_URL } from '@/lib/constants';
+import BookingCTA from '@/components/BookingCTA';
 
 interface QuizResultsProps {
   result: QuizResult;
@@ -27,8 +26,6 @@ interface QuizResultsProps {
 const QuizResults = ({ result, firstName, email, onRetake }: QuizResultsProps) => {
   const { t, tArray, language } = useLanguage();
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
-
-  const calendlyUrl = CALENDLY_URL;
   
   const primaryPackage = packageDetails[result.primaryRecommendation.packageId];
   const secondaryPackage = result.secondaryRecommendation
@@ -193,9 +190,8 @@ change180.org
           </div>
 
           {/* CTA Button */}
-          <PopupButton
-            url={calendlyUrl}
-            rootElement={document.getElementById('root')!}
+          <BookingCTA
+            packageId={result.primaryRecommendation.packageId}
             text={t('quiz.results.bookNow')}
             className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full py-4 font-medium text-center inline-block"
           />

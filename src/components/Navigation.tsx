@@ -2,10 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { PopupButton } from "react-calendly";
 import Logo from "./Logo";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { CALENDLY_URL } from "@/lib/constants";
+import BookingCTA from "./BookingCTA";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,8 +45,6 @@ const Navigation = () => {
       }
     }
   };
-
-  const calendlyUrl = CALENDLY_URL;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -129,9 +126,8 @@ const Navigation = () => {
               <span>{language === "en" ? "ES" : "EN"}</span>
             </button>
 
-            <PopupButton
-              url={calendlyUrl}
-              rootElement={document.getElementById("root")!}
+            <BookingCTA
+              packageId="discovery"
               text={t("nav.bookSession")}
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 py-2 font-medium text-sm"
             />
@@ -205,9 +201,8 @@ const Navigation = () => {
                 </button>
               </div>
 
-              <PopupButton
-                url={calendlyUrl}
-                rootElement={document.getElementById("root")!}
+              <BookingCTA
+                packageId="discovery"
                 text={t("nav.bookSession")}
                 className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full mt-2 py-2 font-medium text-sm text-center"
               />

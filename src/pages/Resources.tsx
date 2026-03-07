@@ -1,9 +1,8 @@
 import { Download, FileText, BookOpen, Heart, FileSpreadsheet } from "lucide-react";
-import { PopupButton } from "react-calendly";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { CALENDLY_URL } from "@/lib/constants";
+import BookingCTA from "@/components/BookingCTA";
 
 interface Resource {
   id: string;
@@ -70,7 +69,6 @@ const typeLabels = {
 
 const Resources = () => {
   const { language } = useLanguage();
-  const calendlyUrl = CALENDLY_URL;
 
   const content = {
     en: {
@@ -178,9 +176,8 @@ const Resources = () => {
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
               {t.ctaDescription}
             </p>
-            <PopupButton
-              url={calendlyUrl}
-              rootElement={document.getElementById("root")!}
+            <BookingCTA
+              packageId="discovery"
               text={t.ctaButton}
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-3 font-medium transition-colors"
             />

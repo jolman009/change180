@@ -1,0 +1,292 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
+import Stripe from "stripe";
+import type { BillingPackageId } from "../_lib/types";
+import {
+  ensureSchema,
+  findBookingIdByCheckoutSession,
+  findCustomerByStripeCustomerId,
+  getSubscriptionByStripeId,
+  markEventProcessed,
+  trackAnalyticsEvent,
+  updateBillingIntentByCheckoutSession,
+  updateBillingIntentByInvoiceId,
+  updateBillingIntentBySubscriptionId,
+  updateBookingStatus,
+  upsertSubscription,
+} from "../_lib/db";
+import { sendBillingUpdateEmail } from "../_lib/email";
+import { ENV } from "../_lib/env";
+import { isPost, readRawBody, sendJson } from "../_lib/http";
+import { createBillingPortalSession, getStripeClient } from "../_lib/stripe";
+
+function getMetadataValue(
+  metadata: Stripe.Metadata | null | undefined,
+  key: string
+): string | null {
+  if (!metadata) return null;
+  const value = metadata[key];
+  return typeof value === "string" && value.length > 0 ? value : null;
+}
+
+function toBillingPackageId(value: string | null): BillingPackageId {
+  if (
+    value === "discovery" ||
+    value === "family" ||
+    value === "clarity" ||
+    value === "rooted" ||
+    value === "flourish"
+  ) {
+    return value;
+  }
+  return "discovery";
+}
+
+function toDate(timestamp?: number | null): Date | null {
+  if (!timestamp) return null;
+  return new Date(timestamp * 1000);
+}
+
+async function sendPortalEnabledEmail(customerId: string, customSubject: string, bodyPrefix: string): Promise<void> {
+  const customer = await findCustomerByStripeCustomerId(customerId);
+  if (!customer?.email) return;
+
+  const portalUrl = await createBillingPortalSession(customerId);
+  await sendBillingUpdateEmail({
+    to: customer.email,
+    firstName: customer.name,
+    subject: customSubject,
+    body: `${bodyPrefix}\n\nManage billing: ${portalUrl}\n\nSupport: ${ENV.BILLING_SUPPORT_EMAIL()}`,
+  });
+}
+
+export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
+  if (!isPost(req)) {
+    sendJson(res, 405, { error: "Method not allowed" });
+    return;
+  }
+
+  await ensureSchema();
+  const stripe = getStripeClient();
+  const signature = req.headers["stripe-signature"];
+  const rawBody = await readRawBody(req);
+
+  if (!signature || typeof signature !== "string") {
+    sendJson(res, 400, { error: "Missing Stripe signature" });
+    return;
+  }
+
+  let event: Stripe.Event;
+
+  try {
+    event = stripe.webhooks.constructEvent(rawBody, signature, ENV.STRIPE_WEBHOOK_SECRET());
+  } catch (error) {
+    sendJson(res, 400, { error: "Invalid Stripe signature", details: error instanceof Error ? error.message : "Unknown" });
+    return;
+  }
+
+  const firstProcess = await markEventProcessed({
+    provider: "stripe",
+    eventId: event.id,
+    eventType: event.type,
+    payload: event,
+  });
+
+  if (!firstProcess) {
+    sendJson(res, 200, { ok: true, duplicate: true });
+    return;
+  }
+
+  try {
+    switch (event.type) {
+      case "checkout.session.completed": {
+        const session = event.data.object as Stripe.Checkout.Session;
+        const bookingIdFromMetadata = Number(getMetadataValue(session.metadata, "booking_id"));
+        const bookingId = Number.isFinite(bookingIdFromMetadata)
+          ? bookingIdFromMetadata
+          : await findBookingIdByCheckoutSession(session.id);
+
+        await updateBillingIntentByCheckoutSession({
+          checkoutSessionId: session.id,
+          status: "checkout_completed",
+          stripePaymentIntentId: typeof session.payment_intent === "string" ? session.payment_intent : null,
+          stripeInvoiceId: typeof session.invoice === "string" ? session.invoice : null,
+        });
+
+        if (bookingId) {
+          await updateBookingStatus(bookingId, "checkout_completed");
+        }
+
+        await trackAnalyticsEvent("checkout_completed", "stripe", {
+          checkoutSessionId: session.id,
+          mode: session.mode,
+          bookingId: bookingId || null,
+          packageId: getMetadataValue(session.metadata, "package_id"),
+        });
+
+        if (session.mode === "subscription" && typeof session.subscription === "string") {
+          const packageId = toBillingPackageId(getMetadataValue(session.metadata, "package_id"));
+          const totalIterations = Number(getMetadataValue(session.metadata, "total_iterations") || "0");
+
+          await upsertSubscription({
+            bookingId: bookingId || null,
+            stripeSubscriptionId: session.subscription,
+            stripeCustomerId: typeof session.customer === "string" ? session.customer : null,
+            packageId,
+            status: "active",
+            totalIterations: totalIterations || 0,
+            paidIterations: 0,
+          });
+
+          await updateBillingIntentByCheckoutSession({
+            checkoutSessionId: session.id,
+            status: "subscription_active",
+          });
+
+          await trackAnalyticsEvent("subscription_started", "stripe", {
+            subscriptionId: session.subscription,
+            packageId,
+            bookingId: bookingId || null,
+          });
+        }
+
+        if (typeof session.customer === "string") {
+          await sendPortalEnabledEmail(
+            session.customer,
+            "Payment confirmed",
+            "Your checkout is complete. You can view invoices and manage billing from your portal."
+          );
+        }
+        break;
+      }
+
+      case "invoice.payment_succeeded": {
+        const invoice = event.data.object as Stripe.Invoice;
+        const subscriptionId = typeof invoice.subscription === "string" ? invoice.subscription : null;
+        const customerId = typeof invoice.customer === "string" ? invoice.customer : null;
+
+        if (invoice.id) {
+          await updateBillingIntentByInvoiceId({
+            invoiceId: invoice.id,
+            status: "payment_succeeded",
+          });
+        }
+
+        if (subscriptionId) {
+          const existing = await getSubscriptionByStripeId(subscriptionId);
+          const nextPaidIterations = existing.paid_iterations + 1;
+          const totalIterations = existing.total_iterations || Number(getMetadataValue(invoice.parent?.subscription_details?.metadata, "total_iterations") || "0");
+
+          await upsertSubscription({
+            bookingId: existing.booking_id ?? null,
+            stripeSubscriptionId: subscriptionId,
+            stripeCustomerId: customerId,
+            packageId: toBillingPackageId(getMetadataValue(invoice.parent?.subscription_details?.metadata, "package_id")),
+            status: "active",
+            totalIterations: totalIterations || 0,
+            paidIterations: nextPaidIterations,
+            cancelAtPeriodEnd: totalIterations > 0 && nextPaidIterations >= totalIterations,
+            currentPeriodEnd: toDate(invoice.period_end),
+          });
+
+          if (totalIterations > 0 && nextPaidIterations >= totalIterations) {
+            await stripe.subscriptions.update(subscriptionId, {
+              cancel_at_period_end: true,
+            });
+          }
+        }
+
+        if (customerId) {
+          await sendPortalEnabledEmail(
+            customerId,
+            "Payment received",
+            "We successfully processed your payment."
+          );
+        }
+
+        break;
+      }
+
+      case "invoice.payment_failed": {
+        const invoice = event.data.object as Stripe.Invoice;
+        const subscriptionId = typeof invoice.subscription === "string" ? invoice.subscription : null;
+        const customerId = typeof invoice.customer === "string" ? invoice.customer : null;
+
+        if (invoice.id) {
+          await updateBillingIntentByInvoiceId({
+            invoiceId: invoice.id,
+            status: "payment_failed",
+            lastError: invoice.last_finalization_error?.message || "Payment failed",
+          });
+        }
+
+        if (subscriptionId) {
+          await updateBillingIntentBySubscriptionId({
+            subscriptionId,
+            status: "payment_failed",
+            lastError: invoice.last_finalization_error?.message || "Payment failed",
+          });
+        }
+
+        await trackAnalyticsEvent("payment_failed", "stripe", {
+          invoiceId: invoice.id,
+          subscriptionId,
+          customerId,
+        });
+
+        if (customerId) {
+          await sendPortalEnabledEmail(
+            customerId,
+            "Payment issue detected",
+            "We could not process your latest payment. Please update your payment method."
+          );
+        }
+        break;
+      }
+
+      case "customer.subscription.updated":
+      case "customer.subscription.deleted": {
+        const subscription = event.data.object as Stripe.Subscription;
+        const packageId = toBillingPackageId(getMetadataValue(subscription.metadata, "package_id"));
+        const totalIterations = Number(getMetadataValue(subscription.metadata, "total_iterations") || "0");
+        const existing = await getSubscriptionByStripeId(subscription.id);
+
+        await upsertSubscription({
+          bookingId: existing.booking_id ?? null,
+          stripeSubscriptionId: subscription.id,
+          stripeCustomerId: typeof subscription.customer === "string" ? subscription.customer : null,
+          packageId,
+          status: subscription.status,
+          totalIterations: totalIterations || existing.total_iterations || 0,
+          paidIterations: existing.paid_iterations || 0,
+          cancelAtPeriodEnd: subscription.cancel_at_period_end,
+          currentPeriodEnd: toDate(subscription.current_period_end),
+        });
+
+        await updateBillingIntentBySubscriptionId({
+          subscriptionId: subscription.id,
+          status: subscription.status === "canceled" ? "subscription_canceled" : "subscription_active",
+        });
+        break;
+      }
+
+      default:
+        break;
+    }
+
+    sendJson(res, 200, { ok: true });
+  } catch (error) {
+    await markEventProcessed({
+      provider: "stripe",
+      eventId: `${event.id}-error`,
+      eventType: event.type,
+      payload: event,
+      status: "failed",
+      error: error instanceof Error ? error.message : "Unknown error",
+    });
+
+    sendJson(res, 500, {
+      error: "Failed to process Stripe webhook",
+      details: error instanceof Error ? error.message : "Unknown error",
+    });
+  }
+}

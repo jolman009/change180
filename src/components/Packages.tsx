@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
-import { PopupButton } from "react-calendly";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { CALENDLY_URL } from "@/lib/constants";
+import BookingCTA from "./BookingCTA";
+import type { BillingPackageId } from "@/lib/billing";
 
 const Packages = () => {
   const { t, tArray } = useLanguage();
-  const calendlyUrl = CALENDLY_URL;
 
   const packages = [
     {
+      id: "discovery" as BillingPackageId,
       name: t("packages.discovery.name"),
       tagline: t("packages.discovery.tagline"),
       duration: t("packages.discovery.duration"),
@@ -18,6 +18,7 @@ const Packages = () => {
       highlight: t("packages.discovery.highlight"),
     },
     {
+      id: "clarity" as BillingPackageId,
       name: t("packages.clarity.name"),
       tagline: t("packages.clarity.tagline"),
       duration: t("packages.clarity.duration"),
@@ -26,6 +27,7 @@ const Packages = () => {
       highlight: t("packages.clarity.highlight"),
     },
     {
+      id: "rooted" as BillingPackageId,
       name: t("packages.rooted.name"),
       tagline: t("packages.rooted.tagline"),
       duration: t("packages.rooted.duration"),
@@ -35,6 +37,7 @@ const Packages = () => {
       popular: true,
     },
     {
+      id: "flourish" as BillingPackageId,
       name: t("packages.flourish.name"),
       tagline: t("packages.flourish.tagline"),
       duration: t("packages.flourish.duration"),
@@ -109,9 +112,8 @@ const Packages = () => {
                 ))}
               </ul>
 
-              <PopupButton
-                url={calendlyUrl}
-                rootElement={document.getElementById("root")!}
+              <BookingCTA
+                packageId={pkg.id}
                 text={t("packages.getStarted")}
                 className={`w-full rounded-full py-2 font-medium text-sm ${pkg.popular
                   ? "bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -142,9 +144,8 @@ const Packages = () => {
               {t("packages.familyCoaching.description")}
             </p>
             <p className="text-sm font-medium text-foreground/70 italic mb-4">{t("packages.contactForPricing")}</p>
-            <PopupButton
-              url={calendlyUrl}
-              rootElement={document.getElementById("root")!}
+            <BookingCTA
+              packageId="family"
               text={t("packages.learnMore")}
               className="rounded-full border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 py-2 text-sm font-medium"
             />

@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PopupButton } from "react-calendly";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { CALENDLY_URL } from "@/lib/constants";
+import BookingCTA from "./BookingCTA";
 
 const Hero = () => {
   const { t } = useLanguage();
-  const calendlyUrl = CALENDLY_URL;
 
   const scrollToServices = () => {
     document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });
@@ -86,9 +84,8 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <PopupButton
-              url={calendlyUrl}
-              rootElement={document.getElementById("root")!}
+            <BookingCTA
+              packageId="discovery"
               text={t("hero.cta1")}
               className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-4 text-lg font-medium shadow-card hover:shadow-elevated transition-all"
             />
