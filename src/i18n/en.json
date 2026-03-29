@@ -152,10 +152,12 @@
     "mostPopular": "Most Popular",
     "getStarted": "Get Started",
     "learnMore": "Learn More",
-    "contactForPricing": "Contact for pricing",
+    "perSession": "/session",
+    "perProgram": "/ program",
     "discovery": {
       "name": "Discovery Session",
       "tagline": "Start with clarity",
+      "price": "$75",
       "duration": "60-minute session",
       "description": "Explore whether coaching is right for you. Identify challenges and create a faith-aligned plan.",
       "features": [
@@ -169,6 +171,7 @@
     "clarity": {
       "name": "Clarity Package",
       "tagline": "Turn confusion into direction",
+      "price": "$300",
       "duration": "4-week program",
       "description": "Focused support for those feeling stuck, overwhelmed, or uncertain about their path.",
       "features": [
@@ -182,6 +185,7 @@
     "rooted": {
       "name": "Rooted & Renewed",
       "tagline": "Build strong foundations",
+      "price": "$600",
       "duration": "8-week program",
       "description": "Deeper coaching addressing patterns, habits, and mindset through a faith-centered lens.",
       "features": [
@@ -196,6 +200,7 @@
     "flourish": {
       "name": "Flourish Forward",
       "tagline": "Long-term transformation",
+      "price": "$1,200",
       "duration": "12-week program",
       "description": "Premium program for individuals and families committed to purposeful, lasting change.",
       "features": [
@@ -210,6 +215,7 @@
     },
     "familyCoaching": {
       "title": "Family & Parent Coaching",
+      "price": "$110",
       "description": "60-minute focused session for parents seeking guidance, tools, and support."
     },
     "family": {

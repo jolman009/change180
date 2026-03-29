@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Accordion,
@@ -175,17 +176,13 @@ const FAQ = () => {
           <p className="text-muted-foreground mb-4">
             {t("faq.stillHaveQuestions")}
           </p>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-            }}
           >
             {t("faq.contactUs")}
             <span aria-hidden="true">→</span>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

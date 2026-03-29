@@ -295,7 +295,7 @@ change180.org
             {t('quiz.results.retakeQuiz')}
           </Button>
           
-          <Link to="/#contact">
+          <Link to="/contact">
             <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
               <MessageCircle size={16} className="mr-2" />
               {t('quiz.results.contactUs')}

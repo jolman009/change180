@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { Clock, ArrowRight } from "lucide-react";
 import { getAllPosts } from "@/lib/blog";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 
 const Blog = () => {
   const { language } = useLanguage();
@@ -13,9 +12,7 @@ const Blog = () => {
   const isSpanish = language === "es";
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <main>
+    <Layout>
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-cream-100">
@@ -109,10 +106,7 @@ const Blog = () => {
           )}
         </div>
       </section>
-      </main>
-
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

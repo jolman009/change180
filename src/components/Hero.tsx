@@ -1,15 +1,13 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import BookingCTA from "./BookingCTA";
 
 const Hero = () => {
   const { t } = useLanguage();
-
-  const scrollToServices = () => {
-    document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="relative min-h-[70vh] lg:min-h-0 flex items-center justify-center overflow-hidden gradient-hero pt-28 pb-12 lg:pt-32 lg:pb-16">
@@ -90,7 +88,7 @@ const Hero = () => {
               className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-4 text-lg font-medium shadow-card hover:shadow-elevated transition-all"
             />
             <Button
-              onClick={scrollToServices}
+              onClick={() => navigate("/services")}
               variant="outline"
               size="lg"
               className="border-2 border-foreground/20 hover:border-primary hover:text-primary rounded-full px-8 py-6 text-lg transition-all"
