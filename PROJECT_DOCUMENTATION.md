@@ -179,7 +179,7 @@ change180/
 | Discovery Session | $75 | 60 minutes |
 | Clarity Package | $300 | 4 weeks |
 | Rooted & Renewed | $600 | 8 weeks |
-| Flourish Forward | $1,200 | 12 weeks (Most Popular) |
+| Flourish Forward | $900 | 12 weeks (Most Popular) |
 | Family & Parent Coaching | $110/session | Add-on |
 
 ### 8. Testimonials
