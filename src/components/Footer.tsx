@@ -1,4 +1,5 @@
 import { Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -7,11 +8,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const navLinks = [
-    { label: t("nav.about"), href: "#about" },
-    { label: t("nav.services"), href: "#services" },
-    { label: t("nav.packages"), href: "#packages" },
-    { label: t("nav.testimonials"), href: "#testimonials" },
-    { label: t("nav.contact"), href: "#contact" },
+    { label: t("nav.about"), to: "/about" },
+    { label: t("nav.services"), to: "/services" },
+    { label: t("nav.packages"), to: "/packages" },
+    { label: t("nav.testimonials"), to: "/testimonials" },
+    { label: t("nav.contact"), to: "/contact" },
   ];
 
   const renderTextWithBrand = (text: string) => {
@@ -51,17 +52,13 @@ const Footer = () => {
             </h4>
             <nav className="space-y-3">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+                <Link
+                  key={link.to}
+                  to={link.to}
                   className="block text-background/70 hover:text-background transition-colors text-sm"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
-                  }}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

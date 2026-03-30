@@ -12,6 +12,8 @@ const Packages = () => {
       id: "discovery" as BillingPackageId,
       name: t("packages.discovery.name"),
       tagline: t("packages.discovery.tagline"),
+      price: t("packages.discovery.price"),
+      priceSuffix: t("packages.perSession"),
       duration: t("packages.discovery.duration"),
       description: t("packages.discovery.description"),
       features: tArray("packages.discovery.features"),
@@ -21,6 +23,8 @@ const Packages = () => {
       id: "clarity" as BillingPackageId,
       name: t("packages.clarity.name"),
       tagline: t("packages.clarity.tagline"),
+      price: t("packages.clarity.price"),
+      priceSuffix: t("packages.perProgram"),
       duration: t("packages.clarity.duration"),
       description: t("packages.clarity.description"),
       features: tArray("packages.clarity.features"),
@@ -30,6 +34,8 @@ const Packages = () => {
       id: "rooted" as BillingPackageId,
       name: t("packages.rooted.name"),
       tagline: t("packages.rooted.tagline"),
+      price: t("packages.rooted.price"),
+      priceSuffix: t("packages.perProgram"),
       duration: t("packages.rooted.duration"),
       description: t("packages.rooted.description"),
       features: tArray("packages.rooted.features"),
@@ -40,6 +46,8 @@ const Packages = () => {
       id: "flourish" as BillingPackageId,
       name: t("packages.flourish.name"),
       tagline: t("packages.flourish.tagline"),
+      price: t("packages.flourish.price"),
+      priceSuffix: t("packages.perProgram"),
       duration: t("packages.flourish.duration"),
       description: t("packages.flourish.description"),
       features: tArray("packages.flourish.features"),
@@ -95,8 +103,11 @@ const Packages = () => {
               <div className="mb-6">
                 <p className="text-sm text-primary font-medium mb-1">{pkg.tagline}</p>
                 <h3 className="font-serif text-2xl text-foreground mb-2">{pkg.name}</h3>
-                <p className="text-xs text-muted-foreground mb-2">{pkg.duration}</p>
-                <p className="text-sm font-medium text-foreground/70 italic">{t("packages.contactForPricing")}</p>
+                <p className="text-xs text-muted-foreground mb-3">{pkg.duration}</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="font-serif text-3xl font-bold text-foreground">{pkg.price}</span>
+                  <span className="text-sm text-muted-foreground">{pkg.priceSuffix}</span>
+                </div>
               </div>
 
               <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
@@ -140,10 +151,13 @@ const Packages = () => {
             <h3 className="font-serif text-2xl text-foreground mb-3">
               {t("packages.familyCoaching.title")}
             </h3>
-            <p className="text-muted-foreground mb-2">
+            <p className="text-muted-foreground mb-3">
               {t("packages.familyCoaching.description")}
             </p>
-            <p className="text-sm font-medium text-foreground/70 italic mb-4">{t("packages.contactForPricing")}</p>
+            <div className="flex items-baseline justify-center gap-1 mb-4">
+              <span className="font-serif text-3xl font-bold text-foreground">{t("packages.familyCoaching.price")}</span>
+              <span className="text-sm text-muted-foreground">{t("packages.perSession")}</span>
+            </div>
             <BookingCTA
               packageId="family"
               text={t("packages.learnMore")}

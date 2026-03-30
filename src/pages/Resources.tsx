@@ -1,7 +1,6 @@
 import { Download, FileText, BookOpen, Heart, FileSpreadsheet } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 import BookingCTA from "@/components/BookingCTA";
 
 interface Resource {
@@ -100,9 +99,7 @@ const Resources = () => {
   const t = content[language];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <main>
+    <Layout>
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6">
@@ -194,10 +191,7 @@ const Resources = () => {
           &larr; {t.backToHome}
         </a>
       </section>
-      </main>
-
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

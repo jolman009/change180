@@ -1,15 +1,10 @@
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 import QuizContainer from "@/components/Quiz/QuizContainer";
 
 const Quiz = () => (
-  <div className="min-h-screen bg-background">
-    <Navigation />
-    <main className="pt-24">
-      <QuizContainer />
-    </main>
-    <Footer />
-  </div>
+  <Layout>
+    <QuizContainer />
+  </Layout>
 );
 
 export default Quiz;

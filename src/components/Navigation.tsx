@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,42 +9,18 @@ import BookingCTA from "./BookingCTA";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
-  const scrollTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const navLinks = [
-    { href: "#about", label: t("nav.about") },
-    { href: "#services", label: t("nav.services") },
-    { href: "#packages", label: t("nav.packages") },
-    { href: "#testimonials", label: t("nav.testimonials") },
-    { href: "#faq", label: t("nav.faq") },
-    { href: "#contact", label: t("nav.contact") },
+    { to: "/about", label: t("nav.about") },
+    { to: "/services", label: t("nav.services") },
+    { to: "/packages", label: t("nav.packages") },
+    { to: "/testimonials", label: t("nav.testimonials") },
+    { to: "/faq", label: t("nav.faq") },
+    { to: "/contact", label: t("nav.contact") },
   ];
 
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    return () => clearTimeout(scrollTimerRef.current);
-  }, []);
-
-  const scrollToSection = (href: string) => {
-    setIsOpen(false);
-    if (location.pathname !== "/") {
-      navigate("/");
-      clearTimeout(scrollTimerRef.current);
-      scrollTimerRef.current = setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    } else {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
@@ -89,13 +65,17 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden xl:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm tracking-wide"
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`transition-colors font-medium text-sm tracking-wide ${
+                  location.pathname === link.to
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
             <Link
               to="/blog"
@@ -146,13 +126,18 @@ const Navigation = () => {
           >
             <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-left text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setIsOpen(false)}
+                  className={`text-left transition-colors font-medium py-2 ${
+                    location.pathname === link.to
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
               <Link
                 to="/blog"

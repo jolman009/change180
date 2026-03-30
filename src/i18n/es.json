@@ -152,10 +152,12 @@
     "mostPopular": "Más Popular",
     "getStarted": "Comenzar",
     "learnMore": "Más Información",
-    "contactForPricing": "Consultar precio",
+    "perSession": "/sesión",
+    "perProgram": "/ programa",
     "discovery": {
       "name": "Sesión de Descubrimiento",
       "tagline": "Comienza con claridad",
+      "price": "$75",
       "duration": "Sesión de 60 minutos",
       "description": "Explora si el coaching es adecuado para ti. Identifica desafíos y crea un plan alineado con la fe.",
       "features": [
@@ -169,6 +171,7 @@
     "clarity": {
       "name": "Paquete Claridad",
       "tagline": "Convierte la confusión en dirección",
+      "price": "$300",
       "duration": "Programa de 4 semanas",
       "description": "Apoyo enfocado para aquellos que se sienten estancados, abrumados o inciertos sobre su camino.",
       "features": [
@@ -182,6 +185,7 @@
     "rooted": {
       "name": "Arraigado y Renovado",
       "tagline": "Construye bases sólidas",
+      "price": "$600",
       "duration": "Programa de 8 semanas",
       "description": "Coaching más profundo que aborda patrones, hábitos y mentalidad a través de una perspectiva centrada en la fe.",
       "features": [
@@ -196,6 +200,7 @@
     "flourish": {
       "name": "Florecer Adelante",
       "tagline": "Transformación a largo plazo",
+      "price": "$1,200",
       "duration": "Programa de 12 semanas",
       "description": "Programa premium para individuos y familias comprometidos con un cambio duradero y con propósito.",
       "features": [
@@ -210,6 +215,7 @@
     },
     "familyCoaching": {
       "title": "Coaching Familiar y para Padres",
+      "price": "$110",
       "description": "Sesión enfocada de 60 minutos para padres que buscan orientación, herramientas y apoyo."
     },
     "family": {

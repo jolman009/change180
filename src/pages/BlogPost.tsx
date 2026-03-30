@@ -5,8 +5,7 @@ import remarkGfm from "remark-gfm";
 import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
 import { getPostBySlug, getAllPosts } from "@/lib/blog";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 import BookingCTA from "@/components/BookingCTA";
 
 const BlogPost = () => {
@@ -35,9 +34,7 @@ const BlogPost = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <main>
+    <Layout>
 
       {/* Hero Section */}
       <section className="pt-32 pb-8 bg-cream-100">
@@ -238,10 +235,7 @@ const BlogPost = () => {
           </div>
         </section>
       )}
-      </main>
-
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 
