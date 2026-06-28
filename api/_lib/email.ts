@@ -12,6 +12,26 @@ function getResend(): Resend {
   return resendClient;
 }
 
+type ResendEmail = {
+  from: string;
+  to: string | string[];
+  subject: string;
+  text: string;
+  replyTo?: string | string[];
+};
+
+// The Resend SDK does NOT throw on API failures — it returns { data, error }.
+// Surface the error so callers (and Vercel logs) actually see failed sends
+// instead of silently returning success.
+async function sendViaResend(payload: ResendEmail): Promise<void> {
+  const { error } = await getResend().emails.send(payload);
+  if (error) {
+    throw new Error(
+      `Resend send failed: ${error.name || "error"} — ${error.message || JSON.stringify(error)}`
+    );
+  }
+}
+
 export async function sendPaymentRequestEmail(input: {
   to: string;
   firstName?: string | null;
@@ -57,7 +77,7 @@ export async function sendPaymentRequestEmail(input: {
         `If you have questions, reply to this email or contact ${ENV.BILLING_SUPPORT_EMAIL()}.`,
       ].join("\n");
 
-  await getResend().emails.send({
+  await sendViaResend({
     from: ENV.BILLING_FROM_EMAIL(),
     to: input.to,
     subject,
@@ -93,7 +113,7 @@ export async function sendPortalLinkEmail(input: {
         `If you did not request this link, contact us at ${ENV.BILLING_SUPPORT_EMAIL()}.`,
       ].join("\n");
 
-  await getResend().emails.send({
+  await sendViaResend({
     from: ENV.BILLING_FROM_EMAIL(),
     to: input.to,
     subject,
@@ -122,7 +142,7 @@ export async function sendContactEmail(input: {
     .filter((line): line is string => line !== null)
     .join("\n");
 
-  await getResend().emails.send({
+  await sendViaResend({
     from: ENV.BILLING_FROM_EMAIL(),
     to: ENV.CONTACT_RECIPIENT(),
     replyTo: input.email,
@@ -134,7 +154,7 @@ export async function sendContactEmail(input: {
 export async function sendNewsletterSignupEmail(input: {
   email: string;
 }): Promise<void> {
-  await getResend().emails.send({
+  await sendViaResend({
     from: ENV.BILLING_FROM_EMAIL(),
     to: ENV.CONTACT_RECIPIENT(),
     replyTo: input.email,
@@ -153,7 +173,7 @@ export async function sendBillingUpdateEmail(input: {
   subject: string;
   body: string;
 }): Promise<void> {
-  await getResend().emails.send({
+  await sendViaResend({
     from: ENV.BILLING_FROM_EMAIL(),
     to: input.to,
     subject: input.subject,
