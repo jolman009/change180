@@ -25,7 +25,7 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-20 sm:h-24 md:h-28">
+        <div className="flex items-center justify-between h-16 sm:h-20 md:h-24">
           {/* Logo - always visible */}
           <a
             href="/"
@@ -40,11 +40,11 @@ const Navigation = () => {
               }
             }}
           >
-            <Logo size="lg" />
+            <Logo size="md" />
           </a>
 
           {/* Mobile Language Toggle + Menu Button */}
-          <div className="flex xl:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={() => setLanguage(language === "en" ? "es" : "en")}
               className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-primary/30 bg-card text-sm font-medium text-foreground hover:bg-muted transition-colors animate-glow-pulse"
@@ -63,7 +63,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden xl:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-5">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -122,7 +122,7 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="xl:hidden bg-background border-b border-border"
+            className="lg:hidden bg-background border-b border-border"
           >
             <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (

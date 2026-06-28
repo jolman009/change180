@@ -57,7 +57,7 @@ const About = () => {
             <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
               {t("about.sectionLabel")}
             </span>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl text-teal-600 mb-6">
               {t("about.headline")}
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">

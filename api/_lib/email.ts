@@ -101,6 +101,52 @@ export async function sendPortalLinkEmail(input: {
   });
 }
 
+export async function sendContactEmail(input: {
+  name: string;
+  email: string;
+  phone?: string | null;
+  organization?: string | null;
+  message: string;
+}): Promise<void> {
+  const text = [
+    "New contact form submission from change180.org",
+    "",
+    `Name: ${input.name}`,
+    `Email: ${input.email}`,
+    input.phone ? `Phone: ${input.phone}` : null,
+    input.organization ? `Organization: ${input.organization}` : null,
+    "",
+    "Message:",
+    input.message,
+  ]
+    .filter((line): line is string => line !== null)
+    .join("\n");
+
+  await getResend().emails.send({
+    from: ENV.BILLING_FROM_EMAIL(),
+    to: ENV.CONTACT_RECIPIENT(),
+    replyTo: input.email,
+    subject: `New message from ${input.name} — change180.org`,
+    text,
+  });
+}
+
+export async function sendNewsletterSignupEmail(input: {
+  email: string;
+}): Promise<void> {
+  await getResend().emails.send({
+    from: ENV.BILLING_FROM_EMAIL(),
+    to: ENV.CONTACT_RECIPIENT(),
+    replyTo: input.email,
+    subject: "New newsletter signup — change180.org",
+    text: [
+      "New newsletter subscriber from change180.org",
+      "",
+      `Email: ${input.email}`,
+    ].join("\n"),
+  });
+}
+
 export async function sendBillingUpdateEmail(input: {
   to: string;
   firstName?: string | null;

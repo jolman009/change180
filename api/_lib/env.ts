@@ -13,6 +13,7 @@ export const ENV = {
   RESEND_API_KEY: () => requireEnv("RESEND_API_KEY"),
   BILLING_FROM_EMAIL: () => requireEnv("BILLING_FROM_EMAIL"),
   BILLING_SUPPORT_EMAIL: () => requireEnv("BILLING_SUPPORT_EMAIL"),
+  CONTACT_RECIPIENT: () => process.env.CONTACT_RECIPIENT || "change180life@gmail.com",
   SITE_BASE_URL: () => process.env.SITE_BASE_URL || "http://localhost:8080",
   PORTAL_RETURN_URL: () => process.env.STRIPE_PORTAL_RETURN_URL || process.env.SITE_BASE_URL || "http://localhost:8080",
 };

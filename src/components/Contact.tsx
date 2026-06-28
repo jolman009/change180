@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/lib/constants";
 import BillingPortalAccess from "./BillingPortalAccess";
 
 const Contact = () => {
@@ -25,35 +26,27 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
     try {
-      const emailjs = (await import("@emailjs/browser")).default;
-
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: formData.name,
-          title: formData.message,
           email: formData.email,
           phone: formData.phone,
-          reply_to: formData.email,
-        },
-        PUBLIC_KEY
-      );
+          message: formData.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Contact request failed: ${response.status}`);
+      }
 
       toast.success(t("contact.toast.success"));
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
-      if (import.meta.env.DEV) console.error("EmailJS Error:", error);
-      if (error instanceof Error && error.message?.includes("The user_id param is required")) {
-        toast.success(t("contact.toast.demoSuccess"));
-      } else {
-        toast.error(t("contact.toast.error"));
-      }
+      if (import.meta.env.DEV) console.error("Contact form error:", error);
+      toast.error(t("contact.toast.error"));
     } finally {
       setIsSubmitting(false);
     }
@@ -86,7 +79,7 @@ const Contact = () => {
             <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
               {t("contact.sectionLabel")}
             </span>
-            <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl text-teal-600 mb-6">
               {t("contact.headline")}
             </h2>
             <p className="text-muted-foreground text-lg mb-10 leading-relaxed">
@@ -100,7 +93,12 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{t("contact.email")}</p>
-                  <p className="text-foreground font-medium">change180life@gmail.com</p>
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="text-foreground font-medium hover:text-primary transition-colors break-all"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
                 </div>
               </div>
 
@@ -110,7 +108,12 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">{t("contact.phone")}</p>
-                  <p className="text-foreground font-medium">(956) 572-6616</p>
+                  <a
+                    href={`tel:${CONTACT_PHONE_TEL}`}
+                    className="text-foreground font-medium hover:text-primary transition-colors"
+                  >
+                    {CONTACT_PHONE}
+                  </a>
                 </div>
               </div>
 

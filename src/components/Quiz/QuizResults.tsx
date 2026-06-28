@@ -125,7 +125,7 @@ change180.org
           <span className="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
             ✨ {t('quiz.results.yourMatch')}
           </span>
-          <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-2">
+          <h1 className="font-serif text-3xl md:text-4xl text-teal-600 mb-2">
             {t('quiz.results.greeting')}, {firstName}!
           </h1>
           <p className="text-muted-foreground text-lg">

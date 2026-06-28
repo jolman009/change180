@@ -64,7 +64,7 @@ const WhoWeHelp = () => {
           <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
             {t("whoWeHelp.sectionLabel")}
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl text-teal-600 mb-6">
             {renderTextWithBrand(t("whoWeHelp.headline"))}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -116,7 +116,7 @@ const WhoWeHelp = () => {
 
             {/* Content */}
             <div className="p-10 md:p-12 lg:p-16 flex flex-col justify-center">
-              <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
+              <h3 className="font-serif text-3xl md:text-4xl text-teal-600 mb-6">
                 {renderTextWithBrand(t("whoWeHelp.whyTitle"))}
               </h3>
               <p className="text-muted-foreground text-lg mb-8">

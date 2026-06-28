@@ -22,37 +22,22 @@ const Newsletter = () => {
 
     setIsLoading(true);
 
-    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_NEWSLETTER_TEMPLATE_ID;
-    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      // Fallback: simulate success when EmailJS is not configured
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setIsSubscribed(true);
-      toast.success(t("newsletter.success"));
-      setEmail("");
-      setIsLoading(false);
-      return;
-    }
-
     try {
-      const emailjs = (await import("@emailjs/browser")).default;
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
 
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
-          subscriber_email: email,
-          reply_to: email,
-        },
-        PUBLIC_KEY
-      );
+      if (!response.ok) {
+        throw new Error(`Newsletter request failed: ${response.status}`);
+      }
 
       setIsSubscribed(true);
       toast.success(t("newsletter.success"));
       setEmail("");
-    } catch {
+    } catch (error) {
+      if (import.meta.env.DEV) console.error("Newsletter error:", error);
       toast.error(t("newsletter.error"));
     } finally {
       setIsLoading(false);

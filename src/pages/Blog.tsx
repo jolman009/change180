@@ -26,7 +26,7 @@ const Blog = () => {
             <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
               {isSpanish ? "Blog y Recursos" : "Blog & Resources"}
             </span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-teal-600 mb-6">
               {isSpanish ? "Perspectivas para Tu Camino" : "Insights for Your Journey"}
             </h1>
             <p className="text-muted-foreground text-lg">

@@ -69,7 +69,7 @@ const Packages = () => {
           <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
             {t("packages.sectionLabel")}
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl text-teal-600 mb-6">
             {t("packages.headline")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -86,14 +86,14 @@ const Packages = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative bg-background rounded-2xl p-6 border transition-all duration-300 hover:shadow-card ${pkg.popular
-                ? "border-primary shadow-card"
+              className={`relative bg-background rounded-2xl p-6 border-2 transition-all duration-300 hover:shadow-card ${pkg.popular
+                ? "border-gold-400 shadow-card"
                 : "border-border shadow-soft"
                 }`}
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-full">
+                  <span className="inline-flex items-center gap-1 bg-gold-400 text-[#3f2e0a] text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
                     <Star size={12} fill="currentColor" />
                     {t("packages.mostPopular")}
                   </span>
@@ -126,9 +126,9 @@ const Packages = () => {
               <BookingCTA
                 packageId={pkg.id}
                 text={t("packages.getStarted")}
-                className={`w-full rounded-full py-2 font-medium text-sm ${pkg.popular
-                  ? "bg-primary hover:bg-primary/90 text-primary-foreground"
-                  : "bg-secondary hover:bg-secondary/80 text-secondary-foreground"
+                className={`w-full rounded-full py-2 font-medium text-sm border-2 transition-colors ${pkg.popular
+                  ? "border-primary bg-primary hover:bg-primary/90 text-primary-foreground"
+                  : "border-primary/40 bg-transparent text-primary hover:bg-primary hover:text-primary-foreground"
                   }`}
               />
 

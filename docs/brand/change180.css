@@ -1,0 +1,138 @@
+/* ============================================================================
+   Change180 Learning Lab — Tailwind v4 theme drop-in (REFERENCE)
+   ----------------------------------------------------------------------------
+   Reference only. This site is on Tailwind v3 + shadcn/ui, so it does NOT import
+   this file — the token values here are integrated into `src/index.css` (as HSL
+   shadcn variables) and `tailwind.config.ts`. Kept as the canonical v4 source in
+   case the project ever migrates to Tailwind v4.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Mea+Culpa&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  /* ---- Brand: violet (the primary family / the "Change180" wordmark) ----- */
+  --color-brand-50:  #f5f1fa;
+  --color-brand-100: #ece5f5;
+  --color-brand-200: #d9c8ec;
+  --color-brand-300: #bfa3dc;
+  --color-brand-400: #9d78c3;
+  --color-brand-500: #7d56a9;
+  --color-brand-600: #6b4c9a;   /* primary */
+  --color-brand-700: #553c7e;   /* primary, deep / hover */
+
+  /* Convenience semantic aliases for the primary action color */
+  --color-primary:      #6b4c9a;
+  --color-primary-deep: #553c7e;
+  --color-primary-fg:   #fbf9ff;
+
+  /* ---- Gold: the warmth accent (sunrise arch & sun) --------------------- */
+  --color-gold-50:  #fdf8ec;
+  --color-gold-100: #f6eccf;
+  --color-gold-200: #eed79a;
+  --color-gold-300: #e6c264;
+  --color-gold-400: #dca72e;    /* the accent */
+  --color-gold-500: #c2901f;
+  --color-gold-600: #9a7411;    /* accessible gold text on light */
+  --color-sun:      #f4c84a;
+
+  /* ---- Teal: the ink ("LEARNING LAB" deep text & headings) ------------- */
+  --color-teal-50:  #eef4f6;
+  --color-teal-100: #d6e6ea;
+  --color-teal-200: #a9cad2;
+  --color-teal-300: #6fa3b0;
+  --color-teal-400: #44808f;
+  --color-teal-500: #2f6b7c;    /* ink / headings */
+  --color-teal-600: #255663;
+
+  /* ---- Sage: the calming leaf complement ------------------------------- */
+  --color-sage-50:  #f1f6f3;
+  --color-sage-100: #e1ece6;
+  --color-sage-200: #c5dccf;
+  --color-sage-300: #a3c4b3;
+  --color-sage-400: #7fa894;
+  --color-sage-500: #5f8a76;
+
+  /* ---- Pillar petals — CATEGORICAL only (Learn·Grow·Thrive·Together) ----
+     Use one pillar per context (service category, icon well, section). Never
+     the whole spectrum at once — keep working UI on primary + gold.          */
+  --color-learn:    #2f6b7c;    /* teal  · knowledge */
+  --color-grow:     #ea8e7b;    /* coral · warmth    */
+  --color-thrive:   #dca72e;    /* gold  · energy    */
+  --color-together: #6e8fce;    /* sky   · trust     */
+
+  --color-coral:      #ea8e7b;
+  --color-coral-soft: #fbe6df;
+  --color-coral-deep: #c46a57;
+  --color-sky:        #6e8fce;  /* note: overrides Tailwind's default `sky` */
+  --color-sky-soft:   #e4eaf6;
+  --color-sky-deep:   #4f6fab;
+
+  /* ---- Semantic surfaces & text ---------------------------------------- */
+  --color-canvas:    #faf8fc;   /* page background → bg-canvas */
+  --color-surface:   #ffffff;   /* cards           → bg-surface */
+  --color-cloud:     #f1f5fc;   /* cool alt band   → bg-cloud */
+  --color-cream:     #f7f2ea;   /* warm alt band   → bg-cream */
+  --color-ink:       #2b2535;   /* body text       → text-ink */
+  --color-muted:     #6b6478;   /* muted text      → text-muted */
+  --color-heading:   #2f6b7c;   /* headings        → text-heading */
+  --color-accent:    #e1ece6;   /* soft sage well  → bg-accent */
+  --color-secondary: #efeaf3;   /* soft violet     → bg-secondary */
+  --color-line:      #e7e1ef;   /* hairline border → border-line */
+  --color-ring:      #6b4c9a;   /* focus ring      → ring-ring */
+  --color-destructive: #c84f43;
+
+  /* ---- Type ------------------------------------------------------------ */
+  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-script:  "Mea Culpa", cursive;
+
+  /* ---- Radius (Tailwind defaults extended; cards ride 2xl/3xl) ---------- */
+  --radius-lg:  0.75rem;
+  --radius-xl:  1rem;
+  --radius-2xl: 1.5rem;   /* cards */
+  --radius-3xl: 1.75rem;  /* feature imagery */
+
+  /* ---- Shadows — soft, low-contrast, violet-charcoal tint -------------- */
+  --shadow-soft:     0 4px 20px -4px hsl(262 18% 18% / 0.07);
+  --shadow-card:     0 8px 32px -8px hsl(262 18% 18% / 0.10);
+  --shadow-elevated: 0 16px 48px -12px hsl(262 22% 18% / 0.16);
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Brand gradients aren't Tailwind color utilities — expose as plain vars so you
+   can use `bg-[image:var(--gradient-hero)]` or `style={{ background: ... }}`.   */
+:root {
+  --gradient-hero: linear-gradient(150deg, #faf6fc 0%, #f1f6fb 55%, #f6f0f9 100%);
+  --gradient-card: linear-gradient(180deg, #ffffff 0%, #f7f4fb 100%);
+  --gradient-cta:  linear-gradient(135deg, #6b4c9a 0%, #553c7e 100%);
+}
+
+/* ---- Base element defaults (mirrors the brand site) -------------------- */
+@layer base {
+  body {
+    @apply bg-canvas text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold text-heading tracking-tight;
+    line-height: 1.15;
+  }
+  a {
+    @apply text-primary no-underline;
+  }
+}
+
+/* ---- Brand helpers you can reuse as classes --------------------------- */
+@layer components {
+  /* Wordmark: <span class="c180-wordmark">Change<b>180</b></span> */
+  .c180-wordmark { @apply font-heading font-semibold tracking-tight text-primary; }
+  .c180-wordmark b { @apply font-semibold text-primary; }
+  /* Descriptor lockup: wide-tracked teal "LEARNING LAB" */
+  .c180-lockup { @apply font-body font-semibold uppercase text-teal-500; letter-spacing: 0.32em; }
+  /* Uppercase section eyebrow */
+  .c180-eyebrow { @apply font-body text-sm font-medium uppercase text-primary; letter-spacing: 0.18em; }
+}

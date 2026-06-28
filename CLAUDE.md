@@ -43,9 +43,13 @@ Custom i18n via `LanguageContext`. No third-party i18n library.
 
 ### Brand Guidelines
 
-- **Brand name**: "Change180" (uppercase C, no space). Never "change180" in UI text.
+- **Brand name**: "Change180" (uppercase C, no space). Never "change180" in UI text. NOT "Change180 Learning Lab" — "Learning Lab" is one of three service lines.
+- **Three service lines** (equal weight): Life Coaching · Learning Lab · Consulting. Founder: Myra Z. Guzman, M.Ed.
 - Exception: emails (`change180life@gmail.com`), URLs (`change180.org`), file paths stay lowercase
-- "Change" renders in warm charcoal (foreground), "180" renders in primary peach
+- "Change" renders in heading ink, "180" renders in primary **violet** (`text-primary`)
+- Tagline: "Learn. Grow. Thrive. Together."
+- Logo: `public/images/change180-logo.webp` (full color, opaque white bg — light surfaces). On dark bg (footer) use the text wordmark. Source art in `docs/brand/` / Downloads bundle.
+- Full brand spec, tokens, and component references live in `docs/brand/`
 
 ### Serverless API (`api/`)
 
@@ -60,12 +64,16 @@ Uses `@vercel/postgres` for persistence and Resend for transactional email.
 
 ### Design System
 
-- Primary: `hsl(20 42% 43%)` — peach (darkened for WCAG AA)
-- Accent: `hsl(155 18% 88%)` — sage
-- Background: `hsl(35 18% 97%)` — warm stone
-- Fonts: Cormorant Garamond (headings), Inter (body)
+Change180 violet brand system (hex source of truth in `docs/brand/`; consumed as HSL via shadcn tokens).
+
+- Primary: `#6b4c9a` → `hsl(264 34% 45%)` — brand violet (hover/deep `#553c7e`)
+- Gold accent: `#dca72e` — sunrise warmth; also the "Most Popular" flag
+- Ink / headings: `#2f6b7c` — deep teal
+- Background (canvas): `#faf8fc` → `hsl(270 30% 98%)`
+- Pillars (categorical, one per context): Learn `#2f6b7c` · Grow `#ea8e7b` · Thrive `#dca72e` · Together `#6e8fce`
+- Fonts: Cormorant Garamond (headings), Inter (body); Playfair Display (display), Mea Culpa (script flourish)
 - Nav breakpoint: `xl` (1280px) — hamburger menu below that
-- CSS variables defined in `src/index.css`, extended in `tailwind.config.ts`
+- CSS variables defined in `src/index.css`, extended in `tailwind.config.ts`. `peach` is retained as an alias of the violet scale for back-compat.
 
 ### External Services
 

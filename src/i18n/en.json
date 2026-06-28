@@ -286,7 +286,6 @@
     },
     "toast": {
       "success": "Message sent successfully! I'll be in touch soon.",
-      "demoSuccess": "Demo Success: Form works! (Configure EmailJS keys to send real emails)",
       "error": "Something went wrong. Please try again later or email me directly."
     },
     "imageAlt": "Myra in a supportive coaching conversation"

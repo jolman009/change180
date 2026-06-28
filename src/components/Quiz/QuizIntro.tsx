@@ -33,7 +33,7 @@ const QuizIntro = ({ onStart }: QuizIntroProps) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="font-serif text-4xl md:text-5xl text-foreground mb-4"
+          className="font-serif text-4xl md:text-5xl text-teal-600 mb-4"
         >
           {t('quiz.intro.headline')}
         </motion.h1>

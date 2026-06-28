@@ -1,0 +1,60 @@
+/* ============================================================================
+   Change180 Learning Lab — raw design tokens (framework-agnostic)
+   ----------------------------------------------------------------------------
+   The source of truth. Every value as a CSS custom property. Use this if you
+   are NOT on Tailwind, or alongside the v3 config (it also loads the webfonts
+   and defines the gradients/shadows the config references). On Tailwind v4 you
+   don't need this file — `change180.css` already contains everything.
+
+   NOTE: this site (Tailwind v3 + shadcn/ui) consumes these values re-expressed
+   as HSL in `src/index.css` + `tailwind.config.ts`. This file is the canonical
+   reference; do not import it directly.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Mea+Culpa&display=swap');
+
+:root {
+  /* Brand · violet */
+  --c180-violet-50:#f5f1fa; --c180-violet-100:#ece5f5; --c180-violet-200:#d9c8ec;
+  --c180-violet-300:#bfa3dc; --c180-violet-400:#9d78c3; --c180-violet-500:#7d56a9;
+  --c180-violet-600:#6b4c9a; --c180-violet-700:#553c7e;
+  /* Gold */
+  --c180-gold-50:#fdf8ec; --c180-gold-100:#f6eccf; --c180-gold-200:#eed79a;
+  --c180-gold-300:#e6c264; --c180-gold-400:#dca72e; --c180-gold-500:#c2901f;
+  --c180-gold-600:#9a7411; --c180-sun:#f4c84a;
+  /* Teal */
+  --c180-teal-50:#eef4f6; --c180-teal-100:#d6e6ea; --c180-teal-200:#a9cad2;
+  --c180-teal-300:#6fa3b0; --c180-teal-400:#44808f; --c180-teal-500:#2f6b7c;
+  --c180-teal-600:#255663;
+  /* Sage */
+  --c180-sage-50:#f1f6f3; --c180-sage-100:#e1ece6; --c180-sage-200:#c5dccf;
+  --c180-sage-300:#a3c4b3; --c180-sage-400:#7fa894; --c180-sage-500:#5f8a76;
+  /* Pillars — categorical only */
+  --c180-learn:#2f6b7c; --c180-grow:#ea8e7b; --c180-thrive:#dca72e; --c180-together:#6e8fce;
+  --c180-coral:#ea8e7b; --c180-coral-soft:#fbe6df; --c180-coral-deep:#c46a57;
+  --c180-sky:#6e8fce; --c180-sky-soft:#e4eaf6; --c180-sky-deep:#4f6fab;
+  /* Semantic */
+  --c180-bg:#faf8fc; --c180-surface:#ffffff; --c180-cloud:#f1f5fc; --c180-cream:#f7f2ea;
+  --c180-text:#2b2535; --c180-text-muted:#6b6478; --c180-heading:#2f6b7c;
+  --c180-primary:#6b4c9a; --c180-primary-deep:#553c7e; --c180-primary-fg:#fbf9ff;
+  --c180-accent:#e1ece6; --c180-secondary:#efeaf3; --c180-border:#e7e1ef;
+  --c180-ring:#6b4c9a; --c180-destructive:#c84f43;
+  /* Type */
+  --c180-font-heading:"Cormorant Garamond",Georgia,serif;
+  --c180-font-body:"Inter",system-ui,-apple-system,sans-serif;
+  --c180-font-display:"Playfair Display",Georgia,serif;
+  --c180-font-script:"Mea Culpa",cursive;
+  /* Radius */
+  --c180-radius-lg:0.75rem; --c180-radius-xl:1rem; --c180-radius-2xl:1.5rem; --c180-radius-3xl:1.75rem;
+  --c180-radius-full:9999px;
+  /* Shadow */
+  --c180-shadow-soft:0 4px 20px -4px hsl(262 18% 18% / 0.07);
+  --c180-shadow-card:0 8px 32px -8px hsl(262 18% 18% / 0.10);
+  --c180-shadow-elevated:0 16px 48px -12px hsl(262 22% 18% / 0.16);
+  /* Gradients */
+  --c180-gradient-hero:linear-gradient(150deg,#faf6fc 0%,#f1f6fb 55%,#f6f0f9 100%);
+  --c180-gradient-cta:linear-gradient(135deg,#6b4c9a 0%,#553c7e 100%);
+  /* Motion */
+  --c180-ease:cubic-bezier(0.22,1,0.36,1);
+  --c180-duration-fast:200ms; --c180-duration-normal:400ms; --c180-duration-slow:600ms;
+}

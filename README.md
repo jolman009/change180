@@ -1,10 +1,10 @@
-# Change 180 - Life Coaching Website
+# Change180 — Website
 
-A modern, professional website for Change 180 Life Coaching, founded by Myra Z. Guzman, M.Ed. The site focuses on faith-centered life coaching for families, mental health, and overall wellness.
+A modern, professional website for Change180, founded by Myra Z. Guzman, M.Ed. The site focuses on faith-centered, bilingual coaching & learning for families, mental health, and overall wellness. Tagline: **"Learn. Grow. Thrive. Together."**
 
-## About Change 180
+## About Change180
 
-Change 180 provides bilingual (English & Spanish) life coaching services including:
+Change180 provides bilingual (English & Spanish) life coaching services including:
 - Individual Life Coaching
 - Parent & Family Coaching
 - Group Programs & Workshops
@@ -21,11 +21,14 @@ Change 180 provides bilingual (English & Spanish) life coaching services includi
 
 ## Color Palette
 
-The site uses an approachable, professional color scheme:
-- **Primary**: Soft Peach (`hsl(20 38% 58%)`) - warm, nurturing, approachable
-- **Accent**: Soft Sage (`hsl(155 18% 88%)`) - calming complement
-- **Background**: Warm Stone (`hsl(35 18% 97%)`) - welcoming and clean
-- **Text**: Warm Charcoal (`hsl(215 15% 22%)`) - soft and readable
+The site uses the Change180 violet brand system:
+- **Primary**: Brand Violet (`#6b4c9a`) — the load-bearing brand & action color
+- **Accent / Gold**: Warm Gold (`#dca72e`) — sunrise warmth; also the "Most Popular" flag
+- **Ink / Headings**: Deep Teal (`#2f6b7c`)
+- **Background**: Soft Violet Canvas (`#faf8fc`) — welcoming and clean
+- **Pillars** (categorical, one per context): Learn `#2f6b7c` · Grow `#ea8e7b` · Thrive `#dca72e` · Together `#6e8fce`
+
+> Full token reference, component sources, and the original handoff bundle live in [`docs/brand/`](docs/brand/).
 
 ## Project Structure
 
@@ -72,7 +75,7 @@ npm run preview
 
 ## Development
 
-The site uses CSS custom properties for theming, defined in `src/index.css`. The Tailwind configuration extends these with custom color families (`peach`, `sage`, `cream`, `warm`).
+The site uses CSS custom properties for theming, defined in `src/index.css` (shadcn HSL semantic tokens). The Tailwind configuration extends these with the brand color families (`brand`/`peach` violet, `gold`, `teal`, `sage`) and the categorical pillars (`learn`/`grow`/`thrive`/`together`). See [`docs/brand/`](docs/brand/) for the full token reference.
 
 ### Key Files
 - `tailwind.config.ts` - Tailwind configuration with custom colors and animations

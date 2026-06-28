@@ -124,7 +124,7 @@ const FAQ = () => {
           <span className="text-primary font-medium text-sm tracking-widest uppercase mb-4 block">
             {t("faq.sectionLabel")}
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl text-teal-600 mb-6">
             {t("faq.headline")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

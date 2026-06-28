@@ -14,8 +14,8 @@ const Logo = ({ className = "", size = "md" }: LogoProps) => {
 
   return (
     <img
-      src="/images/change180_soft_logo.webp"
-      alt="Change180 Life Coaching"
+      src="/images/change180-logo.webp"
+      alt="Change180 — Life Coaching, Learning Lab & Consulting"
       className={`w-auto object-contain ${sizeClasses[size]} ${className}`}
     />
   );

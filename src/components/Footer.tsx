@@ -1,6 +1,5 @@
 import { Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
@@ -34,9 +33,16 @@ const Footer = () => {
     <footer className="bg-foreground text-background py-16">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
+          {/* Brand — text wordmark lockup (logo art is opaque, so not inverted on dark) */}
           <div>
-            <Logo size="xl" className="mb-4 invert mix-blend-screen" />
+            <div className="mb-4">
+              <span className="block font-serif text-3xl font-semibold tracking-tight text-background">
+                Change<span className="text-brand-300">180</span>
+              </span>
+              <span className="block font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-teal-200 mt-1.5">
+                Life Coaching · Learning Lab · Consulting
+              </span>
+            </div>
             <p className="text-background/70 text-sm leading-relaxed mb-4">
               {t("footer.tagline")}
             </p>
