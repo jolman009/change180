@@ -167,6 +167,34 @@ export async function sendNewsletterSignupEmail(input: {
   });
 }
 
+export async function sendDownloadLinkEmail(input: {
+  to: string;
+  fileName: string;
+  downloadUrl: string;
+}): Promise<void> {
+  const text = [
+    "Thank you for your purchase from change180.org!",
+    "",
+    `Your download is ready: ${input.fileName}`,
+    "",
+    "Use your secure link below to download it:",
+    input.downloadUrl,
+    "",
+    "This link is tied to your purchase — please don't share it.",
+    "",
+    `Questions? Reply to this email or contact ${ENV.BILLING_SUPPORT_EMAIL()}.`,
+    "",
+    "Learn. Grow. Thrive. Together.",
+  ].join("\n");
+
+  await sendViaResend({
+    from: ENV.BILLING_FROM_EMAIL(),
+    to: input.to,
+    subject: `Your download: ${input.fileName}`,
+    text,
+  });
+}
+
 export async function sendBillingUpdateEmail(input: {
   to: string;
   firstName?: string | null;

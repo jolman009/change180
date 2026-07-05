@@ -93,6 +93,25 @@ export async function ensureSchema(): Promise<void> {
           created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
         )
       `;
+
+      await sql`
+        CREATE TABLE IF NOT EXISTS paid_downloads (
+          id BIGSERIAL PRIMARY KEY,
+          file_id TEXT NOT NULL,
+          customer_email TEXT NOT NULL,
+          stripe_checkout_session_id TEXT UNIQUE NOT NULL,
+          stripe_payment_intent_id TEXT,
+          download_token TEXT UNIQUE NOT NULL,
+          download_count INTEGER NOT NULL DEFAULT 0,
+          amount_cents INTEGER NOT NULL,
+          created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+        )
+      `;
+
+      await sql`
+        CREATE INDEX IF NOT EXISTS idx_paid_downloads_token
+        ON paid_downloads(download_token)
+      `;
     })();
   }
 
@@ -446,5 +465,68 @@ export async function trackAnalyticsEvent(eventName: string, source: string, pay
   await sql`
     INSERT INTO analytics_events (event_name, source, payload)
     VALUES (${eventName}, ${source}, ${JSON.stringify(payload)})
+  `;
+}
+
+export interface PaidDownloadRecord {
+  id: number;
+  file_id: string;
+  customer_email: string;
+  download_token: string;
+  download_count: number;
+  created_at: Date;
+}
+
+/**
+ * Insert a purchase entitlement. Idempotent on the Stripe checkout session id —
+ * if the row already exists (e.g. a webhook retry), returns null so the caller
+ * does not email the buyer a second time.
+ */
+export async function recordPaidDownload(input: {
+  fileId: string;
+  customerEmail: string;
+  checkoutSessionId: string;
+  paymentIntentId?: string | null;
+  downloadToken: string;
+  amountCents: number;
+}): Promise<{ id: number } | null> {
+  const { rows } = await sql<{ id: number }>`
+    INSERT INTO paid_downloads (
+      file_id,
+      customer_email,
+      stripe_checkout_session_id,
+      stripe_payment_intent_id,
+      download_token,
+      amount_cents
+    )
+    VALUES (
+      ${input.fileId},
+      ${input.customerEmail},
+      ${input.checkoutSessionId},
+      ${input.paymentIntentId ?? null},
+      ${input.downloadToken},
+      ${input.amountCents}
+    )
+    ON CONFLICT (stripe_checkout_session_id) DO NOTHING
+    RETURNING id
+  `;
+  return rows[0] ?? null;
+}
+
+export async function getPaidDownloadByToken(token: string): Promise<PaidDownloadRecord | null> {
+  const { rows } = await sql<PaidDownloadRecord>`
+    SELECT id, file_id, customer_email, download_token, download_count, created_at
+    FROM paid_downloads
+    WHERE download_token = ${token}
+    LIMIT 1
+  `;
+  return rows[0] ?? null;
+}
+
+export async function incrementDownloadCount(id: number): Promise<void> {
+  await sql`
+    UPDATE paid_downloads
+    SET download_count = download_count + 1
+    WHERE id = ${id}
   `;
 }

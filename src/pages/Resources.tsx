@@ -1,4 +1,6 @@
-import { Download, FileText, BookOpen, Heart, FileSpreadsheet } from "lucide-react";
+import { useState } from "react";
+import { Download, FileText, BookOpen, Heart, FileSpreadsheet, Sparkles, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Layout from "@/components/Layout";
 import BookingCTA from "@/components/BookingCTA";
@@ -52,6 +54,30 @@ const resources: Resource[] = [
   },
 ];
 
+interface PaidResource {
+  fileId: string;
+  title: string;
+  titleEs: string;
+  description: string;
+  descriptionEs: string;
+  priceLabel: string;
+  type: "worksheet" | "guide" | "ebook" | "flyer";
+}
+
+const paidResources: PaidResource[] = [
+  {
+    fileId: "daily-growth-journal",
+    title: "Change180 Daily Growth Journal",
+    titleEs: "Diario de Crecimiento Diario Change180",
+    description:
+      "A printable daily journal to build reflection, gratitude, and intentional growth into your routine. Structured prompts guide you through each day of your transformation journey.",
+    descriptionEs:
+      "Un diario diario imprimible para incorporar reflexión, gratitud y crecimiento intencional en tu rutina. Indicaciones estructuradas te guían en cada día de tu viaje de transformación.",
+    priceLabel: "$29",
+    type: "ebook",
+  },
+];
+
 const typeIcons = {
   worksheet: FileText,
   guide: BookOpen,
@@ -68,6 +94,7 @@ const typeLabels = {
 
 const Resources = () => {
   const { language } = useLanguage();
+  const [loadingFileId, setLoadingFileId] = useState<string | null>(null);
 
   const content = {
     en: {
@@ -76,6 +103,12 @@ const Resources = () => {
       description:
         "Download these free resources to support your personal growth, faith journey, and emotional wellness. Each resource is designed to help you take meaningful steps toward the life you're called to live.",
       downloadButton: "Download Free",
+      premiumTitle: "Premium Downloads",
+      premiumDescription:
+        "Go deeper with these paid guides and journals. After a secure checkout, your download link is emailed to you instantly.",
+      buyButton: "Buy",
+      buyLoading: "Redirecting…",
+      buyError: "Something went wrong starting checkout. Please try again.",
       ctaTitle: "Ready for Deeper Transformation?",
       ctaDescription:
         "These resources are just the beginning. Book a discovery session to explore how personalized coaching can help you achieve lasting change.",
@@ -88,6 +121,12 @@ const Resources = () => {
       description:
         "Descarga estos recursos gratuitos para apoyar tu crecimiento personal, tu camino de fe y tu bienestar emocional. Cada recurso está diseñado para ayudarte a dar pasos significativos hacia la vida que estás llamado a vivir.",
       downloadButton: "Descargar Gratis",
+      premiumTitle: "Descargas Premium",
+      premiumDescription:
+        "Profundiza con estas guías y diarios de pago. Tras un pago seguro, tu enlace de descarga se envía a tu correo al instante.",
+      buyButton: "Comprar",
+      buyLoading: "Redirigiendo…",
+      buyError: "Algo salió mal al iniciar el pago. Inténtalo de nuevo.",
       ctaTitle: "¿Listo para una Transformación Más Profunda?",
       ctaDescription:
         "Estos recursos son solo el comienzo. Reserva una sesión de descubrimiento para explorar cómo el coaching personalizado puede ayudarte a lograr un cambio duradero.",
@@ -97,6 +136,27 @@ const Resources = () => {
   };
 
   const t = content[language];
+
+  const handleBuy = async (fileId: string) => {
+    setLoadingFileId(fileId);
+    try {
+      const res = await fetch("/api/checkout/create-download", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fileId }),
+      });
+      const data = await res.json();
+      if (res.ok && data?.url) {
+        window.location.href = data.url;
+        return;
+      }
+      toast.error(t.buyError);
+    } catch {
+      toast.error(t.buyError);
+    } finally {
+      setLoadingFileId(null);
+    }
+  };
 
   return (
     <Layout>
@@ -156,6 +216,72 @@ const Resources = () => {
                     <Download className="w-4 h-4" />
                     {t.downloadButton}
                   </a>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Premium (Paid) Downloads */}
+      <section className="py-12 px-4 sm:px-6">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-accent/20 text-accent-foreground rounded-full text-sm font-medium mb-4">
+              <Sparkles className="w-4 h-4" />
+              {t.premiumTitle}
+            </span>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              {t.premiumDescription}
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            {paidResources.map((resource) => {
+              const Icon = typeIcons[resource.type];
+              const typeLabel = typeLabels[resource.type][language];
+              const isLoading = loadingFileId === resource.fileId;
+
+              return (
+                <div
+                  key={resource.fileId}
+                  className="bg-card border border-primary/20 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                >
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-accent/20 text-accent-foreground rounded-full text-xs font-medium mb-4 self-start">
+                    <Icon className="w-3.5 h-3.5" />
+                    {typeLabel}
+                  </span>
+
+                  <h2 className="font-display text-xl sm:text-2xl text-foreground mb-3">
+                    {language === "es" ? resource.titleEs : resource.title}
+                  </h2>
+                  <p className="text-muted-foreground mb-6 leading-relaxed flex-1">
+                    {language === "es" ? resource.descriptionEs : resource.description}
+                  </p>
+
+                  <div className="flex items-center justify-between gap-4 mt-auto">
+                    <span className="font-display text-2xl text-primary">
+                      {resource.priceLabel}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => handleBuy(resource.fileId)}
+                      disabled={isLoading}
+                      className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 disabled:opacity-70 text-primary-foreground rounded-full px-6 py-3 font-medium text-sm transition-colors"
+                    >
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          {t.buyLoading}
+                        </>
+                      ) : (
+                        <>
+                          <Download className="w-4 h-4" />
+                          {t.buyButton} {resource.priceLabel}
+                        </>
+                      )}
+                    </button>
+                  </div>
                 </div>
               );
             })}

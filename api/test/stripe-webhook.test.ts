@@ -16,6 +16,8 @@ const mocks = vi.hoisted(() => ({
   mockUpdateBookingStatus: vi.fn(),
   mockUpsertSubscription: vi.fn(),
   mockSendBillingUpdateEmail: vi.fn(),
+  mockSendDownloadLinkEmail: vi.fn(),
+  mockRecordPaidDownload: vi.fn(),
   mockCreateBillingPortalSession: vi.fn(),
   mockConstructEvent: vi.fn(),
   mockSubscriptionUpdate: vi.fn(),
@@ -33,10 +35,12 @@ vi.mock("../_lib/db.js", () => ({
   updateBillingIntentBySubscriptionId: mocks.mockUpdateBillingIntentBySubscriptionId,
   updateBookingStatus: mocks.mockUpdateBookingStatus,
   upsertSubscription: mocks.mockUpsertSubscription,
+  recordPaidDownload: mocks.mockRecordPaidDownload,
 }));
 
 vi.mock("../_lib/email.js", () => ({
   sendBillingUpdateEmail: mocks.mockSendBillingUpdateEmail,
+  sendDownloadLinkEmail: mocks.mockSendDownloadLinkEmail,
 }));
 
 vi.mock("../_lib/stripe.js", () => ({
@@ -68,6 +72,7 @@ describe("stripe webhook handler", () => {
     process.env.STRIPE_WEBHOOK_SECRET = "whsec_test";
     process.env.BILLING_SUPPORT_EMAIL = "support@test.com";
     process.env.BILLING_FROM_EMAIL = "billing@test.com";
+    process.env.SITE_BASE_URL = "https://change180.org";
 
     mocks.mockEnsureSchema.mockReset();
     mocks.mockFindBookingIdByCheckoutSession.mockReset();
@@ -81,11 +86,14 @@ describe("stripe webhook handler", () => {
     mocks.mockUpdateBookingStatus.mockReset();
     mocks.mockUpsertSubscription.mockReset();
     mocks.mockSendBillingUpdateEmail.mockReset();
+    mocks.mockSendDownloadLinkEmail.mockReset();
+    mocks.mockRecordPaidDownload.mockReset();
     mocks.mockCreateBillingPortalSession.mockReset();
     mocks.mockConstructEvent.mockReset();
     mocks.mockSubscriptionUpdate.mockReset();
 
     mocks.mockMarkEventProcessed.mockResolvedValue(true);
+    mocks.mockRecordPaidDownload.mockResolvedValue({ id: 1 });
     mocks.mockFindBookingIdByCheckoutSession.mockResolvedValue(22);
     mocks.mockFindCustomerByStripeCustomerId.mockResolvedValue({
       email: "client@example.com",
@@ -141,6 +149,136 @@ describe("stripe webhook handler", () => {
       "stripe",
       expect.any(Object)
     );
+  });
+
+  it("records a paid download and emails the buyer a tokenized link", async () => {
+    mocks.mockConstructEvent.mockReturnValue({
+      id: "evt_dl",
+      type: "checkout.session.completed",
+      data: {
+        object: {
+          id: "cs_dl",
+          mode: "payment",
+          payment_intent: "pi_dl",
+          customer_details: { email: "buyer@example.com" },
+          metadata: { file_id: "daily-growth-journal" },
+        },
+      },
+    });
+
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(mocks.mockRecordPaidDownload).toHaveBeenCalledWith(
+      expect.objectContaining({
+        fileId: "daily-growth-journal",
+        customerEmail: "buyer@example.com",
+        checkoutSessionId: "cs_dl",
+        paymentIntentId: "pi_dl",
+        amountCents: 2900,
+      })
+    );
+    // Token is generated inside the handler; assert the link shape.
+    const recordArgs = mocks.mockRecordPaidDownload.mock.calls[0][0];
+    expect(recordArgs.downloadToken).toMatch(/^[0-9a-f]{64}$/);
+    expect(mocks.mockSendDownloadLinkEmail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        to: "buyer@example.com",
+        fileName: "Change180 Daily Growth Journal",
+        downloadUrl: `https://change180.org/api/download/daily-growth-journal?token=${recordArgs.downloadToken}`,
+      })
+    );
+  });
+
+  it("does not email again when the purchase was already recorded (idempotent)", async () => {
+    mocks.mockRecordPaidDownload.mockResolvedValue(null);
+    mocks.mockConstructEvent.mockReturnValue({
+      id: "evt_dl_dup",
+      type: "checkout.session.completed",
+      data: {
+        object: {
+          id: "cs_dl_dup",
+          mode: "payment",
+          customer_details: { email: "buyer@example.com" },
+          metadata: { file_id: "daily-growth-journal" },
+        },
+      },
+    });
+
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(mocks.mockRecordPaidDownload).toHaveBeenCalledTimes(1);
+    expect(mocks.mockSendDownloadLinkEmail).not.toHaveBeenCalled();
+  });
+
+  it("ignores an unknown file_id (not in the catalog)", async () => {
+    mocks.mockConstructEvent.mockReturnValue({
+      id: "evt_dl_unknown",
+      type: "checkout.session.completed",
+      data: {
+        object: {
+          id: "cs_dl_unknown",
+          mode: "payment",
+          customer_details: { email: "buyer@example.com" },
+          metadata: { file_id: "does-not-exist" },
+        },
+      },
+    });
+
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(mocks.mockRecordPaidDownload).not.toHaveBeenCalled();
+    expect(mocks.mockSendDownloadLinkEmail).not.toHaveBeenCalled();
+  });
+
+  it("skips a paid download with no buyer email", async () => {
+    mocks.mockConstructEvent.mockReturnValue({
+      id: "evt_dl_noemail",
+      type: "checkout.session.completed",
+      data: {
+        object: {
+          id: "cs_dl_noemail",
+          mode: "payment",
+          metadata: { file_id: "daily-growth-journal" },
+        },
+      },
+    });
+
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(mocks.mockRecordPaidDownload).not.toHaveBeenCalled();
+    expect(mocks.mockSendDownloadLinkEmail).not.toHaveBeenCalled();
   });
 
   it("short-circuits duplicate stripe events", async () => {

@@ -14,10 +14,13 @@ import {
   updateBookingStatus,
   upsertSubscription,
 } from "../_lib/db.js";
-import { sendBillingUpdateEmail } from "../_lib/email.js";
+import { recordPaidDownload } from "../_lib/db.js";
+import { sendBillingUpdateEmail, sendDownloadLinkEmail } from "../_lib/email.js";
 import { ENV } from "../_lib/env.js";
 import { isPost, readRawBody, sendJson } from "../_lib/http.js";
+import { getDownloadProduct } from "../_lib/products.js";
 import { createBillingPortalSession, getStripeClient } from "../_lib/stripe.js";
+import { randomBytes } from "node:crypto";
 
 function getMetadataValue(
   metadata: Stripe.Metadata | null | undefined,
@@ -44,6 +47,39 @@ function toBillingPackageId(value: string | null): BillingPackageId {
 function toDate(timestamp?: number | null): Date | null {
   if (!timestamp) return null;
   return new Date(timestamp * 1000);
+}
+
+async function handlePaidDownloadPurchase(session: Stripe.Checkout.Session): Promise<void> {
+  const fileId = getMetadataValue(session.metadata, "file_id");
+  const product = getDownloadProduct(fileId);
+  if (!product) return;
+
+  const email = session.customer_details?.email || getMetadataValue(session.metadata, "customer_email");
+  if (!email) {
+    console.error(`Paid download ${fileId}: no buyer email on session ${session.id}`);
+    return;
+  }
+
+  const downloadToken = randomBytes(32).toString("hex");
+  const created = await recordPaidDownload({
+    fileId: product.fileId,
+    customerEmail: email,
+    checkoutSessionId: session.id,
+    paymentIntentId: typeof session.payment_intent === "string" ? session.payment_intent : null,
+    downloadToken,
+    amountCents: product.amountCents,
+  });
+
+  // Idempotent: a null result means this session was already recorded
+  // (webhook retry) — don't email the buyer a second time.
+  if (!created) return;
+
+  const downloadUrl = `${ENV.SITE_BASE_URL()}/api/download/${product.fileId}?token=${downloadToken}`;
+  await sendDownloadLinkEmail({
+    to: email,
+    fileName: product.displayName,
+    downloadUrl,
+  });
 }
 
 async function sendPortalEnabledEmail(customerId: string, customSubject: string, bodyPrefix: string): Promise<void> {
@@ -100,6 +136,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
     switch (event.type) {
       case "checkout.session.completed": {
         const session = event.data.object as Stripe.Checkout.Session;
+
+        // Paid file downloads are keyed by a file_id in metadata and are
+        // independent of the coaching-package booking flow below.
+        await handlePaidDownloadPurchase(session);
+
         const bookingIdFromMetadata = Number(getMetadataValue(session.metadata, "booking_id"));
         const bookingId = Number.isFinite(bookingIdFromMetadata)
           ? bookingIdFromMetadata
