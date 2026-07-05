@@ -73,7 +73,7 @@ const paidResources: PaidResource[] = [
       "A printable daily journal to build reflection, gratitude, and intentional growth into your routine. Structured prompts guide you through each day of your transformation journey.",
     descriptionEs:
       "Un diario diario imprimible para incorporar reflexión, gratitud y crecimiento intencional en tu rutina. Indicaciones estructuradas te guían en cada día de tu viaje de transformación.",
-    priceLabel: "$29",
+    priceLabel: "$1",
     type: "ebook",
   },
 ];

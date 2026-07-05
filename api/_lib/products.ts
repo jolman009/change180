@@ -20,7 +20,7 @@ export const DOWNLOAD_PRODUCTS: Record<string, DownloadProduct> = {
     fileId: "daily-growth-journal",
     displayName: "Change180 Daily Growth Journal",
     downloadFileName: "Change180-Daily-Growth-Journal.pdf",
-    amountCents: 2900,
+    amountCents: 100,
     blobPathname: "downloads/change180-daily-growth-journal.pdf",
   },
 };
