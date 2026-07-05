@@ -16,4 +16,7 @@ export const ENV = {
   CONTACT_RECIPIENT: () => process.env.CONTACT_RECIPIENT || "change180life@gmail.com",
   SITE_BASE_URL: () => process.env.SITE_BASE_URL || "http://localhost:8080",
   PORTAL_RETURN_URL: () => process.env.STRIPE_PORTAL_RETURN_URL || process.env.SITE_BASE_URL || "http://localhost:8080",
+  // Paid-download entitlement tuning.
+  DOWNLOAD_MAX_REDEMPTIONS: () => Number(process.env.DOWNLOAD_MAX_REDEMPTIONS || "5"),
+  DOWNLOAD_LINK_TTL_DAYS: () => Number(process.env.DOWNLOAD_LINK_TTL_DAYS || "30"),
 };
