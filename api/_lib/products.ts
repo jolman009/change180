@@ -21,28 +21,29 @@ export const DOWNLOAD_PRODUCTS: Record<string, DownloadProduct> = {
     displayName: "Change180 Daily Growth Journal",
     downloadFileName: "Change180-Daily-Growth-Journal.pdf",
     amountCents: 100,
-    blobPathname: "downloads/change180-daily-growth-journal.pdf",
+    // blobPathname must match the EXACT pathname in the Vercel Blob store (verified via list()).
+    blobPathname: "Change180DailyGrowthJournal.pdf",
   },
   "bloom-journal": {
     fileId: "bloom-journal",
     displayName: "Change180 Bloom Journal",
     downloadFileName: "Change180-Bloom-Journal.pdf",
     amountCents: 100,
-    blobPathname: "downloads/change180-bloom-journal.pdf",
+    blobPathname: "change180-bloom-journal.pdf",
   },
   "business-growth-planner": {
     fileId: "business-growth-planner",
     displayName: "Change180 Business Growth Planner",
     downloadFileName: "Change180-Business-Growth-Planner.pdf",
     amountCents: 100,
-    blobPathname: "downloads/change180-business-growth-planner.pdf",
+    blobPathname: "change180-business-growth-planner.pdf",
   },
   "leadership-journal": {
     fileId: "leadership-journal",
     displayName: "Change180 Leadership Journal",
     downloadFileName: "Change180-Leadership-Journal.pdf",
     amountCents: 100,
-    blobPathname: "downloads/change180-leadership-journal.pdf",
+    blobPathname: "change180-leadership-journal.pdf",
   },
 };
 

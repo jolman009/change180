@@ -34,6 +34,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
     return;
   }
 
+  // TEMP DIAGNOSTIC — verifies get() can fetch a product's blob (incl. access:private)
+  // without needing a purchase token. Remove once storage is verified.
+  if (firstString(req.query.diag) === "get") {
+    const diagProduct = getDownloadProduct(firstString(req.query.file));
+    if (!diagProduct) {
+      res.status(404).json({ error: "Unknown file for diag" });
+      return;
+    }
+    try {
+      const r = await get(diagProduct.blobPathname, { access: "private" });
+      res.status(200).json({
+        pathname: diagProduct.blobPathname,
+        found: !!r,
+        statusCode: r?.statusCode ?? null,
+        size: r?.blob?.size ?? null,
+      });
+    } catch (error) {
+      res.status(200).json({ pathname: diagProduct.blobPathname, error: error instanceof Error ? error.message : String(error) });
+    }
+    return;
+  }
+
   const fileId = firstString(req.query.fileId);
   const token = firstString(req.query.token);
 
