@@ -73,7 +73,7 @@ const paidResources: PaidResource[] = [
       "A printable daily journal to build reflection, gratitude, and intentional growth into your routine. Structured prompts guide you through each day of your transformation journey.",
     descriptionEs:
       "Un diario diario imprimible para incorporar reflexión, gratitud y crecimiento intencional en tu rutina. Indicaciones estructuradas te guían en cada día de tu viaje de transformación.",
-    priceLabel: "$1",
+    priceLabel: "$9",
     type: "ebook",
   },
   {
@@ -84,7 +84,7 @@ const paidResources: PaidResource[] = [
       "A printable journal to help you grow into your fullest self. Guided prompts nurture self-awareness, gratitude, and the small daily steps that help you bloom.",
     descriptionEs:
       "Un diario imprimible para ayudarte a florecer en tu versión más plena. Indicaciones guiadas cultivan el autoconocimiento, la gratitud y los pequeños pasos diarios que te ayudan a florecer.",
-    priceLabel: "$1",
+    priceLabel: "$9",
     type: "ebook",
   },
   {
@@ -95,7 +95,7 @@ const paidResources: PaidResource[] = [
       "A printable planner to set goals, map your strategy, and track progress as you grow your business. Structured worksheets turn big ambitions into clear, actionable steps.",
     descriptionEs:
       "Un planificador imprimible para fijar metas, trazar tu estrategia y seguir tu progreso mientras haces crecer tu negocio. Hojas de trabajo estructuradas convierten grandes ambiciones en pasos claros y accionables.",
-    priceLabel: "$1",
+    priceLabel: "$19",
     type: "worksheet",
   },
   {
@@ -106,7 +106,7 @@ const paidResources: PaidResource[] = [
       "A printable journal to develop the mindset and habits of a confident leader. Reflective prompts help you lead with clarity, purpose, and intention every day.",
     descriptionEs:
       "Un diario imprimible para desarrollar la mentalidad y los hábitos de un líder seguro. Indicaciones reflexivas te ayudan a liderar con claridad, propósito e intención cada día.",
-    priceLabel: "$1",
+    priceLabel: "$12",
     type: "ebook",
   },
 ];
