@@ -24,9 +24,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
   // compare against the expected blobPathnames. Remove once storage is verified.
   if (firstString(req.query.diag) === "blobs") {
     try {
-      const listing = await list({ prefix: "downloads/" });
+      const prefix = firstString(req.query.prefix);
+      const listing = await list(prefix ? { prefix } : {});
       const blobs = listing.blobs.map((b) => ({ pathname: b.pathname, size: b.size }));
-      res.status(200).json({ prefix: "downloads/", count: blobs.length, blobs });
+      res.status(200).json({ prefix: prefix ?? "(all)", count: blobs.length, blobs });
     } catch (error) {
       res.status(500).json({ error: error instanceof Error ? error.message : "list failed" });
     }
