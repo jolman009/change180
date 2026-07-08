@@ -1,6 +1,5 @@
 // @vitest-environment node
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import type { VercelRequest, VercelResponse } from "@vercel/node";
 import handler from "../webhooks/calendly.js";
 
 const mocks = vi.hoisted(() => ({
@@ -50,20 +49,14 @@ vi.mock("../_lib/calendly.js", () => ({
   }),
 }));
 
-function createMockResponse() {
-  const response = {
-    statusCode: 200,
-    payload: null as unknown,
-    status(code: number) {
-      this.statusCode = code;
-      return this;
-    },
-    json(payload: unknown) {
-      this.payload = payload;
-      return this;
-    },
-  };
-  return response;
+// The handler uses the Web-standard (Request -> Response) signature and reads the
+// raw body via request.text(), so the payload must be sent as a JSON string.
+function makeRequest(payload: Record<string, unknown> = { event: "invitee.created" }): Request {
+  return new Request("https://change180.org/api/webhooks/calendly", {
+    method: "POST",
+    headers: { "calendly-webhook-signature": "t=1,v1=abc" },
+    body: JSON.stringify(payload),
+  });
 }
 
 describe("calendly webhook handler", () => {
@@ -104,20 +97,9 @@ describe("calendly webhook handler", () => {
   });
 
   it("creates checkout and sends payment link after invitee.created", async () => {
-    const req = {
-      method: "POST",
-      headers: {
-        "calendly-webhook-signature": "t=1,v1=abc",
-      },
-      body: {
-        event: "invitee.created",
-      },
-    } as unknown as VercelRequest;
-    const res = createMockResponse() as unknown as VercelResponse;
+    const res = await handler(makeRequest());
 
-    await handler(req, res);
-
-    expect(res.statusCode).toBe(200);
+    expect(res.status).toBe(200);
     expect(mocks.mockInsertOrGetBooking).toHaveBeenCalledTimes(1);
     expect(mocks.mockCreateCheckoutSession).toHaveBeenCalledTimes(1);
     expect(mocks.mockUpsertBillingIntent).toHaveBeenCalledTimes(1);
@@ -132,22 +114,11 @@ describe("calendly webhook handler", () => {
   it("short-circuits duplicate webhook deliveries", async () => {
     mocks.mockMarkEventProcessed.mockResolvedValue(false);
 
-    const req = {
-      method: "POST",
-      headers: {
-        "calendly-webhook-signature": "t=1,v1=abc",
-      },
-      body: {
-        event: "invitee.created",
-      },
-    } as unknown as VercelRequest;
-    const res = createMockResponse() as unknown as VercelResponse;
+    const res = await handler(makeRequest());
 
-    await handler(req, res);
-
-    expect(res.statusCode).toBe(200);
+    expect(res.status).toBe(200);
     expect(mocks.mockCreateCheckoutSession).not.toHaveBeenCalled();
     expect(mocks.mockSendPaymentRequestEmail).not.toHaveBeenCalled();
-    expect((res as unknown as { payload: unknown }).payload).toEqual(expect.objectContaining({ duplicate: true }));
+    expect(await res.json()).toEqual(expect.objectContaining({ duplicate: true }));
   });
 });

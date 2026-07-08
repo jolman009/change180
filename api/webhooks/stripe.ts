@@ -1,4 +1,3 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
 import type { BillingPackageId } from "../_lib/types.js";
 import {
@@ -17,22 +16,22 @@ import {
 import { recordPaidDownload } from "../_lib/db.js";
 import { sendBillingUpdateEmail, sendDownloadLinkEmail } from "../_lib/email.js";
 import { ENV } from "../_lib/env.js";
-import { isPost, readRawBody, sendJson } from "../_lib/http.js";
 import { getDownloadProduct } from "../_lib/products.js";
 import { createBillingPortalSession, getStripeClient } from "../_lib/stripe.js";
 import { randomBytes } from "node:crypto";
 
-// Stripe signs the EXACT raw request bytes. Disable Vercel's automatic body
-// parsing so `readRawBody` reads the untouched payload from the request stream.
-// Otherwise Vercel parses req.body to an object and readRawBody falls back to
-// JSON.stringify(), whose output is not guaranteed byte-identical to what
-// Stripe signed — intermittently breaking signature verification ("No
-// signatures found matching the expected signature for payload").
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// This handler uses the Web-standard (Request -> Response) signature rather than
+// Vercel's (req, res) Node signature. Reason: Stripe verifies the signature over
+// the EXACT raw request bytes, but Vercel's Node runtime eagerly parses req.body
+// into an object (and `config.api.bodyParser = false` is a Next.js-only setting
+// that this Vite project ignores), so the raw bytes are unrecoverable there.
+// With the Web signature, `await request.text()` returns the untouched payload.
+function jsonResponse(status: number, payload: Record<string, unknown>): Response {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: { "content-type": "application/json" },
+  });
+}
 
 function getMetadataValue(
   metadata: Stripe.Metadata | null | undefined,
@@ -107,30 +106,18 @@ async function sendPortalEnabledEmail(customerId: string, customSubject: string,
   });
 }
 
-export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
-  if (!isPost(req)) {
-    sendJson(res, 405, { error: "Method not allowed" });
-    return;
+export default async function handler(request: Request): Promise<Response> {
+  if (request.method !== "POST") {
+    return jsonResponse(405, { error: "Method not allowed" });
   }
 
   await ensureSchema();
   const stripe = getStripeClient();
-  const signature = req.headers["stripe-signature"];
-  const rawBody = await readRawBody(req);
+  const signature = request.headers.get("stripe-signature");
+  const rawBody = await request.text();
 
-  // TEMP DIAGNOSTIC — remove after webhook signature issue is resolved.
-  console.log("[stripe-webhook-diag]", JSON.stringify({
-    bodyType: typeof req.body,
-    isBuffer: Buffer.isBuffer(req.body),
-    bodyUndefined: req.body === undefined,
-    rawBodyLen: rawBody.length,
-    rawBodyHead: rawBody.slice(0, 40),
-    hasSig: typeof signature === "string",
-  }));
-
-  if (!signature || typeof signature !== "string") {
-    sendJson(res, 400, { error: "Missing Stripe signature" });
-    return;
+  if (!signature) {
+    return jsonResponse(400, { error: "Missing Stripe signature" });
   }
 
   let event: Stripe.Event;
@@ -138,9 +125,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
   try {
     event = stripe.webhooks.constructEvent(rawBody, signature, ENV.STRIPE_WEBHOOK_SECRET());
   } catch (error) {
-    console.error("[stripe-webhook-diag] constructEvent failed:", error instanceof Error ? error.message : error);
-    sendJson(res, 400, { error: "Invalid Stripe signature", details: error instanceof Error ? error.message : "Unknown" });
-    return;
+    console.error("Stripe webhook signature verification failed:", error instanceof Error ? error.message : error);
+    return jsonResponse(400, { error: "Invalid Stripe signature", details: error instanceof Error ? error.message : "Unknown" });
   }
 
   const firstProcess = await markEventProcessed({
@@ -151,8 +137,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
   });
 
   if (!firstProcess) {
-    sendJson(res, 200, { ok: true, duplicate: true });
-    return;
+    return jsonResponse(200, { ok: true, duplicate: true });
   }
 
   try {
@@ -339,7 +324,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
         break;
     }
 
-    sendJson(res, 200, { ok: true });
+    return jsonResponse(200, { ok: true });
   } catch (error) {
     await markEventProcessed({
       provider: "stripe",
@@ -350,7 +335,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
       error: error instanceof Error ? error.message : "Unknown error",
     });
 
-    sendJson(res, 500, {
+    return jsonResponse(500, {
       error: "Failed to process Stripe webhook",
       details: error instanceof Error ? error.message : "Unknown error",
     });
