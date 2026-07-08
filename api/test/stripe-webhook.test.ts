@@ -1,5 +1,6 @@
 // @vitest-environment node
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import handler from "../webhooks/stripe.js";
 
 const mocks = vi.hoisted(() => ({
@@ -50,15 +51,20 @@ vi.mock("../_lib/stripe.js", () => ({
   }),
 }));
 
-// The handler uses the Web-standard (Request -> Response) signature. Body content
-// is irrelevant here because constructEvent is mocked; the signature header just
-// needs to be present so the handler proceeds to constructEvent.
-function makeRequest(body = "{}", headers: Record<string, string> = { "stripe-signature": "sig_123" }): Request {
-  return new Request("https://change180.org/api/webhooks/stripe", {
-    method: "POST",
-    headers,
-    body,
-  });
+function createMockResponse() {
+  const response = {
+    statusCode: 200,
+    payload: null as unknown,
+    status(code: number) {
+      this.statusCode = code;
+      return this;
+    },
+    json(payload: unknown) {
+      this.payload = payload;
+      return this;
+    },
+  };
+  return response;
 }
 
 describe("stripe webhook handler", () => {
@@ -121,9 +127,16 @@ describe("stripe webhook handler", () => {
       },
     });
 
-    const res = await handler(makeRequest());
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
 
-    expect(res.status).toBe(200);
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
     expect(mocks.mockUpdateBillingIntentByCheckoutSession).toHaveBeenCalledWith(
       expect.objectContaining({
         checkoutSessionId: "cs_123",
@@ -153,9 +166,16 @@ describe("stripe webhook handler", () => {
       },
     });
 
-    const res = await handler(makeRequest());
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
 
-    expect(res.status).toBe(200);
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
     expect(mocks.mockRecordPaidDownload).toHaveBeenCalledWith(
       expect.objectContaining({
         fileId: "daily-growth-journal",
@@ -192,9 +212,16 @@ describe("stripe webhook handler", () => {
       },
     });
 
-    const res = await handler(makeRequest());
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
 
-    expect(res.status).toBe(200);
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
     expect(mocks.mockRecordPaidDownload).toHaveBeenCalledTimes(1);
     expect(mocks.mockSendDownloadLinkEmail).not.toHaveBeenCalled();
   });
@@ -213,9 +240,16 @@ describe("stripe webhook handler", () => {
       },
     });
 
-    const res = await handler(makeRequest());
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
 
-    expect(res.status).toBe(200);
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
     expect(mocks.mockRecordPaidDownload).not.toHaveBeenCalled();
     expect(mocks.mockSendDownloadLinkEmail).not.toHaveBeenCalled();
   });
@@ -233,9 +267,16 @@ describe("stripe webhook handler", () => {
       },
     });
 
-    const res = await handler(makeRequest());
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
 
-    expect(res.status).toBe(200);
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
     expect(mocks.mockRecordPaidDownload).not.toHaveBeenCalled();
     expect(mocks.mockSendDownloadLinkEmail).not.toHaveBeenCalled();
   });
@@ -248,10 +289,17 @@ describe("stripe webhook handler", () => {
     });
     mocks.mockMarkEventProcessed.mockResolvedValue(false);
 
-    const res = await handler(makeRequest());
+    const req = {
+      method: "POST",
+      headers: { "stripe-signature": "sig_123" },
+      body: "{}",
+    } as unknown as VercelRequest;
+    const res = createMockResponse() as unknown as VercelResponse;
 
-    expect(res.status).toBe(200);
-    expect(await res.json()).toEqual(expect.objectContaining({ duplicate: true }));
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect((res as unknown as { payload: unknown }).payload).toEqual(expect.objectContaining({ duplicate: true }));
     expect(mocks.mockUpdateBillingIntentByCheckoutSession).not.toHaveBeenCalled();
   });
 });

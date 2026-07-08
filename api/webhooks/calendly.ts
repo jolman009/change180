@@ -1,3 +1,4 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { getPackageFromEventType, getPackageConfig } from "../_lib/billing-config.js";
 import { parseCalendlyBookingPayload, verifyCalendlySignature } from "../_lib/calendly.js";
 import {
@@ -11,19 +12,8 @@ import {
 } from "../_lib/db.js";
 import { sendPaymentRequestEmail } from "../_lib/email.js";
 import { ENV } from "../_lib/env.js";
+import { isPost, readRawBody, sendJson } from "../_lib/http.js";
 import { createCheckoutSession, findOrCreateStripeCustomer } from "../_lib/stripe.js";
-
-// Uses the Web-standard (Request -> Response) signature so `await request.text()`
-// yields the EXACT raw request bytes. Calendly's signature is verified over those
-// bytes; Vercel's Node runtime eagerly parses the body and offers no reliable way
-// to recover the raw payload on this Vite project (config.api.bodyParser is a
-// Next.js-only setting that is ignored here).
-function jsonResponse(status: number, payload: Record<string, unknown>): Response {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: { "content-type": "application/json" },
-  });
-}
 
 function deriveCalendlyEventId(payload: unknown): string {
   const source = (payload as Record<string, unknown>) || {};
@@ -43,15 +33,18 @@ function deriveCalendlyEventId(payload: unknown): string {
   return inviteeUri || eventUri || sourceId || fallbackTime;
 }
 
-export default async function handler(request: Request): Promise<Response> {
-  if (request.method !== "POST") {
-    return jsonResponse(405, { error: "Method not allowed" });
+export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
+  if (!isPost(req)) {
+    sendJson(res, 405, { error: "Method not allowed" });
+    return;
   }
 
   await ensureSchema();
 
-  const rawBody = await request.text();
-  const signatureHeader = request.headers.get("calendly-webhook-signature") || undefined;
+  const rawBody = await readRawBody(req);
+  const signatureHeader = (req.headers["calendly-webhook-signature"] || req.headers["Calendly-Webhook-Signature"]) as
+    | string
+    | undefined;
   const signatureValid = verifyCalendlySignature({
     signatureHeader,
     payload: rawBody,
@@ -59,9 +52,12 @@ export default async function handler(request: Request): Promise<Response> {
   });
 
   if (!signatureValid) {
-    return jsonResponse(401, { error: "Invalid Calendly signature" });
+    sendJson(res, 401, { error: "Invalid Calendly signature" });
+    return;
   }
 
+  // Parse the raw body we already read; do not touch req.body (its stream was
+  // consumed by readRawBody, and re-accessing it can drain/undefined the body).
   const body = JSON.parse(rawBody || "{}");
   const eventType = String((body as Record<string, unknown>)?.event || "unknown");
   const eventId = deriveCalendlyEventId(body);
@@ -77,7 +73,8 @@ export default async function handler(request: Request): Promise<Response> {
       payload: body,
       status: "ignored",
     });
-    return jsonResponse(200, { ok: true, ignored: true });
+    sendJson(res, 200, { ok: true, ignored: true });
+    return;
   }
 
   const firstProcess = await markEventProcessed({
@@ -89,12 +86,14 @@ export default async function handler(request: Request): Promise<Response> {
   });
 
   if (!firstProcess) {
-    return jsonResponse(200, { ok: true, duplicate: true });
+    sendJson(res, 200, { ok: true, duplicate: true });
+    return;
   }
 
   const bookingPayload = parseCalendlyBookingPayload(body);
   if (!bookingPayload.inviteeEmail) {
-    return jsonResponse(400, { error: "Could not extract invitee email from Calendly payload" });
+    sendJson(res, 400, { error: "Could not extract invitee email from Calendly payload" });
+    return;
   }
 
   const packageId = getPackageFromEventType(bookingPayload.eventTypeUri, bookingPayload.eventTypeName);
@@ -105,7 +104,8 @@ export default async function handler(request: Request): Promise<Response> {
       eventTypeName: bookingPayload.eventTypeName,
       inviteeEmail: bookingPayload.inviteeEmail,
     });
-    return jsonResponse(202, { ok: true, warning: "No package mapping found" });
+    sendJson(res, 202, { ok: true, warning: "No package mapping found" });
+    return;
   }
 
   const stripeCustomer = await findOrCreateStripeCustomer({
@@ -177,5 +177,5 @@ export default async function handler(request: Request): Promise<Response> {
     email: customer.email,
   });
 
-  return jsonResponse(200, { ok: true });
+  sendJson(res, 200, { ok: true });
 }

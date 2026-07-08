@@ -1,3 +1,4 @@
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 import Stripe from "stripe";
 import type { BillingPackageId } from "../_lib/types.js";
 import {
@@ -16,22 +17,10 @@ import {
 import { recordPaidDownload } from "../_lib/db.js";
 import { sendBillingUpdateEmail, sendDownloadLinkEmail } from "../_lib/email.js";
 import { ENV } from "../_lib/env.js";
+import { isPost, readRawBody, sendJson } from "../_lib/http.js";
 import { getDownloadProduct } from "../_lib/products.js";
 import { createBillingPortalSession, getStripeClient } from "../_lib/stripe.js";
 import { randomBytes } from "node:crypto";
-
-// This handler uses the Web-standard (Request -> Response) signature rather than
-// Vercel's (req, res) Node signature. Reason: Stripe verifies the signature over
-// the EXACT raw request bytes, but Vercel's Node runtime eagerly parses req.body
-// into an object (and `config.api.bodyParser = false` is a Next.js-only setting
-// that this Vite project ignores), so the raw bytes are unrecoverable there.
-// With the Web signature, `await request.text()` returns the untouched payload.
-function jsonResponse(status: number, payload: Record<string, unknown>): Response {
-  return new Response(JSON.stringify(payload), {
-    status,
-    headers: { "content-type": "application/json" },
-  });
-}
 
 function getMetadataValue(
   metadata: Stripe.Metadata | null | undefined,
@@ -106,18 +95,23 @@ async function sendPortalEnabledEmail(customerId: string, customSubject: string,
   });
 }
 
-export default async function handler(request: Request): Promise<Response> {
-  if (request.method !== "POST") {
-    return jsonResponse(405, { error: "Method not allowed" });
+export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
+  if (!isPost(req)) {
+    sendJson(res, 405, { error: "Method not allowed" });
+    return;
   }
 
   await ensureSchema();
   const stripe = getStripeClient();
-  const signature = request.headers.get("stripe-signature");
-  const rawBody = await request.text();
+  const signature = req.headers["stripe-signature"];
+  const rawBody = await readRawBody(req);
 
-  if (!signature) {
-    return jsonResponse(400, { error: "Missing Stripe signature" });
+  // TEMP DIAGNOSTIC — confirms raw-body capture from the stream; remove once verified.
+  console.log("[stripe-webhook-diag]", JSON.stringify({ rawBodyLen: rawBody.length, rawBodyHead: rawBody.slice(0, 40) }));
+
+  if (!signature || typeof signature !== "string") {
+    sendJson(res, 400, { error: "Missing Stripe signature" });
+    return;
   }
 
   let event: Stripe.Event;
@@ -126,7 +120,8 @@ export default async function handler(request: Request): Promise<Response> {
     event = stripe.webhooks.constructEvent(rawBody, signature, ENV.STRIPE_WEBHOOK_SECRET());
   } catch (error) {
     console.error("Stripe webhook signature verification failed:", error instanceof Error ? error.message : error);
-    return jsonResponse(400, { error: "Invalid Stripe signature", details: error instanceof Error ? error.message : "Unknown" });
+    sendJson(res, 400, { error: "Invalid Stripe signature", details: error instanceof Error ? error.message : "Unknown" });
+    return;
   }
 
   const firstProcess = await markEventProcessed({
@@ -137,7 +132,8 @@ export default async function handler(request: Request): Promise<Response> {
   });
 
   if (!firstProcess) {
-    return jsonResponse(200, { ok: true, duplicate: true });
+    sendJson(res, 200, { ok: true, duplicate: true });
+    return;
   }
 
   try {
@@ -324,7 +320,7 @@ export default async function handler(request: Request): Promise<Response> {
         break;
     }
 
-    return jsonResponse(200, { ok: true });
+    sendJson(res, 200, { ok: true });
   } catch (error) {
     await markEventProcessed({
       provider: "stripe",
@@ -335,7 +331,7 @@ export default async function handler(request: Request): Promise<Response> {
       error: error instanceof Error ? error.message : "Unknown error",
     });
 
-    return jsonResponse(500, {
+    sendJson(res, 500, {
       error: "Failed to process Stripe webhook",
       details: error instanceof Error ? error.message : "Unknown error",
     });
