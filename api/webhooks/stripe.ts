@@ -118,6 +118,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
   const signature = req.headers["stripe-signature"];
   const rawBody = await readRawBody(req);
 
+  // TEMP DIAGNOSTIC — remove after webhook signature issue is resolved.
+  console.log("[stripe-webhook-diag]", JSON.stringify({
+    bodyType: typeof req.body,
+    isBuffer: Buffer.isBuffer(req.body),
+    bodyUndefined: req.body === undefined,
+    rawBodyLen: rawBody.length,
+    rawBodyHead: rawBody.slice(0, 40),
+    hasSig: typeof signature === "string",
+  }));
+
   if (!signature || typeof signature !== "string") {
     sendJson(res, 400, { error: "Missing Stripe signature" });
     return;
@@ -128,6 +138,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
   try {
     event = stripe.webhooks.constructEvent(rawBody, signature, ENV.STRIPE_WEBHOOK_SECRET());
   } catch (error) {
+    console.error("[stripe-webhook-diag] constructEvent failed:", error instanceof Error ? error.message : error);
     sendJson(res, 400, { error: "Invalid Stripe signature", details: error instanceof Error ? error.message : "Unknown" });
     return;
   }
