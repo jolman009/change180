@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Readable } from "node:stream";
-import { get, list } from "@vercel/blob";
+import { get } from "@vercel/blob";
 import {
   ensureSchema,
   getPaidDownloadByToken,
@@ -17,42 +17,6 @@ function firstString(value: string | string[] | undefined): string | null {
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
   if (req.method?.toUpperCase() !== "GET") {
     res.status(405).json({ error: "Method not allowed" });
-    return;
-  }
-
-  // TEMP DIAGNOSTIC — lists what is actually stored under downloads/ so we can
-  // compare against the expected blobPathnames. Remove once storage is verified.
-  if (firstString(req.query.diag) === "blobs") {
-    try {
-      const prefix = firstString(req.query.prefix);
-      const listing = await list(prefix ? { prefix } : {});
-      const blobs = listing.blobs.map((b) => ({ pathname: b.pathname, size: b.size }));
-      res.status(200).json({ prefix: prefix ?? "(all)", count: blobs.length, blobs });
-    } catch (error) {
-      res.status(500).json({ error: error instanceof Error ? error.message : "list failed" });
-    }
-    return;
-  }
-
-  // TEMP DIAGNOSTIC — verifies get() can fetch a product's blob (incl. access:private)
-  // without needing a purchase token. Remove once storage is verified.
-  if (firstString(req.query.diag) === "get") {
-    const diagProduct = getDownloadProduct(firstString(req.query.file));
-    if (!diagProduct) {
-      res.status(404).json({ error: "Unknown file for diag" });
-      return;
-    }
-    try {
-      const r = await get(diagProduct.blobPathname, { access: "private" });
-      res.status(200).json({
-        pathname: diagProduct.blobPathname,
-        found: !!r,
-        statusCode: r?.statusCode ?? null,
-        size: r?.blob?.size ?? null,
-      });
-    } catch (error) {
-      res.status(200).json({ pathname: diagProduct.blobPathname, error: error instanceof Error ? error.message : String(error) });
-    }
     return;
   }
 
