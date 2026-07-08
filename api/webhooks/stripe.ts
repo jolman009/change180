@@ -106,9 +106,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
   const signature = req.headers["stripe-signature"];
   const rawBody = await readRawBody(req);
 
-  // TEMP DIAGNOSTIC — confirms raw-body capture from the stream; remove once verified.
-  console.log("[stripe-webhook-diag]", JSON.stringify({ rawBodyLen: rawBody.length, rawBodyHead: rawBody.slice(0, 40) }));
-
   if (!signature || typeof signature !== "string") {
     sendJson(res, 400, { error: "Missing Stripe signature" });
     return;
