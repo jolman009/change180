@@ -22,6 +22,18 @@ import { getDownloadProduct } from "../_lib/products.js";
 import { createBillingPortalSession, getStripeClient } from "../_lib/stripe.js";
 import { randomBytes } from "node:crypto";
 
+// Stripe signs the EXACT raw request bytes. Disable Vercel's automatic body
+// parsing so `readRawBody` reads the untouched payload from the request stream.
+// Otherwise Vercel parses req.body to an object and readRawBody falls back to
+// JSON.stringify(), whose output is not guaranteed byte-identical to what
+// Stripe signed — intermittently breaking signature verification ("No
+// signatures found matching the expected signature for payload").
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
 function getMetadataValue(
   metadata: Stripe.Metadata | null | undefined,
   key: string

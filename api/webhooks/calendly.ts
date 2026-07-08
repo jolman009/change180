@@ -15,6 +15,16 @@ import { ENV } from "../_lib/env.js";
 import { isPost, readRawBody, sendJson } from "../_lib/http.js";
 import { createCheckoutSession, findOrCreateStripeCustomer } from "../_lib/stripe.js";
 
+// Calendly signatures are verified over the EXACT raw request bytes. Disable
+// Vercel's automatic body parsing so `readRawBody` reads the untouched payload
+// from the request stream, rather than a JSON.stringify() of a parsed object
+// (which is not guaranteed byte-identical and breaks signature verification).
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
 function deriveCalendlyEventId(payload: unknown): string {
   const source = (payload as Record<string, unknown>) || {};
   const p = (source.payload as Record<string, unknown>) || {};
