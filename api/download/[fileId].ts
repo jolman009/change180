@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Readable } from "node:stream";
-import { get } from "@vercel/blob";
+import { get, list } from "@vercel/blob";
 import {
   ensureSchema,
   getPaidDownloadByToken,
@@ -17,6 +17,19 @@ function firstString(value: string | string[] | undefined): string | null {
 export default async function handler(req: VercelRequest, res: VercelResponse): Promise<void> {
   if (req.method?.toUpperCase() !== "GET") {
     res.status(405).json({ error: "Method not allowed" });
+    return;
+  }
+
+  // TEMP DIAGNOSTIC — lists what is actually stored under downloads/ so we can
+  // compare against the expected blobPathnames. Remove once storage is verified.
+  if (firstString(req.query.diag) === "blobs") {
+    try {
+      const listing = await list({ prefix: "downloads/" });
+      const blobs = listing.blobs.map((b) => ({ pathname: b.pathname, size: b.size }));
+      res.status(200).json({ prefix: "downloads/", count: blobs.length, blobs });
+    } catch (error) {
+      res.status(500).json({ error: error instanceof Error ? error.message : "list failed" });
+    }
     return;
   }
 
