@@ -23,6 +23,27 @@ export const DOWNLOAD_PRODUCTS: Record<string, DownloadProduct> = {
     amountCents: 100,
     blobPathname: "downloads/change180-daily-growth-journal.pdf",
   },
+  "bloom-journal": {
+    fileId: "bloom-journal",
+    displayName: "Change180 Bloom Journal",
+    downloadFileName: "Change180-Bloom-Journal.pdf",
+    amountCents: 100,
+    blobPathname: "downloads/change180-bloom-journal.pdf",
+  },
+  "business-growth-planner": {
+    fileId: "business-growth-planner",
+    displayName: "Change180 Business Growth Planner",
+    downloadFileName: "Change180-Business-Growth-Planner.pdf",
+    amountCents: 100,
+    blobPathname: "downloads/change180-business-growth-planner.pdf",
+  },
+  "leadership-journal": {
+    fileId: "leadership-journal",
+    displayName: "Change180 Leadership Journal",
+    downloadFileName: "Change180-Leadership-Journal.pdf",
+    amountCents: 100,
+    blobPathname: "downloads/change180-leadership-journal.pdf",
+  },
 };
 
 export function getDownloadProduct(fileId: string | null | undefined): DownloadProduct | null {
