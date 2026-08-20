@@ -22,9 +22,6 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
 
     video.addEventListener("ended", handleEnded);
 
-    // Speed up playback for a snappier intro
-    video.playbackRate = 1.5;
-
     // Start playing
     video.play().catch(() => {
       // If autoplay fails (browser restrictions), skip intro
@@ -67,9 +64,11 @@ const IntroVideo = ({ onComplete }: IntroVideoProps) => {
             muted
             playsInline
             preload="auto"
+            autoPlay
             aria-label="Change180 intro animation"
+            onError={() => setIsPlaying(false)}
           >
-            <source src="/images/change180_soft_intro.mp4" type="video/mp4" />
+            <source src="/images/change180-petal-intro.mp4" type="video/mp4" />
           </video>
 
           {/* Loading caption */}

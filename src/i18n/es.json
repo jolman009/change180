@@ -90,8 +90,8 @@
   },
   "services": {
     "sectionLabel": "Nuestros Servicios",
-    "headline": "Servicios de Coaching Ofrecidos",
-    "description": "Coaching de vida estructurado con rendición de cuentas práctica, establecimiento de metas y apoyo en la formación de hábitos — diseñado para la vida real, no para la perfección.",
+    "headline": "Servicios de Coaching y Aprendizaje",
+    "description": "Apoyo bilingüe para el crecimiento personal, la preparación académica y el desarrollo del inglés o español — diseñado para la vida real, no para la perfección.",
     "comingSoon": "Próximamente",
     "individual": {
       "title": "Coaching de Vida Individual",
@@ -123,6 +123,26 @@
         "Clases psicoeducativas"
       ]
     },
+    "tsia2": {
+      "title": "Tutoriales de TSIA2",
+      "description": "Apoyo tutorial enfocado para estudiantes que se preparan para el Texas Success Initiative Assessment 2.0.",
+      "features": [
+        "Repaso de habilidades de lectura y escritura",
+        "Práctica de planificación y revisión de ensayos",
+        "Apoyo de preparación en matemáticas",
+        "Estrategias para exámenes y desarrollo de confianza"
+      ]
+    },
+    "languageAcquisition": {
+      "title": "Adquisición de Inglés y Español",
+      "description": "Apoyo práctico de idiomas para estudiantes que desean comunicarse con más confianza en inglés o español.",
+      "features": [
+        "Práctica conversacional en inglés y español",
+        "Apoyo con vocabulario, pronunciación y gramática",
+        "Comunicación académica y laboral",
+        "Instrucción bilingüe culturalmente sensible"
+      ]
+    },
     "digital": {
       "title": "Recursos Digitales",
       "description": "Próximamente — herramientas y recursos para apoyar tu viaje de crecimiento a tu propio ritmo.",
@@ -137,6 +157,7 @@
       "title": "¿Por Qué Trabajar Con <brand>Change180</brand>?",
       "reasons": [
         "Coaching estructurado y enfocado en resultados",
+        "Apoyo académico y de aprendizaje de idiomas",
         "Rendición de cuentas práctica y formación de hábitos",
         "Desarrollo personal centrado en valores",
         "Culturalmente sensible y bilingüe",
@@ -291,12 +312,14 @@
     "imageAlt": "Myra en una conversación de coaching de apoyo"
   },
   "footer": {
-    "tagline": "Coaching de vida en Brownsville, Texas. Guiando fe, familia y crecimiento personal. Sesiones virtuales disponibles a nivel nacional.",
+    "tagline": "Coaching de vida, tutoriales de TSIA2 y apoyo de inglés/español en Brownsville, Texas. Sesiones virtuales disponibles a nivel nacional.",
     "quickLinks": "Enlaces Rápidos",
     "servicesTitle": "Servicios",
     "services": {
       "individual": "Coaching de Vida Individual",
       "family": "Coaching para Padres y Familias",
+      "tsia2": "Tutoriales de TSIA2",
+      "languageAcquisition": "Adquisición de Inglés y Español",
       "group": "Programas Grupales",
       "workshops": "Talleres"
     },

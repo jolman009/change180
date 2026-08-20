@@ -14,6 +14,14 @@ const Footer = () => {
     { label: t("nav.contact"), to: "/contact" },
   ];
 
+  const serviceLinks = [
+    t("footer.services.individual"),
+    t("footer.services.family"),
+    t("footer.services.tsia2"),
+    t("footer.services.languageAcquisition"),
+    t("footer.services.group"),
+  ];
+
   const renderTextWithBrand = (text: string) => {
     return text.split("<brand>").map((part, index) => {
       if (part.includes("</brand>")) {
@@ -75,10 +83,11 @@ const Footer = () => {
               {t("footer.servicesTitle")}
             </h4>
             <nav className="space-y-3">
-              <span className="block text-background/70 text-sm">{t("footer.services.individual")}</span>
-              <span className="block text-background/70 text-sm">{t("footer.services.family")}</span>
-              <span className="block text-background/70 text-sm">{t("footer.services.group")}</span>
-              <span className="block text-background/70 text-sm">{t("footer.services.workshops")}</span>
+              {serviceLinks.map((service) => (
+                <span key={service} className="block text-background/70 text-sm">
+                  {service}
+                </span>
+              ))}
             </nav>
           </div>
         </div>

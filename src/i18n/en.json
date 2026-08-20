@@ -90,8 +90,8 @@
   },
   "services": {
     "sectionLabel": "Our Services",
-    "headline": "Coaching Services Offered",
-    "description": "Structured life coaching with practical accountability, goal setting, and habit building support — designed for real life, not perfection.",
+    "headline": "Coaching & Learning Services",
+    "description": "Bilingual support for personal growth, academic readiness, and English or Spanish language development — designed for real life, not perfection.",
     "comingSoon": "Coming Soon",
     "individual": {
       "title": "Individual Life Coaching",
@@ -123,6 +123,26 @@
         "Psychoeducational classes"
       ]
     },
+    "tsia2": {
+      "title": "TSIA2 Tutorials",
+      "description": "Focused tutorial support for students preparing for the Texas Success Initiative Assessment 2.0.",
+      "features": [
+        "Reading and writing skill review",
+        "Essay planning and revision practice",
+        "Math readiness support",
+        "Test-taking strategies and confidence building"
+      ]
+    },
+    "languageAcquisition": {
+      "title": "English & Spanish Language Acquisition",
+      "description": "Practical language support for learners who want to build confidence communicating in English or Spanish.",
+      "features": [
+        "Conversational English and Spanish practice",
+        "Vocabulary, pronunciation, and grammar support",
+        "Academic and workplace communication skills",
+        "Culturally responsive bilingual instruction"
+      ]
+    },
     "digital": {
       "title": "Digital Resources",
       "description": "Coming soon — tools and resources to support your growth journey at your own pace.",
@@ -137,6 +157,7 @@
       "title": "Why Work With <brand>Change180</brand>?",
       "reasons": [
         "Structured, results-focused coaching",
+        "Academic and language-learning support",
         "Practical accountability & habit building",
         "Values-centered personal development",
         "Culturally responsive & bilingual",
@@ -291,12 +312,14 @@
     "imageAlt": "Myra in a supportive coaching conversation"
   },
   "footer": {
-    "tagline": "Life coaching in Brownsville, Texas. Guiding faith, family, and personal growth. Virtual sessions available nationwide.",
+    "tagline": "Life coaching, TSIA2 tutorials, and English/Spanish language support in Brownsville, Texas. Virtual sessions available nationwide.",
     "quickLinks": "Quick Links",
     "servicesTitle": "Services",
     "services": {
       "individual": "Individual Life Coaching",
       "family": "Parent & Family Coaching",
+      "tsia2": "TSIA2 Tutorials",
+      "languageAcquisition": "English & Spanish Language Acquisition",
       "group": "Group Programs",
       "workshops": "Workshops"
     },

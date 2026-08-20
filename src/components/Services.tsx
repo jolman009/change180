@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Leaf, Users2, UsersRound, BookOpen } from "lucide-react";
+import { BookOpen, GraduationCap, Languages, Leaf, Users2, UsersRound } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Services = () => {
@@ -23,6 +23,18 @@ const Services = () => {
       title: t("services.group.title"),
       description: t("services.group.description"),
       features: tArray("services.group.features"),
+    },
+    {
+      icon: GraduationCap,
+      title: t("services.tsia2.title"),
+      description: t("services.tsia2.description"),
+      features: tArray("services.tsia2.features"),
+    },
+    {
+      icon: Languages,
+      title: t("services.languageAcquisition.title"),
+      description: t("services.languageAcquisition.description"),
+      features: tArray("services.languageAcquisition.features"),
     },
     {
       icon: BookOpen,
